@@ -9,10 +9,70 @@ stages:
       size: 2113
     - path: uv.lock
       hash: md5
-      md5: 27ec564fa1018545c7f4c5d4bd73a94e
-      size: 302439
+      md5: a468061c80e50b98d7e6ec79735d43da
+      size: 302519
     outs:
     - path: reports/gates/env.json
       hash: md5
-      md5: 213fbd4fba65dd4cde4caf607fef6471
-      size: 442
+      md5: 95c37d9b888ea1ccc9045823c7113b62
+      size: 480
+  acquire:
+    cmd: python -m qm9_curation.acquire
+    deps:
+    - path: configs/dataset.yaml
+      hash: md5
+      md5: 835c05894bf8b2a55d32b83cde4e9bab
+      size: 2374
+    - path: src/qm9_curation/acquire.py
+      hash: md5
+      md5: 4fda820c8b251ed2a9c4fedbc170a886
+      size: 8312
+    outs:
+    - path: data/raw/MANIFEST.json
+      hash: md5
+      md5: f084140b0d72d6635bb3c59e48121a11
+      size: 4520
+    - path: data/raw/atomref.txt
+      hash: md5
+      md5: 2d30b2df8329d8fd805c0a4d158a0a0f
+      size: 964
+    - path: data/raw/dsgdb9nsd.xyz.tar.bz2
+      hash: md5
+      md5: ad1ebd51ee7f5b3a6e32e974e5d54012
+      size: 86144227
+    - path: data/raw/readme.txt
+      hash: md5
+      md5: c6581a03f673746528c57acfc6b79679
+      size: 5198
+    - path: data/raw/uncharacterized.txt
+      hash: md5
+      md5: a361887bacb427b8a0ce7903d92a53b4
+      size: 486752
+  inventory:
+    cmd: python -m qm9_curation.inventory
+    deps:
+    - path: configs/dataset.yaml
+      hash: md5
+      md5: 835c05894bf8b2a55d32b83cde4e9bab
+      size: 2374
+    - path: data/raw/atomref.txt
+      hash: md5
+      md5: 2d30b2df8329d8fd805c0a4d158a0a0f
+      size: 964
+    - path: data/raw/dsgdb9nsd.xyz.tar.bz2
+      hash: md5
+      md5: ad1ebd51ee7f5b3a6e32e974e5d54012
+      size: 86144227
+    - path: data/raw/uncharacterized.txt
+      hash: md5
+      md5: a361887bacb427b8a0ce7903d92a53b4
+      size: 486752
+    - path: src/qm9_curation/inventory.py
+      hash: md5
+      md5: 405db99d21acbd3ce6de1c404f76edd2
+      size: 9511
+    outs:
+    - path: reports/data_quality/inventory.json
+      hash: md5
+      md5: 24c1badec8d79e887ad536c686d86d84
+      size: 43789

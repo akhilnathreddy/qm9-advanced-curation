@@ -9,7 +9,7 @@ format, chemical-identity and physics checks, assigns quality tiers instead of
 deleting records, and produces ML-ready tables, a split suite and baseline
 benchmarks. The full plan is in `docs/plan_v2.md`.
 
-**Current phase:** 0 — setup. No data has been downloaded yet.
+**Current phase:** 1 complete — raw data acquired and verified (Gate 1). Next: Phase 2, the lossless parser.
 
 ## Setup
 
@@ -26,8 +26,13 @@ uv run pre-commit install
 ```bash
 make check    # lint, format check, type check, tests
 make repro    # run the DVC pipeline
-make gate0    # Phase 0 exit gate: sync, check and repro in one go
+make gate0    # Phase 0 exit gate
+make gate1    # Phase 1 exit gate: verify raw files, re-download check, inventory
+make fixture  # rebuild the 1k test fixture from the raw archive
 ```
+
+`make repro` on a fresh clone downloads the raw files from figshare (about
+86 MB) and checks them against the published checksums.
 
 ## Layout
 
@@ -51,5 +56,6 @@ make gate0    # Phase 0 exit gate: sync, check and repro in one go
 
 ## License
 
-Code license: **not yet chosen.** Dataset license: inherited from the QM9
-source and recorded in Phase 1.
+Code license: **not yet chosen.** The QM9 source data is **CC0-1.0**
+(public domain), as recorded in `data/raw/MANIFEST.json`. Please cite
+Ramakrishnan et al. (2014) when using it.

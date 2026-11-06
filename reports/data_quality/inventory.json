@@ -1,0 +1,2334 @@
+{
+  "archive": {
+    "bad_line_count": [],
+    "bad_member_names": [],
+    "bad_property_count": [],
+    "duplicated_indices": [],
+    "header_index_mismatch": [],
+    "header_tags": {
+      "gdb": 133885
+    },
+    "missing_indices": [],
+    "n_members": 133885,
+    "non_file_members": [],
+    "uncompressed_bytes": 230710732,
+    "unexpected_indices": []
+  },
+  "atomref_hartree": {
+    "C": {
+      "cv": 2.981,
+      "g298": -37.861317,
+      "h298": -37.844411,
+      "u0": -37.846772,
+      "u298": -37.845355,
+      "zpve": 0.0
+    },
+    "F": {
+      "cv": 2.981,
+      "g298": -99.733544,
+      "h298": -99.71637,
+      "u0": -99.71873,
+      "u298": -99.717314,
+      "zpve": 0.0
+    },
+    "H": {
+      "cv": 2.981,
+      "g298": -0.510927,
+      "h298": -0.497912,
+      "u0": -0.500273,
+      "u298": -0.498857,
+      "zpve": 0.0
+    },
+    "N": {
+      "cv": 2.981,
+      "g298": -54.598897,
+      "h298": -54.581501,
+      "u0": -54.583861,
+      "u298": -54.582445,
+      "zpve": 0.0
+    },
+    "O": {
+      "cv": 2.981,
+      "g298": -75.079532,
+      "h298": -75.062219,
+      "u0": -75.064579,
+      "u298": -75.063163,
+      "zpve": 0.0
+    }
+  },
+  "composition": {
+    "element_atom_counts": {
+      "C": 846557,
+      "F": 3314,
+      "H": 1230122,
+      "N": 139764,
+      "O": 187996
+    },
+    "max_heavy_atoms": 9,
+    "n_atoms_histogram": {
+      "10": 527,
+      "11": 1150,
+      "12": 2336,
+      "13": 4259,
+      "14": 7103,
+      "15": 10646,
+      "16": 14270,
+      "17": 17394,
+      "18": 17836,
+      "19": 18336,
+      "20": 12601,
+      "21": 13189,
+      "22": 4483,
+      "23": 6362,
+      "24": 713,
+      "25": 1923,
+      "26": 59,
+      "27": 356,
+      "29": 35,
+      "3": 2,
+      "4": 4,
+      "5": 5,
+      "6": 12,
+      "7": 21,
+      "8": 70,
+      "9": 193
+    },
+    "n_heavy_histogram": {
+      "1": 3,
+      "2": 5,
+      "3": 9,
+      "4": 31,
+      "5": 130,
+      "6": 618,
+      "7": 3197,
+      "8": 18298,
+      "9": 111594
+    }
+  },
+  "gate_1_conditions": {
+    "atomref_has_all_elements": true,
+    "elements_within_expected": true,
+    "indices_are_1_to_n_exactly_once": true,
+    "n_members_equals_expected": true,
+    "uncharacterized_count_equals_expected": true,
+    "uncharacterized_subset_of_indices": true,
+    "uncharacterized_unique": true
+  },
+  "observations_for_later_phases": {
+    "fortran_exponent_examples": [
+      "dsgdb9nsd_000212.xyz:atoms",
+      "dsgdb9nsd_001460.xyz:atoms",
+      "dsgdb9nsd_001513.xyz:atoms",
+      "dsgdb9nsd_001616.xyz:atoms",
+      "dsgdb9nsd_002091.xyz:atoms",
+      "dsgdb9nsd_002624.xyz:atoms",
+      "dsgdb9nsd_002693.xyz:atoms",
+      "dsgdb9nsd_002993.xyz:atoms",
+      "dsgdb9nsd_003299.xyz:atoms",
+      "dsgdb9nsd_003454.xyz:atoms",
+      "dsgdb9nsd_003574.xyz:atoms",
+      "dsgdb9nsd_003825.xyz:atoms",
+      "dsgdb9nsd_004095.xyz:atoms",
+      "dsgdb9nsd_004316.xyz:atoms",
+      "dsgdb9nsd_004481.xyz:atoms",
+      "dsgdb9nsd_004576.xyz:atoms",
+      "dsgdb9nsd_004611.xyz:atoms",
+      "dsgdb9nsd_004724.xyz:atoms",
+      "dsgdb9nsd_004925.xyz:atoms",
+      "dsgdb9nsd_004968.xyz:atoms",
+      "dsgdb9nsd_005005.xyz:atoms",
+      "dsgdb9nsd_007223.xyz:atoms",
+      "dsgdb9nsd_009414.xyz:atoms",
+      "dsgdb9nsd_010422.xyz:atoms",
+      "dsgdb9nsd_010927.xyz:atoms"
+    ],
+    "fortran_exponent_records_by_section": {
+      "atoms": 176
+    },
+    "frequency_count_classes": {
+      "2x(3N-6) differing halves": 433,
+      "3N-5": 5,
+      "3N-6": 133447
+    },
+    "frequency_count_other": [
+      {
+        "index": 29,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 118,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 119,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 501,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 507,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 522,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 1051,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 1082,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 1265,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 1354,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 1379,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 1432,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 1434,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 1465,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 2010,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 2644,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 2655,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 2656,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 3188,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 3775,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 3833,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 3838,
+        "n_atoms": 9,
+        "n_frequencies": 42
+      },
+      {
+        "index": 3895,
+        "n_atoms": 9,
+        "n_frequencies": 42
+      },
+      {
+        "index": 3899,
+        "n_atoms": 8,
+        "n_frequencies": 36
+      },
+      {
+        "index": 3988,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 4017,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 4085,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 4352,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 4563,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 4807,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 4896,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 5203,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 5209,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 5230,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 5726,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 5930,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 5931,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 5933,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 6620,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 6624,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 6685,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 6729,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 6730,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 6734,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 7042,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 7044,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 7055,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 8010,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 8263,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 8267,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 8391,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 8570,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 8747,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 8752,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 8987,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 9103,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 9132,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 9150,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 9157,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 9181,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 9199,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 10032,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 10654,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 11101,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 11780,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 12115,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 12121,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 12145,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 13360,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 14596,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 14604,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 14634,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 14635,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 14637,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 14638,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 14639,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 14650,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 14665,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 14673,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 14677,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 14693,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 14725,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 14727,
+        "n_atoms": 22,
+        "n_frequencies": 120
+      },
+      {
+        "index": 15072,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 15151,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 15210,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 15525,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 18078,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 18515,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 20433,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 20484,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 20504,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 20679,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 20692,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 20731,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 21119,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 21127,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 21131,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 21611,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 21620,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 21718,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 21857,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 21859,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 21870,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 21875,
+        "n_atoms": 9,
+        "n_frequencies": 42
+      },
+      {
+        "index": 21939,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 22377,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 22466,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 22508,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 23652,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 23705,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 23793,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 23799,
+        "n_atoms": 9,
+        "n_frequencies": 42
+      },
+      {
+        "index": 23819,
+        "n_atoms": 9,
+        "n_frequencies": 42
+      },
+      {
+        "index": 23822,
+        "n_atoms": 9,
+        "n_frequencies": 42
+      },
+      {
+        "index": 23828,
+        "n_atoms": 8,
+        "n_frequencies": 36
+      },
+      {
+        "index": 24060,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 24211,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 24942,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 25236,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 25558,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 25575,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 25663,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 25665,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 25680,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 26524,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 26579,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 26634,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 26671,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 26847,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 27262,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 27570,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 28173,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 28641,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 29893,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 30074,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 30441,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 30476,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 30491,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 30706,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 31013,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 31110,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 31414,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 31416,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 31797,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 31814,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 31946,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 32033,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 32130,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 32998,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 33195,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 33566,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 34478,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 35140,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 36728,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 36746,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 36937,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 39681,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 41787,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 42091,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 44506,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 46023,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 47047,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 51257,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 51976,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 52367,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 52484,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 52499,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 52500,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 52503,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 52504,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 52511,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 52541,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 52547,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 52598,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 52612,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 52620,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 52649,
+        "n_atoms": 25,
+        "n_frequencies": 138
+      },
+      {
+        "index": 52688,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 52695,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 52738,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 52776,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 52852,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 52912,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 52919,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 52927,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 52929,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 53026,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 53030,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 53072,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 53111,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 53166,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 53223,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 53239,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 53270,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 53271,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 53292,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 53315,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 53324,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 53336,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 53346,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 53348,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 53375,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 53387,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 53399,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 53434,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 53444,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 53448,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 53456,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 53460,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 53467,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 53473,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 53634,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 53646,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 53651,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 53681,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 53689,
+        "n_atoms": 25,
+        "n_frequencies": 138
+      },
+      {
+        "index": 53729,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 53746,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 53874,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 54387,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 55495,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 56035,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 56103,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 56133,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 57293,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 57483,
+        "n_atoms": 27,
+        "n_frequencies": 150
+      },
+      {
+        "index": 57756,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 57769,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 57816,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 58696,
+        "n_atoms": 22,
+        "n_frequencies": 120
+      },
+      {
+        "index": 59830,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 59834,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 59838,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 59953,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 60709,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 60710,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 61073,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 62576,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 63260,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 64401,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 64589,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 65040,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 65041,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 65061,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 65663,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 65776,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 65785,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 68371,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 68469,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 69518,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 69648,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 75458,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 76737,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 77492,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 77494,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 79692,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 79695,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 79770,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 79771,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 82074,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 86226,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 86238,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 88153,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 88855,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 93724,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 94109,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 94207,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 94595,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 95465,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 95937,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 95964,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 96719,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 96849,
+        "n_atoms": 22,
+        "n_frequencies": 120
+      },
+      {
+        "index": 97205,
+        "n_atoms": 22,
+        "n_frequencies": 120
+      },
+      {
+        "index": 97318,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 97361,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 97429,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 97471,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 97482,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 97494,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 97529,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 97530,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 97557,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 97675,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 97683,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 97745,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 97922,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 97952,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 98007,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 98013,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 98039,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 99193,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 99197,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 99203,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 99692,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 99696,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 99731,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 99790,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 100257,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 100419,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 100456,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 100518,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 100626,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 101470,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 101483,
+        "n_atoms": 25,
+        "n_frequencies": 138
+      },
+      {
+        "index": 101758,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 105051,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 105522,
+        "n_atoms": 25,
+        "n_frequencies": 138
+      },
+      {
+        "index": 107748,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 108601,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 115429,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 115666,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 116210,
+        "n_atoms": 22,
+        "n_frequencies": 120
+      },
+      {
+        "index": 116213,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 116312,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 116869,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 116879,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 116944,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 116949,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 116975,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 116988,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 117194,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 117272,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 119003,
+        "n_atoms": 25,
+        "n_frequencies": 138
+      },
+      {
+        "index": 119758,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 121232,
+        "n_atoms": 25,
+        "n_frequencies": 138
+      },
+      {
+        "index": 121514,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 121555,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 121561,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 121563,
+        "n_atoms": 25,
+        "n_frequencies": 138
+      },
+      {
+        "index": 121564,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 121569,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 121571,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 121616,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 122742,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 122745,
+        "n_atoms": 25,
+        "n_frequencies": 138
+      },
+      {
+        "index": 122749,
+        "n_atoms": 23,
+        "n_frequencies": 126
+      },
+      {
+        "index": 122751,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 122839,
+        "n_atoms": 21,
+        "n_frequencies": 114
+      },
+      {
+        "index": 123123,
+        "n_atoms": 20,
+        "n_frequencies": 108
+      },
+      {
+        "index": 123728,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 124088,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 124132,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 124141,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 124145,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 124163,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 124173,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 124935,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 125055,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 125322,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 125421,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 125546,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 126347,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 126360,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 126865,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 126944,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 127073,
+        "n_atoms": 19,
+        "n_frequencies": 102
+      },
+      {
+        "index": 127369,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 127778,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 127839,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 127893,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 127894,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 127895,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 128195,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 128253,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 128260,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 128499,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 128568,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 128619,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 128627,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 128745,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 129100,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 129123,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 129136,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 129137,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 129145,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 129146,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 129149,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 129150,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 129151,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 129152,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 129270,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 129317,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 129353,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 129654,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 129707,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 129749,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      },
+      {
+        "index": 130346,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 130406,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 130467,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 130470,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 130537,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 130583,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 130584,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 130603,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 130620,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 130662,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 130664,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 130666,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 130667,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 130669,
+        "n_atoms": 9,
+        "n_frequencies": 42
+      },
+      {
+        "index": 130670,
+        "n_atoms": 9,
+        "n_frequencies": 42
+      },
+      {
+        "index": 130794,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 130861,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 130883,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 130919,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 131068,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 131144,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 131259,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 131260,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 131461,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 131659,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 131694,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 131705,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 131951,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 132579,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 132959,
+        "n_atoms": 14,
+        "n_frequencies": 72
+      },
+      {
+        "index": 132973,
+        "n_atoms": 15,
+        "n_frequencies": 78
+      },
+      {
+        "index": 133026,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 133143,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 133168,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 133263,
+        "n_atoms": 13,
+        "n_frequencies": 66
+      },
+      {
+        "index": 133295,
+        "n_atoms": 12,
+        "n_frequencies": 60
+      },
+      {
+        "index": 133311,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 133338,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 133396,
+        "n_atoms": 11,
+        "n_frequencies": 54
+      },
+      {
+        "index": 133397,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 133403,
+        "n_atoms": 10,
+        "n_frequencies": 48
+      },
+      {
+        "index": 133404,
+        "n_atoms": 9,
+        "n_frequencies": 42
+      },
+      {
+        "index": 133565,
+        "n_atoms": 16,
+        "n_frequencies": 84
+      },
+      {
+        "index": 133608,
+        "n_atoms": 18,
+        "n_frequencies": 96
+      },
+      {
+        "index": 133866,
+        "n_atoms": 17,
+        "n_frequencies": 90
+      }
+    ],
+    "records_with_negative_frequency": [
+      6620,
+      59818,
+      87037,
+      117523,
+      129158
+    ]
+  },
+  "uncharacterized": {
+    "max_index": 133866,
+    "min_index": 58,
+    "n_entries": 3054,
+    "n_unique": 3054
+  }
+}

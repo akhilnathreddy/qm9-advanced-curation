@@ -2,8 +2,9 @@
 
 Each gate lists its conditions (plan v2, section 4). The Makefile target for a
 gate runs the commands that prove those conditions first, so reaching this
-step means they passed; the record ties that result to the code and
-environment that produced it.
+step means they passed. Where a condition is recorded in a report file, it is
+read back here and the gate fails unless every one of them holds. The record
+ties the result to the code and environment that produced it.
 """
 
 import argparse
@@ -22,16 +23,32 @@ GATE_CONDITIONS: dict[int, tuple[str, ...]] = {
         "pytest passes",
         "dvc repro succeeds",
     ),
+    1: (
+        "every raw file matches its published size and MD5 (acquire)",
+        "a second download of every file matches the manifest SHA-256 (acquire --verify-remote)",
+        "inventory conditions all hold (reports/data_quality/inventory.json)",
+        "pytest passes, including the 1k fixture tests",
+    ),
+}
+
+# Report files whose boolean conditions must all be true for the gate to pass.
+GATE_REPORTS: dict[int, tuple[tuple[str, str], ...]] = {
+    1: (("data_quality/inventory.json", "gate_1_conditions"),),
 }
 
 
-def gate_record(phase: int) -> dict[str, Any]:
+def gate_record(phase: int, reports_dir: Path = REPORTS_DIR) -> dict[str, Any]:
     if phase not in GATE_CONDITIONS:
         raise ValueError(f"No gate defined for phase {phase}")
+    checks: dict[str, bool] = {}
+    for rel_path, key in GATE_REPORTS.get(phase, ()):
+        report = json.loads((reports_dir / rel_path).read_text(encoding="utf-8"))
+        checks.update({f"{rel_path}:{name}": bool(ok) for name, ok in report[key].items()})
     return {
         "phase": phase,
-        "passed": True,
+        "passed": all(checks.values()),
         "conditions": list(GATE_CONDITIONS[phase]),
+        "checks": checks,
         "environment": collect(),
     }
 
@@ -41,12 +58,13 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--phase", type=int, required=True)
     parser.add_argument("--out-dir", type=Path, default=REPORTS_DIR / "gates")
     args = parser.parse_args(argv)
+    record = gate_record(args.phase)
     args.out_dir.mkdir(parents=True, exist_ok=True)
     out = args.out_dir / f"phase_{args.phase}.json"
-    out.write_text(
-        json.dumps(gate_record(args.phase), indent=2, sort_keys=True) + "\n", encoding="utf-8"
-    )
-    print(f"Gate {args.phase} recorded in {out}")
+    out.write_text(json.dumps(record, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(f"Gate {args.phase} {'PASSED' if record['passed'] else 'FAILED'}; recorded in {out}")
+    if not record["passed"]:
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":
