@@ -23,5 +23,5 @@ jobs:
         run: uv run mypy
       - name: Tests
         run: uv run pytest
-      - name: Pipeline
-        run: uv run dvc repro
+      - name: Pipeline (stages that don't need raw data)
+        run: make repro-ci

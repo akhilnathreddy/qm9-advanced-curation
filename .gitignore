@@ -17,7 +17,10 @@ dist/
 /data/**/*
 !/data/**/
 !/data/**/.gitkeep
+!/data/**/.gitignore
 !/data/**/*.dvc
+# Provenance record for the raw files is versioned in git.
+!/data/raw/MANIFEST.json
 
 # MLflow local store
 mlruns/

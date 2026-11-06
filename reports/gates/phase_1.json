@@ -1,0 +1,41 @@
+{
+  "checks": {
+    "data_quality/inventory.json:atomref_has_all_elements": true,
+    "data_quality/inventory.json:elements_within_expected": true,
+    "data_quality/inventory.json:indices_are_1_to_n_exactly_once": true,
+    "data_quality/inventory.json:n_members_equals_expected": true,
+    "data_quality/inventory.json:uncharacterized_count_equals_expected": true,
+    "data_quality/inventory.json:uncharacterized_subset_of_indices": true,
+    "data_quality/inventory.json:uncharacterized_unique": true
+  },
+  "conditions": [
+    "every raw file matches its published size and MD5 (acquire)",
+    "a second download of every file matches the manifest SHA-256 (acquire --verify-remote)",
+    "inventory conditions all hold (reports/data_quality/inventory.json)",
+    "pytest passes, including the 1k fixture tests"
+  ],
+  "environment": {
+    "constants": "CODATA 2018",
+    "git": {
+      "commit": "4e3492b56de08bd52120ef7bf70e7cfd7211c192",
+      "dirty": true
+    },
+    "implementation": "CPython",
+    "packages": {
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "pandas": "3.1.1",
+      "pandera": "0.35.0",
+      "polars": "2.1.0",
+      "pyarrow": "26.0.1",
+      "pyyaml": "6.0.3",
+      "rdkit": "2026.9.1",
+      "scipy": "1.18.1"
+    },
+    "platform": "Darwin-arm64",
+    "python": "3.12.5",
+    "qm9_curation_version": "0.1.0"
+  },
+  "passed": true,
+  "phase": 1
+}

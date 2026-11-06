@@ -14,6 +14,7 @@ dependencies = [
     "pandera>=0.20",
     "pyyaml>=6.0",
     "matplotlib>=3.8",
+    "certifi>=2026.10.23",
 ]
 
 [project.optional-dependencies]

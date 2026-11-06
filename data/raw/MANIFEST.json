@@ -1,0 +1,81 @@
+{
+  "collection_doi": "10.6084/m9.figshare.c.978904.v5",
+  "dataset": "QM9 (dsgdb9nsd)",
+  "files": [
+    {
+      "description": "133,885 molecules, one .xyz file each",
+      "figshare_article_doi": "10.6084/m9.figshare.978904_D12",
+      "figshare_article_id": 1057646,
+      "figshare_file_id": 3195389,
+      "md5": "ad1ebd51ee7f5b3a6e32e974e5d54012",
+      "name": "dsgdb9nsd.xyz.tar.bz2",
+      "retrieval": {
+        "content_length": "86144227",
+        "etag": "\"ad1ebd51ee7f5b3a6e32e974e5d54012\"",
+        "final_url": "https://s3-eu-west-1.amazonaws.com/pstorage-npg-968563215/3195389/dsgdb9nsd.xyz.tar.bz2?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIQYK5H3JTELHKKTA/20261106/eu-west-1/s3/aws4_request&X-Amz-Date=20261106T164636Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=f2fd8a61bccff12764160bf4024403c540ef727d75b3d9b53a058a87f041f1bd",
+        "last_modified": "Fri, 30 Apr 2021 04:39:01 GMT",
+        "retrieved_at_utc": "2026-11-06T16:46:43Z"
+      },
+      "sha256": "3a63848ac80691bdb8d41834b575afad345b9300d7a2db0c38adb7f6eaa8360c",
+      "size_bytes": 86144227,
+      "url": "https://ndownloader.figshare.com/files/3195389"
+    },
+    {
+      "description": "3,054 molecules that failed the geometry consistency check",
+      "figshare_article_doi": "10.6084/m9.figshare.978904_D10",
+      "figshare_article_id": 1057644,
+      "figshare_file_id": 3195404,
+      "md5": "a361887bacb427b8a0ce7903d92a53b4",
+      "name": "uncharacterized.txt",
+      "retrieval": {
+        "content_length": "486752",
+        "etag": "\"a361887bacb427b8a0ce7903d92a53b4\"",
+        "final_url": "https://s3-eu-west-1.amazonaws.com/pstorage-npg-968563215/3195404/uncharacterized.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIQYK5H3JTELHKKTA/20261106/eu-west-1/s3/aws4_request&X-Amz-Date=20261106T164644Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=503e8d88a0589c916a608a9bfb9c5548a9d97801b065a0da62f2076842fbbef6",
+        "last_modified": "Fri, 30 Apr 2021 04:39:04 GMT",
+        "retrieved_at_utc": "2026-11-06T16:46:45Z"
+      },
+      "sha256": "3aa5115d540b356de94791d4a74c3bf1ed91c469ecf52a4f5d7cc0506fe02e24",
+      "size_bytes": 486752,
+      "url": "https://ndownloader.figshare.com/files/3195404"
+    },
+    {
+      "description": "Reference thermochemical energies of H, C, N, O, F atoms",
+      "figshare_article_doi": "10.6084/m9.figshare.978904_D9",
+      "figshare_article_id": 1057643,
+      "figshare_file_id": 3195395,
+      "md5": "2d30b2df8329d8fd805c0a4d158a0a0f",
+      "name": "atomref.txt",
+      "retrieval": {
+        "content_length": "964",
+        "etag": "\"2d30b2df8329d8fd805c0a4d158a0a0f\"",
+        "final_url": "https://s3-eu-west-1.amazonaws.com/pstorage-npg-968563215/3195395/atomref.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIQYK5H3JTELHKKTA/20261106/eu-west-1/s3/aws4_request&X-Amz-Date=20261106T164645Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=fe06b53d908122a88f652e3971cd49c01ce6bca723d929f5d8b6c28fc06bf0b8",
+        "last_modified": "Fri, 30 Apr 2021 04:39:03 GMT",
+        "retrieved_at_utc": "2026-11-06T16:46:46Z"
+      },
+      "sha256": "af739d4a0fbe894a56f346ad6045ee1b74c58f8a8c9ef3fbfed920c9ad8b00f9",
+      "size_bytes": 964,
+      "url": "https://ndownloader.figshare.com/files/3195395"
+    },
+    {
+      "description": "Data description from the authors",
+      "figshare_article_doi": "10.6084/m9.figshare.978904_D7",
+      "figshare_article_id": 1057641,
+      "figshare_file_id": 3195392,
+      "md5": "c6581a03f673746528c57acfc6b79679",
+      "name": "readme.txt",
+      "retrieval": {
+        "content_length": "5198",
+        "etag": "\"c6581a03f673746528c57acfc6b79679\"",
+        "final_url": "https://s3-eu-west-1.amazonaws.com/pstorage-npg-968563215/3195392/readme.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIQYK5H3JTELHKKTA/20261106/eu-west-1/s3/aws4_request&X-Amz-Date=20261106T164646Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=660b5c73299eec2cb0e48e7e47ab2a06e940a7d1e3d2aa50c213ab0c493a1787",
+        "last_modified": "Fri, 30 Apr 2021 04:39:03 GMT",
+        "retrieved_at_utc": "2026-11-06T16:46:47Z"
+      },
+      "sha256": "0ee83fc21faa9527ebe89fad0ce8f2bd2da1cbd35a3c7edc199f4ad21d31d97a",
+      "size_bytes": 5198,
+      "url": "https://ndownloader.figshare.com/files/3195392"
+    }
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "paper_doi": "10.1038/sdata.2014.22"
+}

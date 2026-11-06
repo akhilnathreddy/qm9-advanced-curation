@@ -2118,6 +2118,7 @@ name = "qm9-curation"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "certifi" },
     { name = "matplotlib" },
     { name = "numpy" },
     { name = "pandas" },
@@ -2150,6 +2151,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "certifi", specifier = ">=2026.10.23" },
     { name = "lightgbm", marker = "extra == 'ml'", specifier = ">=4.3" },
     { name = "matplotlib", specifier = ">=3.8" },
     { name = "mlflow", marker = "extra == 'ml'", specifier = ">=2.14" },

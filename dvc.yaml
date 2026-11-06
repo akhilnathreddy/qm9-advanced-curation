@@ -1,5 +1,5 @@
 # Stage graph (plan v2 §8). Later phases add:
-# acquire -> parse -> validate -> tier -> features -> splits -> benchmark
+# parse -> validate -> tier -> features -> splits -> benchmark
 stages:
   env_report:
     cmd: python -m qm9_curation.env_report --out reports/gates/env.json
@@ -8,4 +8,36 @@ stages:
       - uv.lock
     outs:
       - reports/gates/env.json:
+          cache: false
+
+  # Downloads only what is missing; otherwise re-verifies size and MD5.
+  # persist keeps DVC from deleting the raw files before re-running.
+  acquire:
+    cmd: python -m qm9_curation.acquire
+    deps:
+      - src/qm9_curation/acquire.py
+      - configs/dataset.yaml
+    outs:
+      - data/raw/dsgdb9nsd.xyz.tar.bz2:
+          persist: true
+      - data/raw/uncharacterized.txt:
+          persist: true
+      - data/raw/atomref.txt:
+          persist: true
+      - data/raw/readme.txt:
+          persist: true
+      - data/raw/MANIFEST.json:
+          cache: false
+          persist: true
+
+  inventory:
+    cmd: python -m qm9_curation.inventory
+    deps:
+      - src/qm9_curation/inventory.py
+      - configs/dataset.yaml
+      - data/raw/dsgdb9nsd.xyz.tar.bz2
+      - data/raw/uncharacterized.txt
+      - data/raw/atomref.txt
+    outs:
+      - reports/data_quality/inventory.json:
           cache: false
