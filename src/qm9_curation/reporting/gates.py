@@ -37,12 +37,20 @@ GATE_CONDITIONS: dict[int, tuple[str, ...]] = {
         "atom and frequency row counts match the per-molecule counts",
         "a second pipeline run produces byte-identical Parquet files",
     ),
+    3: (
+        "profile.json has every section and one profile row per molecule",
+        "every issue has a triage class and an owning phase",
+        "geometric duplicate pairs are energy-consistent (|dU0| < 0.1 kcal/mol)",
+        "clean checks pass (no clashes, no missing values, GDB-17 SMILES parse)",
+        "a second profile run produces byte-identical outputs, including the HTML",
+    ),
 }
 
 # Report files whose boolean conditions must all be true for the gate to pass.
 GATE_REPORTS: dict[int, tuple[tuple[str, str], ...]] = {
     1: (("data_quality/inventory.json", "gate_1_conditions"),),
     2: (("data_quality/parse_report.json", "gate_2_conditions"),),
+    3: (("data_quality/profile.json", "gate_3_conditions"),),
 }
 
 

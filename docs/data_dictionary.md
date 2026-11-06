@@ -88,7 +88,7 @@ Phase 6).
 | inchi_gdb, inchi_relaxed | String | — | struct / meta | Same, as InChI |
 | n_modes | UInt16 | — | meta | Modes per frequency set (3N−6, or 3N−5 if linear) |
 | n_frequency_sets | UInt8 | — | meta | 1, or 2 for the 433 doubled records |
-| is_linear | Boolean | — | struct | Frequency count is 3N−5 |
+| is_linear | Boolean | — | struct | Frequency count is 3N−5. **Misses 6 physically linear molecules** (docs/profiling.md, P14) |
 | has_fortran_exponent | Boolean | — | meta | Record contained a `*^` token |
 | source_member | String | — | meta | File name inside the archive |
 | source_sha256 | String | — | meta | SHA-256 of this record's source bytes |
@@ -120,3 +120,32 @@ Phase 6).
 | qm9_id | UInt32 | Molecule |
 | event | String | `fortran_exponent` (176) or `doubled_frequencies` (433) |
 | location | String | Where in the record, e.g. `atom[0].x` |
+
+## Profile tables (`data/interim/`, Phase 3)
+
+### `molecule_profile` — 133,885 rows, key `qm9_id`
+
+| Column | Meaning |
+|---|---|
+| gdb_rdkit_ok, relaxed_rdkit_ok | RDKit parsed the GDB-17 / relaxed SMILES |
+| canonical_smiles_gdb / _relaxed | RDKit canonical isomeric SMILES (null if unparseable) |
+| flat_smiles_gdb / _relaxed | Same without stereo |
+| inchikey_gdb / _relaxed | InChIKey from the source InChI strings |
+| n_rings, ring_sizes | SSSR ring count and comma-separated sizes |
+| n_aromatic_atoms | RDKit aromatic atom count |
+| murcko_scaffold, generic_scaffold | Bemis–Murcko scaffold; `""` for acyclic |
+| n_charged_atoms, n_radical_electrons, n_stereocentres | From the relaxed SMILES (GDB-17 if it won't parse) |
+| min_interatomic_ang, max_interatomic_ang, radius_of_gyration_ang | Geometry statistics (Å) |
+| connectivity_group_id / _size | InChIKey first block (skeleton) |
+| tautomer_group_id / _size | Full standard InChIKey of GDB-17 molecule — **tautomers share it** |
+| structure_group_id / _size | Exact-structure duplicates (ADR 0007) |
+| in_smiles_duplicate, in_geometric_duplicate | Which rule placed it in a structure group |
+| max_abs_robust_z | Largest \|robust z\| over the 15 properties, within heavy-atom strata |
+| uncharacterized | Listed in the authors' `uncharacterized.txt` |
+
+Group ids are the smallest `qm9_id` in the group; singletons have their own id.
+
+### `geometric_duplicate_pairs`
+
+`qm9_id_a < qm9_id_b`, `max_distance_diff_ang`: pairs with near-identical
+relaxed geometry (ADR 0007).

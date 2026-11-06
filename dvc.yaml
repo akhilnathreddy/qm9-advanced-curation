@@ -57,3 +57,20 @@ stages:
       - data/interim/parse_log.parquet
       - reports/data_quality/parse_report.json:
           cache: false
+
+  profile:
+    cmd: python -m qm9_curation.profiling.build
+    deps:
+      - src/qm9_curation/profiling
+      - src/qm9_curation/schema.py
+      - data/interim/molecules.parquet
+      - data/interim/atoms.parquet
+      - data/interim/frequencies.parquet
+      - data/raw/uncharacterized.txt
+    outs:
+      - data/interim/molecule_profile.parquet
+      - data/interim/geometric_duplicate_pairs.parquet
+      - reports/data_quality/profile.json:
+          cache: false
+      - reports/data_quality/profile.html:
+          cache: false

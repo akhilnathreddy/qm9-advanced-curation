@@ -1,0 +1,40 @@
+{
+  "checks": {
+    "data_quality/profile.json:all_issues_triaged": true,
+    "data_quality/profile.json:all_sections_present": true,
+    "data_quality/profile.json:clean_checks_passed": true,
+    "data_quality/profile.json:geometric_duplicates_energy_consistent": true,
+    "data_quality/profile.json:profile_row_per_molecule": true
+  },
+  "conditions": [
+    "profile.json has every section and one profile row per molecule",
+    "every issue has a triage class and an owning phase",
+    "geometric duplicate pairs are energy-consistent (|dU0| < 0.1 kcal/mol)",
+    "clean checks pass (no clashes, no missing values, GDB-17 SMILES parse)",
+    "a second profile run produces byte-identical outputs, including the HTML"
+  ],
+  "environment": {
+    "constants": "CODATA 2018",
+    "git": {
+      "commit": "0ba772794a0c582717843976283d06946b83cab6",
+      "dirty": true
+    },
+    "implementation": "CPython",
+    "packages": {
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "pandas": "3.1.1",
+      "pandera": "0.35.0",
+      "polars": "2.1.0",
+      "pyarrow": "26.0.1",
+      "pyyaml": "6.0.3",
+      "rdkit": "2026.9.1",
+      "scipy": "1.18.1"
+    },
+    "platform": "Darwin-arm64",
+    "python": "3.12.5",
+    "qm9_curation_version": "0.1.0"
+  },
+  "passed": true,
+  "phase": 3
+}

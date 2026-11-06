@@ -55,6 +55,8 @@ select = ["E", "F", "W", "I", "B", "UP", "SIM", "NPY", "RUF"]
 [tool.ruff.lint.per-file-ignores]
 # `value == pytest.approx(expected)` is idiomatic pytest, not a Yoda condition.
 "tests/**" = ["SIM300"]
+# HTML/CSS template text; wrapping it would only hurt readability.
+"src/qm9_curation/profiling/report.py" = ["E501"]
 
 [tool.mypy]
 python_version = "3.12"
@@ -63,8 +65,13 @@ mypy_path = "src"
 packages = ["qm9_curation"]
 
 [[tool.mypy.overrides]]
-module = ["rdkit.*", "pandera.*"]
+module = ["rdkit.*", "pandera.*", "scipy.*"]
 ignore_missing_imports = true
+
+# RDKit ships partial stubs; many functions are untyped.
+[[tool.mypy.overrides]]
+module = ["qm9_curation.profiling.chemistry"]
+disallow_untyped_calls = false
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
