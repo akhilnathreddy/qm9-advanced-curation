@@ -1,4 +1,4 @@
-.PHONY: sync lint format typecheck test check repro repro-ci fixture gate0 gate1
+.PHONY: sync lint format typecheck test check repro repro-ci fixture gate0 gate1 gate2
 
 sync:
 	uv sync --locked
@@ -38,3 +38,11 @@ gate0: sync check repro
 gate1: sync check repro
 	uv run python -m qm9_curation.acquire --verify-remote
 	uv run python -m qm9_curation.reporting.gates --phase 1
+
+# Phase 2 exit gate: lossless parse, schemas valid, and a forced second parse
+# must reproduce the Parquet files byte-for-byte.
+gate2: sync check repro
+	cp reports/data_quality/parse_report.json /tmp/qm9_parse_report_first.json
+	uv run dvc repro --force parse
+	uv run python -c "import json,sys; a,b=(json.load(open(p))['output_sha256'] for p in ('/tmp/qm9_parse_report_first.json','reports/data_quality/parse_report.json')); print('PASS  parquet byte-identical across runs' if a==b else 'FAIL  parquet differs across runs'); sys.exit(a!=b)"
+	uv run python -m qm9_curation.reporting.gates --phase 2

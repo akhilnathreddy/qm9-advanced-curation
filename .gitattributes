@@ -1,2 +1,2 @@
 # Byte-for-byte copies of QM9 source records: never normalize line endings or whitespace.
-tests/fixtures/qm9_1k/*.xyz -text
+tests/fixtures/**/*.xyz -text

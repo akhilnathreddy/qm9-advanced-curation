@@ -9,7 +9,7 @@ format, chemical-identity and physics checks, assigns quality tiers instead of
 deleting records, and produces ML-ready tables, a split suite and baseline
 benchmarks. The full plan is in `docs/plan_v2.md`.
 
-**Current phase:** 1 complete — raw data acquired and verified (Gate 1). Next: Phase 2, the lossless parser.
+**Current phase:** 2 complete — lossless parse into typed Parquet tables (Gate 2). Next: Phase 3, profiling.
 
 ## Setup
 
@@ -28,6 +28,7 @@ make check    # lint, format check, type check, tests
 make repro    # run the DVC pipeline
 make gate0    # Phase 0 exit gate
 make gate1    # Phase 1 exit gate: verify raw files, re-download check, inventory
+make gate2    # Phase 2 exit gate: lossless parse, schemas, byte-identical rebuild
 make fixture  # rebuild the 1k test fixture from the raw archive
 ```
 

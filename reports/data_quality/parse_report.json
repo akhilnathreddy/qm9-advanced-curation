@@ -1,0 +1,39 @@
+{
+  "gate_2_conditions": {
+    "all_records_parsed": true,
+    "atom_rows_match_atom_counts": true,
+    "frequency_rows_match_mode_counts": true,
+    "schemas_valid": true,
+    "text_round_trip_exact_for_all": true,
+    "values_exact_for_all_tokens": true
+  },
+  "inexact_values": [],
+  "linear_molecules": 5,
+  "molecules_with_fortran_exponent": 176,
+  "n_members": 133885,
+  "n_numeric_tokens_checked": 18078000,
+  "n_parsed": 133885,
+  "output_sha256": {
+    "atoms": "e3463064d7807e8e22f04b483741e229f4f49f31b834e67712cac3971c0af3ed",
+    "frequencies": "408bb3de21690d82e30f9610b6b9c4f929a9468be57758e133414f7bf29c4988",
+    "molecules": "a03940c335b9532376aa0c6bbb87445b06126aaa226772e4ac2d43b52cea0692",
+    "parse_log": "4b728305ee32684881e0c57dc49c76740ff34f9c376fa18028c2ff471937b8a8"
+  },
+  "parse_failures": [],
+  "parse_log_events": {
+    "doubled_frequencies": 433,
+    "fortran_exponent": 176
+  },
+  "row_counts": {
+    "atoms": 2407753,
+    "frequencies": 6438713,
+    "molecules": 133885,
+    "parse_log": 609
+  },
+  "schema_errors": {
+    "atoms": null,
+    "frequencies": null,
+    "molecules": null,
+    "parse_log": null
+  }
+}

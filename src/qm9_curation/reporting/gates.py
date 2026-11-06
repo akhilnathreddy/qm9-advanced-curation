@@ -29,11 +29,20 @@ GATE_CONDITIONS: dict[int, tuple[str, ...]] = {
         "inventory conditions all hold (reports/data_quality/inventory.json)",
         "pytest passes, including the 1k fixture tests",
     ),
+    2: (
+        "every record parses under the strict layout (no failures)",
+        "every record serializes back to its exact source bytes",
+        "every numeric token's value is held exactly by the float64 tables",
+        "all Pandera schemas validate",
+        "atom and frequency row counts match the per-molecule counts",
+        "a second pipeline run produces byte-identical Parquet files",
+    ),
 }
 
 # Report files whose boolean conditions must all be true for the gate to pass.
 GATE_REPORTS: dict[int, tuple[tuple[str, str], ...]] = {
     1: (("data_quality/inventory.json", "gate_1_conditions"),),
+    2: (("data_quality/parse_report.json", "gate_2_conditions"),),
 }
 
 

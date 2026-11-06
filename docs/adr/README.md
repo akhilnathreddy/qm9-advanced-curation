@@ -12,3 +12,4 @@ that supersedes the old one and set the old one's status to
 | [0003](0003-tooling.md) | Environment and pipeline tooling | Accepted |
 | [0004](0004-validation-framework.md) | Validation framework | Accepted |
 | [0005](0005-acquisition.md) | Acquisition and raw-data versioning | Accepted |
+| [0006](0006-lossless-parsing.md) | Lossless parsing and the interim table layout | Accepted |

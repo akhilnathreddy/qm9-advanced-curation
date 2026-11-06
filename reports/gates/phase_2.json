@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "data_quality/parse_report.json:all_records_parsed": true,
+    "data_quality/parse_report.json:atom_rows_match_atom_counts": true,
+    "data_quality/parse_report.json:frequency_rows_match_mode_counts": true,
+    "data_quality/parse_report.json:schemas_valid": true,
+    "data_quality/parse_report.json:text_round_trip_exact_for_all": true,
+    "data_quality/parse_report.json:values_exact_for_all_tokens": true
+  },
+  "conditions": [
+    "every record parses under the strict layout (no failures)",
+    "every record serializes back to its exact source bytes",
+    "every numeric token's value is held exactly by the float64 tables",
+    "all Pandera schemas validate",
+    "atom and frequency row counts match the per-molecule counts",
+    "a second pipeline run produces byte-identical Parquet files"
+  ],
+  "environment": {
+    "constants": "CODATA 2018",
+    "git": {
+      "commit": "42edd752d9bb8ecb750ba7312a10899cbca81c36",
+      "dirty": true
+    },
+    "implementation": "CPython",
+    "packages": {
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "pandas": "3.1.1",
+      "pandera": "0.35.0",
+      "polars": "2.1.0",
+      "pyarrow": "26.0.1",
+      "pyyaml": "6.0.3",
+      "rdkit": "2026.9.1",
+      "scipy": "1.18.1"
+    },
+    "platform": "Darwin-arm64",
+    "python": "3.12.5",
+    "qm9_curation_version": "0.1.0"
+  },
+  "passed": true,
+  "phase": 2
+}

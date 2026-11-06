@@ -2,7 +2,7 @@
 # the same versions CI uses.
 # Fixture records are byte-for-byte copies of the source (lines end in tabs);
 # no hook may rewrite them.
-exclude: ^tests/fixtures/qm9_1k/.*\.xyz$
+exclude: ^tests/fixtures/.*\.xyz$
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
