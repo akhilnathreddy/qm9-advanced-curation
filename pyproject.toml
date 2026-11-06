@@ -1,0 +1,73 @@
+[project]
+name = "qm9-curation"
+version = "0.1.0"
+description = "Research-grade, reproducible curation pipeline for the QM9 quantum-chemistry dataset."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.13",
+    "pandas>=2.2",
+    "polars>=1.0",
+    "pyarrow>=16",
+    "rdkit>=2024.3",
+    "pandera>=0.20",
+    "pyyaml>=6.0",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+# Installed from Phase 9 onward; kept out of the default env so Phase 0-8 stays light.
+ml = [
+    "scikit-learn>=1.5",
+    "lightgbm>=4.3",
+    "mlflow>=2.14",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.2",
+    "hypothesis>=6.100",
+    "ruff>=0.5",
+    "mypy>=1.10",
+    "types-PyYAML",
+    "pandas-stubs",
+    "pre-commit>=3.7",
+    "dvc>=3.50",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/qm9_curation"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "NPY", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+# `value == pytest.approx(expected)` is idiomatic pytest, not a Yoda condition.
+"tests/**" = ["SIM300"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+mypy_path = "src"
+packages = ["qm9_curation"]
+
+[[tool.mypy.overrides]]
+module = ["rdkit.*", "pandera.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = [
+    "pipeline: end-to-end tests that need the 1k fixture (populated in Phase 1)",
+]

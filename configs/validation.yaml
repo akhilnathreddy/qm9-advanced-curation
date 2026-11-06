@@ -1,0 +1,15 @@
+# Tolerances for each validation check (Phase 4). Every value set here needs a
+# justification in an ADR; null means "not yet decided".
+format: {}
+identity:
+  bond_perception: rdkit.rdDetermineBonds
+  total_charge: 0
+physics:
+  gap_abs_tol_hartree: null
+  h_minus_u_abs_tol_hartree: null
+  zpve_rel_tol: null
+  rotational_constant_rel_tol: null
+  mulliken_sum_abs_tol: null
+statistical:
+  robust_z_threshold: null
+  stratify_by: [formula, n_heavy]

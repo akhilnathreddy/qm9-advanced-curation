@@ -1,0 +1,11 @@
+# Stage graph (plan v2 §8). Later phases add:
+# acquire -> parse -> validate -> tier -> features -> splits -> benchmark
+stages:
+  env_report:
+    cmd: python -m qm9_curation.env_report --out reports/gates/env.json
+    deps:
+      - src/qm9_curation/env_report.py
+      - uv.lock
+    outs:
+      - reports/gates/env.json:
+          cache: false

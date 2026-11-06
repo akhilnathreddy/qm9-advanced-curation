@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+build/
+dist/
+
+# Tooling caches
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.hypothesis/
+.ipynb_checkpoints/
+
+# Data is versioned by DVC, never by git. Directory placeholders stay tracked.
+/data/**/*
+!/data/**/
+!/data/**/.gitkeep
+!/data/**/*.dvc
+
+# MLflow local store
+mlruns/
+mlartifacts/
+
+# OS
+.DS_Store

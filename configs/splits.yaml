@@ -1,0 +1,11 @@
+# Split suite (Phase 8). Seeds are fixed here and recorded with every split file.
+seeds: [0, 1, 2, 3, 4]
+fractions: {train: 0.8, val: 0.1, test: 0.1}
+splits:
+  - random
+  - isomer_group
+  - scaffold_generic
+  - cluster_ecfp
+  - size_extrapolation
+  - element_holdout
+  - property_tail

@@ -1,0 +1,17 @@
+# Source of record: see docs/adr/0002-source-of-record.md
+source:
+  name: QM9 (dsgdb9nsd)
+  paper_doi: 10.1038/sdata.2014.22
+  # Figshare collection linked from the paper. Confirm the exact URL, file list
+  # and license string during Phase 1 and record them in data/raw/MANIFEST.json.
+  repository: figshare
+  collection_url: null
+  license: null # filled in Phase 1 from the figshare record
+
+expected:
+  n_molecules: 133885
+  n_uncharacterized: 3054
+  elements: [H, C, N, O, F]
+  max_heavy_atoms: 9
+  level_of_theory: B3LYP/6-31G(2df,p)
+  temperature_k: 298.15

@@ -1,0 +1,3 @@
+# Tier rules (Phase 5). Nothing is deleted; each record gets a tier and a reason.
+tiers: [gold, silver, bronze, quarantine]
+rules: []

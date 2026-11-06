@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  env_report:
+    cmd: python -m qm9_curation.env_report --out reports/gates/env.json
+    deps:
+    - path: src/qm9_curation/env_report.py
+      hash: md5
+      md5: 093a68a292453033181094cb87f827d9
+      size: 2113
+    - path: uv.lock
+      hash: md5
+      md5: 27ec564fa1018545c7f4c5d4bd73a94e
+      size: 302439
+    outs:
+    - path: reports/gates/env.json
+      hash: md5
+      md5: 213fbd4fba65dd4cde4caf607fef6471
+      size: 442
