@@ -41,3 +41,19 @@ stages:
     outs:
       - reports/data_quality/inventory.json:
           cache: false
+
+  # Strict lossless parse into typed tables (ADR 0006).
+  parse:
+    cmd: python -m qm9_curation.parse.build
+    deps:
+      - src/qm9_curation/parse
+      - src/qm9_curation/schema.py
+      - data/raw/dsgdb9nsd.xyz.tar.bz2
+      - data/raw/MANIFEST.json
+    outs:
+      - data/interim/molecules.parquet
+      - data/interim/atoms.parquet
+      - data/interim/frequencies.parquet
+      - data/interim/parse_log.parquet
+      - reports/data_quality/parse_report.json:
+          cache: false

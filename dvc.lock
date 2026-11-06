@@ -76,3 +76,44 @@ stages:
       hash: md5
       md5: 24c1badec8d79e887ad536c686d86d84
       size: 43789
+  parse:
+    cmd: python -m qm9_curation.parse.build
+    deps:
+    - path: data/raw/MANIFEST.json
+      hash: md5
+      md5: f084140b0d72d6635bb3c59e48121a11
+      size: 4520
+    - path: data/raw/dsgdb9nsd.xyz.tar.bz2
+      hash: md5
+      md5: ad1ebd51ee7f5b3a6e32e974e5d54012
+      size: 86144227
+    - path: src/qm9_curation/parse
+      hash: md5
+      md5: 6178f266fe311618336dd951f7eed228.dir
+      size: 17117
+      nfiles: 3
+    - path: src/qm9_curation/schema.py
+      hash: md5
+      md5: 653c4ecfad2ff94915c152877476b5c2
+      size: 3784
+    outs:
+    - path: data/interim/atoms.parquet
+      hash: md5
+      md5: 210708249f7b6a91d3419df0a0d858c9
+      size: 66660328
+    - path: data/interim/frequencies.parquet
+      hash: md5
+      md5: d27e99bfa623b8b2bc2b174565fd42f8
+      size: 27594375
+    - path: data/interim/molecules.parquet
+      hash: md5
+      md5: 134f3a957a945429ab9d6296bf2ebfc2
+      size: 15820228
+    - path: data/interim/parse_log.parquet
+      hash: md5
+      md5: fe0919010d80c676e5df8da56121af8d
+      size: 3584
+    - path: reports/data_quality/parse_report.json
+      hash: md5
+      md5: cc77b069986b95898e98d228c7c2bb20
+      size: 1148

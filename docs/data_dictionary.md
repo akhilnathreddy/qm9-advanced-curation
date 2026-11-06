@@ -58,6 +58,65 @@ the lines whose first token is an integer: **3,054 unique indices**,
 Per-element (H, C, N, O, F) ZPVE, U(0 K), U, H, G (Hartree) and Cv
 (cal/(mol·K)) for isolated atoms, used to compute atomization energies.
 
-## Curated schema
+## Interim tables (`data/interim/*.parquet`, Phase 2)
 
-Filled in Phase 2.
+Built by `python -m qm9_curation.parse.build`, validated by the Pandera
+schemas in `src/qm9_curation/schema.py`. Values are in **source units**;
+the unit is part of each column name. Role: **id** identifier,
+**meta** metadata/provenance, **struct** structure (model input),
+**target** candidate prediction target, **qc** by-product of the quantum
+calculation (not an input when predicting thermochemistry; plan v2 §4,
+Phase 6).
+
+### `molecules` — 133,885 rows, key `qm9_id`
+
+| Column | Type | Unit | Role | Meaning |
+|---|---|---|---|---|
+| qm9_id | UInt32 | — | id | Source index (1-based) |
+| n_atoms | UInt8 | — | struct | Atom count |
+| n_heavy | UInt8 | — | struct | Non-hydrogen atom count (1–9) |
+| formula | String | — | struct | Hill-order formula, e.g. `C2H2` |
+| rot_a_ghz, rot_b_ghz, rot_c_ghz | Float64 | GHz | qc | Rotational constants; A = 0 for the 5 linear molecules |
+| mu_debye | Float64 | D | target | Dipole moment |
+| alpha_bohr3 | Float64 | Bohr³ | target | Isotropic polarizability |
+| homo_ha, lumo_ha, gap_ha | Float64 | Ha | target | Frontier orbital energies and gap |
+| r2_bohr2 | Float64 | Bohr² | target | Electronic spatial extent |
+| zpve_ha | Float64 | Ha | target / qc | Zero-point vibrational energy |
+| u0_ha, u298_ha, h298_ha, g298_ha | Float64 | Ha | target | U(0 K), U, H, G at 298.15 K |
+| cv_cal_per_mol_k | Float64 | cal/(mol·K) | target | Heat capacity at 298.15 K |
+| smiles_gdb, smiles_relaxed | String | — | struct / meta | GDB-17 SMILES; SMILES of relaxed geometry |
+| inchi_gdb, inchi_relaxed | String | — | struct / meta | Same, as InChI |
+| n_modes | UInt16 | — | meta | Modes per frequency set (3N−6, or 3N−5 if linear) |
+| n_frequency_sets | UInt8 | — | meta | 1, or 2 for the 433 doubled records |
+| is_linear | Boolean | — | struct | Frequency count is 3N−5 |
+| has_fortran_exponent | Boolean | — | meta | Record contained a `*^` token |
+| source_member | String | — | meta | File name inside the archive |
+| source_sha256 | String | — | meta | SHA-256 of this record's source bytes |
+| source_archive_sha256 | String | — | meta | SHA-256 of the archive (matches `MANIFEST.json`) |
+
+### `atoms` — 2,407,753 rows, key (`qm9_id`, `atom_idx`)
+
+| Column | Type | Unit | Meaning |
+|---|---|---|---|
+| qm9_id | UInt32 | — | Molecule |
+| atom_idx | UInt8 | — | 0-based position in the source record |
+| element, atomic_number | String, UInt8 | — | H/C/N/O/F and 1/6/7/8/9 |
+| x_ang, y_ang, z_ang | Float64 | Å | Cartesian coordinates (B3LYP geometry) |
+| mulliken_charge_e | Float64 | e | Mulliken partial charge (qc) |
+
+### `frequencies` — 6,438,713 rows, key (`qm9_id`, `set_idx`, `mode_idx`)
+
+| Column | Type | Unit | Meaning |
+|---|---|---|---|
+| qm9_id | UInt32 | — | Molecule |
+| set_idx | UInt8 | — | 0, or 1 for the second set of a doubled record |
+| mode_idx | UInt16 | — | 0-based mode position as written |
+| wavenumber_cm1 | Float64 | cm⁻¹ | Harmonic frequency; negative = imaginary mode |
+
+### `parse_log` — 609 rows
+
+| Column | Type | Meaning |
+|---|---|---|
+| qm9_id | UInt32 | Molecule |
+| event | String | `fortran_exponent` (176) or `doubled_frequencies` (433) |
+| location | String | Where in the record, e.g. `atom[0].x` |
