@@ -1,11 +1,15 @@
 """Process-pool helper shared by the stages that run RDKit per molecule."""
 
+import multiprocessing
 import os
 from collections.abc import Callable
 from concurrent.futures import ProcessPoolExecutor
 from typing import Any
 
 CHUNK = 2000
+# Always "spawn": by the time a pool starts, Polars has started its own threads,
+# and fork() of a multi-threaded process can deadlock the child (Linux default).
+_CONTEXT = multiprocessing.get_context("spawn")
 
 
 def _silence_stdout() -> None:
@@ -31,5 +35,7 @@ def map_chunks(
 ) -> list[dict[str, Any]]:
     """Apply ``fn`` to fixed-size chunks of ``rows`` in worker processes, keeping order."""
     chunks = [rows[i : i + CHUNK] for i in range(0, len(rows), CHUNK)]
-    with ProcessPoolExecutor(max_workers=max(1, workers), initializer=_silence_stdout) as pool:
+    with ProcessPoolExecutor(
+        max_workers=max(1, workers), mp_context=_CONTEXT, initializer=_silence_stdout
+    ) as pool:
         return [r for chunk in pool.map(fn, chunks) for r in chunk]

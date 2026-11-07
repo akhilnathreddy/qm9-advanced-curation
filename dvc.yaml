@@ -80,6 +80,7 @@ stages:
     cmd: python -m qm9_curation.checks.build
     deps:
       - src/qm9_curation/checks
+      - src/qm9_curation/parallel.py
       - src/qm9_curation/units.py
       - configs/validation.yaml
       - configs/dataset.yaml
@@ -98,6 +99,7 @@ stages:
     cmd: python -m qm9_curation.curate.build
     deps:
       - src/qm9_curation/curate
+      - src/qm9_curation/parallel.py
       - src/qm9_curation/schema.py
       - src/qm9_curation/units.py
       - configs/curation_rules.yaml
@@ -109,4 +111,18 @@ stages:
     outs:
       - data/processed/molecules.parquet
       - reports/curation/curation_report.json:
+          cache: false
+
+  # Feature tables from atoms + coordinates only (ADR 0010).
+  features:
+    cmd: python -m qm9_curation.features.build
+    deps:
+      - src/qm9_curation/features
+      - src/qm9_curation/parallel.py
+      - src/qm9_curation/checks/identity.py
+      - src/qm9_curation/profiling/geometry.py
+      - data/interim/atoms.parquet
+    outs:
+      - data/processed/features
+      - reports/features/feature_report.json:
           cache: false

@@ -1,0 +1,2134 @@
+{
+  "descriptor_pairs_abs_r_at_least_0.99": [
+    {
+      "a": "MaxAbsEStateIndex",
+      "b": "MaxEStateIndex",
+      "r": 1.0
+    },
+    {
+      "a": "MolWt",
+      "b": "ExactMolWt",
+      "r": 1.0
+    },
+    {
+      "a": "Chi2n",
+      "b": "Chi2v",
+      "r": 1.0
+    },
+    {
+      "a": "Chi3n",
+      "b": "Chi3v",
+      "r": 1.0
+    },
+    {
+      "a": "Chi4n",
+      "b": "Chi4v",
+      "r": 1.0
+    },
+    {
+      "a": "NumAmideBonds",
+      "b": "fr_amide",
+      "r": 0.9997
+    },
+    {
+      "a": "NumAromaticHeterocycles",
+      "b": "NumAromaticRings",
+      "r": 0.993
+    },
+    {
+      "a": "fr_Al_COO",
+      "b": "fr_COO",
+      "r": 0.9975
+    },
+    {
+      "a": "fr_Al_COO",
+      "b": "fr_COO2",
+      "r": 0.9941
+    },
+    {
+      "a": "fr_Ar_NH",
+      "b": "fr_Nhpyrrole",
+      "r": 1.0
+    },
+    {
+      "a": "fr_COO",
+      "b": "fr_COO2",
+      "r": 0.9966
+    },
+    {
+      "a": "fr_nitro_arom",
+      "b": "fr_nitro_arom_nonortho",
+      "r": 1.0
+    },
+    {
+      "a": "fr_phenol",
+      "b": "fr_phenol_noOrthoHbond",
+      "r": 0.9973
+    }
+  ],
+  "descriptors_dropped": {
+    "constant": [
+      "SMR_VSA8",
+      "SlogP_VSA12",
+      "SlogP_VSA9",
+      "EState_VSA11",
+      "VSA_EState10",
+      "fr_C_S",
+      "fr_SH",
+      "fr_azide",
+      "fr_barbitur",
+      "fr_benzodiazepine",
+      "fr_hdrzine",
+      "fr_isothiocyan",
+      "fr_phos_acid",
+      "fr_phos_ester",
+      "fr_prisulfonamd",
+      "fr_sulfide",
+      "fr_sulfonamd",
+      "fr_sulfone",
+      "fr_thiazole",
+      "fr_thiocyan",
+      "fr_thiophene"
+    ],
+    "non_finite": [
+      "MaxPartialCharge",
+      "MinPartialCharge",
+      "MaxAbsPartialCharge",
+      "MinAbsPartialCharge",
+      "BCUT2D_MWHI",
+      "BCUT2D_MWLOW",
+      "BCUT2D_CHGHI",
+      "BCUT2D_CHGLO",
+      "BCUT2D_LOGPHI",
+      "BCUT2D_LOGPLOW",
+      "BCUT2D_MRHI",
+      "BCUT2D_MRLOW"
+    ]
+  },
+  "descriptors_kept": 184,
+  "dictionary": [
+    {
+      "column": "qm9_id",
+      "description": "Molecule id (joins every table)",
+      "dtype": "UInt32",
+      "family": "key",
+      "table": "composition",
+      "unit": "-"
+    },
+    {
+      "column": "qm9_id",
+      "description": "Molecule id (joins every table)",
+      "dtype": "UInt32",
+      "family": "key",
+      "table": "coulomb_eigenvalues",
+      "unit": "-"
+    },
+    {
+      "column": "qm9_id",
+      "description": "Molecule id (joins every table)",
+      "dtype": "UInt32",
+      "family": "key",
+      "table": "index",
+      "unit": "-"
+    },
+    {
+      "column": "qm9_id",
+      "description": "Molecule id (joins every table)",
+      "dtype": "UInt32",
+      "family": "key",
+      "table": "rdkit_descriptors",
+      "unit": "-"
+    },
+    {
+      "column": "qm9_id",
+      "description": "Molecule id (joins every table)",
+      "dtype": "UInt32",
+      "family": "key",
+      "table": "ecfp4",
+      "unit": "-"
+    },
+    {
+      "column": "qm9_id",
+      "description": "Molecule id (joins every table)",
+      "dtype": "UInt32",
+      "family": "key",
+      "table": "maccs",
+      "unit": "-"
+    },
+    {
+      "column": "qm9_id",
+      "description": "Molecule id (joins every table)",
+      "dtype": "UInt32",
+      "family": "key",
+      "table": "graph_nodes",
+      "unit": "-"
+    },
+    {
+      "column": "qm9_id",
+      "description": "Molecule id (joins every table)",
+      "dtype": "UInt32",
+      "family": "key",
+      "table": "graph_edges",
+      "unit": "-"
+    },
+    {
+      "column": "rdkit_features_available",
+      "description": "RDKit-based features exist for this molecule",
+      "dtype": "Boolean",
+      "family": "index",
+      "table": "index",
+      "unit": "-"
+    },
+    {
+      "column": "unavailable_reason",
+      "description": "Why not, when they don't",
+      "dtype": "String",
+      "family": "index",
+      "table": "index",
+      "unit": "-"
+    },
+    {
+      "column": "n_H",
+      "description": "Number of H atoms",
+      "dtype": "UInt8",
+      "family": "composition",
+      "table": "composition",
+      "unit": "count"
+    },
+    {
+      "column": "n_C",
+      "description": "Number of C atoms",
+      "dtype": "UInt8",
+      "family": "composition",
+      "table": "composition",
+      "unit": "count"
+    },
+    {
+      "column": "n_N",
+      "description": "Number of N atoms",
+      "dtype": "UInt8",
+      "family": "composition",
+      "table": "composition",
+      "unit": "count"
+    },
+    {
+      "column": "n_O",
+      "description": "Number of O atoms",
+      "dtype": "UInt8",
+      "family": "composition",
+      "table": "composition",
+      "unit": "count"
+    },
+    {
+      "column": "n_F",
+      "description": "Number of F atoms",
+      "dtype": "UInt8",
+      "family": "composition",
+      "table": "composition",
+      "unit": "count"
+    },
+    {
+      "column": "n_atoms",
+      "description": "Number of atoms",
+      "dtype": "UInt8",
+      "family": "composition",
+      "table": "composition",
+      "unit": "count"
+    },
+    {
+      "column": "n_heavy",
+      "description": "Number of non-hydrogen atoms",
+      "dtype": "UInt8",
+      "family": "composition",
+      "table": "composition",
+      "unit": "count"
+    },
+    {
+      "column": "cm_eig_00",
+      "description": "Coulomb-matrix eigenvalue 0, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_01",
+      "description": "Coulomb-matrix eigenvalue 1, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_02",
+      "description": "Coulomb-matrix eigenvalue 2, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_03",
+      "description": "Coulomb-matrix eigenvalue 3, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_04",
+      "description": "Coulomb-matrix eigenvalue 4, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_05",
+      "description": "Coulomb-matrix eigenvalue 5, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_06",
+      "description": "Coulomb-matrix eigenvalue 6, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_07",
+      "description": "Coulomb-matrix eigenvalue 7, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_08",
+      "description": "Coulomb-matrix eigenvalue 8, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_09",
+      "description": "Coulomb-matrix eigenvalue 9, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_10",
+      "description": "Coulomb-matrix eigenvalue 10, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_11",
+      "description": "Coulomb-matrix eigenvalue 11, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_12",
+      "description": "Coulomb-matrix eigenvalue 12, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_13",
+      "description": "Coulomb-matrix eigenvalue 13, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_14",
+      "description": "Coulomb-matrix eigenvalue 14, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_15",
+      "description": "Coulomb-matrix eigenvalue 15, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_16",
+      "description": "Coulomb-matrix eigenvalue 16, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_17",
+      "description": "Coulomb-matrix eigenvalue 17, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_18",
+      "description": "Coulomb-matrix eigenvalue 18, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_19",
+      "description": "Coulomb-matrix eigenvalue 19, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_20",
+      "description": "Coulomb-matrix eigenvalue 20, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_21",
+      "description": "Coulomb-matrix eigenvalue 21, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_22",
+      "description": "Coulomb-matrix eigenvalue 22, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_23",
+      "description": "Coulomb-matrix eigenvalue 23, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_24",
+      "description": "Coulomb-matrix eigenvalue 24, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_25",
+      "description": "Coulomb-matrix eigenvalue 25, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_26",
+      "description": "Coulomb-matrix eigenvalue 26, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_27",
+      "description": "Coulomb-matrix eigenvalue 27, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "cm_eig_28",
+      "description": "Coulomb-matrix eigenvalue 28, descending, zero-padded",
+      "dtype": "Float64",
+      "family": "coulomb",
+      "table": "coulomb_eigenvalues",
+      "unit": "Hartree (a.u.)"
+    },
+    {
+      "column": "MaxAbsEStateIndex",
+      "description": "RDKit 2026.09.1 descriptor MaxAbsEStateIndex, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "MaxEStateIndex",
+      "description": "RDKit 2026.09.1 descriptor MaxEStateIndex, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "MinAbsEStateIndex",
+      "description": "RDKit 2026.09.1 descriptor MinAbsEStateIndex, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "MinEStateIndex",
+      "description": "RDKit 2026.09.1 descriptor MinEStateIndex, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "qed",
+      "description": "RDKit 2026.09.1 descriptor qed, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SPS",
+      "description": "RDKit 2026.09.1 descriptor SPS, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "MolWt",
+      "description": "RDKit 2026.09.1 descriptor MolWt, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "HeavyAtomMolWt",
+      "description": "RDKit 2026.09.1 descriptor HeavyAtomMolWt, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "ExactMolWt",
+      "description": "RDKit 2026.09.1 descriptor ExactMolWt, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumValenceElectrons",
+      "description": "RDKit 2026.09.1 descriptor NumValenceElectrons, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumRadicalElectrons",
+      "description": "RDKit 2026.09.1 descriptor NumRadicalElectrons, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "FpDensityMorgan1",
+      "description": "RDKit 2026.09.1 descriptor FpDensityMorgan1, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "FpDensityMorgan2",
+      "description": "RDKit 2026.09.1 descriptor FpDensityMorgan2, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "FpDensityMorgan3",
+      "description": "RDKit 2026.09.1 descriptor FpDensityMorgan3, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "AvgIpc",
+      "description": "RDKit 2026.09.1 descriptor AvgIpc, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "BalabanJ",
+      "description": "RDKit 2026.09.1 descriptor BalabanJ, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "BertzCT",
+      "description": "RDKit 2026.09.1 descriptor BertzCT, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Chi0",
+      "description": "RDKit 2026.09.1 descriptor Chi0, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Chi0n",
+      "description": "RDKit 2026.09.1 descriptor Chi0n, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Chi0v",
+      "description": "RDKit 2026.09.1 descriptor Chi0v, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Chi1",
+      "description": "RDKit 2026.09.1 descriptor Chi1, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Chi1n",
+      "description": "RDKit 2026.09.1 descriptor Chi1n, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Chi1v",
+      "description": "RDKit 2026.09.1 descriptor Chi1v, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Chi2n",
+      "description": "RDKit 2026.09.1 descriptor Chi2n, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Chi2v",
+      "description": "RDKit 2026.09.1 descriptor Chi2v, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Chi3n",
+      "description": "RDKit 2026.09.1 descriptor Chi3n, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Chi3v",
+      "description": "RDKit 2026.09.1 descriptor Chi3v, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Chi4n",
+      "description": "RDKit 2026.09.1 descriptor Chi4n, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Chi4v",
+      "description": "RDKit 2026.09.1 descriptor Chi4v, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "HallKierAlpha",
+      "description": "RDKit 2026.09.1 descriptor HallKierAlpha, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Ipc",
+      "description": "RDKit 2026.09.1 descriptor Ipc, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Kappa1",
+      "description": "RDKit 2026.09.1 descriptor Kappa1, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Kappa2",
+      "description": "RDKit 2026.09.1 descriptor Kappa2, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Kappa3",
+      "description": "RDKit 2026.09.1 descriptor Kappa3, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "LabuteASA",
+      "description": "RDKit 2026.09.1 descriptor LabuteASA, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "PEOE_VSA1",
+      "description": "RDKit 2026.09.1 descriptor PEOE_VSA1, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "PEOE_VSA10",
+      "description": "RDKit 2026.09.1 descriptor PEOE_VSA10, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "PEOE_VSA11",
+      "description": "RDKit 2026.09.1 descriptor PEOE_VSA11, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "PEOE_VSA12",
+      "description": "RDKit 2026.09.1 descriptor PEOE_VSA12, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "PEOE_VSA13",
+      "description": "RDKit 2026.09.1 descriptor PEOE_VSA13, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "PEOE_VSA14",
+      "description": "RDKit 2026.09.1 descriptor PEOE_VSA14, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "PEOE_VSA2",
+      "description": "RDKit 2026.09.1 descriptor PEOE_VSA2, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "PEOE_VSA3",
+      "description": "RDKit 2026.09.1 descriptor PEOE_VSA3, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "PEOE_VSA4",
+      "description": "RDKit 2026.09.1 descriptor PEOE_VSA4, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "PEOE_VSA5",
+      "description": "RDKit 2026.09.1 descriptor PEOE_VSA5, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "PEOE_VSA6",
+      "description": "RDKit 2026.09.1 descriptor PEOE_VSA6, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "PEOE_VSA7",
+      "description": "RDKit 2026.09.1 descriptor PEOE_VSA7, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "PEOE_VSA8",
+      "description": "RDKit 2026.09.1 descriptor PEOE_VSA8, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "PEOE_VSA9",
+      "description": "RDKit 2026.09.1 descriptor PEOE_VSA9, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SMR_VSA1",
+      "description": "RDKit 2026.09.1 descriptor SMR_VSA1, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SMR_VSA10",
+      "description": "RDKit 2026.09.1 descriptor SMR_VSA10, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SMR_VSA2",
+      "description": "RDKit 2026.09.1 descriptor SMR_VSA2, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SMR_VSA3",
+      "description": "RDKit 2026.09.1 descriptor SMR_VSA3, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SMR_VSA4",
+      "description": "RDKit 2026.09.1 descriptor SMR_VSA4, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SMR_VSA5",
+      "description": "RDKit 2026.09.1 descriptor SMR_VSA5, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SMR_VSA6",
+      "description": "RDKit 2026.09.1 descriptor SMR_VSA6, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SMR_VSA7",
+      "description": "RDKit 2026.09.1 descriptor SMR_VSA7, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SMR_VSA9",
+      "description": "RDKit 2026.09.1 descriptor SMR_VSA9, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SlogP_VSA1",
+      "description": "RDKit 2026.09.1 descriptor SlogP_VSA1, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SlogP_VSA10",
+      "description": "RDKit 2026.09.1 descriptor SlogP_VSA10, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SlogP_VSA11",
+      "description": "RDKit 2026.09.1 descriptor SlogP_VSA11, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SlogP_VSA2",
+      "description": "RDKit 2026.09.1 descriptor SlogP_VSA2, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SlogP_VSA3",
+      "description": "RDKit 2026.09.1 descriptor SlogP_VSA3, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SlogP_VSA4",
+      "description": "RDKit 2026.09.1 descriptor SlogP_VSA4, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SlogP_VSA5",
+      "description": "RDKit 2026.09.1 descriptor SlogP_VSA5, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SlogP_VSA6",
+      "description": "RDKit 2026.09.1 descriptor SlogP_VSA6, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SlogP_VSA7",
+      "description": "RDKit 2026.09.1 descriptor SlogP_VSA7, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "SlogP_VSA8",
+      "description": "RDKit 2026.09.1 descriptor SlogP_VSA8, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "TPSA",
+      "description": "RDKit 2026.09.1 descriptor TPSA, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "EState_VSA1",
+      "description": "RDKit 2026.09.1 descriptor EState_VSA1, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "EState_VSA10",
+      "description": "RDKit 2026.09.1 descriptor EState_VSA10, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "EState_VSA2",
+      "description": "RDKit 2026.09.1 descriptor EState_VSA2, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "EState_VSA3",
+      "description": "RDKit 2026.09.1 descriptor EState_VSA3, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "EState_VSA4",
+      "description": "RDKit 2026.09.1 descriptor EState_VSA4, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "EState_VSA5",
+      "description": "RDKit 2026.09.1 descriptor EState_VSA5, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "EState_VSA6",
+      "description": "RDKit 2026.09.1 descriptor EState_VSA6, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "EState_VSA7",
+      "description": "RDKit 2026.09.1 descriptor EState_VSA7, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "EState_VSA8",
+      "description": "RDKit 2026.09.1 descriptor EState_VSA8, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "EState_VSA9",
+      "description": "RDKit 2026.09.1 descriptor EState_VSA9, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "VSA_EState1",
+      "description": "RDKit 2026.09.1 descriptor VSA_EState1, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "VSA_EState2",
+      "description": "RDKit 2026.09.1 descriptor VSA_EState2, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "VSA_EState3",
+      "description": "RDKit 2026.09.1 descriptor VSA_EState3, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "VSA_EState4",
+      "description": "RDKit 2026.09.1 descriptor VSA_EState4, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "VSA_EState5",
+      "description": "RDKit 2026.09.1 descriptor VSA_EState5, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "VSA_EState6",
+      "description": "RDKit 2026.09.1 descriptor VSA_EState6, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "VSA_EState7",
+      "description": "RDKit 2026.09.1 descriptor VSA_EState7, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "VSA_EState8",
+      "description": "RDKit 2026.09.1 descriptor VSA_EState8, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "VSA_EState9",
+      "description": "RDKit 2026.09.1 descriptor VSA_EState9, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "FractionCSP3",
+      "description": "RDKit 2026.09.1 descriptor FractionCSP3, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "HeavyAtomCount",
+      "description": "RDKit 2026.09.1 descriptor HeavyAtomCount, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NHOHCount",
+      "description": "RDKit 2026.09.1 descriptor NHOHCount, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NOCount",
+      "description": "RDKit 2026.09.1 descriptor NOCount, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumAliphaticCarbocycles",
+      "description": "RDKit 2026.09.1 descriptor NumAliphaticCarbocycles, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumAliphaticHeterocycles",
+      "description": "RDKit 2026.09.1 descriptor NumAliphaticHeterocycles, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumAliphaticRings",
+      "description": "RDKit 2026.09.1 descriptor NumAliphaticRings, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumAmideBonds",
+      "description": "RDKit 2026.09.1 descriptor NumAmideBonds, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumAromaticCarbocycles",
+      "description": "RDKit 2026.09.1 descriptor NumAromaticCarbocycles, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumAromaticHeterocycles",
+      "description": "RDKit 2026.09.1 descriptor NumAromaticHeterocycles, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumAromaticRings",
+      "description": "RDKit 2026.09.1 descriptor NumAromaticRings, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumAtomStereoCenters",
+      "description": "RDKit 2026.09.1 descriptor NumAtomStereoCenters, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumBridgeheadAtoms",
+      "description": "RDKit 2026.09.1 descriptor NumBridgeheadAtoms, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumHAcceptors",
+      "description": "RDKit 2026.09.1 descriptor NumHAcceptors, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumHDonors",
+      "description": "RDKit 2026.09.1 descriptor NumHDonors, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumHeteroatoms",
+      "description": "RDKit 2026.09.1 descriptor NumHeteroatoms, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumHeterocycles",
+      "description": "RDKit 2026.09.1 descriptor NumHeterocycles, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumRotatableBonds",
+      "description": "RDKit 2026.09.1 descriptor NumRotatableBonds, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumSaturatedCarbocycles",
+      "description": "RDKit 2026.09.1 descriptor NumSaturatedCarbocycles, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumSaturatedHeterocycles",
+      "description": "RDKit 2026.09.1 descriptor NumSaturatedHeterocycles, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumSaturatedRings",
+      "description": "RDKit 2026.09.1 descriptor NumSaturatedRings, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumSpiroAtoms",
+      "description": "RDKit 2026.09.1 descriptor NumSpiroAtoms, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "NumUnspecifiedAtomStereoCenters",
+      "description": "RDKit 2026.09.1 descriptor NumUnspecifiedAtomStereoCenters, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "Phi",
+      "description": "RDKit 2026.09.1 descriptor Phi, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "RingCount",
+      "description": "RDKit 2026.09.1 descriptor RingCount, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "MolLogP",
+      "description": "RDKit 2026.09.1 descriptor MolLogP, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "MolMR",
+      "description": "RDKit 2026.09.1 descriptor MolMR, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_Al_COO",
+      "description": "RDKit 2026.09.1 descriptor fr_Al_COO, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_Al_OH",
+      "description": "RDKit 2026.09.1 descriptor fr_Al_OH, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_Al_OH_noTert",
+      "description": "RDKit 2026.09.1 descriptor fr_Al_OH_noTert, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_ArN",
+      "description": "RDKit 2026.09.1 descriptor fr_ArN, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_Ar_COO",
+      "description": "RDKit 2026.09.1 descriptor fr_Ar_COO, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_Ar_N",
+      "description": "RDKit 2026.09.1 descriptor fr_Ar_N, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_Ar_NH",
+      "description": "RDKit 2026.09.1 descriptor fr_Ar_NH, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_Ar_OH",
+      "description": "RDKit 2026.09.1 descriptor fr_Ar_OH, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_COO",
+      "description": "RDKit 2026.09.1 descriptor fr_COO, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_COO2",
+      "description": "RDKit 2026.09.1 descriptor fr_COO2, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_C_O",
+      "description": "RDKit 2026.09.1 descriptor fr_C_O, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_C_O_noCOO",
+      "description": "RDKit 2026.09.1 descriptor fr_C_O_noCOO, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_HOCCN",
+      "description": "RDKit 2026.09.1 descriptor fr_HOCCN, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_Imine",
+      "description": "RDKit 2026.09.1 descriptor fr_Imine, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_NH0",
+      "description": "RDKit 2026.09.1 descriptor fr_NH0, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_NH1",
+      "description": "RDKit 2026.09.1 descriptor fr_NH1, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_NH2",
+      "description": "RDKit 2026.09.1 descriptor fr_NH2, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_N_O",
+      "description": "RDKit 2026.09.1 descriptor fr_N_O, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_Ndealkylation1",
+      "description": "RDKit 2026.09.1 descriptor fr_Ndealkylation1, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_Ndealkylation2",
+      "description": "RDKit 2026.09.1 descriptor fr_Ndealkylation2, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_Nhpyrrole",
+      "description": "RDKit 2026.09.1 descriptor fr_Nhpyrrole, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_aldehyde",
+      "description": "RDKit 2026.09.1 descriptor fr_aldehyde, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_alkyl_carbamate",
+      "description": "RDKit 2026.09.1 descriptor fr_alkyl_carbamate, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_alkyl_halide",
+      "description": "RDKit 2026.09.1 descriptor fr_alkyl_halide, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_allylic_oxid",
+      "description": "RDKit 2026.09.1 descriptor fr_allylic_oxid, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_amide",
+      "description": "RDKit 2026.09.1 descriptor fr_amide, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_amidine",
+      "description": "RDKit 2026.09.1 descriptor fr_amidine, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_aniline",
+      "description": "RDKit 2026.09.1 descriptor fr_aniline, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_aryl_methyl",
+      "description": "RDKit 2026.09.1 descriptor fr_aryl_methyl, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_azo",
+      "description": "RDKit 2026.09.1 descriptor fr_azo, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_benzene",
+      "description": "RDKit 2026.09.1 descriptor fr_benzene, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_bicyclic",
+      "description": "RDKit 2026.09.1 descriptor fr_bicyclic, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_diazo",
+      "description": "RDKit 2026.09.1 descriptor fr_diazo, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_dihydropyridine",
+      "description": "RDKit 2026.09.1 descriptor fr_dihydropyridine, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_epoxide",
+      "description": "RDKit 2026.09.1 descriptor fr_epoxide, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_ester",
+      "description": "RDKit 2026.09.1 descriptor fr_ester, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_ether",
+      "description": "RDKit 2026.09.1 descriptor fr_ether, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_furan",
+      "description": "RDKit 2026.09.1 descriptor fr_furan, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_guanido",
+      "description": "RDKit 2026.09.1 descriptor fr_guanido, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_halogen",
+      "description": "RDKit 2026.09.1 descriptor fr_halogen, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_hdrzone",
+      "description": "RDKit 2026.09.1 descriptor fr_hdrzone, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_imidazole",
+      "description": "RDKit 2026.09.1 descriptor fr_imidazole, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_imide",
+      "description": "RDKit 2026.09.1 descriptor fr_imide, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_isocyan",
+      "description": "RDKit 2026.09.1 descriptor fr_isocyan, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_ketone",
+      "description": "RDKit 2026.09.1 descriptor fr_ketone, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_ketone_Topliss",
+      "description": "RDKit 2026.09.1 descriptor fr_ketone_Topliss, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_lactam",
+      "description": "RDKit 2026.09.1 descriptor fr_lactam, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_lactone",
+      "description": "RDKit 2026.09.1 descriptor fr_lactone, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_methoxy",
+      "description": "RDKit 2026.09.1 descriptor fr_methoxy, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_morpholine",
+      "description": "RDKit 2026.09.1 descriptor fr_morpholine, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_nitrile",
+      "description": "RDKit 2026.09.1 descriptor fr_nitrile, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_nitro",
+      "description": "RDKit 2026.09.1 descriptor fr_nitro, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_nitro_arom",
+      "description": "RDKit 2026.09.1 descriptor fr_nitro_arom, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_nitro_arom_nonortho",
+      "description": "RDKit 2026.09.1 descriptor fr_nitro_arom_nonortho, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_nitroso",
+      "description": "RDKit 2026.09.1 descriptor fr_nitroso, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_oxazole",
+      "description": "RDKit 2026.09.1 descriptor fr_oxazole, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_oxime",
+      "description": "RDKit 2026.09.1 descriptor fr_oxime, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_para_hydroxylation",
+      "description": "RDKit 2026.09.1 descriptor fr_para_hydroxylation, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_phenol",
+      "description": "RDKit 2026.09.1 descriptor fr_phenol, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_phenol_noOrthoHbond",
+      "description": "RDKit 2026.09.1 descriptor fr_phenol_noOrthoHbond, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_piperdine",
+      "description": "RDKit 2026.09.1 descriptor fr_piperdine, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_piperzine",
+      "description": "RDKit 2026.09.1 descriptor fr_piperzine, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_priamide",
+      "description": "RDKit 2026.09.1 descriptor fr_priamide, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_pyridine",
+      "description": "RDKit 2026.09.1 descriptor fr_pyridine, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_quatN",
+      "description": "RDKit 2026.09.1 descriptor fr_quatN, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_term_acetylene",
+      "description": "RDKit 2026.09.1 descriptor fr_term_acetylene, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_tetrazole",
+      "description": "RDKit 2026.09.1 descriptor fr_tetrazole, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_unbrch_alkane",
+      "description": "RDKit 2026.09.1 descriptor fr_unbrch_alkane, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "fr_urea",
+      "description": "RDKit 2026.09.1 descriptor fr_urea, heavy-atom molecule",
+      "dtype": "Float64",
+      "family": "rdkit_descriptor",
+      "table": "rdkit_descriptors",
+      "unit": "descriptor-specific"
+    },
+    {
+      "column": "bits",
+      "description": "Morgan radius 2, 2048-bit folded; non-zero positions",
+      "dtype": "List(UInt16)",
+      "family": "fingerprint",
+      "table": "ecfp4",
+      "unit": "index"
+    },
+    {
+      "column": "counts",
+      "description": "Counts at the positions in bits",
+      "dtype": "List(UInt16)",
+      "family": "fingerprint",
+      "table": "ecfp4",
+      "unit": "count"
+    },
+    {
+      "column": "bits",
+      "description": "MACCS keys set (0-166)",
+      "dtype": "List(UInt8)",
+      "family": "fingerprint",
+      "table": "maccs",
+      "unit": "index"
+    },
+    {
+      "column": "atom_idx",
+      "description": "Atom position in the source record",
+      "dtype": "UInt8",
+      "family": "graph",
+      "table": "graph_nodes",
+      "unit": "-"
+    },
+    {
+      "column": "atomic_number",
+      "description": "Z",
+      "dtype": "UInt8",
+      "family": "graph",
+      "table": "graph_nodes",
+      "unit": "-"
+    },
+    {
+      "column": "degree",
+      "description": "Explicit neighbours (incl. H)",
+      "dtype": "UInt8",
+      "family": "graph",
+      "table": "graph_nodes",
+      "unit": "-"
+    },
+    {
+      "column": "total_h",
+      "description": "Attached hydrogens",
+      "dtype": "UInt8",
+      "family": "graph",
+      "table": "graph_nodes",
+      "unit": "-"
+    },
+    {
+      "column": "formal_charge",
+      "description": "Formal charge from bond-order perception",
+      "dtype": "Int8",
+      "family": "graph",
+      "table": "graph_nodes",
+      "unit": "-"
+    },
+    {
+      "column": "hybridization",
+      "description": "0 s, 1 sp, 2 sp2, 3 sp3, 4 other",
+      "dtype": "UInt8",
+      "family": "graph",
+      "table": "graph_nodes",
+      "unit": "-"
+    },
+    {
+      "column": "is_aromatic",
+      "description": "Aromatic atom",
+      "dtype": "Boolean",
+      "family": "graph",
+      "table": "graph_nodes",
+      "unit": "-"
+    },
+    {
+      "column": "in_ring",
+      "description": "Ring atom",
+      "dtype": "Boolean",
+      "family": "graph",
+      "table": "graph_nodes",
+      "unit": "-"
+    },
+    {
+      "column": "atom_i",
+      "description": "Lower atom index",
+      "dtype": "UInt8",
+      "family": "graph",
+      "table": "graph_edges",
+      "unit": "-"
+    },
+    {
+      "column": "atom_j",
+      "description": "Higher atom index",
+      "dtype": "UInt8",
+      "family": "graph",
+      "table": "graph_edges",
+      "unit": "-"
+    },
+    {
+      "column": "bond_order",
+      "description": "1, 1.5 (aromatic), 2, 3",
+      "dtype": "Float32",
+      "family": "graph",
+      "table": "graph_edges",
+      "unit": "-"
+    },
+    {
+      "column": "is_aromatic",
+      "description": "Aromatic bond",
+      "dtype": "Boolean",
+      "family": "graph",
+      "table": "graph_edges",
+      "unit": "-"
+    },
+    {
+      "column": "is_conjugated",
+      "description": "Conjugated bond",
+      "dtype": "Boolean",
+      "family": "graph",
+      "table": "graph_edges",
+      "unit": "-"
+    },
+    {
+      "column": "in_ring",
+      "description": "Ring bond",
+      "dtype": "Boolean",
+      "family": "graph",
+      "table": "graph_edges",
+      "unit": "-"
+    },
+    {
+      "column": "length_ang",
+      "description": "Bond length from the B3LYP geometry",
+      "dtype": "Float64",
+      "family": "graph",
+      "table": "graph_edges",
+      "unit": "\u00c5"
+    }
+  ],
+  "gate_6_conditions": {
+    "every_feature_column_documented": true,
+    "graph_nodes_match_atom_counts": true,
+    "no_non_finite_feature_values": true,
+    "only_allowed_inputs_used": true,
+    "per_molecule_tables_cover_every_molecule": true,
+    "rdkit_tables_match_available_molecules": true
+  },
+  "inputs": [
+    "qm9_id",
+    "atom_idx",
+    "element",
+    "atomic_number",
+    "x_ang",
+    "y_ang",
+    "z_ang"
+  ],
+  "output_sha256": {
+    "composition": "3692be4d01a2b933406c71126f3c898d7f9f92f067750cd2aa23c0103667ff7a",
+    "coulomb_eigenvalues": "1135dd9f00bef02d44ae10b276977be6da0426bbadc6bccf5140355b63982a00",
+    "ecfp4": "c4a526ab0068abbd2df0a712e767b7cfb356473ff58314def7063c99f327de51",
+    "graph_edges": "767c926abac7f942c058abb49a754862d9eb9313b4ac5bbe30bd79ab8820906b",
+    "graph_nodes": "bc2c76e44ba35feb0979bcca65a43d032f2c0352485613531727f52d9697d02d",
+    "index": "7773889a22a8b0e1a5f8219690dc56d4f6a6968c487f719ca00b004f77df733b",
+    "maccs": "4201a08b6c82035a99d477744783ba45c0da3b372ac0704e65c33c98f4e21941",
+    "rdkit_descriptors": "39f8a1a207d8cb861fe123f060e120b24dd70d9422899d993b1eaa00d69f0e89"
+  },
+  "rdkit_features_available": 133863,
+  "rdkit_version": "2026.09.1",
+  "row_counts": {
+    "composition": 133885,
+    "coulomb_eigenvalues": 133885,
+    "ecfp4": 133863,
+    "graph_edges": 2488018,
+    "graph_nodes": 2407363,
+    "index": 133885,
+    "maccs": 133863,
+    "rdkit_descriptors": 133863
+  }
+}

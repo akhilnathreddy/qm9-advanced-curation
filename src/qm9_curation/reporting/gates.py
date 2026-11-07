@@ -57,6 +57,13 @@ GATE_CONDITIONS: dict[int, tuple[str, ...]] = {
         "the curated table matches its schema",
         "a second curation run produces a byte-identical table",
     ),
+    6: (
+        "every feature column is in the feature dictionary",
+        "features read only atoms and coordinates (leakage guard)",
+        "invariance tests pass (pose and atom order)",
+        "no non-finite values in any feature table",
+        "a second feature run produces byte-identical tables",
+    ),
 }
 
 # Report files whose boolean conditions must all be true for the gate to pass.
@@ -66,6 +73,7 @@ GATE_REPORTS: dict[int, tuple[tuple[str, str], ...]] = {
     3: (("data_quality/profile.json", "gate_3_conditions"),),
     4: (("validation/validation_report.json", "gate_4_conditions"),),
     5: (("curation/curation_report.json", "gate_5_conditions"),),
+    6: (("features/feature_report.json", "gate_6_conditions"),),
 }
 
 
