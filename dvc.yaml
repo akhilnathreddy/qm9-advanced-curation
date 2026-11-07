@@ -92,3 +92,21 @@ stages:
       - data/interim/validation.parquet
       - reports/validation/validation_report.json:
           cache: false
+
+  # Standardization, duplicate representatives and quality tiers (ADR 0009).
+  curate:
+    cmd: python -m qm9_curation.curate.build
+    deps:
+      - src/qm9_curation/curate
+      - src/qm9_curation/schema.py
+      - src/qm9_curation/units.py
+      - configs/curation_rules.yaml
+      - data/interim/molecules.parquet
+      - data/interim/atoms.parquet
+      - data/interim/validation.parquet
+      - data/interim/molecule_profile.parquet
+      - data/raw/atomref.txt
+    outs:
+      - data/processed/molecules.parquet
+      - reports/curation/curation_report.json:
+          cache: false

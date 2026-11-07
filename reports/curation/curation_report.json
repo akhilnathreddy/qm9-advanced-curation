@@ -1,0 +1,200 @@
+{
+  "atom_references_hartree": {
+    "C": {
+      "cv": 2.981,
+      "g298": -37.861317,
+      "h298": -37.844411,
+      "u0": -37.846772,
+      "u298": -37.845355,
+      "zpve": 0.0
+    },
+    "F": {
+      "cv": 2.981,
+      "g298": -99.733544,
+      "h298": -99.71637,
+      "u0": -99.71873,
+      "u298": -99.717314,
+      "zpve": 0.0
+    },
+    "H": {
+      "cv": 2.981,
+      "g298": -0.510927,
+      "h298": -0.497912,
+      "u0": -0.500273,
+      "u298": -0.498857,
+      "zpve": 0.0
+    },
+    "N": {
+      "cv": 2.981,
+      "g298": -54.598897,
+      "h298": -54.581501,
+      "u0": -54.583861,
+      "u298": -54.582445,
+      "zpve": 0.0
+    },
+    "O": {
+      "cv": 2.981,
+      "g298": -75.079532,
+      "h298": -75.062219,
+      "u0": -75.064579,
+      "u298": -75.063163,
+      "zpve": 0.0
+    }
+  },
+  "duplicates": {
+    "non_representative_records": 231,
+    "structure_groups_with_2_or_more": 222
+  },
+  "gate_5_conditions": {
+    "every_non_gold_record_has_a_reason": true,
+    "every_record_has_a_tier": true,
+    "gold_is_duplicate_free": true,
+    "gold_records_have_no_reason": true,
+    "one_representative_per_structure_group": true,
+    "one_row_per_source_record": true,
+    "schema_valid": true,
+    "source_values_preserved_exactly": true,
+    "unit_conversion_invertible": true
+  },
+  "geometry_identifiers": {
+    "assigned": 133863,
+    "failed": {
+      "AtomValenceException": 4,
+      "ValueError": 18
+    }
+  },
+  "output_sha256": {
+    "molecules": "a9be34a5c0e69a82c65cbaeb16a4f806e46ab9eeb8181033fe73bf7040aea2db"
+  },
+  "rule_impact_if_switched_off": {
+    "R1_hard_check_failed": 5,
+    "R2_fragmented": 227,
+    "R3_structure_changed": 1364,
+    "R4_listed_uncharacterized_but_consistent": 1459,
+    "R5_duplicate_not_representative": 159,
+    "R6_convergence_concern": 5
+  },
+  "rules": [
+    {
+      "id": "R1_hard_check_failed",
+      "predicate": "hard_check_failed",
+      "reason": "A hard check failed (e.g. imaginary frequency; not a true minimum)",
+      "tier": "quarantine"
+    },
+    {
+      "id": "R2_fragmented",
+      "predicate": "fragmented",
+      "reason": "Optimized geometry is more than one molecule",
+      "tier": "bronze"
+    },
+    {
+      "id": "R3_structure_changed",
+      "predicate": "structure_changed",
+      "reason": "Graph perceived from 3D differs from the GDB-17 molecule (proton moved or framework rearranged)",
+      "tier": "bronze"
+    },
+    {
+      "id": "R4_listed_uncharacterized_but_consistent",
+      "predicate": "listed_uncharacterized_but_consistent",
+      "reason": "On the authors' uncharacterized list, but the 3D structure is the GDB-17 molecule",
+      "tier": "silver"
+    },
+    {
+      "id": "R5_duplicate_not_representative",
+      "predicate": "duplicate_not_representative",
+      "reason": "Same molecule as another record; that record is the group representative",
+      "tier": "silver"
+    },
+    {
+      "id": "R6_convergence_concern",
+      "predicate": "convergence_concern",
+      "reason": "Authors list the molecule as difficult to converge",
+      "tier": "silver"
+    }
+  ],
+  "tier_counts": {
+    "bronze": 1591,
+    "gold": 130659,
+    "quarantine": 5,
+    "silver": 1630
+  },
+  "waterfall": [
+    {
+      "after_rule": null,
+      "matched": null,
+      "newly_out_of_gold": null,
+      "tiers": {
+        "bronze": 0,
+        "gold": 133885,
+        "quarantine": 0,
+        "silver": 0
+      }
+    },
+    {
+      "after_rule": "R1_hard_check_failed",
+      "matched": 5,
+      "newly_out_of_gold": 5,
+      "tiers": {
+        "bronze": 0,
+        "gold": 133880,
+        "quarantine": 5,
+        "silver": 0
+      }
+    },
+    {
+      "after_rule": "R2_fragmented",
+      "matched": 229,
+      "newly_out_of_gold": 227,
+      "tiers": {
+        "bronze": 227,
+        "gold": 133653,
+        "quarantine": 5,
+        "silver": 0
+      }
+    },
+    {
+      "after_rule": "R3_structure_changed",
+      "matched": 1364,
+      "newly_out_of_gold": 1364,
+      "tiers": {
+        "bronze": 1591,
+        "gold": 132289,
+        "quarantine": 5,
+        "silver": 0
+      }
+    },
+    {
+      "after_rule": "R4_listed_uncharacterized_but_consistent",
+      "matched": 1466,
+      "newly_out_of_gold": 1466,
+      "tiers": {
+        "bronze": 1591,
+        "gold": 130823,
+        "quarantine": 5,
+        "silver": 1466
+      }
+    },
+    {
+      "after_rule": "R5_duplicate_not_representative",
+      "matched": 231,
+      "newly_out_of_gold": 159,
+      "tiers": {
+        "bronze": 1591,
+        "gold": 130664,
+        "quarantine": 5,
+        "silver": 1625
+      }
+    },
+    {
+      "after_rule": "R6_convergence_concern",
+      "matched": 11,
+      "newly_out_of_gold": 5,
+      "tiers": {
+        "bronze": 1591,
+        "gold": 130659,
+        "quarantine": 5,
+        "silver": 1630
+      }
+    }
+  ]
+}

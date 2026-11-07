@@ -94,8 +94,8 @@ stages:
       nfiles: 3
     - path: src/qm9_curation/schema.py
       hash: md5
-      md5: 653c4ecfad2ff94915c152877476b5c2
-      size: 3784
+      md5: 4b891b4572ab9ca8a30b69d1d7342344
+      size: 6730
     outs:
     - path: data/interim/atoms.parquet
       hash: md5
@@ -143,8 +143,8 @@ stages:
       nfiles: 9
     - path: src/qm9_curation/schema.py
       hash: md5
-      md5: 653c4ecfad2ff94915c152877476b5c2
-      size: 3784
+      md5: 4b891b4572ab9ca8a30b69d1d7342344
+      size: 6730
     outs:
     - path: data/interim/geometric_duplicate_pairs.parquet
       hash: md5
@@ -195,8 +195,8 @@ stages:
       size: 486752
     - path: src/qm9_curation/checks
       hash: md5
-      md5: ff6c8028bc377d8340ca453270024b7a.dir
-      size: 27595
+      md5: 84b240a23d0dce7c9831c3955860b9db.dir
+      size: 26951
       nfiles: 7
     - path: src/qm9_curation/units.py
       hash: md5
@@ -211,3 +211,52 @@ stages:
       hash: md5
       md5: 77acf3cf3b5dfe31e9dd48e00e597f26
       size: 8938
+  curate:
+    cmd: python -m qm9_curation.curate.build
+    deps:
+    - path: configs/curation_rules.yaml
+      hash: md5
+      md5: 1a03feaf4794f8a556f073596d486217
+      size: 1864
+    - path: data/interim/atoms.parquet
+      hash: md5
+      md5: 210708249f7b6a91d3419df0a0d858c9
+      size: 66660328
+    - path: data/interim/molecule_profile.parquet
+      hash: md5
+      md5: f1d9766f2d12500f6c5fce3ceb56ae4e
+      size: 9677575
+    - path: data/interim/molecules.parquet
+      hash: md5
+      md5: 0fc3ef058e184dc8cb6fc99c9ae26259
+      size: 15820245
+    - path: data/interim/validation.parquet
+      hash: md5
+      md5: bea75c4970fcc20959ffdfcfe785bb2b
+      size: 5376266
+    - path: data/raw/atomref.txt
+      hash: md5
+      md5: 2d30b2df8329d8fd805c0a4d158a0a0f
+      size: 964
+    - path: src/qm9_curation/curate
+      hash: md5
+      md5: 978825a011a841117bd25f9fc43115aa.dir
+      size: 19746
+      nfiles: 4
+    - path: src/qm9_curation/schema.py
+      hash: md5
+      md5: 4b891b4572ab9ca8a30b69d1d7342344
+      size: 6730
+    - path: src/qm9_curation/units.py
+      hash: md5
+      md5: 75de640e2cfb69be094c9c81261764a9
+      size: 2648
+    outs:
+    - path: data/processed/molecules.parquet
+      hash: md5
+      md5: 632d71c10f02ba87ea2c913dc7618c3d
+      size: 29466810
+    - path: reports/curation/curation_report.json
+      hash: md5
+      md5: f4e343765433a0700b25db6bb28869c2
+      size: 4831
