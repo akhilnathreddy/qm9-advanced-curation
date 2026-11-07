@@ -44,6 +44,12 @@ GATE_CONDITIONS: dict[int, tuple[str, ...]] = {
         "clean checks pass (no clashes, no missing values, GDB-17 SMILES parse)",
         "a second profile run produces byte-identical outputs, including the HTML",
     ),
+    4: (
+        "every registered check has a passing and a failing test case",
+        "one flag row per molecule with a result for every check",
+        "every tolerance is set and justified in ADR 0008",
+        "a second validation run produces a byte-identical flag table",
+    ),
 }
 
 # Report files whose boolean conditions must all be true for the gate to pass.
@@ -51,6 +57,7 @@ GATE_REPORTS: dict[int, tuple[tuple[str, str], ...]] = {
     1: (("data_quality/inventory.json", "gate_1_conditions"),),
     2: (("data_quality/parse_report.json", "gate_2_conditions"),),
     3: (("data_quality/profile.json", "gate_3_conditions"),),
+    4: (("validation/validation_report.json", "gate_4_conditions"),),
 }
 
 

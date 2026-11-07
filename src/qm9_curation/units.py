@@ -7,6 +7,7 @@ explicitly rather than taken from ``scipy.constants`` so that a SciPy upgrade
 that moves to a newer CODATA release cannot silently change released numbers.
 """
 
+import math
 from typing import Final
 
 CODATA_RELEASE: Final = "CODATA 2018"
@@ -45,3 +46,20 @@ def thermal_energy_hartree(temperature_k: float = QM9_TEMPERATURE_K) -> float:
 def zpve_from_wavenumbers_hartree(wavenumbers_inv_cm: list[float]) -> float:
     """Harmonic zero-point vibrational energy, 1/2 * sum(nu), in Hartree."""
     return 0.5 * sum(wavenumbers_inv_cm) * INV_CM_TO_HARTREE
+
+
+# --- Rotational constants -----------------------------------------------------
+PLANCK_J_S: Final = 6.62607015e-34  # exact (SI 2019)
+AMU_KG: Final = 1.66053906660e-27
+# B [GHz] = ROT_CONST_GHZ_AMU_ANG2 / I [amu * Angstrom^2]
+ROT_CONST_GHZ_AMU_ANG2: Final = PLANCK_J_S / (8 * math.pi**2 * AMU_KG * 1e-20) / 1e9
+
+# Most abundant isotope masses (amu), as used by Gaussian for rotational constants.
+# Source: NIST Atomic Weights and Isotopic Compositions.
+ISOTOPE_MASS_AMU: Final = {
+    "H": 1.00782503223,
+    "C": 12.0,
+    "N": 14.00307400443,
+    "O": 15.99491461957,
+    "F": 18.99840316273,
+}

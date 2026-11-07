@@ -149,3 +149,22 @@ Group ids are the smallest `qm9_id` in the group; singletons have their own id.
 
 `qm9_id_a < qm9_id_b`, `max_distance_diff_ang`: pairs with near-identical
 relaxed geometry (ADR 0007).
+
+## Validation table (`data/interim/validation.parquet`, Phase 4)
+
+One row per molecule. For each check in `checks/registry.py`:
+`<check>__pass` (Boolean) and, where meaningful, `<check>__residual`
+(Float64; units: Ha for gap / H−U, e for Mulliken, relative for ZPVE and
+rotational constants, count for fragments and imaginary modes, robust z for
+the statistical check).
+
+| Column | Meaning |
+|---|---|
+| identity_class | consistent / proton_moved / rearranged / fragmented / unperceived (ADR 0008) |
+| geom_bond_orders_assigned | RDKit could assign integer bond orders to the 3D structure |
+| geom_inchi_matches_gdb | Stereo-free InChI of the 3D structure equals that of the GDB-17 SMILES |
+| zpve_consistent_set | Frequency set (0/1) whose ZPVE matches the stored value |
+| zpve_other_set_residual | Relative ZPVE residual of the other set (doubled records only) |
+| linear_by_geometry, smallest_moment_amu_ang2 | Linearity from the inertia tensor |
+| n_failed_hard / _identity / _soft | Failed checks per severity |
+| flag_bitmask | Bit *i* set when check *i* (registry order) failed |

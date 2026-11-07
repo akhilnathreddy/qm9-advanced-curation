@@ -1,15 +1,24 @@
-# Tolerances for each validation check (Phase 4). Every value set here needs a
-# justification in an ADR; null means "not yet decided".
-format: {}
+# Tolerances for the Phase 4 checks. Every value is justified in
+# docs/adr/0008-validation-tolerances.md, from print precision or an observed
+# gap in the residual distribution, never tuned to make records pass.
 identity:
-  bond_perception: rdkit.rdDetermineBonds
+  connectivity: rdkit.rdDetermineBonds.DetermineConnectivity(useHueckel=True)
   total_charge: 0
 physics:
-  gap_abs_tol_hartree: null
-  h_minus_u_abs_tol_hartree: null
-  zpve_rel_tol: null
-  rotational_constant_rel_tol: null
-  mulliken_sum_abs_tol: null
+  # gap, HOMO, LUMO printed to 4 decimals: rounding alone allows 3 x 0.5e-4.
+  gap_abs_tol_hartree: 1.5e-4
+  # H and U printed to 6 decimals: rounding alone allows 2 x 0.5e-6 (+ margin).
+  h_minus_u_abs_tol_hartree: 1.5e-6
+  # Mulliken charges printed to 6 decimals: n_atoms x 0.5e-6 per molecule.
+  mulliken_per_atom_tol: 5.0e-7
+  # Observed max for single-set records 2.3e-5; ZPVE printed to 6 decimals.
+  zpve_rel_tol: 1.0e-4
+  # Observed max 1.4e-5 over all molecules; constants printed to ~6 significant digits.
+  rotational_constant_rel_tol: 1.0e-4
+  # Smallest principal moment: linear molecules <= 0.0022, next (water) 0.632.
+  linear_moment_amu_ang2: 0.1
+  # A above this is a numerically "infinite" constant of a linear molecule.
+  rot_a_infinite_ghz: 1.0e+4
 statistical:
-  robust_z_threshold: null
-  stratify_by: [formula, n_heavy]
+  robust_z_review: 6.0
+  stratify_by: n_heavy

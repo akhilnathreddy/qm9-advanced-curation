@@ -33,5 +33,10 @@ Baseline ladder levels 0–5 (plan v2 §7.1). No models beyond the ladder in v1.
 - Results much better than published numbers for the same model and split
   trigger a leakage investigation before reporting.
 
+## Preliminary results (descriptive, before freezing)
+- RQ1 (Phase 4): beyond the 3,054 listed, 5 records fail the independent
+  identity check; conversely 1,466 listed records pass it
+  (`docs/validation.md`). Recorded here so the frozen plan can reference it.
+
 ## Amendments
 None.
