@@ -1,0 +1,41 @@
+{
+  "checks": {
+    "features/feature_report.json:every_feature_column_documented": true,
+    "features/feature_report.json:graph_nodes_match_atom_counts": true,
+    "features/feature_report.json:no_non_finite_feature_values": true,
+    "features/feature_report.json:only_allowed_inputs_used": true,
+    "features/feature_report.json:per_molecule_tables_cover_every_molecule": true,
+    "features/feature_report.json:rdkit_tables_match_available_molecules": true
+  },
+  "conditions": [
+    "every feature column is in the feature dictionary",
+    "features read only atoms and coordinates (leakage guard)",
+    "invariance tests pass (pose and atom order)",
+    "no non-finite values in any feature table",
+    "a second feature run produces byte-identical tables"
+  ],
+  "environment": {
+    "constants": "CODATA 2018",
+    "git": {
+      "commit": "8a0cd936d618c0af4e4f70476be59f5b4840ca99",
+      "dirty": true
+    },
+    "implementation": "CPython",
+    "packages": {
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "pandas": "3.1.1",
+      "pandera": "0.35.0",
+      "polars": "2.1.0",
+      "pyarrow": "26.0.1",
+      "pyyaml": "6.0.3",
+      "rdkit": "2026.9.1",
+      "scipy": "1.18.1"
+    },
+    "platform": "Darwin-arm64",
+    "python": "3.12.5",
+    "qm9_curation_version": "0.1.0"
+  },
+  "passed": true,
+  "phase": 6
+}

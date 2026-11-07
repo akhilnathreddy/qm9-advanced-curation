@@ -16,3 +16,4 @@ that supersedes the old one and set the old one's status to
 | [0007](0007-duplicate-definitions.md) | What counts as a duplicate | Accepted |
 | [0008](0008-validation-tolerances.md) | Validation methods and tolerances | Accepted |
 | [0009](0009-standardization-and-tiers.md) | Standardization and quality tiers | Accepted |
+| [0010](0010-features.md) | Feature inputs, families and storage | Accepted |

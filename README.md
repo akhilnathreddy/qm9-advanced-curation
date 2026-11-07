@@ -9,7 +9,7 @@ format, chemical-identity and physics checks, assigns quality tiers instead of
 deleting records, and produces ML-ready tables, a split suite and baseline
 benchmarks. The full plan is in `docs/plan_v2.md`.
 
-**Current phase:** 5 complete — curated table with quality tiers in `data/processed/molecules.parquet` (Gate 5; `docs/curation.md`). Next: Phase 6, feature engineering.
+**Current phase:** 6 complete — leakage-guarded feature tables in `data/processed/features/` (Gate 6; `docs/features.md`). Next: Phase 7, statistical and multi-fidelity validation.
 
 ## Setup
 
@@ -32,6 +32,7 @@ make gate2    # Phase 2 exit gate: lossless parse, schemas, byte-identical rebui
 make gate3    # Phase 3 exit gate: profile, triage, byte-identical rebuild
 make gate4    # Phase 4 exit gate: all checks, tolerances set, byte-identical rebuild
 make gate5    # Phase 5 exit gate: tiers, source values preserved, byte-identical rebuild
+make gate6    # Phase 6 exit gate: features documented, leakage-guarded, byte-identical rebuild
 make fixture  # rebuild the 1k test fixture from the raw archive
 ```
 

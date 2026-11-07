@@ -198,6 +198,10 @@ stages:
       md5: 84b240a23d0dce7c9831c3955860b9db.dir
       size: 26951
       nfiles: 7
+    - path: src/qm9_curation/parallel.py
+      hash: md5
+      md5: 4588871df3f6d01fa1f5e6e1fbd3e06c
+      size: 1467
     - path: src/qm9_curation/units.py
       hash: md5
       md5: 75de640e2cfb69be094c9c81261764a9
@@ -243,6 +247,10 @@ stages:
       md5: 978825a011a841117bd25f9fc43115aa.dir
       size: 19746
       nfiles: 4
+    - path: src/qm9_curation/parallel.py
+      hash: md5
+      md5: 4588871df3f6d01fa1f5e6e1fbd3e06c
+      size: 1467
     - path: src/qm9_curation/schema.py
       hash: md5
       md5: 4b891b4572ab9ca8a30b69d1d7342344
@@ -260,3 +268,37 @@ stages:
       hash: md5
       md5: f4e343765433a0700b25db6bb28869c2
       size: 4831
+  features:
+    cmd: python -m qm9_curation.features.build
+    deps:
+    - path: data/interim/atoms.parquet
+      hash: md5
+      md5: 210708249f7b6a91d3419df0a0d858c9
+      size: 66660328
+    - path: src/qm9_curation/checks/identity.py
+      hash: md5
+      md5: 37f696f5ffbd419d8b19814ed16e629c
+      size: 5338
+    - path: src/qm9_curation/features
+      hash: md5
+      md5: e2c3f9b234cfc54515f32d75efff38b7.dir
+      size: 20924
+      nfiles: 6
+    - path: src/qm9_curation/parallel.py
+      hash: md5
+      md5: 4588871df3f6d01fa1f5e6e1fbd3e06c
+      size: 1467
+    - path: src/qm9_curation/profiling/geometry.py
+      hash: md5
+      md5: 90bd756ba3f4636d5e884503f8495901
+      size: 4600
+    outs:
+    - path: data/processed/features
+      hash: md5
+      md5: bee22da8b640babdf8f6d36ab1ac9420.dir
+      size: 65336988
+      nfiles: 8
+    - path: reports/features/feature_report.json
+      hash: md5
+      md5: cc827a06fb817f26ad2219ff62e68b78
+      size: 65185

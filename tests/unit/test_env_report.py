@@ -17,3 +17,9 @@ def test_report_is_deterministic(tmp_path: Path) -> None:
     env_report.main(["--out", str(b)])
     assert a.read_bytes() == b.read_bytes()
     assert "timestamp" not in json.loads(a.read_text())
+
+
+def test_process_pool_uses_spawn() -> None:
+    from qm9_curation import parallel
+
+    assert parallel._CONTEXT.get_start_method() == "spawn"
