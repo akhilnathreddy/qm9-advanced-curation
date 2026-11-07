@@ -64,6 +64,14 @@ GATE_CONDITIONS: dict[int, tuple[str, ...]] = {
         "no non-finite values in any feature table",
         "a second feature run produces byte-identical tables",
     ),
+    7: (
+        "external G4(MP2) data verified (published MD5, CC0) and its counts match the paper",
+        "atom references checked; values withheld wherever a reference is invalid",
+        "distribution tests, correlations and residual tables cover every target and tier",
+        "every Layer 4 flag is soft: one review row per record, tiers unchanged",
+        "unresolved uncertainties are listed in docs/limitations.md",
+        "a second review run produces byte-identical tables",
+    ),
 }
 
 # Report files whose boolean conditions must all be true for the gate to pass.
@@ -74,6 +82,7 @@ GATE_REPORTS: dict[int, tuple[tuple[str, str], ...]] = {
     4: (("validation/validation_report.json", "gate_4_conditions"),),
     5: (("curation/curation_report.json", "gate_5_conditions"),),
     6: (("features/feature_report.json", "gate_6_conditions"),),
+    7: (("statistical/statistical_report.json", "gate_7_conditions"),),
 }
 
 

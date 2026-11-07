@@ -15,7 +15,7 @@ SPLITS_DIR = DATA_DIR / "splits"
 EXTERNAL_DIR = DATA_DIR / "external"
 REPORTS_DIR = PROJECT_ROOT / "reports"
 
-CONFIG_NAMES = ("dataset", "validation", "curation_rules", "splits")
+CONFIG_NAMES = ("dataset", "validation", "curation_rules", "splits", "external", "statistical")
 
 
 def load_config(name: str, config_dir: Path = CONFIG_DIR) -> dict[str, Any]:

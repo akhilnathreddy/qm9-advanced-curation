@@ -1,0 +1,44 @@
+# External reference data (Phase 7, ADR 0011). Fetched and verified exactly
+# like the QM9 source files; never used to change a QM9 value or tier.
+kim2019:
+  name: QM9-G4(MP2)
+  paper: >-
+    Kim, Park, Choi. Energy refinement and analysis of structures in the QM9
+    database via a highly accurate quantum chemical method. Sci. Data 6, 109 (2019).
+  paper_doi: 10.1038/s41597-019-0121-7
+  collection_doi: 10.6084/m9.figshare.c.4351631.v1
+  # License of the article below, as reported by the figshare API on 2026-11-07.
+  license: CC0-1.0
+  license_url: https://creativecommons.org/publicdomain/zero/1.0/
+  # Only the post-processed tables are fetched; the 14 Gaussian-log archives
+  # (~10 GB) are not needed for anything computed here.
+  files:
+    - name: data_publication_main.v2.tar.gz
+      description: Parsed G4(MP2) energies, atom references and the authors' index lists
+      article_id: 7951892
+      article_doi: 10.6084/m9.figshare.7951892.v1
+      file_id: 15134663
+      url: https://ndownloader.figshare.com/files/15134663
+      size_bytes: 30349246
+      md5: ca3e8088474768add0464e3c8e3b4da7
+  # Archive members read by the pipeline. Nothing else is extracted.
+  members:
+    molecules: data_publication/result.csv
+    atoms: data_publication/atom_ref/result.csv
+    authors_atomization: data_publication/atomization.csv
+    not_converged: data_publication/index_not_converged.txt
+    multi_molecule: data_publication/index_multi_mol.txt
+    duplicate_pairs: data_publication/index_duplicated_structure.txt
+    atom_logs: data_publication/atom_ref/{element}.log
+  # Counts stated in the paper (Data Records, Technical Validation).
+  expected:
+    n_molecules: 133858
+    n_not_converged: 27
+    n_multi_molecule: 229
+    n_duplicate_pairs: 252
+    n_energy_change_above_1_kcal_mol: 23
+  # Electronic ground-state spin multiplicities of the reference atoms.
+  ground_state_multiplicity: {H: 2, C: 3, N: 4, O: 3, F: 2}
+  # N I 2s2.2p3 2D(5/2) above the 4S(3/2) ground level (NIST ASD, retrieved
+  # 2026-11-07). Only compared with the fitted per-N offset; never applied.
+  n_doublet_excitation_ev: 2.3835298

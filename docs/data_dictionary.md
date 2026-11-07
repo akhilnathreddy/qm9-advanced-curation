@@ -195,3 +195,40 @@ Validated by `schema.CuratedMolecules`. One row per source record.
 | source_* | source units | The 15 source properties, unchanged |
 | zpve_consistent_set, flag_bitmask, n_failed_* | — | From Phase 4 |
 | source_member, source_sha256, source_archive_sha256 | — | Lineage |
+
+## Review table (`data/processed/review.parquet`, Phase 7)
+
+One row per source record. Every score is soft (ADR 0011); `quality_tier`
+is copied from the curated table and never changed here.
+
+| Column(s) | Unit | Meaning |
+|---|---|---|
+| quality_tier | — | Copied from the curated table |
+| composition_residual_ev, composition_robust_z | eV, — | U0 atomization minus the per-element fit (Gold) |
+| thermal_energy_ev, thermal_energy_robust_z | eV, — | U298 − U0 |
+| minus_ts_ev, minus_ts_robust_z | eV, — | G298 − H298 |
+| g4mp2_status | — | ok / geometry_changed / not_converged (Kim et al.) |
+| delta_residual_ev, delta_robust_z | eV, — | B3LYP − G4(MP2) U0 minus the per-element fit (Gold) |
+| oof_residual_{u0_atomization_ev,gap_ev}, oof_robust_z_* | eV, — | Out-of-fold ridge residuals |
+| suspicion_score | — | Max \|oof robust z\| over the two targets |
+| review_reasons, n_review_reasons | — | Comma-separated soft reasons |
+
+Robust z = (x − median) / (1.4826 · MAD) within heavy-atom strata (1–4 pooled);
+a reason is raised when |z| > 6.
+
+## External cross-reference (`data/processed/g4mp2_xref.parquet`, Phase 7)
+
+G4(MP2) values of Kim et al. (2019, CC0), joined on `qm9_id`; null where the
+calculation did not converge.
+
+| Column(s) | Unit | Meaning |
+|---|---|---|
+| g4mp2_status | — | ok / geometry_changed (> 1 kcal/mol) / not_converged |
+| g4mp2_u0_ha | Ha | G4(MP2) internal energy at 0 K |
+| g4mp2_b3lyp_ha, g4mp2_zpve_ha | Ha | B3LYP energy and unscaled ZPE at the re-optimized geometry |
+| b3lyp_reopt_energy_change_ha | Ha | g4mp2_b3lyp − (QM9 U0 − ZPVE); negative = re-optimization went lower |
+| g4mp2_u0_atomization_ev, g4mp2_atomization_missing_reason | eV | Null for every N-containing molecule: the published N reference is a doublet |
+| delta_u0_total_ev | eV | QM9 U0 − G4(MP2) U0 |
+| delta_u0_atomization_ev | eV | AE(B3LYP) − AE(G4(MP2)), only where references are valid |
+| delta_residual_ev, delta_robust_z | eV, — | As in the review table |
+| kim_not_converged, kim_multi_molecule | — | On the authors' lists |

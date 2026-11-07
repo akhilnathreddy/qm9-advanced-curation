@@ -21,6 +21,7 @@ dist/
 !/data/**/*.dvc
 # Provenance record for the raw files is versioned in git.
 !/data/raw/MANIFEST.json
+!/data/external/kim2019/MANIFEST.json
 
 # MLflow local store
 mlruns/

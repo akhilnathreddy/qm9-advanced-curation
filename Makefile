@@ -1,4 +1,4 @@
-.PHONY: sync lint format typecheck test check repro repro-ci fixture gate0 gate1 gate2 gate3 gate4 gate5 gate6
+.PHONY: sync lint format typecheck test check repro repro-ci fixture gate0 gate1 gate2 gate3 gate4 gate5 gate6 gate7
 
 sync:
 	uv sync --locked
@@ -78,3 +78,12 @@ gate6: sync check repro
 	uv run dvc repro --force --single-item features
 	uv run python -c "import json,sys; a,b=(json.load(open(p))['output_sha256'] for p in ('/tmp/qm9_features_first.json','reports/features/feature_report.json')); print('PASS  feature tables byte-identical across runs' if a==b else 'FAIL  feature tables differ across runs'); sys.exit(a!=b)"
 	uv run python -m qm9_curation.reporting.gates --phase 6
+
+# Phase 7 exit gate: review conditions, limitations recorded, and a forced
+# second review run must reproduce both tables byte-for-byte.
+gate7: sync check repro
+	grep -q "^## Unresolved after Phase 7" docs/limitations.md
+	cp reports/statistical/statistical_report.json /tmp/qm9_review_first.json
+	uv run dvc repro --force --single-item review
+	uv run python -c "import json,sys; a,b=(json.load(open(p))['output_sha256'] for p in ('/tmp/qm9_review_first.json','reports/statistical/statistical_report.json')); print('PASS  review tables byte-identical across runs' if a==b else 'FAIL  review tables differ across runs'); sys.exit(a!=b)"
+	uv run python -m qm9_curation.reporting.gates --phase 7

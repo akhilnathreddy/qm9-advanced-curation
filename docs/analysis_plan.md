@@ -37,6 +37,17 @@ Baseline ladder levels 0–5 (plan v2 §7.1). No models beyond the ladder in v1.
 - RQ1 (Phase 4): beyond the 3,054 listed, 5 records fail the independent
   identity check; conversely 1,466 listed records pass it
   (`docs/validation.md`). Recorded here so the frozen plan can reference it.
+- RQ1 corroboration (Phase 7): Kim et al.'s 229 multi-molecule records are
+  exactly our 229 `fragmented` records; all 453 of our exact duplicates are in
+  their 252 duplicate pairs (`docs/statistical_validation.md`, §2).
+- RQ4 (Phase 7): B3LYP − G4(MP2) U0 residual after a per-element fit, Gold:
+  SD 0.153 eV, MAE 0.123 eV (n = 130,621). Without N (valid atom references):
+  AE difference mean +0.171 eV, MAE 0.196 eV (n = 50,929). Phase 9 compares
+  these with model MAE; the comparison itself is not yet made.
+- RQ2 (Phase 7, weak ridge model, exploratory only): Bronze has larger
+  out-of-fold |residual| than Gold for U0 atomization (P = 0.60, p ≈ 10⁻⁴⁵);
+  Silver does not (P = 0.50, p = 0.65). The confirmatory test uses the
+  Phase 9 models.
 
 ## Amendments
 None.

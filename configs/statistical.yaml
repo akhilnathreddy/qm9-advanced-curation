@@ -1,0 +1,22 @@
+# Phase 7 statistical, scientific and multi-fidelity validation (ADR 0011).
+# Every flag produced here is soft: it routes a record to review and never
+# changes its tier or removes it.
+
+# Same threshold as Phase 3/4 robust z-scores (median / MAD x 1.4826).
+robust_z_review: 6.0
+# Rows listed by hand-review tables (largest residuals first).
+top_n: 25
+# Smallest tier compared against Gold in the distribution tests.
+min_tier_size: 20
+
+multi_fidelity:
+  # The paper's criterion for a "chemically meaningful" geometry change:
+  # |E_B3LYP(QM9) - E_B3LYP(re-optimized)| > 1 kcal/mol.
+  geometry_change_hartree: 1.59e-3
+
+suspicion:
+  # Out-of-fold ridge regression on composition + ECFP4 counts; a fixed,
+  # untuned penalty, because the score only ranks records for review.
+  targets: [u0_atomization_ev, gap_ev]
+  n_folds: 5
+  ridge_alpha: 1.0
