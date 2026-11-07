@@ -1,5 +1,5 @@
 # Stage graph (plan v2 §8). Later phases add:
-# parse -> validate -> tier -> features -> splits -> benchmark
+# parse -> validate -> tier -> features -> review -> splits -> benchmark
 stages:
   env_report:
     cmd: python -m qm9_curation.env_report --out reports/gates/env.json
@@ -125,4 +125,42 @@ stages:
     outs:
       - data/processed/features
       - reports/features/feature_report.json:
+          cache: false
+
+  # External G4(MP2) reference tables of Kim et al. 2019 (CC0; ADR 0011).
+  acquire_external:
+    cmd: python -m qm9_curation.external.acquire
+    deps:
+      - src/qm9_curation/external/acquire.py
+      - src/qm9_curation/acquire.py
+      - configs/external.yaml
+    outs:
+      - data/external/kim2019/data_publication_main.v2.tar.gz:
+          persist: true
+      - data/external/kim2019/MANIFEST.json:
+          cache: false
+          persist: true
+
+  # Statistical, scientific and multi-fidelity review; soft flags only (ADR 0011).
+  review:
+    cmd: python -m qm9_curation.review.build
+    deps:
+      - src/qm9_curation/review
+      - src/qm9_curation/external/kim2019.py
+      - src/qm9_curation/curate/build.py
+      - src/qm9_curation/curate/tiers.py
+      - src/qm9_curation/profiling/properties.py
+      - src/qm9_curation/features/molecular.py
+      - src/qm9_curation/units.py
+      - configs/statistical.yaml
+      - configs/external.yaml
+      - configs/dataset.yaml
+      - data/processed/molecules.parquet
+      - data/processed/features
+      - data/external/kim2019/data_publication_main.v2.tar.gz
+      - data/external/kim2019/MANIFEST.json
+    outs:
+      - data/processed/review.parquet
+      - data/processed/g4mp2_xref.parquet
+      - reports/statistical/statistical_report.json:
           cache: false

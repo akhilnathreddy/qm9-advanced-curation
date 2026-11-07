@@ -1,0 +1,2258 @@
+{
+  "composition": {
+    "coefficients_ev": {
+      "intercept": 0.8472988901989237,
+      "n_C": -6.276849527360213,
+      "n_F": -4.113465182780261,
+      "n_H": -2.8188248942233476,
+      "n_N": -4.595902508605434,
+      "n_O": -4.470227272407869
+    },
+    "descriptor_rates_top_vs_gold": {
+      "bridged polycycle": {
+        "gold": 0.12283884003398159,
+        "top": 0.68
+      },
+      "conjugated triple bonds": {
+        "gold": 0.031884523836857775,
+        "top": 0.0
+      },
+      "strained small ring": {
+        "gold": 0.6159851215760108,
+        "top": 0.72
+      },
+      "three or more rings": {
+        "gold": 0.22923793998117237,
+        "top": 0.72
+      }
+    },
+    "fit_on": "gold",
+    "largest_residuals": [
+      {
+        "composition_residual_ev": 5.84776308738256,
+        "composition_robust_z": 5.490061238570189,
+        "formula": "C2HN5O2",
+        "n_bridgeheads": 0,
+        "n_rings": 1,
+        "n_triple_bonds": 0,
+        "notes": "no strain or conjugation descriptor",
+        "qm9_id": 129158,
+        "quality_tier": "quarantine",
+        "smallest_ring": 7,
+        "smiles_geometry": "[H]/N=c1\\nnonnc1=O"
+      },
+      {
+        "composition_residual_ev": 5.38518722307446,
+        "composition_robust_z": 5.394201653986887,
+        "formula": "CN4O3",
+        "n_bridgeheads": 0,
+        "n_rings": 1,
+        "n_triple_bonds": 0,
+        "notes": "no strain or conjugation descriptor",
+        "qm9_id": 21988,
+        "quality_tier": "gold",
+        "smallest_ring": 5,
+        "smiles_geometry": "O=[N+]([O-])c1nnon1"
+      },
+      {
+        "composition_residual_ev": 5.704659252389419,
+        "composition_robust_z": 5.357103974077683,
+        "formula": "C7H9NO",
+        "n_bridgeheads": 2,
+        "n_rings": 5,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 41214,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C1C[C@]23C[C@]4(CO[C@@H]24)N13"
+      },
+      {
+        "composition_residual_ev": 3.4594480310684155,
+        "composition_robust_z": 5.208970615407746,
+        "formula": "N4O",
+        "n_bridgeheads": 0,
+        "n_rings": 1,
+        "n_triple_bonds": 0,
+        "notes": "no strain or conjugation descriptor",
+        "qm9_id": 177,
+        "quality_tier": "gold",
+        "smallest_ring": 5,
+        "smiles_geometry": "n1nnon1"
+      },
+      {
+        "composition_residual_ev": 5.502630371024878,
+        "composition_robust_z": 5.169399658424662,
+        "formula": "C7H8N2",
+        "n_bridgeheads": 2,
+        "n_rings": 4,
+        "n_triple_bonds": 1,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 35341,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C#C[C@H]1NC23CN(C2)[C@@H]13"
+      },
+      {
+        "composition_residual_ev": 5.381889550941494,
+        "composition_robust_z": 5.057219791605314,
+        "formula": "C6H8N2O",
+        "n_bridgeheads": 2,
+        "n_rings": 4,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 22433,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "O/N=C1\\CC23CN(C2)[C@@H]13"
+      },
+      {
+        "composition_residual_ev": 4.548044210042313,
+        "composition_robust_z": 5.040219715861321,
+        "formula": "CHN5O",
+        "n_bridgeheads": 0,
+        "n_rings": 1,
+        "n_triple_bonds": 0,
+        "notes": "no strain or conjugation descriptor",
+        "qm9_id": 3840,
+        "quality_tier": "gold",
+        "smallest_ring": 6,
+        "smiles_geometry": "N=c1nnonn1"
+      },
+      {
+        "composition_residual_ev": 5.25300987747579,
+        "composition_robust_z": 4.937478145034425,
+        "formula": "C7H7NO",
+        "n_bridgeheads": 2,
+        "n_rings": 4,
+        "n_triple_bonds": 1,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 35343,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C#C[C@H]1OC23CN(C2)[C@@H]13"
+      },
+      {
+        "composition_residual_ev": 5.12516947020319,
+        "composition_robust_z": 4.8187020769899345,
+        "formula": "C8H9N",
+        "n_bridgeheads": 0,
+        "n_rings": 3,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, three or more rings",
+        "qm9_id": 133858,
+        "quality_tier": "bronze",
+        "smallest_ring": 4,
+        "smiles_geometry": "C[C@H]1[C-]2CC=C3C=[N+]1[C@@H]32"
+      },
+      {
+        "composition_residual_ev": 5.050469470375717,
+        "composition_robust_z": 4.749298572638513,
+        "formula": "C2HN5O2",
+        "n_bridgeheads": 0,
+        "n_rings": 1,
+        "n_triple_bonds": 0,
+        "notes": "no strain or conjugation descriptor",
+        "qm9_id": 131994,
+        "quality_tier": "gold",
+        "smallest_ring": 6,
+        "smiles_geometry": "O=[N+]([O-])c1cnnnn1"
+      },
+      {
+        "composition_residual_ev": 5.015717476104257,
+        "composition_robust_z": 4.7170106182715745,
+        "formula": "C6H9NO2",
+        "n_bridgeheads": 2,
+        "n_rings": 4,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 114276,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "OC[C@H]1OC23CN(C2)[C@@H]13"
+      },
+      {
+        "composition_residual_ev": 5.001855330630505,
+        "composition_robust_z": 4.704131348178809,
+        "formula": "C6H8N2O",
+        "n_bridgeheads": 4,
+        "n_rings": 6,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 90217,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "O[C@H]1C[C@@]23N[C@@H]4[C@H]2N[C@]413"
+      },
+      {
+        "composition_residual_ev": 4.97242827222621,
+        "composition_robust_z": 4.676790772800911,
+        "formula": "C6H7N3",
+        "n_bridgeheads": 5,
+        "n_rings": 6,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 37842,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C1N=C2N[C@@H]3[C@H]4N[C@@]13[C@@H]24"
+      },
+      {
+        "composition_residual_ev": 4.930251725903332,
+        "composition_robust_z": 4.637604693510303,
+        "formula": "C6H7NO2",
+        "n_bridgeheads": 4,
+        "n_rings": 6,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 90220,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "O[C@H]1C[C@@]23O[C@@H]4[C@H]2N[C@]413"
+      },
+      {
+        "composition_residual_ev": 4.91831506016743,
+        "composition_robust_z": 4.626514379798702,
+        "formula": "C7H10N2",
+        "n_bridgeheads": 4,
+        "n_rings": 6,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 90211,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "CN1C[C@@]23C[C@@H]4N2C[C@]413"
+      },
+      {
+        "composition_residual_ev": 4.888525120912895,
+        "composition_robust_z": 4.598836653112547,
+        "formula": "C6H6N2O",
+        "n_bridgeheads": 5,
+        "n_rings": 6,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 37844,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C1N=C2O[C@@H]3[C@H]4N[C@@]13[C@@H]24"
+      },
+      {
+        "composition_residual_ev": 4.8697116250225605,
+        "composition_robust_z": 4.581357100945131,
+        "formula": "C6H10N2O",
+        "n_bridgeheads": 2,
+        "n_rings": 4,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 62842,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C[C@@]1(O)[C@H]2N[C@@]13CN[C@@H]23"
+      },
+      {
+        "composition_residual_ev": 4.101413280071611,
+        "composition_robust_z": 4.552948742744776,
+        "formula": "CN4O2",
+        "n_bridgeheads": 0,
+        "n_rings": 1,
+        "n_triple_bonds": 0,
+        "notes": "no strain or conjugation descriptor",
+        "qm9_id": 3900,
+        "quality_tier": "gold",
+        "smallest_ring": 6,
+        "smiles_geometry": "O=c1nnonn1"
+      },
+      {
+        "composition_residual_ev": 4.830630840856159,
+        "composition_robust_z": 4.545047283271581,
+        "formula": "C6H7NO2",
+        "n_bridgeheads": 4,
+        "n_rings": 6,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 90218,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "O[C@H]1C[C@@]23N[C@@H]4[C@H]2O[C@]413"
+      },
+      {
+        "composition_residual_ev": 4.5187505312197445,
+        "composition_robust_z": 4.535881362175585,
+        "formula": "C5H6N2O",
+        "n_bridgeheads": 2,
+        "n_rings": 4,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 8585,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "[H]/N=C1\\OC23CN(C2)[C@@H]13"
+      },
+      {
+        "composition_residual_ev": 4.819115210476852,
+        "composition_robust_z": 4.534348152013408,
+        "formula": "C6H9NO2",
+        "n_bridgeheads": 2,
+        "n_rings": 4,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 62845,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C[C@@]1(O)[C@H]2O[C@@]13CN[C@@H]23"
+      },
+      {
+        "composition_residual_ev": 4.514486418802548,
+        "composition_robust_z": 4.531657194098851,
+        "formula": "C2H3N5O",
+        "n_bridgeheads": 0,
+        "n_rings": 1,
+        "n_triple_bonds": 0,
+        "notes": "no strain or conjugation descriptor",
+        "qm9_id": 21129,
+        "quality_tier": "gold",
+        "smallest_ring": 6,
+        "smiles_geometry": "CN=c1nnonn1"
+      },
+      {
+        "composition_residual_ev": 4.506379585663652,
+        "composition_robust_z": 4.523626302227746,
+        "formula": "C6H9NO",
+        "n_bridgeheads": 2,
+        "n_rings": 4,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 8598,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C[C@H]1OC23CN(C2)[C@@H]13"
+      },
+      {
+        "composition_residual_ev": 4.806538316513652,
+        "composition_robust_z": 4.5226630045312355,
+        "formula": "C6H6O3",
+        "n_bridgeheads": 4,
+        "n_rings": 6,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 90221,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "O[C@H]1C[C@@]23O[C@@H]4[C@H]2O[C@]413"
+      },
+      {
+        "composition_residual_ev": 4.79404718786715,
+        "composition_robust_z": 4.511057541299992,
+        "formula": "C6H6N2O",
+        "n_bridgeheads": 3,
+        "n_rings": 5,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 66602,
+        "quality_tier": "gold",
+        "smallest_ring": 3,
+        "smiles_geometry": "O[C@]12C3=N[C@@H]4[C@H](N3)[C@H]1[C@@H]42"
+      }
+    ],
+    "residual_gold": {
+      "mae": 0.8649632319717212,
+      "mean": 2.1785996507006106e-13,
+      "n": 130659,
+      "quantiles": {
+        "max": 5.704659252389419,
+        "median": -0.05199245679753517,
+        "min": -4.060639155833343,
+        "p01": -2.303749827461786,
+        "p05": -1.7122974863685072,
+        "p25": -0.7498932211977944,
+        "p75": 0.6875735287387315,
+        "p95": 1.8780547628807307,
+        "p99": 2.890730303129239
+      },
+      "rmse": 1.0948108566535708,
+      "std": 1.0948108566535708
+    }
+  },
+  "cross_checks": {
+    "duplicate_pairs": {
+      "authors_pairs": 252,
+      "authors_pairs_not_ours": [
+        {
+          "abs_du0_kcal_mol": 0.04580819157028357,
+          "identity_classes": [
+            "proton_moved",
+            "proton_moved"
+          ],
+          "pair": [
+            1232,
+            1259
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": true,
+          "tiers": [
+            "bronze",
+            "bronze"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 0.6093116993280208,
+          "identity_classes": [
+            "fragmented",
+            "fragmented"
+          ],
+          "pair": [
+            6330,
+            6346
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": true,
+          "tiers": [
+            "bronze",
+            "bronze"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 6.588849477654977,
+          "identity_classes": [
+            "consistent",
+            "consistent"
+          ],
+          "pair": [
+            25531,
+            30552
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": true,
+          "tiers": [
+            "silver",
+            "gold"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 6.571279212347449,
+          "identity_classes": [
+            "rearranged",
+            "proton_moved"
+          ],
+          "pair": [
+            36995,
+            36996
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": false,
+          "tiers": [
+            "bronze",
+            "bronze"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 0.40035104450543374,
+          "identity_classes": [
+            "rearranged",
+            "consistent"
+          ],
+          "pair": [
+            39173,
+            42862
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": false,
+          "tiers": [
+            "bronze",
+            "gold"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 0.44678674555847664,
+          "identity_classes": [
+            "rearranged",
+            "consistent"
+          ],
+          "pair": [
+            39184,
+            42865
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": true,
+          "tiers": [
+            "bronze",
+            "gold"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 0.2579063938066674,
+          "identity_classes": [
+            "rearranged",
+            "consistent"
+          ],
+          "pair": [
+            39185,
+            42866
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": true,
+          "tiers": [
+            "bronze",
+            "gold"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 0.17319261480866574,
+          "identity_classes": [
+            "fragmented",
+            "fragmented"
+          ],
+          "pair": [
+            54896,
+            54904
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": true,
+          "tiers": [
+            "bronze",
+            "bronze"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 0.16880004855519085,
+          "identity_classes": [
+            "consistent",
+            "consistent"
+          ],
+          "pair": [
+            25732,
+            55209
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": true,
+          "tiers": [
+            "gold",
+            "gold"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 0.8998485858187063,
+          "identity_classes": [
+            "proton_moved",
+            "proton_moved"
+          ],
+          "pair": [
+            55203,
+            55271
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": false,
+          "tiers": [
+            "bronze",
+            "bronze"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 0.19578295589437472,
+          "identity_classes": [
+            "consistent",
+            "rearranged"
+          ],
+          "pair": [
+            46049,
+            55945
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": false,
+          "tiers": [
+            "gold",
+            "bronze"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 1.1075542217596683,
+          "identity_classes": [
+            "rearranged",
+            "consistent"
+          ],
+          "pair": [
+            81201,
+            84324
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": true,
+          "tiers": [
+            "bronze",
+            "gold"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 1.0768062574819814,
+          "identity_classes": [
+            "consistent",
+            "rearranged"
+          ],
+          "pair": [
+            85400,
+            90040
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": false,
+          "tiers": [
+            "gold",
+            "bronze"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 0.7630515204647743,
+          "identity_classes": [
+            "consistent",
+            "consistent"
+          ],
+          "pair": [
+            31357,
+            97017
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": true,
+          "tiers": [
+            "gold",
+            "gold"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 0.03702305897943999,
+          "identity_classes": [
+            "proton_moved",
+            "proton_moved"
+          ],
+          "pair": [
+            61865,
+            97272
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": true,
+          "tiers": [
+            "bronze",
+            "bronze"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 0.6708076277995009,
+          "identity_classes": [
+            "fragmented",
+            "fragmented"
+          ],
+          "pair": [
+            96637,
+            98233
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": false,
+          "tiers": [
+            "bronze",
+            "bronze"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 1.324044990249527,
+          "identity_classes": [
+            "proton_moved",
+            "proton_moved"
+          ],
+          "pair": [
+            96674,
+            100419
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": false,
+          "tiers": [
+            "bronze",
+            "bronze"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 1.452684432453428,
+          "identity_classes": [
+            "fragmented",
+            "fragmented"
+          ],
+          "pair": [
+            32942,
+            120431
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": true,
+          "tiers": [
+            "bronze",
+            "bronze"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 0.043925663205899246,
+          "identity_classes": [
+            "proton_moved",
+            "proton_moved"
+          ],
+          "pair": [
+            116796,
+            121490
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": true,
+          "tiers": [
+            "bronze",
+            "bronze"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 14.981161183801975,
+          "identity_classes": [
+            "consistent",
+            "consistent"
+          ],
+          "pair": [
+            124205,
+            124712
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": true,
+          "tiers": [
+            "gold",
+            "gold"
+          ]
+        },
+        {
+          "abs_du0_kcal_mol": 0.8232924300126827,
+          "identity_classes": [
+            "consistent",
+            "rearranged"
+          ],
+          "pair": [
+            50174,
+            133821
+          ],
+          "same_constitution": true,
+          "same_geometry_smiles": false,
+          "tiers": [
+            "gold",
+            "bronze"
+          ]
+        }
+      ],
+      "authors_pairs_not_ours_same_constitution": 21,
+      "authors_pairs_not_ours_same_geometry_smiles": 13,
+      "our_duplicate_records": 453,
+      "our_duplicate_records_in_authors_pairs": 453,
+      "same_connectivity_group": 175,
+      "same_structure_group": 231
+    },
+    "geometry_changed": {
+      "n": 23,
+      "records": [
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -1.6068635102356612,
+          "qm9_id": 8383,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -1.0068389511604445,
+          "qm9_id": 16251,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -1.279993825179652,
+          "qm9_id": 18082,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -1.014306313868674,
+          "qm9_id": 35960,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -1.5079680171090475,
+          "qm9_id": 40296,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "proton_moved",
+          "kcal_mol": -1.1084327349901812,
+          "qm9_id": 53769,
+          "quality_tier": "bronze"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -4.7440971258477385,
+          "qm9_id": 56594,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -1.883030429765571,
+          "qm9_id": 58422,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -3.9684326649405985,
+          "qm9_id": 59493,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -2.3709817967921194,
+          "qm9_id": 60898,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -2.6472114672835447,
+          "qm9_id": 61824,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -3.4216836601715728,
+          "qm9_id": 81584,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -4.1544892239942675,
+          "qm9_id": 95377,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -5.017879509339425,
+          "qm9_id": 96571,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "proton_moved",
+          "kcal_mol": -1.10906024446266,
+          "qm9_id": 97313,
+          "quality_tier": "bronze"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -1.2824411121437214,
+          "qm9_id": 97427,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -1.293987286458733,
+          "qm9_id": 102008,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -2.2900958255898525,
+          "qm9_id": 102309,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -1.1822278491106342,
+          "qm9_id": 104064,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -3.809045258502948,
+          "qm9_id": 116249,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -1.5566000013688328,
+          "qm9_id": 116504,
+          "quality_tier": "gold"
+        },
+        {
+          "identity_class": "fragmented",
+          "kcal_mol": -19.91545643116699,
+          "qm9_id": 117523,
+          "quality_tier": "quarantine"
+        },
+        {
+          "identity_class": "consistent",
+          "kcal_mol": -1.3477020974598646,
+          "qm9_id": 118581,
+          "quality_tier": "gold"
+        }
+      ]
+    },
+    "multi_molecule_vs_fragmented": {
+      "authors": 229,
+      "authors_only": [],
+      "identical_sets": true,
+      "ours": 229,
+      "ours_only": []
+    },
+    "not_converged": {
+      "also_on_qm9_authors_hard_to_converge_list": [
+        21725,
+        59827,
+        87037,
+        128113,
+        129053,
+        129152,
+        129158,
+        130535
+      ],
+      "n": 27
+    },
+    "tiers": {
+      "geometry_changed": {
+        "bronze": 2,
+        "gold": 20,
+        "quarantine": 1
+      },
+      "not_converged": {
+        "bronze": 2,
+        "gold": 18,
+        "quarantine": 2,
+        "silver": 5
+      }
+    }
+  },
+  "distributions": {
+    "groups": [
+      "all",
+      "silver",
+      "bronze"
+    ],
+    "reference": "gold",
+    "vs_gold": {
+      "alpha_ang3": {
+        "all": {
+          "ks_pvalue": 0.05561993012262745,
+          "ks_statistic": 0.0052020119086625405,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 0.013471690622380458,
+          "wasserstein_over_reference_sd": 0.011125428250308612
+        },
+        "bronze": {
+          "ks_pvalue": 2.0777382780768484e-82,
+          "ks_statistic": 0.24329893443654338,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 0.5650150225630601,
+          "wasserstein_over_reference_sd": 0.46661063336986586
+        },
+        "silver": {
+          "ks_pvalue": 3.816049716074339e-54,
+          "ks_statistic": 0.19506458928798737,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 0.5584913169367346,
+          "wasserstein_over_reference_sd": 0.4612231121666069
+        }
+      },
+      "cv_cal_per_mol_k": {
+        "all": {
+          "ks_pvalue": 0.6673110881729503,
+          "ks_statistic": 0.002821477469827416,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 0.02361407710995158,
+          "wasserstein_over_reference_sd": 0.00580629346258315
+        },
+        "bronze": {
+          "ks_pvalue": 1.3780278285038766e-05,
+          "ks_statistic": 0.061357167297590554,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 0.6002576418436102,
+          "wasserstein_over_reference_sd": 0.14759298046982952
+        },
+        "silver": {
+          "ks_pvalue": 1.1522808400692612e-111,
+          "ks_statistic": 0.2794341914796522,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 2.3763782748208384,
+          "wasserstein_over_reference_sd": 0.5843103491815925
+        }
+      },
+      "g298_atomization_ev": {
+        "all": {
+          "ks_pvalue": 0.0001357235050855007,
+          "ks_statistic": 0.00851645478543539,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 0.1926427349211779,
+          "wasserstein_over_reference_sd": 0.020290690914626233
+        },
+        "bronze": {
+          "ks_pvalue": 2.6240124529254617e-84,
+          "ks_statistic": 0.24606229421479908,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 4.867277973292202,
+          "wasserstein_over_reference_sd": 0.5126610821428044
+        },
+        "silver": {
+          "ks_pvalue": 0.0,
+          "ks_statistic": 0.540339727582927,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 11.04927810576823,
+          "wasserstein_over_reference_sd": 1.1637993354154939
+        }
+      },
+      "g298_ev": {
+        "all": {
+          "ks_pvalue": 1.2583132749442744e-06,
+          "ks_statistic": 0.010388102046417713,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 20.33072892734208,
+          "wasserstein_over_reference_sd": 0.01873089718624374
+        },
+        "bronze": {
+          "ks_pvalue": 0.0,
+          "ks_statistic": 0.49266794436512806,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 930.6025102541835,
+          "wasserstein_over_reference_sd": 0.8573730928746526
+        },
+        "silver": {
+          "ks_pvalue": 2.4416975439879335e-200,
+          "ks_statistic": 0.37188449660350836,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 761.1626011712167,
+          "wasserstein_over_reference_sd": 0.7012664659247817
+        }
+      },
+      "gap_ev": {
+        "all": {
+          "ks_pvalue": 0.00029754661492000336,
+          "ks_statistic": 0.008160679543542076,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 0.02828425615711441,
+          "wasserstein_over_reference_sd": 0.02205077276780055
+        },
+        "bronze": {
+          "ks_pvalue": 1.4030588162599932e-126,
+          "ks_statistic": 0.3007141446669015,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 0.6829566793395625,
+          "wasserstein_over_reference_sd": 0.5324418808369584
+        },
+        "silver": {
+          "ks_pvalue": 0.0,
+          "ks_statistic": 0.542094020133991,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 1.6521551386908295,
+          "wasserstein_over_reference_sd": 1.2880415641145235
+        }
+      },
+      "h298_atomization_ev": {
+        "all": {
+          "ks_pvalue": 0.00015239804051595473,
+          "ks_statistic": 0.008464875150918094,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 0.21112005726789682,
+          "wasserstein_over_reference_sd": 0.020136154895456605
+        },
+        "bronze": {
+          "ks_pvalue": 2.0325411274659594e-84,
+          "ks_statistic": 0.24622272930055109,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 5.302231475018952,
+          "wasserstein_over_reference_sd": 0.5057148792692281
+        },
+        "silver": {
+          "ks_pvalue": 0.0,
+          "ks_statistic": 0.540262835629316,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 12.138838732344844,
+          "wasserstein_over_reference_sd": 1.1577750599759435
+        }
+      },
+      "h298_ev": {
+        "all": {
+          "ks_pvalue": 1.2583132749442744e-06,
+          "ks_statistic": 0.010388102046417713,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 20.330551474998583,
+          "wasserstein_over_reference_sd": 0.018731071444190776
+        },
+        "bronze": {
+          "ks_pvalue": 0.0,
+          "ks_statistic": 0.4926373303239981,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 930.55769767383,
+          "wasserstein_over_reference_sd": 0.8573472657396967
+        },
+        "silver": {
+          "ks_pvalue": 2.4416975439879335e-200,
+          "ks_statistic": 0.37188449660350836,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 761.1911444210939,
+          "wasserstein_over_reference_sd": 0.7013054085803073
+        }
+      },
+      "homo_ev": {
+        "all": {
+          "ks_pvalue": 0.13590393572119752,
+          "ks_statistic": 0.004506321686449821,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 0.006974882544535436,
+          "wasserstein_over_reference_sd": 0.01168141298847213
+        },
+        "bronze": {
+          "ks_pvalue": 2.0711384412485342e-06,
+          "ks_statistic": 0.06607173925261106,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 0.12169418202563197,
+          "wasserstein_over_reference_sd": 0.2038113171740001
+        },
+        "silver": {
+          "ks_pvalue": 5.721980629415445e-163,
+          "ks_statistic": 0.33637182386953307,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 0.49534312392131175,
+          "wasserstein_over_reference_sd": 0.829592120667054
+        }
+      },
+      "lumo_ev": {
+        "all": {
+          "ks_pvalue": 0.008478329279409622,
+          "ks_statistic": 0.006424781608633245,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 0.021312261616688206,
+          "wasserstein_over_reference_sd": 0.0167259026157797
+        },
+        "bronze": {
+          "ks_pvalue": 1.881232679606227e-96,
+          "ks_statistic": 0.26301324164553086,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 0.6025192536800841,
+          "wasserstein_over_reference_sd": 0.4728582326192071
+        },
+        "silver": {
+          "ks_pvalue": 2.0826528999318926e-272,
+          "ks_statistic": 0.4311269906580691,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 1.1572325888737893,
+          "wasserstein_over_reference_sd": 0.9081982913607548
+        }
+      },
+      "mu_debye": {
+        "all": {
+          "ks_pvalue": 0.00047236752540128244,
+          "ks_statistic": 0.00794374801592912,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 0.036247565541400864,
+          "wasserstein_over_reference_sd": 0.02424386724963703
+        },
+        "bronze": {
+          "ks_pvalue": 0.0,
+          "ks_statistic": 0.526656505248747,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 2.1349239090653493,
+          "wasserstein_over_reference_sd": 1.427925187978187
+        },
+        "silver": {
+          "ks_pvalue": 8.648675937191784e-63,
+          "ks_statistic": 0.21003576630912563,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 0.8964391946934223,
+          "wasserstein_over_reference_sd": 0.5995755165597509
+        }
+      },
+      "r2_ang2": {
+        "all": {
+          "ks_pvalue": 0.972867057782607,
+          "ks_statistic": 0.0018825980945392229,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 0.17214103347734647,
+          "wasserstein_over_reference_sd": 0.0021912739215808347
+        },
+        "bronze": {
+          "ks_pvalue": 3.891916327089736e-24,
+          "ks_statistic": 0.13142587652981025,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 20.88625233163335,
+          "wasserstein_over_reference_sd": 0.26587211154328294
+        },
+        "silver": {
+          "ks_pvalue": 3.4253866861371115e-27,
+          "ks_statistic": 0.13795971595992151,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 20.486305007723196,
+          "wasserstein_over_reference_sd": 0.26078097131258543
+        }
+      },
+      "u0_atomization_ev": {
+        "all": {
+          "ks_pvalue": 0.00015803415177473678,
+          "ks_statistic": 0.008448645376026742,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 0.20772698044272342,
+          "wasserstein_over_reference_sd": 0.02013015915944568
+        },
+        "bronze": {
+          "ks_pvalue": 2.3311392734111195e-84,
+          "ks_statistic": 0.2461366453492593,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 5.215231854234934,
+          "wasserstein_over_reference_sd": 0.505391485763725
+        },
+        "silver": {
+          "ks_pvalue": 0.0,
+          "ks_statistic": 0.5395280986421969,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 11.945880025847508,
+          "wasserstein_over_reference_sd": 1.157637133642632
+        }
+      },
+      "u0_ev": {
+        "all": {
+          "ks_pvalue": 1.2583132749442744e-06,
+          "ks_statistic": 0.010388102046417713,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 20.330529508403814,
+          "wasserstein_over_reference_sd": 0.0187309493036821
+        },
+        "bronze": {
+          "ks_pvalue": 0.0,
+          "ks_statistic": 0.4926449838342806,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 930.5702778756925,
+          "wasserstein_over_reference_sd": 0.8573541919406434
+        },
+        "silver": {
+          "ks_pvalue": 2.4416975439879335e-200,
+          "ks_statistic": 0.37188449660350836,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 761.1772483322624,
+          "wasserstein_over_reference_sd": 0.7012887905223691
+        }
+      },
+      "u298_atomization_ev": {
+        "all": {
+          "ks_pvalue": 0.00015033418401233834,
+          "ks_statistic": 0.008470960802019034,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 0.20975349509107774,
+          "wasserstein_over_reference_sd": 0.020148128730287956
+        },
+        "bronze": {
+          "ks_pvalue": 1.3799683962574454e-84,
+          "ks_statistic": 0.2464657462914064,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 5.272354916541114,
+          "wasserstein_over_reference_sd": 0.5064425053995469
+        },
+        "silver": {
+          "ks_pvalue": 0.0,
+          "ks_statistic": 0.5405154014686382,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 12.055982973080914,
+          "wasserstein_over_reference_sd": 1.1580522022115587
+        }
+      },
+      "u298_ev": {
+        "all": {
+          "ks_pvalue": 1.2583132749442744e-06,
+          "ks_statistic": 0.010388102046417713,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 20.330551467619628,
+          "wasserstein_over_reference_sd": 0.01873107143713808
+        },
+        "bronze": {
+          "ks_pvalue": 0.0,
+          "ks_statistic": 0.4926373303239981,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 930.5576970951602,
+          "wasserstein_over_reference_sd": 0.8573472651949146
+        },
+        "silver": {
+          "ks_pvalue": 2.4416975439879335e-200,
+          "ks_statistic": 0.37188449660350836,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 761.1911443975243,
+          "wasserstein_over_reference_sd": 0.7013054085490719
+        }
+      },
+      "zpve_ev": {
+        "all": {
+          "ks_pvalue": 0.0007369828235391613,
+          "ks_statistic": 0.0077292278714007345,
+          "n_other": 133885,
+          "n_reference": 130659,
+          "wasserstein": 0.01673186213074191,
+          "wasserstein_over_reference_sd": 0.018564783799177746
+        },
+        "bronze": {
+          "ks_pvalue": 7.91740456089865e-58,
+          "ks_statistic": 0.20398226523402008,
+          "n_other": 1591,
+          "n_reference": 130659,
+          "wasserstein": 0.38447219407515787,
+          "wasserstein_over_reference_sd": 0.4265898860525886
+        },
+        "silver": {
+          "ks_pvalue": 0.0,
+          "ks_statistic": 0.5131893036606271,
+          "n_other": 1630,
+          "n_reference": 130659,
+          "wasserstein": 0.9958598050254706,
+          "wasserstein_over_reference_sd": 1.1049530428905936
+        }
+      }
+    }
+  },
+  "gate_7_conditions": {
+    "atomization_withheld_where_reference_invalid": true,
+    "authors_atomization_reproduced": true,
+    "distribution_tests_cover_every_target_and_tier": true,
+    "external_counts_match_publication": true,
+    "external_formulas_match_qm9": true,
+    "external_source_verified": true,
+    "largest_residuals_annotated": true,
+    "one_review_row_per_molecule": true,
+    "review_flags_do_not_change_tiers": true,
+    "review_reasons_known": true
+  },
+  "inter_target": {
+    "atomization_collinearity": {
+      "all": {
+        "g298_atomization_ev": {
+          "g298_atomization_ev": 1.0,
+          "h298_atomization_ev": 0.9997967723267449,
+          "u0_atomization_ev": 0.9998582494449265,
+          "u298_atomization_ev": 0.9998229728592487
+        },
+        "h298_atomization_ev": {
+          "g298_atomization_ev": 0.999796772326745,
+          "h298_atomization_ev": 1.0,
+          "u0_atomization_ev": 0.9999922201783938,
+          "u298_atomization_ev": 0.9999989134740407
+        },
+        "u0_atomization_ev": {
+          "g298_atomization_ev": 0.9998582494449265,
+          "h298_atomization_ev": 0.9999922201783938,
+          "u0_atomization_ev": 1.0,
+          "u298_atomization_ev": 0.9999953731801502
+        },
+        "u298_atomization_ev": {
+          "g298_atomization_ev": 0.9998229728592488,
+          "h298_atomization_ev": 0.9999989134740407,
+          "u0_atomization_ev": 0.9999953731801502,
+          "u298_atomization_ev": 1.0
+        }
+      },
+      "all_min_r": 0.9997967723267449,
+      "gold": {
+        "g298_atomization_ev": {
+          "g298_atomization_ev": 1.0,
+          "h298_atomization_ev": 0.9997956812559374,
+          "u0_atomization_ev": 0.9998576396887853,
+          "u298_atomization_ev": 0.9998220819964587
+        },
+        "h298_atomization_ev": {
+          "g298_atomization_ev": 0.9997956812559373,
+          "h298_atomization_ev": 1.0,
+          "u0_atomization_ev": 0.9999921542147411,
+          "u298_atomization_ev": 0.999998903848077
+        },
+        "u0_atomization_ev": {
+          "g298_atomization_ev": 0.9998576396887853,
+          "h298_atomization_ev": 0.9999921542147411,
+          "u0_atomization_ev": 0.9999999999999998,
+          "u298_atomization_ev": 0.9999953454447595
+        },
+        "u298_atomization_ev": {
+          "g298_atomization_ev": 0.9998220819964587,
+          "h298_atomization_ev": 0.999998903848077,
+          "u0_atomization_ev": 0.9999953454447595,
+          "u298_atomization_ev": 0.9999999999999998
+        }
+      },
+      "gold_min_r": 0.9997956812559373
+    },
+    "minus_ts_ev_gold": {
+      "mae": 1.165230658278321,
+      "mean": -1.165230658278321,
+      "n": 130659,
+      "quantiles": {
+        "max": -0.5830583730930812,
+        "median": -1.1607016803209262,
+        "min": -1.5477020155121863,
+        "p01": -1.378474404449662,
+        "p05": -1.3183372408457217,
+        "p25": -1.221573551354595,
+        "p75": -1.1054625662436592,
+        "p95": -1.029240752228907,
+        "p99": -0.9783195409197288
+      },
+      "rmse": 1.1684675900802617,
+      "std": 0.0869138773513499
+    },
+    "thermal_energy_ev_gold": {
+      "mae": 0.23053779765507237,
+      "mean": 0.23053779765507237,
+      "n": 130659,
+      "quantiles": {
+        "max": 0.3413124176822748,
+        "median": 0.22931035189503746,
+        "min": 0.06851827056789261,
+        "p01": 0.15227491743280552,
+        "p05": 0.1739079694980319,
+        "p25": 0.20672490131073573,
+        "p75": 0.2540455019907313,
+        "p95": 0.29080808481194254,
+        "p99": 0.3123709315007363
+      },
+      "rmse": 0.23320153287709927,
+      "std": 0.03514653309471236
+    }
+  },
+  "multi_fidelity": {
+    "atom_references": [
+      {
+        "b3lyp_ha": -37.8467711,
+        "element": "C",
+        "g4mp2_u0_ha": -37.7942028,
+        "multiplicity": 3
+      },
+      {
+        "b3lyp_ha": -99.7187294,
+        "element": "F",
+        "g4mp2_u0_ha": -99.6596857,
+        "multiplicity": 2
+      },
+      {
+        "b3lyp_ha": -0.5002728,
+        "element": "H",
+        "g4mp2_u0_ha": -0.5020936,
+        "multiplicity": 2
+      },
+      {
+        "b3lyp_ha": -54.4795287,
+        "element": "N",
+        "g4mp2_u0_ha": -54.439864,
+        "multiplicity": 2
+      },
+      {
+        "b3lyp_ha": -75.0645779,
+        "element": "O",
+        "g4mp2_u0_ha": -75.0024828,
+        "multiplicity": 3
+      }
+    ],
+    "atomization_difference_gold_valid_references": {
+      "mae": 0.19623080896674155,
+      "mean": 0.17120552529751634,
+      "n": 50929,
+      "quantiles": {
+        "max": 1.0020266448459978,
+        "median": 0.16971469487850754,
+        "min": -0.9076140191249138,
+        "p01": -0.21427769367858074,
+        "p05": -0.09138563111257554,
+        "p25": 0.06106507187419652,
+        "p75": 0.28208683551835634,
+        "p95": 0.44410234077304833,
+        "p99": 0.5512061393459018
+      },
+      "rmse": 0.23812143294982285,
+      "std": 0.165500709779984
+    },
+    "authors_atomization_max_abs_diff_hartree": 5.115907697472721e-13,
+    "invalid_reference_elements": [
+      "N"
+    ],
+    "largest_residuals": [
+      {
+        "delta_residual_ev": 0.9690705368886867,
+        "delta_robust_z": 6.1369975262526,
+        "delta_u0_total_ev": -11.222299503341644,
+        "formula": "C8H9N",
+        "qm9_id": 133858,
+        "quality_tier": "bronze",
+        "smiles_geometry": "C[C@H]1[C-]2CC=C3C=[N+]1[C@@H]32"
+      },
+      {
+        "delta_residual_ev": 0.8751661701356834,
+        "delta_robust_z": 5.5433938407337715,
+        "delta_u0_total_ev": -11.376207103950163,
+        "formula": "C8H7N",
+        "qm9_id": 37079,
+        "quality_tier": "silver",
+        "smiles_geometry": "C1=C2CC3=C[C@H]1N1[C@H]2[C@H]31"
+      },
+      {
+        "delta_residual_ev": -0.872106325815178,
+        "delta_robust_z": -5.501751652129505,
+        "delta_u0_total_ev": -13.040975224230648,
+        "formula": "C9H4",
+        "qm9_id": 52464,
+        "quality_tier": "gold",
+        "smiles_geometry": "C#CC#CC#CC#CC"
+      },
+      {
+        "delta_residual_ev": 0.8358453251679094,
+        "delta_robust_z": 5.294832466032433,
+        "delta_u0_total_ev": -11.153013871681013,
+        "formula": "C9H10",
+        "qm9_id": 133854,
+        "quality_tier": "bronze",
+        "smiles_geometry": "C[C@]12[CH+]C3=CC[C-](C1)[C@@H]32"
+      },
+      {
+        "delta_residual_ev": 0.8302636758921871,
+        "delta_robust_z": 5.259548829116407,
+        "delta_u0_total_ev": -11.218598754812252,
+        "formula": "C9H8",
+        "qm9_id": 37080,
+        "quality_tier": "silver",
+        "smiles_geometry": "C1=C2CC3=C[C@H]1[C@@H]1[C@H]2[C@H]31"
+      },
+      {
+        "delta_residual_ev": -0.7425536522963867,
+        "delta_robust_z": -4.983262338404452,
+        "delta_u0_total_ev": -11.485988720620062,
+        "formula": "C8H6",
+        "qm9_id": 14633,
+        "quality_tier": "gold",
+        "smiles_geometry": "CC#CC#CC#CC"
+      },
+      {
+        "delta_residual_ev": -0.7737931205374977,
+        "delta_robust_z": -4.880278093381144,
+        "delta_u0_total_ev": -12.822655551241937,
+        "formula": "C9H8",
+        "qm9_id": 97471,
+        "quality_tier": "gold",
+        "smiles_geometry": "CC#CC#CC#CCC"
+      },
+      {
+        "delta_residual_ev": -0.7635319088936541,
+        "delta_robust_z": -4.815413239271689,
+        "delta_u0_total_ev": -13.134911650690533,
+        "formula": "C8H3N",
+        "qm9_id": 52465,
+        "quality_tier": "gold",
+        "smiles_geometry": "CC#CC#CC#CC#N"
+      },
+      {
+        "delta_residual_ev": -0.7600001999486636,
+        "delta_robust_z": -4.793088021409986,
+        "delta_u0_total_ev": -13.294988072560601,
+        "formula": "C8H4O",
+        "qm9_id": 52466,
+        "quality_tier": "gold",
+        "smiles_geometry": "CC#CC#CC#CC=O"
+      },
+      {
+        "delta_residual_ev": -0.7153189637134485,
+        "delta_robust_z": -4.790044668135976,
+        "delta_u0_total_ev": -11.578760499748157,
+        "formula": "C8H2",
+        "qm9_id": 14562,
+        "quality_tier": "gold",
+        "smiles_geometry": "C#CC#CC#CC#C"
+      },
+      {
+        "delta_residual_ev": 0.7199449163844509,
+        "delta_robust_z": 4.562183791791738,
+        "delta_u0_total_ev": -11.897547331897863,
+        "formula": "C7H7NO",
+        "qm9_id": 66498,
+        "quality_tier": "gold",
+        "smiles_geometry": "O[C@@]12[C@@H]3C=C4CN3[C@@H]1[C@H]42"
+      },
+      {
+        "delta_residual_ev": 0.7032561103445634,
+        "delta_robust_z": 4.456687773717911,
+        "delta_u0_total_ev": -11.488113929885767,
+        "formula": "C8H9N",
+        "qm9_id": 37495,
+        "quality_tier": "gold",
+        "smiles_geometry": "C1=C2CN3[C@H]1[C@H]1C[C@@H]3[C@@H]21"
+      },
+      {
+        "delta_residual_ev": 0.6664440612934524,
+        "delta_robust_z": 4.22398541126318,
+        "delta_u0_total_ev": -12.726887798485823,
+        "formula": "C5H12O4",
+        "qm9_id": 102413,
+        "quality_tier": "gold",
+        "smiles_geometry": "OCC(CO)(CO)CO"
+      },
+      {
+        "delta_residual_ev": -0.622113335633312,
+        "delta_robust_z": -4.128793328370845,
+        "delta_u0_total_ev": -11.365548403956987,
+        "formula": "C8H6",
+        "qm9_id": 14656,
+        "quality_tier": "gold",
+        "smiles_geometry": "C#CC#CC#CCC"
+      },
+      {
+        "delta_residual_ev": 0.6500524079564727,
+        "delta_robust_z": 4.12036780359461,
+        "delta_u0_total_ev": -11.541317632273858,
+        "formula": "C8H9N",
+        "qm9_id": 37496,
+        "quality_tier": "gold",
+        "smiles_geometry": "C1=C2C[C@@H]3[C@H]4CN([C@H]13)[C@@H]24"
+      },
+      {
+        "delta_residual_ev": -0.6477935176641729,
+        "delta_robust_z": -4.08378873696767,
+        "delta_u0_total_ev": -12.696655948368612,
+        "formula": "C9H8",
+        "qm9_id": 116821,
+        "quality_tier": "gold",
+        "smiles_geometry": "C#CC#CC#CCCC"
+      },
+      {
+        "delta_residual_ev": -0.640710924922745,
+        "delta_robust_z": -4.039017090028194,
+        "delta_u0_total_ev": -13.175698797534682,
+        "formula": "C8H4O",
+        "qm9_id": 53715,
+        "quality_tier": "gold",
+        "smiles_geometry": "C#CC#CC#CC(C)=O"
+      },
+      {
+        "delta_residual_ev": -0.5908167234806072,
+        "delta_robust_z": -4.035796905647241,
+        "delta_u0_total_ev": -10.028824429423521,
+        "formula": "C7H4",
+        "qm9_id": 2642,
+        "quality_tier": "gold",
+        "smiles_geometry": "C#CC#CC#CC"
+      },
+      {
+        "delta_residual_ev": 0.6355723063918077,
+        "delta_robust_z": 4.028833810526102,
+        "delta_u0_total_ev": -11.779409098509099,
+        "formula": "C8H8O",
+        "qm9_id": 133815,
+        "quality_tier": "gold",
+        "smiles_geometry": "C1=C2C[C@H]3[C@@H]1[C@@H]1O[C@H]3[C@H]21"
+      },
+      {
+        "delta_residual_ev": 0.5230297507796262,
+        "delta_robust_z": 3.9954735824457654,
+        "delta_u0_total_ev": -10.790435755647616,
+        "formula": "C4H10N4",
+        "qm9_id": 8693,
+        "quality_tier": "gold",
+        "smiles_geometry": "N#CC(N)(CN)CN"
+      },
+      {
+        "delta_residual_ev": -0.6319325945749643,
+        "delta_robust_z": -3.983526068392848,
+        "delta_u0_total_ev": -12.740798259134918,
+        "formula": "C9H6",
+        "qm9_id": 33266,
+        "quality_tier": "gold",
+        "smiles_geometry": "C#CC#CC#CC1CC1"
+      },
+      {
+        "delta_residual_ev": 0.6272320165068148,
+        "delta_robust_z": 3.976111802112485,
+        "delta_u0_total_ev": -11.787749388394092,
+        "formula": "C8H8O",
+        "qm9_id": 66505,
+        "quality_tier": "gold",
+        "smiles_geometry": "O[C@]12[C@@H]3[C@H]4C=C(C[C@H]41)[C@@H]32"
+      },
+      {
+        "delta_residual_ev": 0.6243040713457848,
+        "delta_robust_z": 3.957603194912609,
+        "delta_u0_total_ev": -11.790677333555122,
+        "formula": "C8H8O",
+        "qm9_id": 66497,
+        "quality_tier": "gold",
+        "smiles_geometry": "O[C@]12[C@@H]3[C@H]4CC(=C[C@H]41)[C@@H]32"
+      },
+      {
+        "delta_residual_ev": 0.6236847003962875,
+        "delta_robust_z": 3.953687925676068,
+        "delta_u0_total_ev": -12.419929755938009,
+        "formula": "C6H5NO2",
+        "qm9_id": 37499,
+        "quality_tier": "gold",
+        "smiles_geometry": "N1=C2O[C@H]3[C@@H]1[C@@H]1O[C@H]3[C@H]21"
+      },
+      {
+        "delta_residual_ev": -0.5943987408526645,
+        "delta_robust_z": -3.932170942928689,
+        "delta_u0_total_ev": -11.660351120268782,
+        "formula": "C7HN",
+        "qm9_id": 14563,
+        "quality_tier": "gold",
+        "smiles_geometry": "C#CC#CC#CC#N"
+      }
+    ],
+    "nitrogen_offset_ev": {
+      "all_coefficients_ev": {
+        "n_C": 0.06505020960589014,
+        "n_F": -0.23789903617021743,
+        "n_H": -0.019539432871374728,
+        "n_N": 2.3804181625731693,
+        "n_O": -0.041825887824668104
+      },
+      "fitted_with_published_references": 2.3804181625731693,
+      "n_doublet_excitation_nist_ev": 2.3835298
+    },
+    "residual_difference_by_tier": {
+      "bronze": {
+        "mae": 0.1310379634467779,
+        "mean": 0.05456928922935585,
+        "n": 1587,
+        "quantiles": {
+          "max": 0.9690705368886867,
+          "median": 0.06318713205665638,
+          "min": -0.4185591854093822,
+          "p01": -0.2824945830580103,
+          "p05": -0.2132438294356122,
+          "p25": -0.044495252078118774,
+          "p75": 0.16092211011124036,
+          "p95": 0.288296933316962,
+          "p99": 0.39691302490193225
+        },
+        "rmse": 0.16201957684732454,
+        "std": 0.15255338722817338
+      },
+      "gold": {
+        "mae": 0.12284470769234825,
+        "mean": -0.0009085909097049612,
+        "n": 130621,
+        "quantiles": {
+          "max": 0.7199449163844509,
+          "median": -0.009192076525408766,
+          "min": -0.872106325815178,
+          "p01": -0.3137324275255402,
+          "p05": -0.2357416606276086,
+          "p25": -0.1107772946700436,
+          "p75": 0.10041086794018739,
+          "p95": 0.2631370848748187,
+          "p99": 0.3747224161593504
+        },
+        "rmse": 0.15246776522072086,
+        "std": 0.15246505794430296
+      },
+      "silver": {
+        "mae": 0.11706118622427422,
+        "mean": -0.07697658712316761,
+        "n": 1625,
+        "quantiles": {
+          "max": 0.8751661701356834,
+          "median": -0.0893328406494831,
+          "min": -0.4016040356057431,
+          "p01": -0.31169465822219217,
+          "p05": -0.25538828305044314,
+          "p25": -0.1599773691369446,
+          "p75": -0.007254389563382091,
+          "p95": 0.11715459294060365,
+          "p99": 0.3124494625643288
+        },
+        "rmse": 0.14545781901043647,
+        "std": 0.12342034737490525
+      }
+    },
+    "residual_difference_gold": {
+      "mae": 0.12284470769234825,
+      "mean": -0.0009085909097049612,
+      "n": 130621,
+      "quantiles": {
+        "max": 0.7199449163844509,
+        "median": -0.009192076525408766,
+        "min": -0.872106325815178,
+        "p01": -0.3137324275255402,
+        "p05": -0.2357416606276086,
+        "p25": -0.1107772946700436,
+        "p75": 0.10041086794018739,
+        "p95": 0.2631370848748187,
+        "p99": 0.3747224161593504
+      },
+      "rmse": 0.15246776522072086,
+      "std": 0.15246505794430296
+    },
+    "source": {
+      "collection_doi": "10.6084/m9.figshare.c.4351631.v1",
+      "license": "CC0-1.0",
+      "name": "QM9-G4(MP2)",
+      "paper": "Kim, Park, Choi. Energy refinement and analysis of structures in the QM9 database via a highly accurate quantum chemical method. Sci. Data 6, 109 (2019).",
+      "paper_doi": "10.1038/s41597-019-0121-7"
+    },
+    "status_counts": {
+      "geometry_changed": 23,
+      "not_converged": 27,
+      "ok": 133835
+    },
+    "total_energy_fit_ev": {
+      "n_C": -1.365430596236278,
+      "n_F": -1.8445762890943729,
+      "n_H": 0.03000161692775802,
+      "n_N": -1.5379398226899277,
+      "n_O": -1.7315495704327453
+    }
+  },
+  "output_sha256": {
+    "g4mp2_xref": "bf2f6c95d867407415ec20cac971f6d8c91011d658f4cf06ded59e2530d879d8",
+    "review": "9d1246818d05a62b881e8803c1402088838153b84d93f54f6feed871b5459aa9"
+  },
+  "review_reasons": {
+    "composition_outlier": {
+      "total": 0
+    },
+    "entropy_term_outlier": {
+      "bronze": 8,
+      "total": 8
+    },
+    "g4mp2_geometry_changed": {
+      "bronze": 2,
+      "gold": 20,
+      "quarantine": 1,
+      "total": 23
+    },
+    "g4mp2_not_converged": {
+      "bronze": 2,
+      "gold": 18,
+      "quarantine": 2,
+      "silver": 5,
+      "total": 27
+    },
+    "model_suspicion": {
+      "bronze": 27,
+      "gold": 293,
+      "quarantine": 1,
+      "silver": 8,
+      "total": 329
+    },
+    "multi_fidelity_outlier": {
+      "bronze": 1,
+      "total": 1
+    },
+    "records_with_any_reason": 384,
+    "thermal_energy_outlier": {
+      "total": 0
+    }
+  },
+  "review_threshold_robust_z": 6.0,
+  "suspicion": {
+    "largest": [
+      {
+        "formula": "CF4",
+        "n_bridgeheads": 0,
+        "n_rings": 0,
+        "n_triple_bonds": 0,
+        "notes": "no strain or conjugation descriptor",
+        "qm9_id": 184,
+        "quality_tier": "gold",
+        "smallest_ring": null,
+        "smiles_geometry": "FC(F)(F)F",
+        "suspicion_score": 15.893527618474355
+      },
+      {
+        "formula": "C8H9N",
+        "n_bridgeheads": 0,
+        "n_rings": 3,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, three or more rings",
+        "qm9_id": 133858,
+        "quality_tier": "bronze",
+        "smallest_ring": 4,
+        "smiles_geometry": "C[C@H]1[C-]2CC=C3C=[N+]1[C@@H]32",
+        "suspicion_score": 12.259953749323216
+      },
+      {
+        "formula": "C3HFN2O3",
+        "n_bridgeheads": 0,
+        "n_rings": 0,
+        "n_triple_bonds": 1,
+        "notes": "no strain or conjugation descriptor",
+        "qm9_id": 132344,
+        "quality_tier": "bronze",
+        "smallest_ring": null,
+        "smiles_geometry": "[O+]#C/N=C(O)\\N=C(/[O-])F",
+        "suspicion_score": 11.793885061760323
+      },
+      {
+        "formula": "C3H2FN3O2",
+        "n_bridgeheads": 0,
+        "n_rings": 0,
+        "n_triple_bonds": 1,
+        "notes": "no strain or conjugation descriptor",
+        "qm9_id": 132310,
+        "quality_tier": "bronze",
+        "smallest_ring": null,
+        "smiles_geometry": "NC(=N/C#[O+])/N=C(\\[O-])F",
+        "suspicion_score": 11.360429936102614
+      },
+      {
+        "formula": "C8H9N",
+        "n_bridgeheads": 0,
+        "n_rings": 1,
+        "n_triple_bonds": 0,
+        "notes": "no strain or conjugation descriptor",
+        "qm9_id": 24553,
+        "quality_tier": "gold",
+        "smallest_ring": 9,
+        "smiles_geometry": "c1cccc[nH]ccc1",
+        "suspicion_score": 11.145371008579202
+      },
+      {
+        "formula": "C2HN5O2",
+        "n_bridgeheads": 0,
+        "n_rings": 1,
+        "n_triple_bonds": 0,
+        "notes": "no strain or conjugation descriptor",
+        "qm9_id": 129158,
+        "quality_tier": "quarantine",
+        "smallest_ring": 7,
+        "smiles_geometry": "[H]/N=c1\\nnonnc1=O",
+        "suspicion_score": 10.608865499992875
+      },
+      {
+        "formula": "C7H9NO",
+        "n_bridgeheads": 2,
+        "n_rings": 4,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 90906,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C[C@H]1N[C@@H]2[C@@H]3C=C[C@@]21O3",
+        "suspicion_score": 10.239891779655967
+      },
+      {
+        "formula": "CH4",
+        "n_bridgeheads": 0,
+        "n_rings": 0,
+        "n_triple_bonds": 0,
+        "notes": "no strain or conjugation descriptor",
+        "qm9_id": 1,
+        "quality_tier": "gold",
+        "smallest_ring": null,
+        "smiles_geometry": "C",
+        "suspicion_score": 10.087955818098457
+      },
+      {
+        "formula": "C7H9NO",
+        "n_bridgeheads": 2,
+        "n_rings": 5,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 41214,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C1C[C@]23C[C@]4(CO[C@@H]24)N13",
+        "suspicion_score": 10.004221068594227
+      },
+      {
+        "formula": "C3H2FN3O2",
+        "n_bridgeheads": 0,
+        "n_rings": 0,
+        "n_triple_bonds": 1,
+        "notes": "no strain or conjugation descriptor",
+        "qm9_id": 132341,
+        "quality_tier": "bronze",
+        "smallest_ring": null,
+        "smiles_geometry": "[NH+]#C/N=C(O)\\N=C(/[O-])F",
+        "suspicion_score": 9.776264353450422
+      },
+      {
+        "formula": "C7H9NO",
+        "n_bridgeheads": 2,
+        "n_rings": 4,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 72709,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C[C@]12NC[C@@]13C=C[C@@H]2O3",
+        "suspicion_score": 9.712910614933193
+      },
+      {
+        "formula": "C6H13NO2",
+        "n_bridgeheads": 0,
+        "n_rings": 0,
+        "n_triple_bonds": 0,
+        "notes": "no strain or conjugation descriptor",
+        "qm9_id": 123126,
+        "quality_tier": "gold",
+        "smallest_ring": null,
+        "smiles_geometry": "[NH3+]CCCCCC(=O)[O-]",
+        "suspicion_score": 9.656524838263495
+      },
+      {
+        "formula": "C6H6N2O",
+        "n_bridgeheads": 3,
+        "n_rings": 5,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 66602,
+        "quality_tier": "gold",
+        "smallest_ring": 3,
+        "smiles_geometry": "O[C@]12C3=N[C@@H]4[C@H](N3)[C@H]1[C@@H]42",
+        "suspicion_score": 9.64796440925086
+      },
+      {
+        "formula": "C7H8O2",
+        "n_bridgeheads": 2,
+        "n_rings": 4,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 72712,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C[C@]12OC[C@@]13C=C[C@@H]2O3",
+        "suspicion_score": 9.609713269319657
+      },
+      {
+        "formula": "C8H10O",
+        "n_bridgeheads": 0,
+        "n_rings": 3,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, three or more rings",
+        "qm9_id": 133864,
+        "quality_tier": "bronze",
+        "smallest_ring": 4,
+        "smiles_geometry": "C1=[O+][C@H]2C[C@H]3C[C@@H](C1)[C-]32",
+        "suspicion_score": 9.483601031392968
+      },
+      {
+        "formula": "C7H7N",
+        "n_bridgeheads": 2,
+        "n_rings": 3,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 133814,
+        "quality_tier": "bronze",
+        "smallest_ring": 4,
+        "smiles_geometry": "C1=CCC2=CN(C=1)C2",
+        "suspicion_score": 9.451658844935011
+      },
+      {
+        "formula": "C7H8O2",
+        "n_bridgeheads": 0,
+        "n_rings": 3,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, three or more rings",
+        "qm9_id": 133866,
+        "quality_tier": "bronze",
+        "smallest_ring": 4,
+        "smiles_geometry": "C1=[O+][C@@H]2C[C@@H]3O[C@H](C1)[C-]32",
+        "suspicion_score": 9.161080076763191
+      },
+      {
+        "formula": "C8H11N",
+        "n_bridgeheads": 2,
+        "n_rings": 5,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 39174,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C1C[C@H]2N3C[C@@]24[C@@H]1C[C@@H]34",
+        "suspicion_score": 9.119802175390543
+      },
+      {
+        "formula": "C7H9NO",
+        "n_bridgeheads": 2,
+        "n_rings": 4,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 70987,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C[C@]12C=C[C@@]3(CO[C@H]13)N2",
+        "suspicion_score": 9.107686569680935
+      },
+      {
+        "formula": "C7H8O2",
+        "n_bridgeheads": 2,
+        "n_rings": 4,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 90909,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C[C@H]1O[C@@H]2[C@@H]3C=C[C@@]21O3",
+        "suspicion_score": 8.832132411376866
+      },
+      {
+        "formula": "C3HN3O3",
+        "n_bridgeheads": 0,
+        "n_rings": 0,
+        "n_triple_bonds": 2,
+        "notes": "conjugated triple bonds",
+        "qm9_id": 130662,
+        "quality_tier": "bronze",
+        "smallest_ring": null,
+        "smiles_geometry": "N#N.O=C=NC=O.[C-]#[O+]",
+        "suspicion_score": 8.816444196389453
+      },
+      {
+        "formula": "C8H10O",
+        "n_bridgeheads": 2,
+        "n_rings": 4,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 72708,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C[C@]12CO[C@@]13C=C[C@@H]2C3",
+        "suspicion_score": 8.793180443683566
+      },
+      {
+        "formula": "C9H12",
+        "n_bridgeheads": 0,
+        "n_rings": 4,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, three or more rings",
+        "qm9_id": 133863,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C1[C@H]2C[C@H]3C[C@H]4C[C@@H]1C234",
+        "suspicion_score": 8.765053424965512
+      },
+      {
+        "formula": "C8H10O",
+        "n_bridgeheads": 2,
+        "n_rings": 4,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, bridged polycycle, three or more rings",
+        "qm9_id": 72707,
+        "quality_tier": "gold",
+        "smallest_ring": 4,
+        "smiles_geometry": "C[C@]12CC[C@@]13C=C[C@@H]2O3",
+        "suspicion_score": 8.732847621293862
+      },
+      {
+        "formula": "C8H7N",
+        "n_bridgeheads": 0,
+        "n_rings": 4,
+        "n_triple_bonds": 0,
+        "notes": "strained small ring, three or more rings",
+        "qm9_id": 37079,
+        "quality_tier": "silver",
+        "smallest_ring": 3,
+        "smiles_geometry": "C1=C2CC3=C[C@H]1N1[C@H]2[C@H]31",
+        "suspicion_score": 8.730199103171774
+      }
+    ],
+    "model": "ridge on element counts + ECFP4 counts, out-of-fold",
+    "n_folds": 5,
+    "oof_mae": {
+      "gap_ev": 0.39530579717358505,
+      "u0_atomization_ev": 0.31544044855353087
+    },
+    "ridge_alpha": 1.0,
+    "rq2_preliminary": {
+      "gap_ev": {
+        "bronze_vs_gold": {
+          "median_a": 0.36814990276464243,
+          "median_b": 0.3227823269332095,
+          "n_a": 1569,
+          "n_b": 130659,
+          "prob_a_greater": 0.5513166352275196,
+          "pvalue": 1.2844563144810082e-12,
+          "u_statistic": 113022099.5
+        },
+        "non_gold_vs_gold": {
+          "median_a": 0.3740634599114139,
+          "median_b": 0.3227823269332095,
+          "n_a": 3204,
+          "n_b": 130659,
+          "prob_a_greater": 0.5476640913321187,
+          "pvalue": 1.3097555935650748e-20,
+          "u_statistic": 229269405.0
+        },
+        "silver_vs_gold": {
+          "median_a": 0.38478837110382935,
+          "median_b": 0.3227823269332095,
+          "n_a": 1630,
+          "n_b": 130659,
+          "prob_a_greater": 0.5441789607631761,
+          "pvalue": 4.112257849029026e-10,
+          "u_statistic": 115896062.5
+        }
+      },
+      "u0_atomization_ev": {
+        "bronze_vs_gold": {
+          "median_a": 0.3416351539189435,
+          "median_b": 0.24152144154142263,
+          "n_a": 1569,
+          "n_b": 130659,
+          "prob_a_greater": 0.6034998073281225,
+          "pvalue": 1.488344830375002e-45,
+          "u_statistic": 123719857.0
+        },
+        "non_gold_vs_gold": {
+          "median_a": 0.2787166180839229,
+          "median_b": 0.24152144154142263,
+          "n_a": 3204,
+          "n_b": 130659,
+          "prob_a_greater": 0.5493212172437045,
+          "pvalue": 6.208506519629829e-22,
+          "u_statistic": 229963130.0
+        },
+        "silver_vs_gold": {
+          "median_a": 0.23810235125900903,
+          "median_b": 0.24152144154142263,
+          "n_a": 1630,
+          "n_b": 130659,
+          "prob_a_greater": 0.4971827616466354,
+          "pvalue": 0.6523137284873096,
+          "u_statistic": 105887086.0
+        }
+      }
+    },
+    "targets": [
+      "u0_atomization_ev",
+      "gap_ev"
+    ]
+  }
+}

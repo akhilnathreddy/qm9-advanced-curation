@@ -1,0 +1,27 @@
+{
+  "collection_doi": "10.6084/m9.figshare.c.4351631.v1",
+  "dataset": "QM9-G4(MP2)",
+  "files": [
+    {
+      "description": "Parsed G4(MP2) energies, atom references and the authors' index lists",
+      "figshare_article_doi": "10.6084/m9.figshare.7951892.v1",
+      "figshare_article_id": 7951892,
+      "figshare_file_id": 15134663,
+      "md5": "ca3e8088474768add0464e3c8e3b4da7",
+      "name": "data_publication_main.v2.tar.gz",
+      "retrieval": {
+        "content_length": "30349246",
+        "etag": "\"ca3e8088474768add0464e3c8e3b4da7\"",
+        "final_url": "https://s3-eu-west-1.amazonaws.com/pstorage-npg-968563215/15134663/data_publication_main.v2.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIQYK5H3JTELHKKTA/20261107/eu-west-1/s3/aws4_request&X-Amz-Date=20261107T104744Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=560a29ad102297f7a41df6aa372cf509d564739bf0fd7f3ef5cadf46c41dee16",
+        "last_modified": "Sat, 01 May 2021 06:05:49 GMT",
+        "retrieved_at_utc": "2026-11-07T10:47:50Z"
+      },
+      "sha256": "55aeb79d7d8f9ee7cd5e9b7a261539e1f4b9c54e15d16f8a21cd4a54b5c0c67f",
+      "size_bytes": 30349246,
+      "url": "https://ndownloader.figshare.com/files/15134663"
+    }
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "paper_doi": "10.1038/s41597-019-0121-7"
+}

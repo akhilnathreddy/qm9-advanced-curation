@@ -1,0 +1,46 @@
+{
+  "checks": {
+    "statistical/statistical_report.json:atomization_withheld_where_reference_invalid": true,
+    "statistical/statistical_report.json:authors_atomization_reproduced": true,
+    "statistical/statistical_report.json:distribution_tests_cover_every_target_and_tier": true,
+    "statistical/statistical_report.json:external_counts_match_publication": true,
+    "statistical/statistical_report.json:external_formulas_match_qm9": true,
+    "statistical/statistical_report.json:external_source_verified": true,
+    "statistical/statistical_report.json:largest_residuals_annotated": true,
+    "statistical/statistical_report.json:one_review_row_per_molecule": true,
+    "statistical/statistical_report.json:review_flags_do_not_change_tiers": true,
+    "statistical/statistical_report.json:review_reasons_known": true
+  },
+  "conditions": [
+    "external G4(MP2) data verified (published MD5, CC0) and its counts match the paper",
+    "atom references checked; values withheld wherever a reference is invalid",
+    "distribution tests, correlations and residual tables cover every target and tier",
+    "every Layer 4 flag is soft: one review row per record, tiers unchanged",
+    "unresolved uncertainties are listed in docs/limitations.md",
+    "a second review run produces byte-identical tables"
+  ],
+  "environment": {
+    "constants": "CODATA 2018",
+    "git": {
+      "commit": "8a808149e94edd17aa5e639b9c5f9ecdca12a6a8",
+      "dirty": true
+    },
+    "implementation": "CPython",
+    "packages": {
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "pandas": "3.1.1",
+      "pandera": "0.35.0",
+      "polars": "2.1.0",
+      "pyarrow": "26.0.1",
+      "pyyaml": "6.0.3",
+      "rdkit": "2026.9.1",
+      "scipy": "1.18.1"
+    },
+    "platform": "Darwin-arm64",
+    "python": "3.12.5",
+    "qm9_curation_version": "0.1.0"
+  },
+  "passed": true,
+  "phase": 7
+}

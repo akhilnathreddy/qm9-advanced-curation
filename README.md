@@ -9,7 +9,7 @@ format, chemical-identity and physics checks, assigns quality tiers instead of
 deleting records, and produces ML-ready tables, a split suite and baseline
 benchmarks. The full plan is in `docs/plan_v2.md`.
 
-**Current phase:** 6 complete — leakage-guarded feature tables in `data/processed/features/` (Gate 6; `docs/features.md`). Next: Phase 7, statistical and multi-fidelity validation.
+**Current phase:** 7 complete — statistical, scientific and multi-fidelity review against G4(MP2) in `data/processed/review.parquet` (Gate 7; `docs/statistical_validation.md`). Next: Phase 8, split suite.
 
 ## Setup
 
@@ -33,6 +33,7 @@ make gate3    # Phase 3 exit gate: profile, triage, byte-identical rebuild
 make gate4    # Phase 4 exit gate: all checks, tolerances set, byte-identical rebuild
 make gate5    # Phase 5 exit gate: tiers, source values preserved, byte-identical rebuild
 make gate6    # Phase 6 exit gate: features documented, leakage-guarded, byte-identical rebuild
+make gate7    # Phase 7 exit gate: G4(MP2) cross-check, soft review flags, byte-identical rebuild
 make fixture  # rebuild the 1k test fixture from the raw archive
 ```
 
@@ -63,4 +64,6 @@ make fixture  # rebuild the 1k test fixture from the raw archive
 
 Code license: **not yet chosen.** The QM9 source data is **CC0-1.0**
 (public domain), as recorded in `data/raw/MANIFEST.json`. Please cite
-Ramakrishnan et al. (2014) when using it.
+Ramakrishnan et al. (2014) when using it. The G4(MP2) cross-reference
+(`data/processed/g4mp2_xref.parquet`) is derived from Kim, Park and Choi (2019,
+*Sci. Data* 6, 109; CC0); cite them when using it.

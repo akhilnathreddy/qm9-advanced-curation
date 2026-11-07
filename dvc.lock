@@ -302,3 +302,101 @@ stages:
       hash: md5
       md5: cc827a06fb817f26ad2219ff62e68b78
       size: 65185
+  acquire_external:
+    cmd: python -m qm9_curation.external.acquire
+    deps:
+    - path: configs/external.yaml
+      hash: md5
+      md5: e2c13fc66957d21bb6a0dbf6a559bbfb
+      size: 2125
+    - path: src/qm9_curation/acquire.py
+      hash: md5
+      md5: 4fda820c8b251ed2a9c4fedbc170a886
+      size: 8312
+    - path: src/qm9_curation/external/acquire.py
+      hash: md5
+      md5: 9cc2d816d4e140d8f7e01c7987f01063
+      size: 1179
+    outs:
+    - path: data/external/kim2019/MANIFEST.json
+      hash: md5
+      md5: 24dece74c67a4d7119c7ce203fc50387
+      size: 1376
+    - path: data/external/kim2019/data_publication_main.v2.tar.gz
+      hash: md5
+      md5: ca3e8088474768add0464e3c8e3b4da7
+      size: 30349246
+  review:
+    cmd: python -m qm9_curation.review.build
+    deps:
+    - path: configs/dataset.yaml
+      hash: md5
+      md5: 835c05894bf8b2a55d32b83cde4e9bab
+      size: 2374
+    - path: configs/external.yaml
+      hash: md5
+      md5: e2c13fc66957d21bb6a0dbf6a559bbfb
+      size: 2125
+    - path: configs/statistical.yaml
+      hash: md5
+      md5: 660d9501ca24fa222999d4e393f86ef4
+      size: 842
+    - path: data/external/kim2019/MANIFEST.json
+      hash: md5
+      md5: 24dece74c67a4d7119c7ce203fc50387
+      size: 1376
+    - path: data/external/kim2019/data_publication_main.v2.tar.gz
+      hash: md5
+      md5: ca3e8088474768add0464e3c8e3b4da7
+      size: 30349246
+    - path: data/processed/features
+      hash: md5
+      md5: bee22da8b640babdf8f6d36ab1ac9420.dir
+      size: 65336988
+      nfiles: 8
+    - path: data/processed/molecules.parquet
+      hash: md5
+      md5: 632d71c10f02ba87ea2c913dc7618c3d
+      size: 29466810
+    - path: src/qm9_curation/curate/build.py
+      hash: md5
+      md5: 8d4edd6dc9c8548cad3ebc8236f88d06
+      size: 8419
+    - path: src/qm9_curation/curate/tiers.py
+      hash: md5
+      md5: 7646dc626f312309aab3f8d78b629b26
+      size: 5766
+    - path: src/qm9_curation/external/kim2019.py
+      hash: md5
+      md5: 598bed1438c2278f2779a799275aaace
+      size: 4661
+    - path: src/qm9_curation/features/molecular.py
+      hash: md5
+      md5: 7b1bcf6baabae43c11daee18a11911d2
+      size: 3901
+    - path: src/qm9_curation/profiling/properties.py
+      hash: md5
+      md5: 5c91dd5dbfec9533a375958bda021fc6
+      size: 2746
+    - path: src/qm9_curation/review
+      hash: md5
+      md5: 84d4dcb85fc929d100d78c2d6a736385.dir
+      size: 39570
+      nfiles: 6
+    - path: src/qm9_curation/units.py
+      hash: md5
+      md5: 75de640e2cfb69be094c9c81261764a9
+      size: 2648
+    outs:
+    - path: data/processed/g4mp2_xref.parquet
+      hash: md5
+      md5: 7aa056496dc5c7120d60eaf837856531
+      size: 6646816
+    - path: data/processed/review.parquet
+      hash: md5
+      md5: 83ad23e99b366996236565c977c54207
+      size: 11208553
+    - path: reports/statistical/statistical_report.json
+      hash: md5
+      md5: 53e0566d495f8220cfb0c77041b8e9ed
+      size: 68670
