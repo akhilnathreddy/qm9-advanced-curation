@@ -89,8 +89,8 @@ stages:
       size: 86144227
     - path: src/qm9_curation/parse
       hash: md5
-      md5: 6178f266fe311618336dd951f7eed228.dir
-      size: 17117
+      md5: fa90b11be736489e0a25d8700f881ab7.dir
+      size: 17145
       nfiles: 3
     - path: src/qm9_curation/schema.py
       hash: md5
@@ -107,13 +107,107 @@ stages:
       size: 27594375
     - path: data/interim/molecules.parquet
       hash: md5
-      md5: 134f3a957a945429ab9d6296bf2ebfc2
-      size: 15820228
+      md5: 0fc3ef058e184dc8cb6fc99c9ae26259
+      size: 15820245
     - path: data/interim/parse_log.parquet
       hash: md5
       md5: fe0919010d80c676e5df8da56121af8d
       size: 3584
     - path: reports/data_quality/parse_report.json
       hash: md5
-      md5: cc77b069986b95898e98d228c7c2bb20
+      md5: bb92ae2f82bef9fb25785fe3ca2df044
       size: 1148
+  profile:
+    cmd: python -m qm9_curation.profiling.build
+    deps:
+    - path: data/interim/atoms.parquet
+      hash: md5
+      md5: 210708249f7b6a91d3419df0a0d858c9
+      size: 66660328
+    - path: data/interim/frequencies.parquet
+      hash: md5
+      md5: d27e99bfa623b8b2bc2b174565fd42f8
+      size: 27594375
+    - path: data/interim/molecules.parquet
+      hash: md5
+      md5: 0fc3ef058e184dc8cb6fc99c9ae26259
+      size: 15820245
+    - path: data/raw/uncharacterized.txt
+      hash: md5
+      md5: a361887bacb427b8a0ce7903d92a53b4
+      size: 486752
+    - path: src/qm9_curation/profiling
+      hash: md5
+      md5: 939ce12ca0182211c54e05c270191761.dir
+      size: 47850
+      nfiles: 9
+    - path: src/qm9_curation/schema.py
+      hash: md5
+      md5: 653c4ecfad2ff94915c152877476b5c2
+      size: 3784
+    outs:
+    - path: data/interim/geometric_duplicate_pairs.parquet
+      hash: md5
+      md5: 2a6f4503d7ff1762dbb99d679004c450
+      size: 4211
+    - path: data/interim/molecule_profile.parquet
+      hash: md5
+      md5: f1d9766f2d12500f6c5fce3ceb56ae4e
+      size: 9677575
+    - path: reports/data_quality/profile.html
+      hash: md5
+      md5: 181c489152f7569a427dc9aac678b1cc
+      size: 211914
+    - path: reports/data_quality/profile.json
+      hash: md5
+      md5: 71262a9bd0b3a8dca4ad1c539881bba9
+      size: 34102
+  validate:
+    cmd: python -m qm9_curation.checks.build
+    deps:
+    - path: configs/dataset.yaml
+      hash: md5
+      md5: 835c05894bf8b2a55d32b83cde4e9bab
+      size: 2374
+    - path: configs/validation.yaml
+      hash: md5
+      md5: 3ae6b19ed906be7ecbe3b88d46a09c4e
+      size: 1156
+    - path: data/interim/atoms.parquet
+      hash: md5
+      md5: 210708249f7b6a91d3419df0a0d858c9
+      size: 66660328
+    - path: data/interim/frequencies.parquet
+      hash: md5
+      md5: d27e99bfa623b8b2bc2b174565fd42f8
+      size: 27594375
+    - path: data/interim/molecule_profile.parquet
+      hash: md5
+      md5: f1d9766f2d12500f6c5fce3ceb56ae4e
+      size: 9677575
+    - path: data/interim/molecules.parquet
+      hash: md5
+      md5: 0fc3ef058e184dc8cb6fc99c9ae26259
+      size: 15820245
+    - path: data/raw/uncharacterized.txt
+      hash: md5
+      md5: a361887bacb427b8a0ce7903d92a53b4
+      size: 486752
+    - path: src/qm9_curation/checks
+      hash: md5
+      md5: ff6c8028bc377d8340ca453270024b7a.dir
+      size: 27595
+      nfiles: 7
+    - path: src/qm9_curation/units.py
+      hash: md5
+      md5: 75de640e2cfb69be094c9c81261764a9
+      size: 2648
+    outs:
+    - path: data/interim/validation.parquet
+      hash: md5
+      md5: bea75c4970fcc20959ffdfcfe785bb2b
+      size: 5376266
+    - path: reports/validation/validation_report.json
+      hash: md5
+      md5: 77acf3cf3b5dfe31e9dd48e00e597f26
+      size: 8938

@@ -1,0 +1,1490 @@
+{
+  "chemistry": {
+    "gdb_smiles_with_charges": 1705,
+    "gdb_smiles_with_stereo": 0,
+    "gdb_vs_relaxed_flat_smiles": [
+      {
+        "comparison": "agree",
+        "n": 119542,
+        "uncharacterized": false
+      },
+      {
+        "comparison": "agree",
+        "n": 321,
+        "uncharacterized": true
+      },
+      {
+        "comparison": "disagree",
+        "n": 10677,
+        "uncharacterized": false
+      },
+      {
+        "comparison": "disagree",
+        "n": 2599,
+        "uncharacterized": true
+      },
+      {
+        "comparison": "relaxed_unparseable",
+        "n": 612,
+        "uncharacterized": false
+      },
+      {
+        "comparison": "relaxed_unparseable",
+        "n": 134,
+        "uncharacterized": true
+      }
+    ],
+    "molecules_with_stereocentres": 97267,
+    "rdkit_parse_failures": {
+      "gdb": 0,
+      "relaxed": 746,
+      "relaxed_and_uncharacterized": 134
+    },
+    "relaxed_smiles_with_charges": 562,
+    "relaxed_smiles_with_fragments": 229,
+    "relaxed_smiles_with_radicals": 12075,
+    "relaxed_smiles_with_stereo": 97529,
+    "rings": {
+      "acyclic": 14117,
+      "acyclic_fraction": 0.1054,
+      "molecules_with_aromatic_atoms": 20875,
+      "n_rings_histogram": {
+        "0": 14117,
+        "1": 53364,
+        "2": 36341,
+        "3": 19694,
+        "4": 5475,
+        "5": 3579,
+        "6": 929,
+        "7": 342,
+        "8": 36,
+        "9": 8
+      },
+      "ring_size_counts": {
+        "3": 62913,
+        "4": 78158,
+        "5": 66600,
+        "6": 21319,
+        "7": 3700,
+        "8": 464,
+        "9": 97
+      }
+    },
+    "scaffolds": {
+      "empty_scaffold_molecules": 14117,
+      "top_generic": [
+        {
+          "n": 15463,
+          "scaffold": "C1CCCC1"
+        },
+        {
+          "n": 14117,
+          "scaffold": ""
+        },
+        {
+          "n": 12213,
+          "scaffold": "C1CC1"
+        },
+        {
+          "n": 5884,
+          "scaffold": "C1CC2CC12"
+        },
+        {
+          "n": 5089,
+          "scaffold": "C1CCC1"
+        },
+        {
+          "n": 4856,
+          "scaffold": "C1CCCCC1"
+        },
+        {
+          "n": 4185,
+          "scaffold": "C1CC2CC2C1"
+        },
+        {
+          "n": 3541,
+          "scaffold": "CC1CCCCC1"
+        },
+        {
+          "n": 3342,
+          "scaffold": "CC1CCCC1"
+        },
+        {
+          "n": 2396,
+          "scaffold": "CC1CCC1"
+        }
+      ],
+      "unique_generic": 1024,
+      "unique_murcko": 22804
+    }
+  },
+  "clean_checks": [
+    {
+      "check": "no interatomic distance below 0.9 \u00c5 (no atom clashes)",
+      "passed": true,
+      "value": 0.9586066403455153
+    },
+    {
+      "check": "no missing or NaN property values",
+      "passed": true,
+      "value": 0
+    },
+    {
+      "check": "GDB-17 SMILES all parse with RDKit",
+      "passed": true,
+      "value": 0
+    }
+  ],
+  "composition": {
+    "element_atom_counts": {
+      "C": 846557,
+      "F": 3314,
+      "H": 1230122,
+      "N": 139764,
+      "O": 187996
+    },
+    "isomers_per_formula": {
+      "max": 6095,
+      "median": 13.0,
+      "singleton_formulas": 95
+    },
+    "largest_formula_groups": [
+      {
+        "formula": "C7H10O2",
+        "n": 6095
+      },
+      {
+        "formula": "C7H11NO",
+        "n": 5859
+      },
+      {
+        "formula": "C6H9NO2",
+        "n": 5794
+      },
+      {
+        "formula": "C7H9NO",
+        "n": 5231
+      },
+      {
+        "formula": "C8H12O",
+        "n": 4918
+      },
+      {
+        "formula": "C7H12O2",
+        "n": 4612
+      },
+      {
+        "formula": "C6H7NO2",
+        "n": 3929
+      },
+      {
+        "formula": "C6H8N2O",
+        "n": 3593
+      },
+      {
+        "formula": "C8H10O",
+        "n": 3182
+      },
+      {
+        "formula": "C8H14O",
+        "n": 3154
+      }
+    ],
+    "molecules_containing_element": {
+      "C": 133882,
+      "F": 2163,
+      "N": 82859,
+      "O": 113938
+    },
+    "n_atoms_histogram": {
+      "10": 527,
+      "11": 1150,
+      "12": 2336,
+      "13": 4259,
+      "14": 7103,
+      "15": 10646,
+      "16": 14270,
+      "17": 17394,
+      "18": 17836,
+      "19": 18336,
+      "20": 12601,
+      "21": 13189,
+      "22": 4483,
+      "23": 6362,
+      "24": 713,
+      "25": 1923,
+      "26": 59,
+      "27": 356,
+      "29": 35,
+      "3": 2,
+      "4": 4,
+      "5": 5,
+      "6": 12,
+      "7": 21,
+      "8": 70,
+      "9": 193
+    },
+    "n_heavy_histogram": {
+      "1": 3,
+      "2": 5,
+      "3": 9,
+      "4": 31,
+      "5": 130,
+      "6": 618,
+      "7": 3197,
+      "8": 18298,
+      "9": 111594
+    },
+    "n_molecules": 133885,
+    "n_unique_formulas": 621
+  },
+  "duplicates": {
+    "connectivity": {
+      "largest_group": 9,
+      "n_groups_with_2_or_more": 3652,
+      "n_molecules_in_such_groups": 8097
+    },
+    "structure": {
+      "found_by": {
+        "both": 172,
+        "geometry_only": 279,
+        "smiles_only": 2
+      },
+      "largest_group": 3,
+      "max_u0_spread_kcal_per_mol": 0.02259034108057604,
+      "n_groups_with_2_or_more": 222,
+      "n_molecules_in_such_groups": 453
+    },
+    "tautomer": {
+      "largest_group": 9,
+      "n_groups_with_2_or_more": 3652,
+      "n_molecules_in_such_groups": 8097
+    }
+  },
+  "gate_3_conditions": {
+    "all_issues_triaged": true,
+    "all_sections_present": true,
+    "clean_checks_passed": true,
+    "geometric_duplicates_energy_consistent": true,
+    "profile_row_per_molecule": true
+  },
+  "geometry": {
+    "geometric_duplicate_pairs": 239,
+    "geometric_pair_max_u0_diff_kcal_per_mol": 0.02259034108057604,
+    "max_interatomic_ang": {
+      "max": 12.040386089228491,
+      "median": 6.411477789973171,
+      "min": 1.5133578654329092
+    },
+    "min_interatomic_ang": {
+      "max": 1.3291084917818186,
+      "median": 1.0155070026058401,
+      "min": 0.9586066403455153
+    },
+    "molecules_with_negative_frequency": 5,
+    "radius_of_gyration_ang": {
+      "max": 4.291857336988051,
+      "median": 2.359662762139671,
+      "min": 0.6783600376299104
+    }
+  },
+  "issues": [
+    {
+      "count": 453,
+      "examples": [
+        933,
+        937,
+        942,
+        946,
+        952,
+        956,
+        1642,
+        1648,
+        4211,
+        4215
+      ],
+      "handled_in": "Phase 5 (choose a representative per group) and Phase 8 (keep groups together)",
+      "id": "P01",
+      "rationale": "The same molecule appears under more than one qm9_id with near-identical geometry and energy (max spread 0.023 kcal/mol). Leakage risk if members land in different splits.",
+      "title": "Exact structure duplicates (Kekul\u00e9 forms, resonance forms, conformers)",
+      "triage": "needs_investigation"
+    },
+    {
+      "count": 8097,
+      "examples": [
+        166,
+        167,
+        168,
+        169,
+        185,
+        187,
+        197,
+        199,
+        200,
+        210
+      ],
+      "handled_in": "Phase 8 (tautomer-group-aware splits)",
+      "id": "P02",
+      "rationale": "Standard InChI has a mobile-H layer; GDB-17 lists tautomers as distinct molecules with distinct energies. Not duplicates: never deduplicate by InChI.",
+      "title": "Tautomers share one standard InChI / InChIKey",
+      "triage": "expected_chemistry"
+    },
+    {
+      "count": 746,
+      "examples": [
+        271,
+        282,
+        1117,
+        1642,
+        1648,
+        1670,
+        3828,
+        3832,
+        3833,
+        3842
+      ],
+      "handled_in": "Phase 4 Layer 2 (independent bond perception from 3D)",
+      "id": "P03",
+      "rationale": "Authors' relaxed SMILES come from Open Babel bond perception; many encode zwitterions as neutral radicals (e.g. [NH3]...[O]). GDB-17 SMILES all parse.",
+      "title": "Relaxed SMILES not parseable by RDKit",
+      "triage": "needs_investigation"
+    },
+    {
+      "count": 12075,
+      "examples": [
+        76,
+        89,
+        113,
+        185,
+        186,
+        240,
+        244,
+        249,
+        305,
+        421
+      ],
+      "handled_in": "Phase 4 Layer 2",
+      "id": "P04",
+      "rationale": "QM9 molecules are closed-shell singlets; radicals in the relaxed SMILES most likely reflect failed bond-order perception, not the electronic structure.",
+      "title": "Relaxed SMILES with radical centres",
+      "triage": "needs_investigation"
+    },
+    {
+      "count": 229,
+      "examples": [
+        1117,
+        3838,
+        3895,
+        3899,
+        4807,
+        4871,
+        4872,
+        5557,
+        5599,
+        6330
+      ],
+      "handled_in": "Phase 4 Layer 2 (fragment check from 3D bonds)",
+      "id": "P05",
+      "rationale": "Relaxed SMILES contains '.', i.e. the optimized geometry is two or more molecules (e.g. NH3 leaving). Strong candidate for a hard flag.",
+      "title": "Relaxed structure split into fragments",
+      "triage": "needs_investigation"
+    },
+    {
+      "count": 10677,
+      "examples": [
+        76,
+        89,
+        113,
+        240,
+        244,
+        249,
+        305,
+        421,
+        426,
+        430
+      ],
+      "handled_in": "Phase 4 Layer 2 (three-way graph agreement; RQ1)",
+      "id": "P06",
+      "rationale": "String-level disagreement can be real connectivity change or only aromaticity / charge / bond-order notation. Needs a graph-level comparison.",
+      "title": "GDB-17 vs relaxed SMILES disagree outside the uncharacterized list",
+      "triage": "needs_investigation"
+    },
+    {
+      "count": 1705,
+      "examples": [
+        80,
+        267,
+        271,
+        282,
+        286,
+        1102,
+        1117,
+        1126,
+        1129,
+        1232
+      ],
+      "handled_in": "Phase 5 (keep as written; flag)",
+      "id": "P07",
+      "rationale": "GDB-17 enumerates charge-separated forms; molecules are net neutral. Several relax to a neutral resonance form (see P01).",
+      "title": "Charge-separated (zwitterionic) GDB-17 SMILES",
+      "triage": "expected_chemistry"
+    },
+    {
+      "count": 433,
+      "examples": [
+        29,
+        118,
+        119,
+        501,
+        507,
+        522,
+        1051,
+        1082,
+        1265,
+        1354
+      ],
+      "handled_in": "Phase 4 (ZPVE invariant chooses the consistent set)",
+      "id": "P08",
+      "rationale": "Found in Phase 1 (O1); both sets are kept in the frequencies table.",
+      "title": "Doubled frequency sets",
+      "triage": "known_source_issue"
+    },
+    {
+      "count": 5,
+      "examples": [
+        6620,
+        59818,
+        87037,
+        117523,
+        129158
+      ],
+      "handled_in": "Phase 4 Layer 3 (hard flag)",
+      "id": "P09",
+      "rationale": "All are on the authors' difficult-to-converge list (Phase 1, O2).",
+      "title": "Imaginary frequencies (not a true minimum)",
+      "triage": "known_source_issue"
+    },
+    {
+      "count": 5,
+      "examples": [
+        4,
+        5,
+        23,
+        24,
+        486
+      ],
+      "handled_in": "Phase 5 (represent as missing with reason)",
+      "id": "P10",
+      "rationale": "A is undefined (infinite) for linear molecules; 0 is a placeholder.",
+      "title": "Linear molecules store rotational constant A = 0",
+      "triage": "expected_chemistry"
+    },
+    {
+      "count": 6,
+      "examples": [
+        25,
+        484,
+        485,
+        14562,
+        14563,
+        14564
+      ],
+      "handled_in": "Phase 4 Layer 3 (moments of inertia from geometry); Phase 5 (representation)",
+      "id": "P14",
+      "rationale": "Physically linear molecules appear three ways: A = 0 with 3N-5 frequencies (5), A = 0 with 3N-6 (4), and finite but huge A (2, polyynes). is_linear (frequency count) misses the last two groups.",
+      "title": "Linearity represented inconsistently",
+      "triage": "needs_investigation"
+    },
+    {
+      "count": 2010,
+      "examples": [
+        484,
+        14562,
+        52464,
+        52465,
+        3,
+        2,
+        1,
+        2642,
+        2643,
+        14633
+      ],
+      "handled_in": "Phase 7 (composition-residual analysis)",
+      "id": "P11",
+      "rationale": "Statistically unusual is not wrong; these go to chemical review. Counts are summed over properties (a molecule can count more than once).",
+      "title": "Property values with |robust z| > 6 within heavy-atom strata",
+      "triage": "needs_investigation"
+    },
+    {
+      "count": 111594,
+      "examples": [],
+      "handled_in": "Phase 8 (size-extrapolation split); Phase 7 (stratified statistics)",
+      "id": "P12",
+      "rationale": "GDB-17 enumeration grows combinatorially with size.",
+      "title": "Size distribution dominated by 9-heavy-atom molecules",
+      "triage": "expected_chemistry"
+    },
+    {
+      "count": 14117,
+      "examples": [],
+      "handled_in": "Phase 8 (generic scaffold split with acyclic buckets)",
+      "id": "P13",
+      "rationale": "A plain scaffold split would put all of them in one bucket.",
+      "title": "Acyclic molecules have an empty Murcko scaffold",
+      "triage": "expected_chemistry"
+    }
+  ],
+  "output_sha256": {
+    "geometric_duplicate_pairs": "fa6a34f09d9e4d8520ad437b16622b724b3ca8385ac50b3afc5fbfb96e222588",
+    "molecule_profile": "8832d1b50d441541c99846113fbacffef87aa0d3a05aabf756864e6556ed55d1",
+    "profile_html": "cb37223a7e7053319cbfa0ec614d3e23d1a2f3c34bfbe6044b4ba7cb27ffddaf"
+  },
+  "parse": {
+    "doubled_frequencies": 433,
+    "linear_molecules": 5
+  },
+  "properties": {
+    "alpha_bohr3": {
+      "count": 133885,
+      "mean": 75.19129618702618,
+      "most_extreme": [
+        {
+          "qm9_id": 123126,
+          "robust_z": 17.71
+        },
+        {
+          "qm9_id": 52464,
+          "robust_z": 9.86
+        },
+        {
+          "qm9_id": 56343,
+          "robust_z": 8.23
+        },
+        {
+          "qm9_id": 97458,
+          "robust_z": 8.23
+        },
+        {
+          "qm9_id": 52465,
+          "robust_z": 7.99
+        }
+      ],
+      "n_robust_z_above_review": 15,
+      "nan": 0,
+      "negative": 0,
+      "null": 0,
+      "quantiles": {
+        "0.0": 6.31,
+        "0.001": 39.85,
+        "0.01": 52.55,
+        "0.05": 61.34,
+        "0.25": 70.38,
+        "0.5": 75.5,
+        "0.75": 80.52,
+        "0.95": 87.9,
+        "0.99": 93.26,
+        "0.999": 100.31,
+        "1.0": 196.62
+      },
+      "std": 8.187792801815434,
+      "zero": 0
+    },
+    "cv_cal_per_mol_k": {
+      "count": 133885,
+      "mean": 31.600675893490678,
+      "most_extreme": [
+        {
+          "qm9_id": 99964,
+          "robust_z": 4.0
+        },
+        {
+          "qm9_id": 57518,
+          "robust_z": 4.0
+        },
+        {
+          "qm9_id": 58099,
+          "robust_z": 3.97
+        },
+        {
+          "qm9_id": 58183,
+          "robust_z": 3.85
+        },
+        {
+          "qm9_id": 99965,
+          "robust_z": 3.84
+        }
+      ],
+      "n_robust_z_above_review": 0,
+      "nan": 0,
+      "negative": 0,
+      "null": 0,
+      "quantiles": {
+        "0.0": 6.002,
+        "0.001": 16.913,
+        "0.01": 21.782,
+        "0.05": 25.062,
+        "0.25": 28.942,
+        "0.5": 31.555,
+        "0.75": 34.276,
+        "0.95": 38.286,
+        "0.99": 41.168,
+        "0.999": 44.054,
+        "1.0": 46.969
+      },
+      "std": 4.062471424893397,
+      "zero": 0
+    },
+    "g298_ha": {
+      "count": 133885,
+      "mean": -411.5773971359749,
+      "most_extreme": [
+        {
+          "qm9_id": 23866,
+          "robust_z": -10.0
+        },
+        {
+          "qm9_id": 133621,
+          "robust_z": -9.94
+        },
+        {
+          "qm9_id": 184,
+          "robust_z": -9.26
+        },
+        {
+          "qm9_id": 133498,
+          "robust_z": -6.78
+        },
+        {
+          "qm9_id": 133503,
+          "robust_z": -6.78
+        }
+      ],
+      "n_robust_z_above_review": 65,
+      "nan": 0,
+      "negative": 133885,
+      "null": 0,
+      "quantiles": {
+        "0.0": -714.602138,
+        "0.001": -570.63942,
+        "0.01": -496.182003,
+        "0.05": -473.861085,
+        "0.25": -437.947682,
+        "0.5": -417.895731,
+        "0.75": -387.083279,
+        "0.95": -347.826733,
+        "0.99": -308.535243,
+        "0.999": -234.476188,
+        "1.0": -40.498597
+      },
+      "std": 40.060740765977144,
+      "zero": 0
+    },
+    "gap_ha": {
+      "count": 133885,
+      "mean": 0.25110037121410167,
+      "most_extreme": [
+        {
+          "qm9_id": 184,
+          "robust_z": 5.82
+        },
+        {
+          "qm9_id": 123126,
+          "robust_z": -4.33
+        },
+        {
+          "qm9_id": 133621,
+          "robust_z": 4.15
+        },
+        {
+          "qm9_id": 23866,
+          "robust_z": 4.12
+        },
+        {
+          "qm9_id": 37992,
+          "robust_z": -4.08
+        }
+      ],
+      "n_robust_z_above_review": 0,
+      "nan": 0,
+      "negative": 0,
+      "null": 0,
+      "quantiles": {
+        "0.0": 0.0246,
+        "0.001": 0.117,
+        "0.01": 0.1492,
+        "0.05": 0.1741,
+        "0.25": 0.2163,
+        "0.5": 0.2494,
+        "0.75": 0.2882,
+        "0.95": 0.3266,
+        "0.99": 0.3438,
+        "0.999": 0.3744,
+        "1.0": 0.6221
+      },
+      "std": 0.04751888787058485,
+      "zero": 0
+    },
+    "h298_ha": {
+      "count": 133885,
+      "mean": -411.5345690393173,
+      "most_extreme": [
+        {
+          "qm9_id": 23866,
+          "robust_z": -10.0
+        },
+        {
+          "qm9_id": 133621,
+          "robust_z": -9.94
+        },
+        {
+          "qm9_id": 184,
+          "robust_z": -9.26
+        },
+        {
+          "qm9_id": 133498,
+          "robust_z": -6.78
+        },
+        {
+          "qm9_id": 133503,
+          "robust_z": -6.78
+        }
+      ],
+      "n_robust_z_above_review": 65,
+      "nan": 0,
+      "negative": 133885,
+      "null": 0,
+      "quantiles": {
+        "0.0": -714.559209,
+        "0.001": -570.592897,
+        "0.01": -496.135108,
+        "0.05": -473.818373,
+        "0.25": -437.904997,
+        "0.5": -417.856407,
+        "0.75": -387.038802,
+        "0.95": -347.785186,
+        "0.99": -308.496311,
+        "0.999": -234.44138,
+        "1.0": -40.475117
+      },
+      "std": 40.06001150196295,
+      "zero": 0
+    },
+    "homo_ha": {
+      "count": 133885,
+      "mean": -0.2399766994062068,
+      "most_extreme": [
+        {
+          "qm9_id": 184,
+          "robust_z": -9.66
+        },
+        {
+          "qm9_id": 33390,
+          "robust_z": -8.91
+        },
+        {
+          "qm9_id": 133621,
+          "robust_z": -8.01
+        },
+        {
+          "qm9_id": 827,
+          "robust_z": -8.0
+        },
+        {
+          "qm9_id": 23866,
+          "robust_z": -7.96
+        }
+      ],
+      "n_robust_z_above_review": 47,
+      "nan": 0,
+      "negative": 133885,
+      "null": 0,
+      "quantiles": {
+        "0.0": -0.4286,
+        "0.001": -0.3257,
+        "0.01": -0.2945,
+        "0.05": -0.2744,
+        "0.25": -0.2525,
+        "0.5": -0.241,
+        "0.75": -0.2287,
+        "0.95": -0.2006,
+        "0.99": -0.1764,
+        "0.999": -0.1586,
+        "1.0": -0.1017
+      },
+      "std": 0.022131434022675988,
+      "zero": 0
+    },
+    "lumo_ha": {
+      "count": 133885,
+      "mean": 0.011123767412331481,
+      "most_extreme": [
+        {
+          "qm9_id": 130791,
+          "robust_z": -3.49
+        },
+        {
+          "qm9_id": 130887,
+          "robust_z": -3.37
+        },
+        {
+          "qm9_id": 130667,
+          "robust_z": -3.28
+        },
+        {
+          "qm9_id": 8720,
+          "robust_z": -3.28
+        },
+        {
+          "qm9_id": 129314,
+          "robust_z": -3.22
+        }
+      ],
+      "n_robust_z_above_review": 0,
+      "nan": 0,
+      "negative": 54471,
+      "null": 0,
+      "quantiles": {
+        "0.0": -0.175,
+        "0.001": -0.1297,
+        "0.01": -0.0997,
+        "0.05": -0.0664,
+        "0.25": -0.0238,
+        "0.5": 0.012,
+        "0.75": 0.0492,
+        "0.95": 0.0824,
+        "0.99": 0.0911,
+        "0.999": 0.0987,
+        "1.0": 0.1935
+      },
+      "std": 0.04693606987086848,
+      "zero": 71
+    },
+    "mu_debye": {
+      "count": 133885,
+      "mean": 2.7060374694700675,
+      "most_extreme": [
+        {
+          "qm9_id": 123126,
+          "robust_z": 18.25
+        },
+        {
+          "qm9_id": 121864,
+          "robust_z": 15.31
+        },
+        {
+          "qm9_id": 101807,
+          "robust_z": 13.8
+        },
+        {
+          "qm9_id": 97476,
+          "robust_z": 13.59
+        },
+        {
+          "qm9_id": 56343,
+          "robust_z": 13.11
+        }
+      ],
+      "n_robust_z_above_review": 222,
+      "nan": 0,
+      "negative": 0,
+      "null": 0,
+      "quantiles": {
+        "0.0": 0.0,
+        "0.001": 0.0051,
+        "0.01": 0.1312,
+        "0.05": 0.6588,
+        "0.25": 1.5887,
+        "0.5": 2.5,
+        "0.75": 3.6361,
+        "0.95": 5.3035,
+        "0.99": 6.7434,
+        "0.999": 13.4626,
+        "1.0": 29.5564
+      },
+      "std": 1.5303939962755464,
+      "zero": 45
+    },
+    "r2_bohr2": {
+      "count": 133885,
+      "mean": 1189.5274499667626,
+      "most_extreme": [
+        {
+          "qm9_id": 10295,
+          "robust_z": 12.97
+        },
+        {
+          "qm9_id": 123246,
+          "robust_z": 11.34
+        },
+        {
+          "qm9_id": 123247,
+          "robust_z": 10.89
+        },
+        {
+          "qm9_id": 123248,
+          "robust_z": 10.62
+        },
+        {
+          "qm9_id": 123267,
+          "robust_z": 10.43
+        }
+      ],
+      "n_robust_z_above_review": 744,
+      "nan": 0,
+      "negative": 0,
+      "null": 0,
+      "quantiles": {
+        "0.0": 19.0002,
+        "0.001": 409.078,
+        "0.01": 653.6273,
+        "0.05": 827.449,
+        "0.25": 1018.3226,
+        "0.5": 1147.5858,
+        "0.75": 1308.8166,
+        "0.95": 1712.3792,
+        "0.99": 2141.6612,
+        "0.999": 2698.604,
+        "1.0": 3374.7532
+      },
+      "std": 279.75717200803166,
+      "zero": 0
+    },
+    "rot_a_ghz": {
+      "count": 133885,
+      "mean": 9.814382088508797,
+      "most_extreme": [
+        {
+          "qm9_id": 484,
+          "robust_z": 255321.16
+        },
+        {
+          "qm9_id": 14562,
+          "robust_z": 226604.49
+        },
+        {
+          "qm9_id": 52464,
+          "robust_z": 206.1
+        },
+        {
+          "qm9_id": 52465,
+          "robust_z": 205.81
+        },
+        {
+          "qm9_id": 2642,
+          "robust_z": 83.96
+        }
+      ],
+      "n_robust_z_above_review": 704,
+      "nan": 0,
+      "negative": 0,
+      "null": 0,
+      "quantiles": {
+        "0.0": 0.0,
+        "0.001": 1.65123,
+        "0.01": 1.86673,
+        "0.05": 2.08676,
+        "0.25": 2.55443,
+        "0.5": 3.09036,
+        "0.75": 3.83582,
+        "0.95": 5.89961,
+        "0.99": 8.30187,
+        "0.999": 17.85427,
+        "1.0": 619867.68314
+      },
+      "std": 1809.4656657816104,
+      "zero": 9
+    },
+    "rot_b_ghz": {
+      "count": 133885,
+      "mean": 1.4060972645920005,
+      "most_extreme": [
+        {
+          "qm9_id": 3,
+          "robust_z": 103.64
+        },
+        {
+          "qm9_id": 2,
+          "robust_z": 68.88
+        },
+        {
+          "qm9_id": 1,
+          "robust_z": 36.18
+        },
+        {
+          "qm9_id": 5,
+          "robust_z": 8.94
+        },
+        {
+          "qm9_id": 6,
+          "robust_z": 7.59
+        }
+      ],
+      "n_robust_z_above_review": 6,
+      "nan": 0,
+      "negative": 0,
+      "null": 0,
+      "quantiles": {
+        "0.0": 0.33712,
+        "0.001": 0.40501,
+        "0.01": 0.54459,
+        "0.05": 0.73165,
+        "0.25": 1.09163,
+        "0.5": 1.36994,
+        "0.75": 1.65398,
+        "0.95": 2.10556,
+        "0.99": 2.73811,
+        "0.999": 4.36927,
+        "1.0": 437.90386
+      },
+      "std": 1.5837949146345411,
+      "zero": 0
+    },
+    "rot_c_ghz": {
+      "count": 133885,
+      "mean": 1.1249210272988013,
+      "most_extreme": [
+        {
+          "qm9_id": 3,
+          "robust_z": 158.74
+        },
+        {
+          "qm9_id": 2,
+          "robust_z": 106.4
+        },
+        {
+          "qm9_id": 1,
+          "robust_z": 87.14
+        },
+        {
+          "qm9_id": 5,
+          "robust_z": 22.47
+        },
+        {
+          "qm9_id": 4,
+          "robust_z": 17.34
+        }
+      ],
+      "n_robust_z_above_review": 12,
+      "nan": 0,
+      "negative": 0,
+      "null": 0,
+      "quantiles": {
+        "0.0": 0.33118,
+        "0.001": 0.39575,
+        "0.01": 0.51346,
+        "0.05": 0.66383,
+        "0.25": 0.91048,
+        "0.5": 1.07856,
+        "0.75": 1.27954,
+        "0.95": 1.67202,
+        "0.99": 2.12228,
+        "0.999": 3.44502,
+        "1.0": 282.94545
+      },
+      "std": 1.0956177821231372,
+      "zero": 0
+    },
+    "u0_ha": {
+      "count": 133885,
+      "mean": -411.5439845281772,
+      "most_extreme": [
+        {
+          "qm9_id": 23866,
+          "robust_z": -10.0
+        },
+        {
+          "qm9_id": 133621,
+          "robust_z": -9.94
+        },
+        {
+          "qm9_id": 184,
+          "robust_z": -9.26
+        },
+        {
+          "qm9_id": 133498,
+          "robust_z": -6.78
+        },
+        {
+          "qm9_id": 133503,
+          "robust_z": -6.78
+        }
+      ],
+      "n_robust_z_above_review": 65,
+      "nan": 0,
+      "negative": 133885,
+      "null": 0,
+      "quantiles": {
+        "0.0": -714.568061,
+        "0.001": -570.603937,
+        "0.01": -496.14562,
+        "0.05": -473.827259,
+        "0.25": -437.913936,
+        "0.5": -417.864758,
+        "0.75": -387.049166,
+        "0.95": -347.794825,
+        "0.99": -308.505267,
+        "0.999": -234.447743,
+        "1.0": -40.47893
+      },
+      "std": 40.06023041199274,
+      "zero": 0
+    },
+    "u298_ha": {
+      "count": 133885,
+      "mean": -411.5355132256414,
+      "most_extreme": [
+        {
+          "qm9_id": 23866,
+          "robust_z": -10.0
+        },
+        {
+          "qm9_id": 133621,
+          "robust_z": -9.94
+        },
+        {
+          "qm9_id": 184,
+          "robust_z": -9.26
+        },
+        {
+          "qm9_id": 133498,
+          "robust_z": -6.78
+        },
+        {
+          "qm9_id": 133503,
+          "robust_z": -6.78
+        }
+      ],
+      "n_robust_z_above_review": 65,
+      "nan": 0,
+      "negative": 133885,
+      "null": 0,
+      "quantiles": {
+        "0.0": -714.560153,
+        "0.001": -570.593841,
+        "0.01": -496.136053,
+        "0.05": -473.819317,
+        "0.25": -437.905942,
+        "0.5": -417.857351,
+        "0.75": -387.039746,
+        "0.95": -347.786131,
+        "0.99": -308.497255,
+        "0.999": -234.442324,
+        "1.0": -40.476062
+      },
+      "std": 40.06001150221052,
+      "zero": 0
+    },
+    "zpve_ha": {
+      "count": 133885,
+      "mean": 0.14852438909511895,
+      "most_extreme": [
+        {
+          "qm9_id": 102405,
+          "robust_z": 3.75
+        },
+        {
+          "qm9_id": 123246,
+          "robust_z": 3.74
+        },
+        {
+          "qm9_id": 122006,
+          "robust_z": 3.73
+        },
+        {
+          "qm9_id": 122135,
+          "robust_z": 3.73
+        },
+        {
+          "qm9_id": 118570,
+          "robust_z": 3.73
+        }
+      ],
+      "n_robust_z_above_review": 0,
+      "nan": 0,
+      "negative": 0,
+      "null": 0,
+      "quantiles": {
+        "0.0": 0.015951,
+        "0.001": 0.047682,
+        "0.01": 0.07181,
+        "0.05": 0.093123,
+        "0.25": 0.125289,
+        "0.5": 0.148329,
+        "0.75": 0.17115,
+        "0.95": 0.204619,
+        "0.99": 0.227656,
+        "0.999": 0.250757,
+        "1.0": 0.273944
+      },
+      "std": 0.0332738964022063,
+      "zero": 0
+    }
+  },
+  "property_correlations": {
+    "alpha_bohr3": {
+      "alpha_bohr3": 1.0,
+      "cv_cal_per_mol_k": 0.6993,
+      "g298_ha": 0.2516,
+      "gap_ha": 0.1892,
+      "h298_ha": 0.2516,
+      "homo_ha": 0.2403,
+      "lumo_ha": 0.3049,
+      "mu_debye": -0.2411,
+      "r2_bohr2": 0.5569,
+      "rot_a_ghz": 0.0041,
+      "rot_b_ghz": -0.1743,
+      "rot_c_ghz": -0.1772,
+      "u0_ha": 0.2516,
+      "u298_ha": 0.2516,
+      "zpve_ha": 0.7324
+    },
+    "cv_cal_per_mol_k": {
+      "alpha_bohr3": 0.6993,
+      "cv_cal_per_mol_k": 1.0,
+      "g298_ha": -0.086,
+      "gap_ha": 0.3064,
+      "h298_ha": -0.0859,
+      "homo_ha": 0.009,
+      "lumo_ha": 0.3144,
+      "mu_debye": -0.1627,
+      "r2_bohr2": 0.6943,
+      "rot_a_ghz": -0.0074,
+      "rot_b_ghz": -0.2012,
+      "rot_c_ghz": -0.2087,
+      "u0_ha": -0.086,
+      "u298_ha": -0.0859,
+      "zpve_ha": 0.7403
+    },
+    "g298_ha": {
+      "alpha_bohr3": 0.2516,
+      "cv_cal_per_mol_k": -0.086,
+      "g298_ha": 1.0,
+      "gap_ha": 0.283,
+      "h298_ha": 1.0,
+      "homo_ha": 0.1048,
+      "lumo_ha": 0.3359,
+      "mu_debye": -0.2718,
+      "r2_bohr2": -0.2023,
+      "rot_a_ghz": 0.0145,
+      "rot_b_ghz": 0.1334,
+      "rot_c_ghz": 0.1674,
+      "u0_ha": 1.0,
+      "u298_ha": 1.0,
+      "zpve_ha": 0.2966
+    },
+    "gap_ha": {
+      "alpha_bohr3": 0.1892,
+      "cv_cal_per_mol_k": 0.3064,
+      "g298_ha": 0.283,
+      "gap_ha": 1.0,
+      "h298_ha": 0.283,
+      "homo_ha": -0.259,
+      "lumo_ha": 0.8903,
+      "mu_debye": -0.3334,
+      "r2_bohr2": 0.061,
+      "rot_a_ghz": -0.0051,
+      "rot_b_ghz": 0.0143,
+      "rot_c_ghz": 0.0609,
+      "u0_ha": 0.283,
+      "u298_ha": 0.283,
+      "zpve_ha": 0.5851
+    },
+    "h298_ha": {
+      "alpha_bohr3": 0.2516,
+      "cv_cal_per_mol_k": -0.0859,
+      "g298_ha": 1.0,
+      "gap_ha": 0.283,
+      "h298_ha": 1.0,
+      "homo_ha": 0.1048,
+      "lumo_ha": 0.3359,
+      "mu_debye": -0.2718,
+      "r2_bohr2": -0.2022,
+      "rot_a_ghz": 0.0145,
+      "rot_b_ghz": 0.1334,
+      "rot_c_ghz": 0.1674,
+      "u0_ha": 1.0,
+      "u298_ha": 1.0,
+      "zpve_ha": 0.2966
+    },
+    "homo_ha": {
+      "alpha_bohr3": 0.2403,
+      "cv_cal_per_mol_k": 0.009,
+      "g298_ha": 0.1048,
+      "gap_ha": -0.259,
+      "h298_ha": 0.1048,
+      "homo_ha": 1.0,
+      "lumo_ha": 0.2093,
+      "mu_debye": -0.1015,
+      "r2_bohr2": -0.0994,
+      "rot_a_ghz": -0.0008,
+      "rot_b_ghz": 0.0194,
+      "rot_c_ghz": 0.006,
+      "u0_ha": 0.1048,
+      "u298_ha": 0.1048,
+      "zpve_ha": 0.131
+    },
+    "lumo_ha": {
+      "alpha_bohr3": 0.3049,
+      "cv_cal_per_mol_k": 0.3144,
+      "g298_ha": 0.3359,
+      "gap_ha": 0.8903,
+      "h298_ha": 0.3359,
+      "homo_ha": 0.2093,
+      "lumo_ha": 1.0,
+      "mu_debye": -0.3854,
+      "r2_bohr2": 0.0149,
+      "rot_a_ghz": -0.0056,
+      "rot_b_ghz": 0.0236,
+      "rot_c_ghz": 0.0645,
+      "u0_ha": 0.3359,
+      "u298_ha": 0.3359,
+      "zpve_ha": 0.6541
+    },
+    "mu_debye": {
+      "alpha_bohr3": -0.2411,
+      "cv_cal_per_mol_k": -0.1627,
+      "g298_ha": -0.2718,
+      "gap_ha": -0.3334,
+      "h298_ha": -0.2718,
+      "homo_ha": -0.1015,
+      "lumo_ha": -0.3854,
+      "mu_debye": 1.0,
+      "r2_bohr2": 0.0109,
+      "rot_a_ghz": -0.0062,
+      "rot_b_ghz": -0.026,
+      "rot_c_ghz": -0.0491,
+      "u0_ha": -0.2718,
+      "u298_ha": -0.2718,
+      "zpve_ha": -0.3736
+    },
+    "r2_bohr2": {
+      "alpha_bohr3": 0.5569,
+      "cv_cal_per_mol_k": 0.6943,
+      "g298_ha": -0.2023,
+      "gap_ha": 0.061,
+      "h298_ha": -0.2022,
+      "homo_ha": -0.0994,
+      "lumo_ha": 0.0149,
+      "mu_debye": 0.0109,
+      "r2_bohr2": 1.0,
+      "rot_a_ghz": -0.0015,
+      "rot_b_ghz": -0.267,
+      "rot_c_ghz": -0.2802,
+      "u0_ha": -0.2023,
+      "u298_ha": -0.2022,
+      "zpve_ha": 0.3794
+    },
+    "rot_a_ghz": {
+      "alpha_bohr3": 0.0041,
+      "cv_cal_per_mol_k": -0.0074,
+      "g298_ha": 0.0145,
+      "gap_ha": -0.0051,
+      "h298_ha": 0.0145,
+      "homo_ha": -0.0008,
+      "lumo_ha": -0.0056,
+      "mu_debye": -0.0062,
+      "r2_bohr2": -0.0015,
+      "rot_a_ghz": 1.0,
+      "rot_b_ghz": 0.0006,
+      "rot_c_ghz": 0.0012,
+      "u0_ha": 0.0145,
+      "u298_ha": 0.0145,
+      "zpve_ha": -0.0107
+    },
+    "rot_b_ghz": {
+      "alpha_bohr3": -0.1743,
+      "cv_cal_per_mol_k": -0.2012,
+      "g298_ha": 0.1334,
+      "gap_ha": 0.0143,
+      "h298_ha": 0.1334,
+      "homo_ha": 0.0194,
+      "lumo_ha": 0.0236,
+      "mu_debye": -0.026,
+      "r2_bohr2": -0.267,
+      "rot_a_ghz": 0.0006,
+      "rot_b_ghz": 1.0,
+      "rot_c_ghz": 0.9809,
+      "u0_ha": 0.1334,
+      "u298_ha": 0.1334,
+      "zpve_ha": -0.0901
+    },
+    "rot_c_ghz": {
+      "alpha_bohr3": -0.1772,
+      "cv_cal_per_mol_k": -0.2087,
+      "g298_ha": 0.1674,
+      "gap_ha": 0.0609,
+      "h298_ha": 0.1674,
+      "homo_ha": 0.006,
+      "lumo_ha": 0.0645,
+      "mu_debye": -0.0491,
+      "r2_bohr2": -0.2802,
+      "rot_a_ghz": 0.0012,
+      "rot_b_ghz": 0.9809,
+      "rot_c_ghz": 1.0,
+      "u0_ha": 0.1674,
+      "u298_ha": 0.1674,
+      "zpve_ha": -0.0666
+    },
+    "u0_ha": {
+      "alpha_bohr3": 0.2516,
+      "cv_cal_per_mol_k": -0.086,
+      "g298_ha": 1.0,
+      "gap_ha": 0.283,
+      "h298_ha": 1.0,
+      "homo_ha": 0.1048,
+      "lumo_ha": 0.3359,
+      "mu_debye": -0.2718,
+      "r2_bohr2": -0.2023,
+      "rot_a_ghz": 0.0145,
+      "rot_b_ghz": 0.1334,
+      "rot_c_ghz": 0.1674,
+      "u0_ha": 1.0,
+      "u298_ha": 1.0,
+      "zpve_ha": 0.2966
+    },
+    "u298_ha": {
+      "alpha_bohr3": 0.2516,
+      "cv_cal_per_mol_k": -0.0859,
+      "g298_ha": 1.0,
+      "gap_ha": 0.283,
+      "h298_ha": 1.0,
+      "homo_ha": 0.1048,
+      "lumo_ha": 0.3359,
+      "mu_debye": -0.2718,
+      "r2_bohr2": -0.2022,
+      "rot_a_ghz": 0.0145,
+      "rot_b_ghz": 0.1334,
+      "rot_c_ghz": 0.1674,
+      "u0_ha": 1.0,
+      "u298_ha": 1.0,
+      "zpve_ha": 0.2966
+    },
+    "zpve_ha": {
+      "alpha_bohr3": 0.7324,
+      "cv_cal_per_mol_k": 0.7403,
+      "g298_ha": 0.2966,
+      "gap_ha": 0.5851,
+      "h298_ha": 0.2966,
+      "homo_ha": 0.131,
+      "lumo_ha": 0.6541,
+      "mu_debye": -0.3736,
+      "r2_bohr2": 0.3794,
+      "rot_a_ghz": -0.0107,
+      "rot_b_ghz": -0.0901,
+      "rot_c_ghz": -0.0666,
+      "u0_ha": 0.2966,
+      "u298_ha": 0.2966,
+      "zpve_ha": 1.0
+    }
+  },
+  "rotational": {
+    "a_above_1e4_ghz": 2,
+    "a_zero_and_3n_minus_5_frequencies": 5,
+    "a_zero_but_3n_minus_6_frequencies": 4
+  },
+  "thresholds": {
+    "distance_tol_ang": 0.05,
+    "eigen_radius": 0.1,
+    "same_molecule_max_kcal_per_mol": 0.1
+  }
+}

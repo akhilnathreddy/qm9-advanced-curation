@@ -45,7 +45,7 @@ TABLE_SORT_KEYS = {
 def hill_formula(elements: Iterable[str]) -> str:
     """Hill-order formula: C, then H, then the rest alphabetically."""
     counts = Counter(elements)
-    order = ["C", "H"] if "C" in counts else []
+    order = [e for e in ("C", "H") if e in counts] if "C" in counts else []
     order += sorted(e for e in counts if e not in order)
     return "".join(e + (str(counts[e]) if counts[e] > 1 else "") for e in order)
 

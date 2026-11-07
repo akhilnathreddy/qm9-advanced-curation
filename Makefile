@@ -1,4 +1,4 @@
-.PHONY: sync lint format typecheck test check repro repro-ci fixture gate0 gate1 gate2
+.PHONY: sync lint format typecheck test check repro repro-ci fixture gate0 gate1 gate2 gate3 gate4
 
 sync:
 	uv sync --locked
@@ -46,3 +46,19 @@ gate2: sync check repro
 	uv run dvc repro --force parse
 	uv run python -c "import json,sys; a,b=(json.load(open(p))['output_sha256'] for p in ('/tmp/qm9_parse_report_first.json','reports/data_quality/parse_report.json')); print('PASS  parquet byte-identical across runs' if a==b else 'FAIL  parquet differs across runs'); sys.exit(a!=b)"
 	uv run python -m qm9_curation.reporting.gates --phase 2
+
+# Phase 3 exit gate: profile + triage, and a forced second profile run must
+# reproduce every output byte-for-byte.
+gate3: sync check repro
+	cp reports/data_quality/profile.json /tmp/qm9_profile_first.json
+	uv run dvc repro --force --single-item profile
+	uv run python -c "import json,sys; a,b=(json.load(open(p))['output_sha256'] for p in ('/tmp/qm9_profile_first.json','reports/data_quality/profile.json')); print('PASS  profile outputs byte-identical across runs' if a==b else 'FAIL  profile outputs differ across runs'); sys.exit(a!=b)"
+	uv run python -m qm9_curation.reporting.gates --phase 3
+
+# Phase 4 exit gate: all checks run on every record, tolerances set, and a
+# forced second validation run reproduces the flag table byte-for-byte.
+gate4: sync check repro
+	cp reports/validation/validation_report.json /tmp/qm9_validation_first.json
+	uv run dvc repro --force --single-item validate
+	uv run python -c "import json,sys; a,b=(json.load(open(p))['output_sha256'] for p in ('/tmp/qm9_validation_first.json','reports/validation/validation_report.json')); print('PASS  validation table byte-identical across runs' if a==b else 'FAIL  validation table differs across runs'); sys.exit(a!=b)"
+	uv run python -m qm9_curation.reporting.gates --phase 4

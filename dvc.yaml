@@ -57,3 +57,38 @@ stages:
       - data/interim/parse_log.parquet
       - reports/data_quality/parse_report.json:
           cache: false
+
+  profile:
+    cmd: python -m qm9_curation.profiling.build
+    deps:
+      - src/qm9_curation/profiling
+      - src/qm9_curation/schema.py
+      - data/interim/molecules.parquet
+      - data/interim/atoms.parquet
+      - data/interim/frequencies.parquet
+      - data/raw/uncharacterized.txt
+    outs:
+      - data/interim/molecule_profile.parquet
+      - data/interim/geometric_duplicate_pairs.parquet
+      - reports/data_quality/profile.json:
+          cache: false
+      - reports/data_quality/profile.html:
+          cache: false
+
+  # Four-layer validation (ADR 0008).
+  validate:
+    cmd: python -m qm9_curation.checks.build
+    deps:
+      - src/qm9_curation/checks
+      - src/qm9_curation/units.py
+      - configs/validation.yaml
+      - configs/dataset.yaml
+      - data/interim/molecules.parquet
+      - data/interim/atoms.parquet
+      - data/interim/frequencies.parquet
+      - data/interim/molecule_profile.parquet
+      - data/raw/uncharacterized.txt
+    outs:
+      - data/interim/validation.parquet
+      - reports/validation/validation_report.json:
+          cache: false

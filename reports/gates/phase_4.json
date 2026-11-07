@@ -1,0 +1,38 @@
+{
+  "checks": {
+    "validation/validation_report.json:all_tolerances_set": true,
+    "validation/validation_report.json:every_registered_check_present": true,
+    "validation/validation_report.json:no_missing_check_results": true,
+    "validation/validation_report.json:one_flag_row_per_molecule": true
+  },
+  "conditions": [
+    "every registered check has a passing and a failing test case",
+    "one flag row per molecule with a result for every check",
+    "every tolerance is set and justified in ADR 0008",
+    "a second validation run produces a byte-identical flag table"
+  ],
+  "environment": {
+    "constants": "CODATA 2018",
+    "git": {
+      "commit": "9121ca04728585ab253b5ff31e871ec0e97aaf6a",
+      "dirty": true
+    },
+    "implementation": "CPython",
+    "packages": {
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "pandas": "3.1.1",
+      "pandera": "0.35.0",
+      "polars": "2.1.0",
+      "pyarrow": "26.0.1",
+      "pyyaml": "6.0.3",
+      "rdkit": "2026.9.1",
+      "scipy": "1.18.1"
+    },
+    "platform": "Darwin-arm64",
+    "python": "3.12.5",
+    "qm9_curation_version": "0.1.0"
+  },
+  "passed": true,
+  "phase": 4
+}

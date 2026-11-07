@@ -1,0 +1,392 @@
+{
+  "checks": {
+    "coordinates_finite": {
+      "description": "All coordinates finite",
+      "failed_examples": [],
+      "layer": 1,
+      "n_failed": 0,
+      "n_null": 0,
+      "severity": "hard"
+    },
+    "elements_allowed": {
+      "description": "Only H, C, N, O, F atoms",
+      "failed_examples": [],
+      "layer": 1,
+      "n_failed": 0,
+      "n_null": 0,
+      "severity": "hard"
+    },
+    "enthalpy_minus_energy": {
+      "description": "H - U = k_B T at 298.15 K",
+      "failed_examples": [],
+      "layer": 3,
+      "n_failed": 0,
+      "n_null": 0,
+      "residual_quantiles": {
+        "0.5": 1.8486762433096542e-07,
+        "0.9": 8.151323731442773e-07,
+        "0.99": 8.151323731442773e-07,
+        "0.999": 8.151323731442773e-07,
+        "1.0": 8.151323731442773e-07
+      },
+      "severity": "hard"
+    },
+    "free_energy_order": {
+      "description": "G < H",
+      "failed_examples": [],
+      "layer": 3,
+      "n_failed": 0,
+      "n_null": 0,
+      "residual_quantiles": {
+        "0.5": 0.04265099999997801,
+        "0.9": 0.047101999999995314,
+        "0.99": 0.05076999999999998,
+        "0.999": 0.05316600000003291,
+        "1.0": 0.06482099999999491
+      },
+      "severity": "hard"
+    },
+    "frequency_count": {
+      "description": "Each frequency set has 3N-6 (or 3N-5 if linear) modes",
+      "failed_examples": [],
+      "layer": 1,
+      "n_failed": 0,
+      "n_null": 0,
+      "severity": "hard"
+    },
+    "gap_consistency": {
+      "description": "gap = LUMO - HOMO",
+      "failed_examples": [],
+      "layer": 3,
+      "n_failed": 0,
+      "n_null": 0,
+      "residual_quantiles": {
+        "0.5": 0.0,
+        "0.9": 9.999999999998899e-05,
+        "0.99": 0.0001000000000000445,
+        "0.999": 0.0001000000000000445,
+        "1.0": 0.0001000000000000445
+      },
+      "severity": "hard"
+    },
+    "gdb_matches_geometry": {
+      "description": "GDB-17 graph equals the graph perceived from 3D",
+      "failed_examples": [
+        80,
+        267,
+        286,
+        1102,
+        1117,
+        1126,
+        1129,
+        1232,
+        1259,
+        1265
+      ],
+      "layer": 2,
+      "n_failed": 1593,
+      "n_null": 0,
+      "severity": "identity"
+    },
+    "heavy_atom_limit": {
+      "description": "At most 9 heavy atoms",
+      "failed_examples": [],
+      "layer": 1,
+      "n_failed": 0,
+      "n_null": 0,
+      "severity": "hard"
+    },
+    "linearity_representation": {
+      "description": "A and frequency count agree with geometric linearity",
+      "failed_examples": [
+        25,
+        484,
+        485,
+        14562,
+        14563,
+        14564
+      ],
+      "layer": 3,
+      "n_failed": 6,
+      "n_null": 0,
+      "severity": "soft"
+    },
+    "mulliken_neutral": {
+      "description": "Mulliken charges sum to zero",
+      "failed_examples": [],
+      "layer": 3,
+      "n_failed": 0,
+      "n_null": 0,
+      "residual_quantiles": {
+        "0.5": 9.999999999732445e-07,
+        "0.9": 2.000000000015878e-06,
+        "0.99": 3.0000000000446336e-06,
+        "0.999": 4.000000000031756e-06,
+        "1.0": 6.000000000033756e-06
+      },
+      "severity": "hard"
+    },
+    "not_hard_to_converge": {
+      "description": "Not on the authors' difficult-to-converge list",
+      "failed_examples": [
+        6620,
+        21725,
+        59818,
+        59827,
+        87037,
+        117523,
+        128113,
+        129053,
+        129152,
+        129158
+      ],
+      "layer": 4,
+      "n_failed": 11,
+      "n_null": 0,
+      "severity": "soft"
+    },
+    "not_statistical_outlier": {
+      "description": "No property with |robust z| > 6 in its size stratum",
+      "failed_examples": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        113,
+        115
+      ],
+      "layer": 4,
+      "n_failed": 1451,
+      "n_null": 0,
+      "residual_quantiles": {
+        "0.5": 1.7986420252709192,
+        "0.9": 3.2796243888876733,
+        "0.99": 6.106088124688514,
+        "0.999": 11.082311798424886,
+        "1.0": 255321.16463411466
+      },
+      "severity": "soft"
+    },
+    "not_uncharacterized": {
+      "description": "Not in the authors' uncharacterized list",
+      "failed_examples": [
+        58,
+        61,
+        80,
+        185,
+        186,
+        245,
+        267,
+        280,
+        286,
+        752
+      ],
+      "layer": 2,
+      "n_failed": 3054,
+      "n_null": 0,
+      "severity": "identity"
+    },
+    "real_minimum": {
+      "description": "No imaginary frequency in the consistent set",
+      "failed_examples": [
+        6620,
+        59818,
+        87037,
+        117523,
+        129158
+      ],
+      "layer": 3,
+      "n_failed": 5,
+      "n_null": 0,
+      "residual_quantiles": {
+        "0.5": 0.0,
+        "0.9": 0.0,
+        "0.99": 0.0,
+        "0.999": 0.0,
+        "1.0": 1.0
+      },
+      "severity": "hard"
+    },
+    "relaxed_smiles_matches_geometry": {
+      "description": "Authors' relaxed SMILES matches the 3D graph",
+      "failed_examples": [
+        185,
+        186,
+        752,
+        753,
+        754,
+        755,
+        881,
+        884,
+        885,
+        888
+      ],
+      "layer": 2,
+      "n_failed": 1549,
+      "n_null": 0,
+      "severity": "soft"
+    },
+    "rotational_constants": {
+      "description": "Rotational constants match the geometry",
+      "failed_examples": [],
+      "layer": 3,
+      "n_failed": 0,
+      "n_null": 0,
+      "residual_quantiles": {
+        "0.5": 2.824791807525818e-06,
+        "0.9": 4.864455223458978e-06,
+        "0.99": 7.593230701559529e-06,
+        "0.999": 1.0464109441928051e-05,
+        "1.0": 1.3993033760730354e-05
+      },
+      "severity": "hard"
+    },
+    "single_fragment": {
+      "description": "Geometry is one connected molecule",
+      "failed_examples": [
+        1117,
+        3838,
+        3895,
+        3899,
+        4807,
+        4871,
+        4872,
+        5557,
+        5599,
+        6330
+      ],
+      "layer": 2,
+      "n_failed": 229,
+      "n_null": 0,
+      "residual_quantiles": {
+        "0.5": 1.0,
+        "0.9": 1.0,
+        "0.99": 1.0,
+        "0.999": 2.0,
+        "1.0": 3.0
+      },
+      "severity": "identity"
+    },
+    "thermal_order": {
+      "description": "U(298 K) > U(0 K)",
+      "failed_examples": [],
+      "layer": 3,
+      "n_failed": 0,
+      "n_null": 0,
+      "residual_quantiles": {
+        "0.5": 0.008422999999993408,
+        "0.9": 0.010188000000027841,
+        "0.99": 0.011491000000035001,
+        "0.999": 0.012180000000000746,
+        "1.0": 0.014332000000024436
+      },
+      "severity": "hard"
+    },
+    "zpve_from_frequencies": {
+      "description": "ZPVE = 1/2 sum of a stored frequency set",
+      "failed_examples": [],
+      "layer": 3,
+      "n_failed": 0,
+      "n_null": 0,
+      "residual_quantiles": {
+        "0.5": 1.6822601370461613e-06,
+        "0.9": 3.282654057148357e-06,
+        "0.99": 5.044536074663837e-06,
+        "0.999": 7.596766561423353e-06,
+        "1.0": 2.313854769865879e-05
+      },
+      "severity": "hard"
+    }
+  },
+  "doubled_frequency_resolution": {
+    "both_sets_consistent": 432,
+    "consistent_set_counts": {
+      "0": 196,
+      "1": 237
+    },
+    "records": 433
+  },
+  "gate_4_conditions": {
+    "all_tolerances_set": true,
+    "every_registered_check_present": true,
+    "no_missing_check_results": true,
+    "one_flag_row_per_molecule": true
+  },
+  "identity_vs_uncharacterized": [
+    {
+      "identity_class": "consistent",
+      "n": 130826,
+      "uncharacterized": false
+    },
+    {
+      "identity_class": "consistent",
+      "n": 1466,
+      "uncharacterized": true
+    },
+    {
+      "identity_class": "fragmented",
+      "n": 229,
+      "uncharacterized": true
+    },
+    {
+      "identity_class": "proton_moved",
+      "n": 1010,
+      "uncharacterized": true
+    },
+    {
+      "identity_class": "rearranged",
+      "n": 5,
+      "uncharacterized": false
+    },
+    {
+      "identity_class": "rearranged",
+      "n": 349,
+      "uncharacterized": true
+    }
+  ],
+  "linear_by_geometry": [
+    4,
+    5,
+    23,
+    24,
+    25,
+    484,
+    485,
+    486,
+    14562,
+    14563,
+    14564
+  ],
+  "output_sha256": {
+    "validation": "df05a4e9d01c43100d43b2582d0278281a0db14661155d309ab7dc1766b6812e"
+  },
+  "records_clean": 128867,
+  "records_with_any_failure": {
+    "hard": 5,
+    "identity": 3059,
+    "soft": 2999
+  },
+  "tolerances": {
+    "identity": {
+      "connectivity": "rdkit.rdDetermineBonds.DetermineConnectivity(useHueckel=True)",
+      "total_charge": 0
+    },
+    "physics": {
+      "gap_abs_tol_hartree": 0.00015,
+      "h_minus_u_abs_tol_hartree": 1.5e-06,
+      "linear_moment_amu_ang2": 0.1,
+      "mulliken_per_atom_tol": 5e-07,
+      "rot_a_infinite_ghz": 10000.0,
+      "rotational_constant_rel_tol": 0.0001,
+      "zpve_rel_tol": 0.0001
+    },
+    "statistical": {
+      "robust_z_review": 6.0,
+      "stratify_by": "n_heavy"
+    }
+  }
+}

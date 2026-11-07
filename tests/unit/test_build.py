@@ -19,6 +19,9 @@ SHA = "0" * 64
         ("CCHH", "C2H2"),
         ("NHHH", "H3N"),
         ("FCCOHN", "C2HFNO"),
+        ("CCNN", "C2N2"),  # no hydrogen: H must not appear (regression, cyanogen qm9_id 25)
+        ("FCOO", "CFO2"),
+        ("OO", "O2"),
     ],
 )
 def test_hill_formula(elements: str, formula: str) -> None:
