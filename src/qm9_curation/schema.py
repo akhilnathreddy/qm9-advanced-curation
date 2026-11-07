@@ -117,6 +117,84 @@ class ParseLog(pa.DataFrameModel):
         coerce = False
 
 
+TIERS = ["gold", "silver", "bronze", "quarantine"]
+IDENTITY_CLASSES = ["consistent", "proton_moved", "rearranged", "fragmented", "unperceived"]
+
+
+class CuratedMolecules(pa.DataFrameModel):
+    """``data/processed/molecules.parquet`` (Phase 5). One row per source record."""
+
+    qm9_id: pl.UInt32 = pa.Field(unique=True, ge=1)
+    quality_tier: pl.String = pa.Field(isin=TIERS)
+    tier_reasons: pl.String
+    formula: pl.String
+    n_atoms: pl.UInt8
+    n_heavy: pl.UInt8 = pa.Field(ge=1, le=9)
+    smiles_gdb: pl.String
+    canonical_smiles_gdb: pl.String
+    smiles_geometry: pl.String = pa.Field(nullable=True)
+    inchikey_geometry: pl.String = pa.Field(
+        nullable=True, str_matches=r"^[A-Z]{14}-[A-Z]{10}-[A-Z]$"
+    )
+    geometry_identifier_error: pl.String = pa.Field(nullable=True)
+    identity_class: pl.String = pa.Field(isin=IDENTITY_CLASSES)
+    structure_group_id: pl.UInt32
+    structure_representative_id: pl.UInt32
+    is_structure_representative: pl.Boolean
+    tautomer_group_id: pl.UInt32
+    connectivity_group_id: pl.UInt32
+    is_linear: pl.Boolean
+    gdb_charge_separated: pl.Boolean
+    uncharacterized_listed: pl.Boolean
+    mu_debye: pl.Float64 = pa.Field(ge=0)
+    alpha_ang3: pl.Float64 = pa.Field(gt=0)
+    homo_ev: pl.Float64 = _finite()
+    lumo_ev: pl.Float64 = _finite()
+    gap_ev: pl.Float64 = pa.Field(gt=0)
+    r2_ang2: pl.Float64 = pa.Field(gt=0)
+    zpve_ev: pl.Float64 = pa.Field(gt=0)
+    u0_ev: pl.Float64 = _finite()
+    u298_ev: pl.Float64 = _finite()
+    h298_ev: pl.Float64 = _finite()
+    g298_ev: pl.Float64 = _finite()
+    cv_cal_per_mol_k: pl.Float64 = pa.Field(gt=0)
+    u0_atomization_ev: pl.Float64 = pa.Field(lt=0)
+    u298_atomization_ev: pl.Float64 = pa.Field(lt=0)
+    h298_atomization_ev: pl.Float64 = pa.Field(lt=0)
+    g298_atomization_ev: pl.Float64 = pa.Field(lt=0)
+    rot_a_ghz: pl.Float64 = pa.Field(nullable=True, gt=0)
+    rot_a_missing_reason: pl.String = pa.Field(nullable=True)
+    rot_b_ghz: pl.Float64 = pa.Field(gt=0)
+    rot_c_ghz: pl.Float64 = pa.Field(gt=0)
+    source_rot_a_ghz: pl.Float64
+    source_rot_b_ghz: pl.Float64
+    source_rot_c_ghz: pl.Float64
+    source_mu_debye: pl.Float64
+    source_alpha_bohr3: pl.Float64
+    source_homo_ha: pl.Float64
+    source_lumo_ha: pl.Float64
+    source_gap_ha: pl.Float64
+    source_r2_bohr2: pl.Float64
+    source_zpve_ha: pl.Float64
+    source_u0_ha: pl.Float64
+    source_u298_ha: pl.Float64
+    source_h298_ha: pl.Float64
+    source_g298_ha: pl.Float64
+    source_cv_cal_per_mol_k: pl.Float64
+    zpve_consistent_set: pl.UInt8 = pa.Field(isin=[0, 1])
+    flag_bitmask: pl.UInt32
+    n_failed_hard: pl.UInt8
+    n_failed_identity: pl.UInt8
+    n_failed_soft: pl.UInt8
+    source_member: pl.String
+    source_sha256: pl.String = pa.Field(str_matches=r"^[0-9a-f]{64}$")
+    source_archive_sha256: pl.String = pa.Field(str_matches=r"^[0-9a-f]{64}$")
+
+    class Config:
+        strict = True
+        coerce = False
+
+
 SCHEMAS: dict[str, type[pa.DataFrameModel]] = {
     "molecules": Molecules,
     "atoms": Atoms,

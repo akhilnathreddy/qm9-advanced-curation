@@ -50,6 +50,13 @@ GATE_CONDITIONS: dict[int, tuple[str, ...]] = {
         "every tolerance is set and justified in ADR 0008",
         "a second validation run produces a byte-identical flag table",
     ),
+    5: (
+        "every record has a tier, and every non-Gold record a machine-readable reason",
+        "source values are preserved exactly; unit conversions are invertible",
+        "one representative per duplicate group; Gold is duplicate-free",
+        "the curated table matches its schema",
+        "a second curation run produces a byte-identical table",
+    ),
 }
 
 # Report files whose boolean conditions must all be true for the gate to pass.
@@ -58,6 +65,7 @@ GATE_REPORTS: dict[int, tuple[tuple[str, str], ...]] = {
     2: (("data_quality/parse_report.json", "gate_2_conditions"),),
     3: (("data_quality/profile.json", "gate_3_conditions"),),
     4: (("validation/validation_report.json", "gate_4_conditions"),),
+    5: (("curation/curation_report.json", "gate_5_conditions"),),
 }
 
 

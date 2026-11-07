@@ -14,8 +14,6 @@ Run as ``python -m qm9_curation.checks.build``. Outputs:
 import argparse
 import hashlib
 import json
-import os
-from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 from typing import Any
 
@@ -28,21 +26,9 @@ from qm9_curation.checks.registry import CHECK_NAMES, CHECKS, SEVERITIES
 from qm9_curation.checks.statistical import run_statistical
 from qm9_curation.config import INTERIM_DIR, RAW_DIR, REPORTS_DIR, load_config
 from qm9_curation.inventory import UNCHARACTERIZED_NAME, parse_uncharacterized
+from qm9_curation.parallel import default_workers, map_chunks
 
 QUANTILES = (0.5, 0.9, 0.99, 0.999, 1.0)
-CHUNK = 2000
-
-
-def _silence_stdout() -> None:
-    """Send this process's C-level stdout to /dev/null.
-
-    RDKit's extended-Hückel backend prints a warning for every short X-H bond
-    (O-H ~0.96 Å is "suspicious" to it), tens of thousands of lines per run.
-    Used as the worker initializer, so the main process keeps its output.
-    """
-    devnull = os.open(os.devnull, os.O_WRONLY)
-    os.dup2(devnull, 1)
-    os.close(devnull)
 
 
 def _identity_chunk(rows: list[tuple[Any, ...]]) -> list[dict[str, Any]]:
@@ -63,9 +49,7 @@ def run_identity(
         .sort("qm9_id")
     )
     rows = [(q, g, r, e, [tuple(c) for c in xyz]) for q, g, r, e, xyz in j.iter_rows()]
-    chunks = [rows[i : i + CHUNK] for i in range(0, len(rows), CHUNK)]
-    with ProcessPoolExecutor(max_workers=max(1, workers), initializer=_silence_stdout) as pool:
-        results = [r for chunk in pool.map(_identity_chunk, chunks) for r in chunk]
+    results = map_chunks(_identity_chunk, rows, workers)
     ident = pl.DataFrame(results, infer_schema_length=None)
     return ident.select(
         pl.col("qm9_id").cast(pl.UInt32),
@@ -206,7 +190,7 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument(
         "--report", type=Path, default=REPORTS_DIR / "validation" / "validation_report.json"
     )
-    parser.add_argument("--workers", type=int, default=max(1, (os.cpu_count() or 2) - 1))
+    parser.add_argument("--workers", type=int, default=default_workers())
     args = parser.parse_args(argv)
     flags, report = build(args.interim_dir, args.raw_dir, args.workers)
     out = args.interim_dir / "validation.parquet"

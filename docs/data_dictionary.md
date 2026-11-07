@@ -168,3 +168,30 @@ the statistical check).
 | linear_by_geometry, smallest_moment_amu_ang2 | Linearity from the inertia tensor |
 | n_failed_hard / _identity / _soft | Failed checks per severity |
 | flag_bitmask | Bit *i* set when check *i* (registry order) failed |
+
+## Curated table (`data/processed/molecules.parquet`, Phase 5)
+
+Validated by `schema.CuratedMolecules`. One row per source record.
+
+| Column(s) | Unit | Meaning |
+|---|---|---|
+| quality_tier, tier_reasons | — | gold / silver / bronze / quarantine; comma-separated rule ids (empty for gold) |
+| formula, n_atoms, n_heavy | — | Composition |
+| smiles_gdb, canonical_smiles_gdb | — | GDB-17 SMILES as given; RDKit canonical form |
+| smiles_geometry, inchikey_geometry | — | From the 3D structure, stereo from coordinates; null with `geometry_identifier_error` for 22 records |
+| identity_class | — | From Phase 4 |
+| structure_group_id, structure_representative_id, is_structure_representative | — | Exact duplicates (ADR 0007/0009) |
+| tautomer_group_id, connectivity_group_id | — | For leakage-safe splits |
+| is_linear | — | Linear by geometry (11 molecules) |
+| gdb_charge_separated, uncharacterized_listed | — | Flags |
+| mu_debye | D | Dipole moment |
+| alpha_ang3 | Å³ | Isotropic polarizability |
+| homo_ev, lumo_ev, gap_ev, zpve_ev | eV | Orbital energies, ZPVE |
+| u0_ev, u298_ev, h298_ev, g298_ev | eV | Total energies |
+| u0/u298/h298/g298_atomization_ev | eV | E_mol − Σ E_atom (release atomref) |
+| r2_ang2 | Å² | Electronic spatial extent |
+| cv_cal_per_mol_k | cal/(mol·K) | Heat capacity |
+| rot_a_ghz, rot_b_ghz, rot_c_ghz, rot_a_missing_reason | GHz | A null for linear molecules |
+| source_* | source units | The 15 source properties, unchanged |
+| zpve_consistent_set, flag_bitmask, n_failed_* | — | From Phase 4 |
+| source_member, source_sha256, source_archive_sha256 | — | Lineage |

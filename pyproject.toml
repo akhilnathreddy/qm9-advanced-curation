@@ -70,7 +70,7 @@ ignore_missing_imports = true
 
 # RDKit ships partial stubs; many functions are untyped.
 [[tool.mypy.overrides]]
-module = ["qm9_curation.profiling.chemistry", "qm9_curation.checks.identity"]
+module = ["qm9_curation.profiling.chemistry", "qm9_curation.checks.identity", "qm9_curation.curate.standardize"]
 disallow_untyped_calls = false
 
 [tool.pytest.ini_options]

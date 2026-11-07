@@ -1,3 +1,38 @@
-# Tier rules (Phase 5). Nothing is deleted; each record gets a tier and a reason.
+# Quality-tier rules (Phase 5, ADR 0009). Nothing is deleted: every record
+# gets the worst tier of the rules it matches (gold if none) and the ids of
+# every matching rule as its reasons. Predicates are named functions in
+# src/qm9_curation/curate/tiers.py; this file chooses which apply, in what
+# order, and with which tier. Rules are evaluated on the Phase 4 flag table.
 tiers: [gold, silver, bronze, quarantine]
-rules: []
+rules:
+  - id: R1_hard_check_failed
+    predicate: hard_check_failed
+    tier: quarantine
+    reason: A hard check failed (e.g. imaginary frequency; not a true minimum)
+  - id: R2_fragmented
+    predicate: fragmented
+    tier: bronze
+    reason: Optimized geometry is more than one molecule
+  - id: R3_structure_changed
+    predicate: structure_changed
+    tier: bronze
+    reason: Graph perceived from 3D differs from the GDB-17 molecule (proton moved or framework rearranged)
+  - id: R4_listed_uncharacterized_but_consistent
+    predicate: listed_uncharacterized_but_consistent
+    tier: silver
+    reason: On the authors' uncharacterized list, but the 3D structure is the GDB-17 molecule
+  - id: R5_duplicate_not_representative
+    predicate: duplicate_not_representative
+    tier: silver
+    reason: Same molecule as another record; that record is the group representative
+  - id: R6_convergence_concern
+    predicate: convergence_concern
+    tier: silver
+    reason: Authors list the molecule as difficult to converge
+
+# Deliberately NOT tier rules (flags stay in the validation table):
+# - statistical outliers: unusual is not wrong; demoting them would bias Gold
+#   toward typical molecules and flatter benchmark scores.
+# - relaxed SMILES mismatch: an error in the authors' annotation, not in the
+#   data; the curated table provides identifiers from the geometry instead.
+# - linearity representation: fixed in the standardized columns.
