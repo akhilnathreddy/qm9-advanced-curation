@@ -232,3 +232,23 @@ calculation did not converge.
 | delta_u0_atomization_ev | eV | AE(B3LYP) − AE(G4(MP2)), only where references are valid |
 | delta_residual_ev, delta_robust_z | eV, — | As in the review table |
 | kim_not_converged, kim_multi_molecule | — | On the authors' lists |
+
+## Splits (`data/splits/`, Phase 8)
+
+### `splits.parquet` — 5,355,400 rows (133,885 × 8 splits × 5 seeds)
+
+| Column | Meaning |
+|---|---|
+| qm9_id | Record |
+| split_name | Enum: random, isomer_group, scaffold_generic, cluster_ecfp, size_extrapolation, element_holdout, property_tail_gap, property_tail_u0_atomization |
+| seed | 0–4 |
+| subset | Enum: train, val, test |
+
+### `split_groups.parquet` — 133,885 rows
+
+| Column(s) | Meaning |
+|---|---|
+| structure_group_id, tautomer_group_id, connectivity_group_id, ik_block | Leakage keys (ik_block = first 14 characters of the geometry InChIKey) |
+| leakage_group_id | Union of the four keys; smallest qm9_id in the group |
+| formula, scaffold_key, cluster_id | Grouping keys of isomer, scaffold and cluster splits |
+| unit_<split> | The unit each split keeps whole (grouping key merged with leakage groups) |

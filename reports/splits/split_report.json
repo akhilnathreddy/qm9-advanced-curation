@@ -1,0 +1,1732 @@
+{
+  "config": {
+    "audit": {
+      "nn_sample": 2000,
+      "shift_targets": [
+        "gap_ev",
+        "u0_atomization_ev"
+      ]
+    },
+    "fraction_tolerance": 0.01,
+    "fractions": {
+      "test": 0.1,
+      "train": 0.8,
+      "val": 0.1
+    },
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "splits": {
+      "cluster_ecfp": {
+        "distance_threshold": 0.65,
+        "group": "cluster",
+        "kind": "grouped"
+      },
+      "element_holdout": {
+        "kind": "holdout",
+        "test_when": {
+          "contains_element": "F"
+        }
+      },
+      "isomer_group": {
+        "group": "formula",
+        "kind": "grouped"
+      },
+      "property_tail_gap": {
+        "kind": "holdout",
+        "test_when": {
+          "tail": {
+            "fraction": 0.05,
+            "side": "upper",
+            "target": "gap_ev"
+          }
+        }
+      },
+      "property_tail_u0_atomization": {
+        "kind": "holdout",
+        "test_when": {
+          "tail": {
+            "fraction": 0.05,
+            "side": "lower",
+            "target": "u0_atomization_ev"
+          }
+        }
+      },
+      "random": {
+        "group": "leakage",
+        "kind": "grouped"
+      },
+      "scaffold_generic": {
+        "group": "scaffold",
+        "kind": "grouped"
+      },
+      "size_extrapolation": {
+        "kind": "holdout",
+        "test_when": {
+          "n_heavy_min": 9
+        }
+      }
+    }
+  },
+  "gate_8_conditions": {
+    "every_record_has_groups": true,
+    "every_split_and_seed_covers_every_record_once": true,
+    "grouped_fractions_within_tolerance": true,
+    "holdout_rules_respected": true,
+    "no_leakage_key_in_two_subsets": true,
+    "shift_report_for_every_split": true
+  },
+  "groups": {
+    "cluster_id": {
+      "largest": 339,
+      "n": 7940,
+      "records_in_groups_of_2_or_more": 133613,
+      "records_without_fingerprint": 22
+    },
+    "formula": {
+      "largest": 6095,
+      "n": 621,
+      "records_in_groups_of_2_or_more": 133790
+    },
+    "leakage_group_id": {
+      "largest": 9,
+      "n": 129343,
+      "records_in_groups_of_2_or_more": 8267
+    },
+    "scaffold_key": {
+      "acyclic_buckets": 138,
+      "acyclic_records": 14127,
+      "largest": 15430,
+      "n": 799,
+      "records_in_groups_of_2_or_more": 133846
+    }
+  },
+  "naive_record_level_random": {
+    "n_test": 13388,
+    "test_records_sharing_leakage_group_id_with_train_or_val": 774,
+    "test_records_sharing_structure_group_id_with_train_or_val": 43
+  },
+  "output_sha256": {
+    "split_groups": "d2d7deca582f5914e3875626fff28f5755bec4e483fb0a51b7a00c77422f0fee",
+    "splits": "23b469962eac2f9529d2f2ab78fd4643d4d6d9cb7bb4e379f9e156014476061a"
+  },
+  "splits": {
+    "cluster_ecfp": {
+      "largest_unit": 15018,
+      "n_units": 6850,
+      "seeds": {
+        "0": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "1": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "2": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "3": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "4": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        }
+      },
+      "shift_seed0": {
+        "composition": {
+          "fraction_containing": {
+            "F": {
+              "test": 0.005632516364743492,
+              "train": 0.016644467654921953
+            },
+            "N": {
+              "test": 0.5283909270817476,
+              "train": 0.6250347358637013
+            },
+            "O": {
+              "test": 0.867788095600548,
+              "train": 0.8484749758046742
+            }
+          },
+          "n_heavy": {
+            "ks_pvalue": 0.2449790529629935,
+            "ks_statistic": 0.00946682066023219,
+            "n_other": 13138,
+            "n_reference": 104359,
+            "wasserstein": 0.012478796264293563,
+            "wasserstein_over_reference_sd": 0.024458803544352595
+          }
+        },
+        "gold_counts": {
+          "test": 13138,
+          "train": 104359,
+          "val": 13162
+        },
+        "nn_tanimoto_test_to_train": {
+          "mae": 0.5655993679016829,
+          "mean": 0.5655993679016829,
+          "n": 2000,
+          "quantiles": {
+            "max": 0.9411764740943909,
+            "median": 0.5652173757553101,
+            "min": 0.25806450843811035,
+            "p01": 0.375,
+            "p05": 0.4285714328289032,
+            "p25": 0.5,
+            "p75": 0.6296296119689941,
+            "p95": 0.7038126349449156,
+            "p99": 0.7894737124443054
+          },
+          "rmse": 0.5727783124294585,
+          "std": 0.09040105208876291
+        },
+        "targets": {
+          "gap_ev": {
+            "ks_pvalue": 1.0091909648410662e-39,
+            "ks_statistic": 0.062226206339434875,
+            "n_other": 13138,
+            "n_reference": 104359,
+            "wasserstein": 0.17939033971975787,
+            "wasserstein_over_reference_sd": 0.13941189745423307
+          },
+          "u0_atomization_ev": {
+            "ks_pvalue": 5.949392075214972e-39,
+            "ks_statistic": 0.06161353091565558,
+            "n_other": 13138,
+            "n_reference": 104359,
+            "wasserstein": 1.597328848610499,
+            "wasserstein_over_reference_sd": 0.15358559255825935
+          }
+        }
+      },
+      "spec": {
+        "distance_threshold": 0.65,
+        "group": "cluster",
+        "kind": "grouped"
+      }
+    },
+    "element_holdout": {
+      "largest_unit": 9,
+      "n_units": 129343,
+      "seeds": {
+        "0": {
+          "counts": {
+            "test": 2163,
+            "train": 117087,
+            "val": 14635
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.016155655973410017,
+            "train": 0.8745341150987788,
+            "val": 0.10931022892781118
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 2163,
+          "test_records_pulled_in_by_group": 0
+        },
+        "1": {
+          "counts": {
+            "test": 2163,
+            "train": 117087,
+            "val": 14635
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.016155655973410017,
+            "train": 0.8745341150987788,
+            "val": 0.10931022892781118
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 2163,
+          "test_records_pulled_in_by_group": 0
+        },
+        "2": {
+          "counts": {
+            "test": 2163,
+            "train": 117087,
+            "val": 14635
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.016155655973410017,
+            "train": 0.8745341150987788,
+            "val": 0.10931022892781118
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 2163,
+          "test_records_pulled_in_by_group": 0
+        },
+        "3": {
+          "counts": {
+            "test": 2163,
+            "train": 117087,
+            "val": 14635
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.016155655973410017,
+            "train": 0.8745341150987788,
+            "val": 0.10931022892781118
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 2163,
+          "test_records_pulled_in_by_group": 0
+        },
+        "4": {
+          "counts": {
+            "test": 2163,
+            "train": 117087,
+            "val": 14635
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.016155655973410017,
+            "train": 0.8745341150987788,
+            "val": 0.10931022892781118
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 2163,
+          "test_records_pulled_in_by_group": 0
+        }
+      },
+      "shift_seed0": {
+        "composition": {
+          "fraction_containing": {
+            "F": {
+              "test": 1.0,
+              "train": 0.0
+            },
+            "N": {
+              "test": 0.816552451238798,
+              "train": 0.6072739347757699
+            },
+            "O": {
+              "test": 0.6336320506062203,
+              "train": 0.8538746548289
+            }
+          },
+          "n_heavy": {
+            "ks_pvalue": 0.9747977580980711,
+            "ks_statistic": 0.011048183815404514,
+            "n_other": 1897,
+            "n_reference": 114436,
+            "wasserstein": 0.021243282795301296,
+            "wasserstein_over_reference_sd": 0.04155552026061902
+          }
+        },
+        "gold_counts": {
+          "test": 1897,
+          "train": 114436,
+          "val": 14326
+        },
+        "nn_tanimoto_test_to_train": {
+          "mae": 0.5457530736169126,
+          "mean": 0.5457530736169126,
+          "n": 1897,
+          "quantiles": {
+            "max": 0.7142857313156128,
+            "median": 0.5714285969734192,
+            "min": 0.125,
+            "p01": 0.27970909237861635,
+            "p05": 0.3571428656578064,
+            "p25": 0.5199999809265137,
+            "p75": 0.6000000238418579,
+            "p95": 0.6551724076271057,
+            "p99": 0.6666666865348816
+          },
+          "rmse": 0.5529542734333169,
+          "std": 0.08894948648452257
+        },
+        "targets": {
+          "gap_ev": {
+            "ks_pvalue": 2.90057329942245e-264,
+            "ks_statistic": 0.39592416599477964,
+            "n_other": 1897,
+            "n_reference": 114436,
+            "wasserstein": 1.0388458692417393,
+            "wasserstein_over_reference_sd": 0.8164494084615866
+          },
+          "u0_atomization_ev": {
+            "ks_pvalue": 0.0,
+            "ks_statistic": 0.6602739261339972,
+            "n_other": 1897,
+            "n_reference": 114436,
+            "wasserstein": 16.092996866056595,
+            "wasserstein_over_reference_sd": 1.5814035665421853
+          }
+        }
+      },
+      "spec": {
+        "kind": "holdout",
+        "test_when": {
+          "contains_element": "F"
+        }
+      }
+    },
+    "isomer_group": {
+      "largest_unit": 6095,
+      "n_units": 621,
+      "seeds": {
+        "0": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "1": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "2": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "3": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "4": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        }
+      },
+      "shift_seed0": {
+        "composition": {
+          "fraction_containing": {
+            "F": {
+              "test": 0.004113972268779522,
+              "train": 0.016664591573846168
+            },
+            "N": {
+              "test": 0.8408502209355477,
+              "train": 0.6181701512263799
+            },
+            "O": {
+              "test": 0.7132408959317386,
+              "train": 0.856167335485045
+            }
+          },
+          "n_heavy": {
+            "ks_pvalue": 7.10980217510288e-33,
+            "ks_statistic": 0.05656986618291904,
+            "n_other": 13126,
+            "n_reference": 104413,
+            "wasserstein": 0.07921154082556792,
+            "wasserstein_over_reference_sd": 0.1528105425582002
+          }
+        },
+        "gold_counts": {
+          "test": 13126,
+          "train": 104413,
+          "val": 13120
+        },
+        "nn_tanimoto_test_to_train": {
+          "mae": 0.6152490311414003,
+          "mean": 0.6152490311414003,
+          "n": 2000,
+          "quantiles": {
+            "max": 0.949999988079071,
+            "median": 0.6296296119689941,
+            "min": 0.2857142984867096,
+            "p01": 0.4000000059604645,
+            "p05": 0.4736842215061188,
+            "p25": 0.5714285969734192,
+            "p75": 0.6666666865348816,
+            "p95": 0.7412036806344982,
+            "p99": 0.8462637454271316
+          },
+          "rmse": 0.6207072855897646,
+          "std": 0.08213503554380351
+        },
+        "targets": {
+          "gap_ev": {
+            "ks_pvalue": 5.214247539656992e-38,
+            "ks_statistic": 0.06087895272731236,
+            "n_other": 13126,
+            "n_reference": 104413,
+            "wasserstein": 0.11159679304407291,
+            "wasserstein_over_reference_sd": 0.08754604366074821
+          },
+          "u0_atomization_ev": {
+            "ks_pvalue": 0.0,
+            "ks_statistic": 0.263138592145881,
+            "n_other": 13126,
+            "n_reference": 104413,
+            "wasserstein": 2.9691349206895272,
+            "wasserstein_over_reference_sd": 0.29502023131956906
+          }
+        }
+      },
+      "spec": {
+        "group": "formula",
+        "kind": "grouped"
+      }
+    },
+    "property_tail_gap": {
+      "largest_unit": 9,
+      "n_units": 129343,
+      "seeds": {
+        "0": {
+          "counts": {
+            "test": 6733,
+            "train": 113024,
+            "val": 14128
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.05028942749374463,
+            "train": 0.8441871755611159,
+            "val": 0.10552339694513949
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 6733,
+          "test_records_pulled_in_by_group": 0
+        },
+        "1": {
+          "counts": {
+            "test": 6733,
+            "train": 113024,
+            "val": 14128
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.05028942749374463,
+            "train": 0.8441871755611159,
+            "val": 0.10552339694513949
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 6733,
+          "test_records_pulled_in_by_group": 0
+        },
+        "2": {
+          "counts": {
+            "test": 6733,
+            "train": 113024,
+            "val": 14128
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.05028942749374463,
+            "train": 0.8441871755611159,
+            "val": 0.10552339694513949
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 6733,
+          "test_records_pulled_in_by_group": 0
+        },
+        "3": {
+          "counts": {
+            "test": 6733,
+            "train": 113024,
+            "val": 14128
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.05028942749374463,
+            "train": 0.8441871755611159,
+            "val": 0.10552339694513949
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 6733,
+          "test_records_pulled_in_by_group": 0
+        },
+        "4": {
+          "counts": {
+            "test": 6733,
+            "train": 113024,
+            "val": 14128
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.05028942749374463,
+            "train": 0.8441871755611159,
+            "val": 0.10552339694513949
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 6733,
+          "test_records_pulled_in_by_group": 0
+        }
+      },
+      "shift_seed0": {
+        "composition": {
+          "fraction_containing": {
+            "F": {
+              "test": 0.0248032080796079,
+              "train": 0.014054966905455834
+            },
+            "N": {
+              "test": 0.06460715877023615,
+              "train": 0.6405542087725511
+            },
+            "O": {
+              "test": 0.7094905688400416,
+              "train": 0.8591597889939077
+            }
+          },
+          "n_heavy": {
+            "ks_pvalue": 1.7002232132327097e-85,
+            "ks_statistic": 0.12400387155349288,
+            "n_other": 6733,
+            "n_reference": 110139,
+            "wasserstein": 0.21741067628155342,
+            "wasserstein_over_reference_sd": 0.4466530693405631
+          }
+        },
+        "gold_counts": {
+          "test": 6733,
+          "train": 110139,
+          "val": 13787
+        },
+        "nn_tanimoto_test_to_train": {
+          "mae": 0.6034006424061954,
+          "mean": 0.6034006424061954,
+          "n": 2000,
+          "quantiles": {
+            "max": 1.0,
+            "median": 0.5895721912384033,
+            "min": 0.1111111119389534,
+            "p01": 0.40740740299224854,
+            "p05": 0.4545454680919647,
+            "p25": 0.523809552192688,
+            "p75": 0.6666666865348816,
+            "p95": 0.800000011920929,
+            "p99": 1.0
+          },
+          "rmse": 0.6135704910400959,
+          "std": 0.11124932457761291
+        },
+        "targets": {
+          "gap_ev": {
+            "ks_pvalue": 0.0,
+            "ks_statistic": 1.0,
+            "n_other": 6733,
+            "n_reference": 110139,
+            "wasserstein": 2.4690280263118467,
+            "wasserstein_over_reference_sd": 2.0786156621201415
+          },
+          "u0_atomization_ev": {
+            "ks_pvalue": 0.0,
+            "ks_statistic": 0.4798893682119981,
+            "n_other": 6733,
+            "n_reference": 110139,
+            "wasserstein": 11.646395874384954,
+            "wasserstein_over_reference_sd": 1.1761358133329487
+          }
+        }
+      },
+      "spec": {
+        "kind": "holdout",
+        "test_when": {
+          "tail": {
+            "fraction": 0.05,
+            "side": "upper",
+            "target": "gap_ev"
+          }
+        }
+      }
+    },
+    "property_tail_u0_atomization": {
+      "largest_unit": 9,
+      "n_units": 129343,
+      "seeds": {
+        "0": {
+          "counts": {
+            "test": 6694,
+            "train": 113059,
+            "val": 14132
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.04999813272584681,
+            "train": 0.8444485939425627,
+            "val": 0.10555327333159055
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 6694,
+          "test_records_pulled_in_by_group": 0
+        },
+        "1": {
+          "counts": {
+            "test": 6694,
+            "train": 113059,
+            "val": 14132
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.04999813272584681,
+            "train": 0.8444485939425627,
+            "val": 0.10555327333159055
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 6694,
+          "test_records_pulled_in_by_group": 0
+        },
+        "2": {
+          "counts": {
+            "test": 6694,
+            "train": 113059,
+            "val": 14132
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.04999813272584681,
+            "train": 0.8444485939425627,
+            "val": 0.10555327333159055
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 6694,
+          "test_records_pulled_in_by_group": 0
+        },
+        "3": {
+          "counts": {
+            "test": 6694,
+            "train": 113059,
+            "val": 14132
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.04999813272584681,
+            "train": 0.8444485939425627,
+            "val": 0.10555327333159055
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 6694,
+          "test_records_pulled_in_by_group": 0
+        },
+        "4": {
+          "counts": {
+            "test": 6694,
+            "train": 113059,
+            "val": 14132
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.04999813272584681,
+            "train": 0.8444485939425627,
+            "val": 0.10555327333159055
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 6694,
+          "test_records_pulled_in_by_group": 0
+        }
+      },
+      "shift_seed0": {
+        "composition": {
+          "fraction_containing": {
+            "F": {
+              "test": 0.0,
+              "train": 0.015293295455576833
+            },
+            "N": {
+              "test": 0.0906917675183027,
+              "train": 0.6374626743753347
+            },
+            "O": {
+              "test": 0.6330494546541162,
+              "train": 0.8632679548734332
+            }
+          },
+          "n_heavy": {
+            "ks_pvalue": 7.602569070169908e-137,
+            "ks_statistic": 0.15730596289620105,
+            "n_other": 6693,
+            "n_reference": 110179,
+            "wasserstein": 0.19731358685357953,
+            "wasserstein_over_reference_sd": 0.37858259253187926
+          }
+        },
+        "gold_counts": {
+          "test": 6693,
+          "train": 110179,
+          "val": 13787
+        },
+        "nn_tanimoto_test_to_train": {
+          "mae": 0.6478466957509518,
+          "mean": 0.6478466957509518,
+          "n": 2000,
+          "quantiles": {
+            "max": 1.0,
+            "median": 0.6399999856948853,
+            "min": 0.38461539149284363,
+            "p01": 0.45829546451568604,
+            "p05": 0.5,
+            "p25": 0.5909090638160706,
+            "p75": 0.695652186870575,
+            "p95": 0.8333333134651184,
+            "p99": 0.9333750039339065
+          },
+          "rmse": 0.6548075090448312,
+          "std": 0.09522359322179823
+        },
+        "targets": {
+          "gap_ev": {
+            "ks_pvalue": 0.0,
+            "ks_statistic": 0.5318733679789102,
+            "n_other": 6693,
+            "n_reference": 110179,
+            "wasserstein": 1.5555465057109636,
+            "wasserstein_over_reference_sd": 1.2461231751725448
+          },
+          "u0_atomization_ev": {
+            "ks_pvalue": 0.0,
+            "ks_statistic": 1.0,
+            "n_other": 6693,
+            "n_reference": 110179,
+            "wasserstein": 21.838941764254024,
+            "wasserstein_over_reference_sd": 2.337355518666995
+          }
+        }
+      },
+      "spec": {
+        "kind": "holdout",
+        "test_when": {
+          "tail": {
+            "fraction": 0.05,
+            "side": "lower",
+            "target": "u0_atomization_ev"
+          }
+        }
+      }
+    },
+    "random": {
+      "largest_unit": 9,
+      "n_units": 129343,
+      "seeds": {
+        "0": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "1": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "2": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "3": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "4": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        }
+      },
+      "shift_seed0": {
+        "composition": {
+          "fraction_containing": {
+            "F": {
+              "test": 0.01100496752006114,
+              "train": 0.015008949852112069
+            },
+            "N": {
+              "test": 0.6086358425678258,
+              "train": 0.6112988293401996
+            },
+            "O": {
+              "test": 0.8549484142147498,
+              "train": 0.850925137119392
+            }
+          },
+          "n_heavy": {
+            "ks_pvalue": 0.999999999999963,
+            "ks_statistic": 0.0017655871554081992,
+            "n_other": 13085,
+            "n_reference": 104471,
+            "wasserstein": 0.003427473004842322,
+            "wasserstein_over_reference_sd": 0.006699071976512247
+          }
+        },
+        "gold_counts": {
+          "test": 13085,
+          "train": 104471,
+          "val": 13103
+        },
+        "nn_tanimoto_test_to_train": {
+          "mae": 0.625006682768464,
+          "mean": 0.625006682768464,
+          "n": 2000,
+          "quantiles": {
+            "max": 1.0,
+            "median": 0.625,
+            "min": 0.2916666567325592,
+            "p01": 0.4210356566309929,
+            "p05": 0.48275861144065857,
+            "p25": 0.5652173757553101,
+            "p75": 0.6777073740959167,
+            "p95": 0.7894737124443054,
+            "p99": 0.9473684430122375
+          },
+          "rmse": 0.6320131829499721,
+          "std": 0.09384726909886873
+        },
+        "targets": {
+          "gap_ev": {
+            "ks_pvalue": 0.7992821760485297,
+            "ks_statistic": 0.005969555875931287,
+            "n_other": 13085,
+            "n_reference": 104471,
+            "wasserstein": 0.009795048303214227,
+            "wasserstein_over_reference_sd": 0.007635951940227086
+          },
+          "u0_atomization_ev": {
+            "ks_pvalue": 0.23757488262826487,
+            "ks_statistic": 0.00955264594566163,
+            "n_other": 13085,
+            "n_reference": 104471,
+            "wasserstein": 0.16513129445176444,
+            "wasserstein_over_reference_sd": 0.015980675628160395
+          }
+        }
+      },
+      "spec": {
+        "group": "leakage",
+        "kind": "grouped"
+      }
+    },
+    "scaffold_generic": {
+      "largest_unit": 23418,
+      "n_units": 737,
+      "seeds": {
+        "0": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "1": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "2": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "3": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        },
+        "4": {
+          "counts": {
+            "test": 13388,
+            "train": 107109,
+            "val": 13388
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.09999626545169361,
+            "train": 0.8000074690966128,
+            "val": 0.09999626545169361
+          },
+          "fractions_within_tolerance": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          }
+        }
+      },
+      "shift_seed0": {
+        "composition": {
+          "fraction_containing": {
+            "F": {
+              "test": 0.010865464423149476,
+              "train": 0.016763050202693617
+            },
+            "N": {
+              "test": 0.5259941145401041,
+              "train": 0.6395319794808738
+            },
+            "O": {
+              "test": 0.8142307402097638,
+              "train": 0.8573843877884302
+            }
+          },
+          "n_heavy": {
+            "ks_pvalue": 0.2565184028562276,
+            "ks_statistic": 0.009326955874774057,
+            "n_other": 13253,
+            "n_reference": 104098,
+            "wasserstein": 0.01727526640386666,
+            "wasserstein_over_reference_sd": 0.034322734107324185
+          }
+        },
+        "gold_counts": {
+          "test": 13253,
+          "train": 104098,
+          "val": 13308
+        },
+        "nn_tanimoto_test_to_train": {
+          "mae": 0.5827855967283249,
+          "mean": 0.5827855967283249,
+          "n": 2000,
+          "quantiles": {
+            "max": 1.0,
+            "median": 0.5536398589611053,
+            "min": 0.2857142984867096,
+            "p01": 0.3571428656578064,
+            "p05": 0.40625,
+            "p25": 0.5,
+            "p75": 0.6666666865348816,
+            "p95": 0.8095238208770752,
+            "p99": 1.0
+          },
+          "rmse": 0.5973234297528157,
+          "std": 0.1309817849079679
+        },
+        "targets": {
+          "gap_ev": {
+            "ks_pvalue": 1.5022219228938664e-166,
+            "ks_statistic": 0.1273057051770211,
+            "n_other": 13253,
+            "n_reference": 104098,
+            "wasserstein": 0.31561205347230475,
+            "wasserstein_over_reference_sd": 0.24910309200497516
+          },
+          "u0_atomization_ev": {
+            "ks_pvalue": 9.77889789270829e-53,
+            "ks_statistic": 0.07152026602656458,
+            "n_other": 13253,
+            "n_reference": 104098,
+            "wasserstein": 1.5147454508762497,
+            "wasserstein_over_reference_sd": 0.1445834363804213
+          }
+        }
+      },
+      "spec": {
+        "group": "scaffold",
+        "kind": "grouped"
+      }
+    },
+    "size_extrapolation": {
+      "largest_unit": 9,
+      "n_units": 129343,
+      "seeds": {
+        "0": {
+          "counts": {
+            "test": 111594,
+            "train": 19815,
+            "val": 2476
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.8335063674048624,
+            "train": 0.14800014938193226,
+            "val": 0.01849348321320536
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 111594,
+          "test_records_pulled_in_by_group": 0
+        },
+        "1": {
+          "counts": {
+            "test": 111594,
+            "train": 19815,
+            "val": 2476
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.8335063674048624,
+            "train": 0.14800014938193226,
+            "val": 0.01849348321320536
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 111594,
+          "test_records_pulled_in_by_group": 0
+        },
+        "2": {
+          "counts": {
+            "test": 111594,
+            "train": 19815,
+            "val": 2476
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.8335063674048624,
+            "train": 0.14800014938193226,
+            "val": 0.01849348321320536
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 111594,
+          "test_records_pulled_in_by_group": 0
+        },
+        "3": {
+          "counts": {
+            "test": 111594,
+            "train": 19815,
+            "val": 2476
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.8335063674048624,
+            "train": 0.14800014938193226,
+            "val": 0.01849348321320536
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 111594,
+          "test_records_pulled_in_by_group": 0
+        },
+        "4": {
+          "counts": {
+            "test": 111594,
+            "train": 19815,
+            "val": 2476
+          },
+          "covers_every_record_once": true,
+          "fractions": {
+            "test": 0.8335063674048624,
+            "train": 0.14800014938193226,
+            "val": 0.01849348321320536
+          },
+          "holdout_rule_respected": true,
+          "no_key_in_two_subsets": true,
+          "overlaps": {
+            "connectivity_group_id": 0,
+            "ik_block": 0,
+            "leakage_group_id": 0,
+            "structure_group_id": 0,
+            "tautomer_group_id": 0,
+            "unit_id": 0
+          },
+          "rule_records_all_in_test": true,
+          "test_records_count_meeting_rule": 111594,
+          "test_records_pulled_in_by_group": 0
+        }
+      },
+      "shift_seed0": {
+        "composition": {
+          "fraction_containing": {
+            "F": {
+              "test": 0.014629845619770956,
+              "train": 0.01322587311427981
+            },
+            "N": {
+              "test": 0.6158219071147153,
+              "train": 0.58307501549907
+            },
+            "O": {
+              "test": 0.8575495697374342,
+              "train": 0.8196424881173796
+            }
+          },
+          "n_heavy": {
+            "ks_pvalue": 0.0,
+            "ks_statistic": 1.0,
+            "n_other": 108887,
+            "n_reference": 19356,
+            "wasserstein": 1.2271647034511262,
+            "wasserstein_over_reference_sd": 2.2166868816550185
+          }
+        },
+        "gold_counts": {
+          "test": 108887,
+          "train": 19356,
+          "val": 2416
+        },
+        "nn_tanimoto_test_to_train": {
+          "mae": 0.5298687510043383,
+          "mean": 0.5298687510043383,
+          "n": 2000,
+          "quantiles": {
+            "max": 1.0,
+            "median": 0.5185185074806213,
+            "min": 0.2647058963775635,
+            "p01": 0.3235199344158173,
+            "p05": 0.38461539149284363,
+            "p25": 0.4642857015132904,
+            "p75": 0.5833333134651184,
+            "p95": 0.7083333134651184,
+            "p99": 0.8182608640193938
+          },
+          "rmse": 0.5391958550325853,
+          "std": 0.09985628069091781
+        },
+        "targets": {
+          "gap_ev": {
+            "ks_pvalue": 2.1861236555679303e-70,
+            "ks_statistic": 0.06995848674144067,
+            "n_other": 108887,
+            "n_reference": 19356,
+            "wasserstein": 0.24314096499708632,
+            "wasserstein_over_reference_sd": 0.1855411875717671
+          },
+          "u0_atomization_ev": {
+            "ks_pvalue": 0.0,
+            "ks_statistic": 0.41060684109985807,
+            "n_other": 108887,
+            "n_reference": 19356,
+            "wasserstein": 10.450458207264258,
+            "wasserstein_over_reference_sd": 1.0134770946794545
+          }
+        }
+      },
+      "spec": {
+        "kind": "holdout",
+        "test_when": {
+          "n_heavy_min": 9
+        }
+      }
+    }
+  }
+}

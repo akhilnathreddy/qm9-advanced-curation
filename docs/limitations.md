@@ -62,6 +62,8 @@ Recorded for Gate 7. The evidence for each is in `docs/statistical_validation.md
     grouped by ADR 0007.
   - *Remaining:* Phase 8 must decide whether isomer or cluster splits group
     by geometry-perceived constitution, to avoid this leakage.
+  - *Resolved in Phase 8:* every split groups by the geometry InChIKey
+    connectivity block as well (ADR 0012).
 - **A weak suspicion model.**
   - *Uncertain:* which records are genuinely suspicious. The ridge model has
     an OOF MAE of 0.32 eV for U0, and its top-ranked records are unusual
@@ -79,3 +81,21 @@ Recorded for Gate 7. The evidence for each is in `docs/statistical_validation.md
     0.54), so tier ablations change chemical coverage as well as label
     quality.
   - *Remaining:* RQ5 must keep the planned matched-N, fixed-Gold-test design.
+
+## After Phase 8
+
+- **Leakage groups merge more than duplicates.** Tautomers and stereoisomers
+  are joined deliberately. They are distinct molecules with distinct labels,
+  but training on one and testing on another overstates generalization. A
+  study that wants them on both sides needs its own split.
+- **Cluster and scaffold splits stay close to train.** Median test → train
+  Tanimoto is 0.57 and 0.55 (random 0.62). QM9 is a dense enumeration, so
+  these splits measure modest structural novelty, not out-of-distribution
+  chemistry.
+- **The cluster threshold is a choice.** Leader clustering at Tanimoto
+  distance 0.65 on ECFP4 bits; another threshold or fingerprint gives
+  different clusters. The threshold is in `configs/splits.yaml` and the
+  report.
+- **Holdout test sets are fixed across seeds.** Seeds vary only train/val,
+  so seed variance underestimates test-set sampling variance for those
+  splits. Bootstrap CIs over test molecules cover this (analysis plan).

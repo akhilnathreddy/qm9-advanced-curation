@@ -1,11 +1,50 @@
-# Split suite (Phase 8). Seeds are fixed here and recorded with every split file.
+# Split suite (Phase 8, ADR 0012). Seeds are fixed here and recorded with
+# every split row. Every split assigns all 133,885 records; tier filtering
+# (e.g. Gold-only test) happens at use time, so all tiers share one split.
 seeds: [0, 1, 2, 3, 4]
 fractions: {train: 0.8, val: 0.1, test: 0.1}
+# Allowed |achieved - target| subset fraction for the group-balanced splits.
+fraction_tolerance: 0.01
+
+# Every split keeps each leakage group in one subset. A leakage group is the
+# union of: exact-structure group, standard-InChI (tautomer) group, GDB-17
+# connectivity group, and the connectivity block of the InChIKey perceived
+# from the geometry (stereoisomers, conformers and relaxed-to-same records).
 splits:
-  - random
-  - isomer_group
-  - scaffold_generic
-  - cluster_ecfp
-  - size_extrapolation
-  - element_holdout
-  - property_tail
+  random:
+    kind: grouped
+    group: leakage
+  isomer_group:
+    kind: grouped
+    group: formula
+  scaffold_generic:
+    kind: grouped
+    # Generic Bemis-Murcko scaffold of the geometry structure; acyclic
+    # molecules are bucketed by heavy-atom composition instead of sharing
+    # the empty scaffold.
+    group: scaffold
+  cluster_ecfp:
+    kind: grouped
+    group: cluster
+    # Leader (sphere-exclusion) clustering on ECFP4 bits, then nearest leader.
+    distance_threshold: 0.65
+  size_extrapolation:
+    kind: holdout
+    # Test = 9 heavy atoms; train/val = 8 or fewer.
+    test_when: {n_heavy_min: 9}
+  element_holdout:
+    kind: holdout
+    test_when: {contains_element: F}
+  property_tail_gap:
+    kind: holdout
+    test_when: {tail: {target: gap_ev, side: upper, fraction: 0.05}}
+  property_tail_u0_atomization:
+    kind: holdout
+    # Most strongly bound 5% (atomization energies are negative).
+    test_when: {tail: {target: u0_atomization_ev, side: lower, fraction: 0.05}}
+
+audit:
+  # Test molecules (Gold, seed 0) sampled for the test -> train
+  # nearest-neighbour Tanimoto distribution.
+  nn_sample: 2000
+  shift_targets: [gap_ev, u0_atomization_ev]

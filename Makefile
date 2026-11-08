@@ -1,4 +1,4 @@
-.PHONY: sync lint format typecheck test check repro repro-ci fixture gate0 gate1 gate2 gate3 gate4 gate5 gate6 gate7
+.PHONY: sync lint format typecheck test check repro repro-ci fixture gate0 gate1 gate2 gate3 gate4 gate5 gate6 gate7 gate8
 
 sync:
 	uv sync --locked
@@ -87,3 +87,12 @@ gate7: sync check repro
 	uv run dvc repro --force --single-item review
 	uv run python -c "import json,sys; a,b=(json.load(open(p))['output_sha256'] for p in ('/tmp/qm9_review_first.json','reports/statistical/statistical_report.json')); print('PASS  review tables byte-identical across runs' if a==b else 'FAIL  review tables differ across runs'); sys.exit(a!=b)"
 	uv run python -m qm9_curation.reporting.gates --phase 7
+
+# Phase 8 exit gate: leakage assertions for every split and seed, analysis
+# plan frozen, and a forced second split run must reproduce both tables.
+gate8: sync check repro
+	grep -q "^- \*\*Frozen:\*\* yes" docs/analysis_plan.md
+	cp reports/splits/split_report.json /tmp/qm9_splits_first.json
+	uv run dvc repro --force --single-item splits
+	uv run python -c "import json,sys; a,b=(json.load(open(p))['output_sha256'] for p in ('/tmp/qm9_splits_first.json','reports/splits/split_report.json')); print('PASS  split tables byte-identical across runs' if a==b else 'FAIL  split tables differ across runs'); sys.exit(a!=b)"
+	uv run python -m qm9_curation.reporting.gates --phase 8

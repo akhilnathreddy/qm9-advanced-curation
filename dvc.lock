@@ -400,3 +400,49 @@ stages:
       hash: md5
       md5: 53e0566d495f8220cfb0c77041b8e9ed
       size: 68670
+  splits:
+    cmd: python -m qm9_curation.splits.build
+    deps:
+    - path: configs/splits.yaml
+      hash: md5
+      md5: 602ae12b8fb7e4a3683419d83f2b570f
+      size: 1879
+    - path: data/processed/features
+      hash: md5
+      md5: bee22da8b640babdf8f6d36ab1ac9420.dir
+      size: 65336988
+      nfiles: 8
+    - path: data/processed/molecules.parquet
+      hash: md5
+      md5: 632d71c10f02ba87ea2c913dc7618c3d
+      size: 29466810
+    - path: src/qm9_curation/features/molecular.py
+      hash: md5
+      md5: 7b1bcf6baabae43c11daee18a11911d2
+      size: 3901
+    - path: src/qm9_curation/parallel.py
+      hash: md5
+      md5: 4588871df3f6d01fa1f5e6e1fbd3e06c
+      size: 1467
+    - path: src/qm9_curation/review/stats.py
+      hash: md5
+      md5: a92c93c14b0be6b280f25d450dfc2cc3
+      size: 4377
+    - path: src/qm9_curation/splits
+      hash: md5
+      md5: 8d8a9a9c5d0cef1682118f2aed6ce6d8.dir
+      size: 25355
+      nfiles: 6
+    outs:
+    - path: data/splits/split_groups.parquet
+      hash: md5
+      md5: 74731e7501738e25e9fc6e319e69ee55
+      size: 5344906
+    - path: data/splits/splits.parquet
+      hash: md5
+      md5: 63b00e9838261621f275f97d4b3b53cc
+      size: 14417867
+    - path: reports/splits/split_report.json
+      hash: md5
+      md5: 4f8f8624b4dab6272da459c1e689601d
+      size: 50927

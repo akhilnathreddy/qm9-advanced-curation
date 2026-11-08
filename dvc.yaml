@@ -164,3 +164,20 @@ stages:
       - data/processed/g4mp2_xref.parquet
       - reports/statistical/statistical_report.json:
           cache: false
+
+  # Split suite with per-split leakage audit (ADR 0012).
+  splits:
+    cmd: python -m qm9_curation.splits.build
+    deps:
+      - src/qm9_curation/splits
+      - src/qm9_curation/parallel.py
+      - src/qm9_curation/review/stats.py
+      - src/qm9_curation/features/molecular.py
+      - configs/splits.yaml
+      - data/processed/molecules.parquet
+      - data/processed/features
+    outs:
+      - data/splits/splits.parquet
+      - data/splits/split_groups.parquet
+      - reports/splits/split_report.json:
+          cache: false

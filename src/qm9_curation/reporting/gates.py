@@ -72,6 +72,15 @@ GATE_CONDITIONS: dict[int, tuple[str, ...]] = {
         "unresolved uncertainties are listed in docs/limitations.md",
         "a second review run produces byte-identical tables",
     ),
+    8: (
+        "every split assigns every record exactly once, for every seed",
+        "no leakage key (exact structure, tautomer, connectivity, geometry InChIKey block) "
+        "or split unit occurs in two subsets",
+        "holdout rules respected; grouped splits within the fraction tolerance",
+        "distribution-shift report for every split (targets, composition, NN Tanimoto)",
+        "analysis plan frozen (splits fixed)",
+        "a second split run produces byte-identical tables",
+    ),
 }
 
 # Report files whose boolean conditions must all be true for the gate to pass.
@@ -83,6 +92,7 @@ GATE_REPORTS: dict[int, tuple[tuple[str, str], ...]] = {
     5: (("curation/curation_report.json", "gate_5_conditions"),),
     6: (("features/feature_report.json", "gate_6_conditions"),),
     7: (("statistical/statistical_report.json", "gate_7_conditions"),),
+    8: (("splits/split_report.json", "gate_8_conditions"),),
 }
 
 
