@@ -71,8 +71,10 @@ train = ds[ds.split_indices("scaffold_generic", seed=0)["train"]]
   data, no DVC cache, a new environment) ran `make reproduce` in 11 min 20 s.
   Every check passed.
 - **Linux reference** (`Reproduce release` workflow, GitHub Actions, 4
-  cores): a clean rebuild took about 20 min, and every pipeline and release
-  check passed.
+  cores): a clean rebuild takes about 20 min.
+  - **Confirmed 2026-11-10** (run 42796901845, commit b6e3367): every file is
+    byte-identical to the published manifest, and every check passed.
+  - The Zenodo bundle is made from that run's artifact.
 - **Cross-platform:**
   - `molecules`, `splits` and the extended XYZ are byte-identical on both
     platforms.

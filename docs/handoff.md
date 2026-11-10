@@ -18,7 +18,7 @@ analysis plan plus amendments).
 | 7 Statistical validation | `phase-7/statistical-validation` | 678e758 | done, Gate 7 |
 | 8 Splits | `phase-8/splits` | 4b08cc5 | done, Gate 8; analysis plan frozen; CI green |
 | 9 Benchmark | `phase-9/benchmark` | 8bddedf | done, Gate 9 |
-| **10 Release** | `phase-10/release` | 2289d72 + fix (uncommitted) | **Gate 10 passes (macOS, equivalent to the Linux reference); Linux confirmation run pending** |
+| **10 Release** | `phase-10/release` | b6e3367 | **done, Gate 10; Linux reproduction byte-identical (run 42796901845); Zenodo upload pending (user)** |
 | 11 Uncharacterized recovery (optional) | — | — | not started |
 
 - Branches are stacked: each starts from the previous one, so
@@ -126,12 +126,10 @@ All code passes ruff, mypy --strict and the full test suite: 192 tests, about
   checks equivalence (ADR 0014).
 
   Open:
-  1. Push the fix. The `Reproduce release` run must then pass on Linux with
-     identical hashes.
-  2. The Zenodo zip must come from the Linux artifact:
-     `make zenodo RELEASE_ROOT=<artifact>/data/release`. The user uploads it
-     from their own account (`data/zenodo/UPLOAD.md`). Recording the DOI is
-     release 1.0.1.
+  1. Done: Linux run 42796901845 reproduced every file byte-identically.
+  2. The Zenodo bundle in `data/zenodo/` was built from that run's artifact
+     (243 MB, sha256 `e3ef7b45…`). The user uploads it from their own
+     account (`data/zenodo/UPLOAD.md`). Recording the DOI is release 1.0.1.
   3. Create `main` and the `v1.0.0` tag.
   4. Optionally make `main` the default branch.
 - **At the end:** a single consolidated project report covering:
