@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "splits/split_report.json:every_record_has_groups": true,
+    "splits/split_report.json:every_split_and_seed_covers_every_record_once": true,
+    "splits/split_report.json:grouped_fractions_within_tolerance": true,
+    "splits/split_report.json:holdout_rules_respected": true,
+    "splits/split_report.json:no_leakage_key_in_two_subsets": true,
+    "splits/split_report.json:shift_report_for_every_split": true
+  },
+  "conditions": [
+    "every split assigns every record exactly once, for every seed",
+    "no leakage key (exact structure, tautomer, connectivity, geometry InChIKey block) or split unit occurs in two subsets",
+    "holdout rules respected; grouped splits within the fraction tolerance",
+    "distribution-shift report for every split (targets, composition, NN Tanimoto)",
+    "analysis plan frozen (splits fixed)",
+    "a second split run produces byte-identical tables"
+  ],
+  "environment": {
+    "constants": "CODATA 2018",
+    "git": {
+      "commit": "678e7587db1937ab91db105a23dccb67a7436530",
+      "dirty": true
+    },
+    "implementation": "CPython",
+    "packages": {
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "pandas": "3.1.1",
+      "pandera": "0.35.0",
+      "polars": "2.1.0",
+      "pyarrow": "26.0.1",
+      "pyyaml": "6.0.3",
+      "rdkit": "2026.9.1",
+      "scipy": "1.18.1"
+    },
+    "platform": "Darwin-arm64",
+    "python": "3.12.5",
+    "qm9_curation_version": "0.1.0"
+  },
+  "passed": true,
+  "phase": 8
+}

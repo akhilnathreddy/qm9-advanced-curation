@@ -72,6 +72,25 @@ GATE_CONDITIONS: dict[int, tuple[str, ...]] = {
         "unresolved uncertainties are listed in docs/limitations.md",
         "a second review run produces byte-identical tables",
     ),
+    8: (
+        "every split assigns every record exactly once, for every seed",
+        "no leakage key (exact structure, tautomer, connectivity, geometry InChIKey block) "
+        "or split unit occurs in two subsets",
+        "holdout rules respected; grouped splits within the fraction tolerance",
+        "distribution-shift report for every split (targets, composition, NN Tanimoto)",
+        "analysis plan frozen (splits fixed)",
+        "a second split run produces byte-identical tables",
+    ),
+    9: (
+        "the analysis plan text is unchanged since freezing; deviations are dated amendments",
+        "RQ1-RQ5 each have a verdict (supported, refuted, mixed or inconclusive)",
+        "confirmatory results (RQ3, RQ4, RQ5) carry bootstrap 95% CIs",
+        "every planned cell has every seed; cells not run are listed with a reason",
+        "the test set is predicted once per cell; tuning uses validation only",
+        "every run is tracked in MLflow with git commit and data version",
+        "no unexplained leakage sanity alarm",
+        "a second analysis run produces byte-identical tables",
+    ),
 }
 
 # Report files whose boolean conditions must all be true for the gate to pass.
@@ -83,6 +102,8 @@ GATE_REPORTS: dict[int, tuple[tuple[str, str], ...]] = {
     5: (("curation/curation_report.json", "gate_5_conditions"),),
     6: (("features/feature_report.json", "gate_6_conditions"),),
     7: (("statistical/statistical_report.json", "gate_7_conditions"),),
+    8: (("splits/split_report.json", "gate_8_conditions"),),
+    9: (("benchmark/benchmark_report.json", "gate_9_conditions"),),
 }
 
 

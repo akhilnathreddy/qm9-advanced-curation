@@ -13,8 +13,8 @@ jobs:
       - uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
-      - name: Install locked environment
-        run: uv sync --locked
+      - name: Install locked environment (with the Phase 9 ml extra; CPU-only torch on Linux)
+        run: uv sync --locked --extra ml
       - name: Lint
         run: uv run ruff check .
       - name: Format check
