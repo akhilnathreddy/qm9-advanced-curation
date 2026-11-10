@@ -18,11 +18,12 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-# Installed from Phase 9 onward; kept out of the default env so Phase 0-8 stays light.
+# Phase 9 benchmark models and run tracking; kept out of the default env so
+# Phases 0-8 stay light. `uv sync --extra ml`.
 ml = [
     "scikit-learn>=1.5",
-    "lightgbm>=4.3",
-    "mlflow>=2.14",
+    "mlflow-skinny>=2.14",
+    "torch>=2.4",
 ]
 
 [dependency-groups]
@@ -36,6 +37,15 @@ dev = [
     "pre-commit>=3.7",
     "dvc>=3.50",
 ]
+
+# Linux (CI, the reference build) uses CPU-only torch wheels; macOS uses PyPI (CPU + MPS).
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
 
 [build-system]
 requires = ["hatchling"]
@@ -65,7 +75,7 @@ mypy_path = "src"
 packages = ["qm9_curation"]
 
 [[tool.mypy.overrides]]
-module = ["rdkit.*", "pandera.*", "scipy.*"]
+module = ["rdkit.*", "pandera.*", "scipy.*", "sklearn.*", "mlflow.*"]
 ignore_missing_imports = true
 
 # RDKit ships partial stubs; many functions are untyped.

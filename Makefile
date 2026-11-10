@@ -1,7 +1,8 @@
-.PHONY: sync lint format typecheck test check repro repro-ci fixture gate0 gate1 gate2 gate3 gate4 gate5 gate6 gate7 gate8
+.PHONY: sync lint format typecheck test check repro repro-ci fixture gate0 gate1 gate2 gate3 gate4 gate5 gate6 gate7 gate8 gate9
 
+# The ml extra (scikit-learn, torch, MLflow) is needed from Phase 9 on.
 sync:
-	uv sync --locked
+	uv sync --locked --extra ml
 
 lint:
 	uv run ruff check .
@@ -96,3 +97,13 @@ gate8: sync check repro
 	uv run dvc repro --force --single-item splits
 	uv run python -c "import json,sys; a,b=(json.load(open(p))['output_sha256'] for p in ('/tmp/qm9_splits_first.json','reports/splits/split_report.json')); print('PASS  split tables byte-identical across runs' if a==b else 'FAIL  split tables differ across runs'); sys.exit(a!=b)"
 	uv run python -m qm9_curation.reporting.gates --phase 8
+
+# Phase 9 exit gate: every RQ has a verdict with CIs, every run tracked, the
+# frozen plan unchanged except for dated amendments, and a forced second
+# analysis run reproduces the result tables byte-for-byte.
+gate9: sync check repro
+	grep -q "^## Amendments" docs/analysis_plan.md
+	cp reports/benchmark/benchmark_report.json /tmp/qm9_benchmark_first.json
+	uv run dvc repro --force --single-item benchmark_analysis
+	uv run python -c "import json,sys; a,b=(json.load(open(p))['output_sha256'] for p in ('/tmp/qm9_benchmark_first.json','reports/benchmark/benchmark_report.json')); print('PASS  benchmark analysis byte-identical across runs' if a==b else 'FAIL  benchmark analysis differs across runs'); sys.exit(a!=b)"
+	uv run python -m qm9_curation.reporting.gates --phase 9

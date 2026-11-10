@@ -252,3 +252,42 @@ calculation did not converge.
 | leakage_group_id | Union of the four keys; smallest qm9_id in the group |
 | formula, scaffold_key, cluster_id | Grouping keys of isomer, scaffold and cluster splits |
 | unit_<split> | The unit each split keeps whole (grouping key merged with leakage groups) |
+
+## Benchmark (`data/benchmark/`, Phase 9)
+
+### `runs/<key>.parquet` — one file per run
+
+`key` is a hash of the run spec (experiment, model, target, split, seed,
+training tiers, N, fold, tuning grid point) and the model parameters,
+including the model version (ADR 0013).
+
+| Column | Meaning |
+|---|---|
+| qm9_id | Record |
+| role | Enum: val, test (tuning runs: val only), oof (RQ2 out-of-fold rows) |
+| y | Target value (eV) |
+| pred | Model prediction (eV) |
+
+`runs/<key>.json` holds the same run's spec, parameters, training-tier counts,
+metrics, model info (best epoch, device, `n_train_used`), seconds, provenance
+and MLflow run id.
+
+### `run_metrics.parquet` — one row per run
+
+| Column | Meaning |
+|---|---|
+| key | Run key (file stem in `runs/`) |
+| experiment | Enum: tuning, rq3, stress, rq2, rq5 |
+| model, level | Ladder level name and number: mean 0, dressed_atom 1, gbm 2, krr 3, dmpnn 4, schnet 5 |
+| target | Enum: gap_ev, u0_atomization_ev |
+| split, seed | Split name and seed (`data/splits/`) |
+| tiers | Training tier set: all (Gold + Silver + Bronze), gold_silver, gold |
+| n_train_requested | Training-set size asked for (RQ5 learning curve; KRR tuning); null = all |
+| fold | RQ2 fold 0–4 (`leakage_group_id mod 5`); null otherwise |
+| grid_point | Tuning hyperparameters as JSON; `{}` outside tuning |
+| n_train | Training molecules actually used |
+| seconds | Wall-clock fit + predict time |
+| mlflow_run_id | Run id in the local MLflow file store (`mlruns/`) |
+| val_mae | MAE on `val ∩ Gold` (eV) |
+| test_mae, test_rmse, test_r2, test_within_chemical_accuracy | Metrics on `test ∩ Gold`; null for tuning and RQ2 runs. Chemical accuracy = 1 kcal/mol (0.0434 eV) |
+| oof_mae | RQ2 out-of-fold MAE over all training tiers (eV) |

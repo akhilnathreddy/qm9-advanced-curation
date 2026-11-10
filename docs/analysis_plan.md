@@ -94,4 +94,74 @@ reported as not run, with the reason. RQ5 uses level 2 (primary) and level 4
   scaffold 0.55, size 0.52.
 
 ## Amendments
-None.
+Each entry was written before the benchmark grid ran. Each is also recorded in
+ADR 0013 and reported with the results.
+
+**Disclosure — test numbers seen before the grid (2026-11-09).** Exploratory
+timing and smoke runs, made outside the tracked grid, printed Gold-test MAEs on
+the `random` split:
+- **Levels 0 and 1:** every RQ3 split and seed.
+- **Level 3:** seed 0, after tuning on validation.
+- **Levels 2, 4 and 5:** seed 0 only. Level 2 was run in two configurations;
+  levels 4 and 5 for one epoch on 20,000 molecules, for timing.
+
+The level 2 choices (Δ-learning on level 1, and the 1% ECFP bit-frequency
+filter) were made after seeing level 2's seed-0 validation **and** test MAE
+(U0 0.26 eV without Δ-learning, 0.09 eV with it). No other choice used these
+numbers. All of these runs are discarded; the grid recomputes every cell.
+Read the level 2 `random` result with this in mind.
+
+- **2026-11-09 — Level 2 model.** scikit-learn `HistGradientBoostingRegressor`
+  replaces LightGBM: the LightGBM macOS wheel needs a system OpenMP library
+  (Homebrew `libomp`) that this machine lacks, and the scikit-learn model is
+  the same histogram gradient-boosting algorithm with bundled OpenMP. Inputs:
+  the 184 RDKit descriptors plus the ECFP4 count bits present in at least 1%
+  of the training molecules (selected on training rows only). Ridge is not run
+  as a separate level; Phase 7's ridge is the exploratory reference.
+- **2026-11-09 — Level 3 inputs and size.** KRR uses the sorted Coulomb-matrix
+  eigenvalues only: Phase 6 built no Bag-of-Bonds table. Its exact solve needs
+  O(N²) memory, so each run trains on a seeded sample of at most 20,000
+  training molecules; `n_train_used` is reported.
+- **2026-11-09 — Levels 4 and 5.** D-MPNN (Chemprop's architecture) and
+  SchNet are re-implemented in plain PyTorch on the Phase 6 graph tables and
+  the coordinates (no Chemprop, Lightning or PyG packages), with a fixed
+  30-epoch budget and the best epoch chosen on validation. They are
+  under-trained relative to the literature, which the results state. Coverage
+  is limited by compute, as `configs/benchmark.yaml` (`coverage`, `not_run`)
+  records: SchNet runs only the `random` split (RQ3 reference and RQ4) and RQ2
+  if it is the best level.
+- **2026-11-09 — Δ-learning.** Levels 2–5 learn the residual of level 1
+  (dressed atoms) fitted on the same training rows. The plan was silent on
+  this; it applies to every level alike.
+- **2026-11-09 — Records without RDKit features.** 22 Bronze records whose bond
+  orders could not be perceived have no descriptors, fingerprints or graphs.
+  They are excluded from every level's training set, so all levels train on
+  the same molecules. Every Gold record has features, so evaluation sets are
+  unaffected.
+- **2026-11-09 — How verdicts combine (clarification).** A cell meets its
+  decision rule when its CI condition holds *and* its Holm-adjusted one-sided
+  p-value is below 0.05. The p-values are bootstrap p-values for RQ3 and RQ5,
+  and Mann–Whitney p-values for RQ2. An RQ is `supported` when every cell meets
+  its rule, `refuted` when none does, and `mixed` otherwise. RQ3 counts every
+  model, level 0 included, as the plan says "for each model". For RQ5 the
+  verdict uses the primary model (level 2): `refuted` needs Gold-only to be
+  significantly worse, and `inconclusive` means neither direction is
+  significant. The RQ3 bootstrap resamples molecules within each seed's test
+  set and pools the MAE over seeds. RQ1 is descriptive: its verdict records
+  whether any record beyond the 3,054 fails a hard or identity check.
+- **2026-11-09 — Tracking.** Runs are logged to a local MLflow file store,
+  since the SQLite store needs the full `mlflow` server package. Runs are made
+  before the Phase 9 commit exists, so each also carries `code_sha256`, a hash
+  of the benchmark source and configuration, alongside `git_commit` (the
+  parent commit) and `git_dirty`.
+- **2026-11-09 — Level 4 drops out of RQ5 (compute).** A full-data timing run
+  of level 4 (`tuning` experiment, `random` seed 0, U0 atomization, validation
+  rows only; no test rows predicted) took 23.6 s per epoch on this machine's
+  CPU, about 12 min per 30-epoch run; the best epoch was the last (29), with
+  Gold validation MAE 0.049 eV. At that rate the full grid needs about 30–35 h,
+  of which level 4's 210 RQ5 runs are about 12.5 h. The user chose to drop
+  level 4 from RQ5 only (`coverage`, `not_run` in `configs/benchmark.yaml`).
+  RQ5's verdict already rests on level 2 (primary), which runs every RQ5 cell,
+  so the decision rule is unchanged; the secondary level 4 learning curve is
+  reported as not run, with the reason. Level 4 still runs every RQ3 and
+  stress split with 5 seeds, and RQ2 if it is the best level.

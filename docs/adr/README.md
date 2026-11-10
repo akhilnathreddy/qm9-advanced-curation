@@ -19,3 +19,4 @@ that supersedes the old one and set the old one's status to
 | [0010](0010-features.md) | Feature inputs, families and storage | Accepted |
 | [0011](0011-statistical-and-multi-fidelity-validation.md) | Statistical, scientific and multi-fidelity validation | Accepted |
 | [0012](0012-split-suite.md) | Split suite and leakage audit | Accepted |
+| [0013](0013-benchmark-and-ablation.md) | Benchmark ladder, protocol and compute budget | Accepted |

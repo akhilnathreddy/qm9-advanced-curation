@@ -181,3 +181,46 @@ stages:
       - data/splits/split_groups.parquet
       - reports/splits/split_report.json:
           cache: false
+
+  # Benchmark grid: tuning, RQ3 + stress splits, RQ2 OOF, RQ5 ablation (ADR 0013).
+  # Resumable: each run is keyed by its spec and model parameters, and the run
+  # directory persists, so a re-run only trains missing cells.
+  benchmark:
+    cmd: python -m qm9_curation.benchmark.run
+    deps:
+      - src/qm9_curation/benchmark/run.py
+      - src/qm9_curation/benchmark/data.py
+      - src/qm9_curation/benchmark/models.py
+      - src/qm9_curation/benchmark/gnn.py
+      - src/qm9_curation/benchmark/metrics.py
+      - src/qm9_curation/benchmark/tracking.py
+      - configs/benchmark.yaml
+      - data/processed/molecules.parquet
+      - data/processed/features
+      - data/interim/atoms.parquet
+      - data/splits/splits.parquet
+      - data/splits/split_groups.parquet
+    outs:
+      - data/benchmark/runs:
+          persist: true
+
+  # Frozen-plan decision rules over the finished runs (deterministic).
+  benchmark_analysis:
+    cmd: python -m qm9_curation.benchmark.analysis
+    deps:
+      - src/qm9_curation/benchmark/analysis.py
+      - src/qm9_curation/benchmark/metrics.py
+      - src/qm9_curation/benchmark/models.py
+      - src/qm9_curation/review/stats.py
+      - configs/benchmark.yaml
+      - docs/analysis_plan.md
+      - data/benchmark/runs
+      - data/processed/molecules.parquet
+    outs:
+      - data/benchmark/run_metrics.parquet
+      - reports/benchmark/benchmark_report.json:
+          cache: false
+      - reports/benchmark/summary.md:
+          cache: false
+      - reports/benchmark/figures:
+          cache: false

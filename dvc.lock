@@ -9,12 +9,12 @@ stages:
       size: 2113
     - path: uv.lock
       hash: md5
-      md5: a468061c80e50b98d7e6ec79735d43da
-      size: 302519
+      md5: 2dab9497778c85abc3bb6e732eabc5a4
+      size: 286856
     outs:
     - path: reports/gates/env.json
       hash: md5
-      md5: 95c37d9b888ea1ccc9045823c7113b62
+      md5: ee9409a2039e9cee4c6d32ba18081aac
       size: 480
   acquire:
     cmd: python -m qm9_curation.acquire
@@ -446,3 +446,115 @@ stages:
       hash: md5
       md5: 4f8f8624b4dab6272da459c1e689601d
       size: 50927
+  benchmark:
+    cmd: python -m qm9_curation.benchmark.run
+    deps:
+    - path: configs/benchmark.yaml
+      hash: md5
+      md5: 6e6da3ac050ba8952db8774516cdf9ca
+      size: 3853
+    - path: data/interim/atoms.parquet
+      hash: md5
+      md5: 210708249f7b6a91d3419df0a0d858c9
+      size: 66660328
+    - path: data/processed/features
+      hash: md5
+      md5: bee22da8b640babdf8f6d36ab1ac9420.dir
+      size: 65336988
+      nfiles: 8
+    - path: data/processed/molecules.parquet
+      hash: md5
+      md5: 632d71c10f02ba87ea2c913dc7618c3d
+      size: 29466810
+    - path: data/splits/split_groups.parquet
+      hash: md5
+      md5: 74731e7501738e25e9fc6e319e69ee55
+      size: 5344906
+    - path: data/splits/splits.parquet
+      hash: md5
+      md5: 63b00e9838261621f275f97d4b3b53cc
+      size: 14417867
+    - path: src/qm9_curation/benchmark/data.py
+      hash: md5
+      md5: df9c03d9e7d5f73f4bd19fffa20fcaf1
+      size: 5510
+    - path: src/qm9_curation/benchmark/gnn.py
+      hash: md5
+      md5: c45e9837d7b050fc7294bfe74f9fc834
+      size: 15845
+    - path: src/qm9_curation/benchmark/metrics.py
+      hash: md5
+      md5: 62cf24c4575458c2352111ad433a9e3b
+      size: 3931
+    - path: src/qm9_curation/benchmark/models.py
+      hash: md5
+      md5: 4f657fa1a23f714ebf1530987c0f2d41
+      size: 7089
+    - path: src/qm9_curation/benchmark/run.py
+      hash: md5
+      md5: a5410323855260c8e474f3155da2f203
+      size: 14642
+    - path: src/qm9_curation/benchmark/tracking.py
+      hash: md5
+      md5: 588c460bd44b8cbadc9e5e966da20758
+      size: 3785
+    outs:
+    - path: data/benchmark/runs
+      hash: md5
+      md5: 0ebdf275f569d6cfa9552af3276c0397.dir
+      size: 262503255
+      nfiles: 1364
+  benchmark_analysis:
+    cmd: python -m qm9_curation.benchmark.analysis
+    deps:
+    - path: configs/benchmark.yaml
+      hash: md5
+      md5: 6e6da3ac050ba8952db8774516cdf9ca
+      size: 3853
+    - path: data/benchmark/runs
+      hash: md5
+      md5: 0ebdf275f569d6cfa9552af3276c0397.dir
+      size: 262503255
+      nfiles: 1364
+    - path: data/processed/molecules.parquet
+      hash: md5
+      md5: 632d71c10f02ba87ea2c913dc7618c3d
+      size: 29466810
+    - path: docs/analysis_plan.md
+      hash: md5
+      md5: ac4a16e17419451ac9fed6ac3da05c49
+      size: 10137
+    - path: src/qm9_curation/benchmark/analysis.py
+      hash: md5
+      md5: 6070735f354f6ab7515b3f33e0114dc1
+      size: 31916
+    - path: src/qm9_curation/benchmark/metrics.py
+      hash: md5
+      md5: 62cf24c4575458c2352111ad433a9e3b
+      size: 3931
+    - path: src/qm9_curation/benchmark/models.py
+      hash: md5
+      md5: 4f657fa1a23f714ebf1530987c0f2d41
+      size: 7089
+    - path: src/qm9_curation/review/stats.py
+      hash: md5
+      md5: a92c93c14b0be6b280f25d450dfc2cc3
+      size: 4377
+    outs:
+    - path: data/benchmark/run_metrics.parquet
+      hash: md5
+      md5: a31db9044646fd3077353b913ee34195
+      size: 58557
+    - path: reports/benchmark/benchmark_report.json
+      hash: md5
+      md5: e53d98be7b9630831b52a758c76c339e
+      size: 131077
+    - path: reports/benchmark/figures
+      hash: md5
+      md5: d03e61451a47441a18152d07a5f395ad.dir
+      size: 88909
+      nfiles: 2
+    - path: reports/benchmark/summary.md
+      hash: md5
+      md5: ba27dc5272e3c8ad39b73027308f10b5
+      size: 8250

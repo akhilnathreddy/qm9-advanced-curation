@@ -9,7 +9,7 @@ format, chemical-identity and physics checks, assigns quality tiers instead of
 deleting records, and produces ML-ready tables, a split suite and baseline
 benchmarks. The full plan is in `docs/plan_v2.md`.
 
-**Current phase:** 8 complete — eight leakage-audited splits × 5 seeds in `data/splits/` (Gate 8; `docs/splits.md`); analysis plan frozen. Next: Phase 9, benchmarking and curation ablation.
+**Current phase:** 9 complete — baseline ladder (levels 0–5) benchmarked over 682 tracked runs; RQ1, RQ2, RQ4 and RQ5 supported, RQ3 mixed (Gate 9; `docs/benchmark.md`, ADR 0013). Next: Phase 10, release.
 
 ## Setup
 
@@ -35,6 +35,7 @@ make gate5    # Phase 5 exit gate: tiers, source values preserved, byte-identica
 make gate6    # Phase 6 exit gate: features documented, leakage-guarded, byte-identical rebuild
 make gate7    # Phase 7 exit gate: G4(MP2) cross-check, soft review flags, byte-identical rebuild
 make gate8    # Phase 8 exit gate: leakage assertions per split and seed, plan frozen, byte-identical rebuild
+make gate9    # Phase 9 exit gate: frozen plan intact, every planned cell and seed run, byte-identical analysis
 make fixture  # rebuild the 1k test fixture from the raw archive
 ```
 

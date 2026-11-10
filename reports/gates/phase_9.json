@@ -1,0 +1,47 @@
+{
+  "checks": {
+    "benchmark/benchmark_report.json:analysis_plan_frozen_text_unchanged": true,
+    "benchmark/benchmark_report.json:confirmatory_results_have_cis": true,
+    "benchmark/benchmark_report.json:every_planned_cell_has_every_seed": true,
+    "benchmark/benchmark_report.json:every_rq_has_a_verdict": true,
+    "benchmark/benchmark_report.json:every_run_tracked_with_commit_and_data_version": true,
+    "benchmark/benchmark_report.json:no_unexplained_sanity_alarm": true,
+    "benchmark/benchmark_report.json:not_run_cells_have_reasons": true,
+    "benchmark/benchmark_report.json:test_predicted_once_per_cell": true,
+    "benchmark/benchmark_report.json:tuning_runs_never_predict_test": true
+  },
+  "conditions": [
+    "the analysis plan text is unchanged since freezing; deviations are dated amendments",
+    "RQ1-RQ5 each have a verdict (supported, refuted, mixed or inconclusive)",
+    "confirmatory results (RQ3, RQ4, RQ5) carry bootstrap 95% CIs",
+    "every planned cell has every seed; cells not run are listed with a reason",
+    "the test set is predicted once per cell; tuning uses validation only",
+    "every run is tracked in MLflow with git commit and data version",
+    "no unexplained leakage sanity alarm",
+    "a second analysis run produces byte-identical tables"
+  ],
+  "environment": {
+    "constants": "CODATA 2018",
+    "git": {
+      "commit": "4b08cc5492091375e2f80d0f00f6b23c896ea6fc",
+      "dirty": true
+    },
+    "implementation": "CPython",
+    "packages": {
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "pandas": "3.1.1",
+      "pandera": "0.35.0",
+      "polars": "2.1.0",
+      "pyarrow": "26.0.1",
+      "pyyaml": "6.0.3",
+      "rdkit": "2026.9.1",
+      "scipy": "1.18.1"
+    },
+    "platform": "Darwin-arm64",
+    "python": "3.12.5",
+    "qm9_curation_version": "0.1.0"
+  },
+  "passed": true,
+  "phase": 9
+}

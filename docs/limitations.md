@@ -99,3 +99,44 @@ Recorded for Gate 7. The evidence for each is in `docs/statistical_validation.md
 - **Holdout test sets are fixed across seeds.** Seeds vary only train/val,
   so seed variance underestimates test-set sampling variance for those
   splits. Bootstrap CIs over test molecules cover this (analysis plan).
+
+## After Phase 9
+
+- **Training budgets are below the literature's.**
+  - Levels 4 and 5 train for 30 epochs; published models train for hundreds.
+    Their best validation epoch was the last one in about half the runs
+    (D-MPNN 52%, SchNet 47%).
+  - Level 2's best boosting iteration equals its 1,000-iteration cap.
+  - All three were still improving, so their MAEs are upper bounds for these
+    architectures, not reproductions of published numbers.
+- **Level 3 is weak by construction.** KRR uses only the sorted
+  Coulomb-matrix eigenvalues, because Phase 6 built no Bag-of-Bonds table.
+  Its exact solve is capped at 20,000 training molecules. The tuned λ (10⁻⁴)
+  sits at the edge of its grid.
+- **Coverage is incomplete, by choice (ADR 0013).**
+  - SchNet runs only the `random` split.
+  - D-MPNN does not run RQ5, so RQ5 speaks for level 2 only.
+  - `not_run` in `configs/benchmark.yaml` gives the reasons.
+- **The `element_holdout` stress test is dominated by the Δ-learning
+  baseline.** Train contains no fluorine, so the dressed-atom fit has no F
+  coefficient. Every level that learns its residual inherits an error of
+  several eV on U0. That result measures the baseline's blind spot, not the
+  models' ability to transfer to a new element.
+- **Accuracy is relative to the B3LYP labels.** The best `random` U0 MAE is
+  below the B3LYP − G4(MP2) disagreement (RQ4). Lower MAE past that point
+  means fitting the DFT method more closely, not the true energy more
+  closely.
+- **RQ5's effect is small.** At N = 100,000, Gold-only training beats
+  all-tier training by about 1 meV on both targets. That is significant on
+  13k paired test molecules, but about 1% of the MAE. The learning-curve
+  slopes are almost identical across tier sets.
+- **Exploratory test numbers were seen before the grid.** The analysis-plan
+  amendment of 2026-11-09 discloses them. Read the level 2 `random` result
+  with that in mind.
+- **Long-lived grid processes keep their tuning winners from start-up.** A
+  process that starts before another level's tuning finishes cannot pick the
+  RQ2 model, and waits instead. RQ2 is filled by a later process; the final
+  plain run checks that every cell exists.
+- **Still open from Phase 7:**
+  - the suspicion score is not yet recomputed with the best model;
+  - the electronic-only (ZPE-separated) RQ4 comparison was not run.

@@ -1,0 +1,116 @@
+# Benchmark and curation ablation (Phase 9, ADR 0013). Everything here
+# implements docs/analysis_plan.md, frozen at the commit below; deviations are
+# dated amendments at the bottom of that file.
+analysis_plan:
+  frozen_commit: 4b08cc5492091375e2f80d0f00f6b23c896ea6fc
+  # sha256 of the plan text before "## Amendments" at that commit.
+  frozen_sha256: dfc2161b90ab95798233fbdff0d4bfa7e01a12f357de65488580aecc6d7fc32f
+
+targets:
+  gap_ev: {readout: mean}            # intensive
+  u0_atomization_ev: {readout: sum}  # extensive
+seeds: [0, 1, 2, 3, 4]
+train_tiers: [gold, silver, bronze]
+
+experiments:
+  rq3:
+    splits: [random, isomer_group, scaffold_generic, cluster_ecfp, size_extrapolation]
+  stress:
+    splits: [element_holdout, property_tail_gap, property_tail_u0_atomization]
+  rq2:
+    split: random
+    seed: 0
+    n_folds: 5            # folds = leakage_group_id mod 5 over the training population
+  rq5:
+    split: random
+    tier_sets:
+      all: [gold, silver, bronze]
+      gold_silver: [gold, silver]
+      gold: [gold]
+    n_grid: [1000, 2000, 5000, 10000, 25000, 50000, 100000]
+    models: [gbm, dmpnn]  # level 2 primary, level 4 secondary (not run: coverage)
+
+# Which experiments each level runs. A cell left out is reported as "not run"
+# with the reason under not_run (analysis plan: Models).
+coverage:
+  mean: [rq3, stress]
+  dressed_atom: [rq3, stress]
+  gbm: [rq3, stress, rq5, rq2]
+  krr: [rq3, stress]
+  dmpnn: [rq3, stress, rq2]
+  schnet: [rq3_random, rq2]
+not_run:
+  dmpnn:
+    rq5: >-
+      Compute: about 12 min per full-data run on this machine's CPU at the
+      30-epoch budget (measured 2026-11-09: 23.6 s per epoch); the 210 RQ5
+      runs would add ~12.5 h. RQ5's verdict uses level 2 (primary), which
+      runs every RQ5 cell (analysis plan amendment, 2026-11-09).
+  schnet:
+    rq3_other_splits: >-
+      Compute: about 45 min per run on this machine's GPU (MPS) at the
+      30-epoch budget; 4 splits x 5 seeds x 2 targets would add ~30 h.
+    stress: Same compute limit as the other RQ3 splits.
+
+# Bump a model's version whenever its code changes; it is part of every run
+# key, so cached runs of an older version are never reused.
+models:
+  mean: {version: 1}
+  dressed_atom: {version: 1}
+  gbm:
+    version: 1
+    learning_rate: 0.1
+    max_iter: 1000
+    max_leaf_nodes: 127   # tuned on validation (tuning.gbm)
+    min_samples_leaf: 10
+    l2_regularization: 1.0
+    min_bit_frequency: 0.01
+  krr:
+    version: 1
+    max_train: 20000      # exact solve; kernel memory is O(N^2)
+    sigma_factor: 1.0     # tuned on validation (tuning.krr)
+    lambda: 1.0e-8
+  dmpnn:
+    version: 1
+    device: cpu
+    arch: {hidden: 300, depth: 3, ffn_hidden: 300}
+    epochs: 30
+    batch_size: 64
+    warmup_epochs: 2
+    lr_max: 1.0e-3
+    lr_min: 1.0e-4
+  schnet:
+    version: 1
+    device: auto
+    arch: {hidden: 128, filters: 128, interactions: 6, n_rbf: 50, cutoff: 5.0}
+    epochs: 30
+    batch_size: 128
+    warmup_epochs: 2
+    lr_max: 5.0e-4
+    lr_min: 5.0e-5
+
+# Hyperparameter search, on random seed 0, validation rows only. The winner
+# per target overrides the model defaults above.
+tuning:
+  split: random
+  seed: 0
+  gbm:
+    grid: {max_leaf_nodes: [31, 127]}
+  krr:
+    n_train: 5000
+    grid:
+      sigma_factor: [0.0625, 0.125, 0.25, 0.5, 1.0, 2.0]
+      lambda: [1.0e-10, 1.0e-8, 1.0e-6, 1.0e-4]
+
+statistics:
+  n_boot: 2000
+  bootstrap_seed: 0
+  alpha: 0.05
+  rq4_threshold_ev: 0.123   # Gold B3LYP - G4(MP2) residual MAE (Phase 7)
+  # Leakage sanity alarm: any random-split MAE below factor x the published
+  # SchNet MAE (Schütt et al., J. Chem. Phys. 2018, ~110k training molecules;
+  # U0 0.31 kcal/mol, gap 63 meV) triggers a leakage investigation. No model
+  # here, trained on a budget, should beat it.
+  sanity:
+    factor: 0.5
+    published_best_ev: {u0_atomization_ev: 0.014, gap_ev: 0.063}
