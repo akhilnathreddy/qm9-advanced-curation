@@ -91,8 +91,8 @@ data.
   - `make reproduce` runs `uv sync --locked`, rebuilds the release stage and
     its ancestors (downloading the raw archives on a clean checkout), then
     runs `qm9_curation.export.verify`, which checks:
-    - every file against the published manifest (equivalence off the
-      reference platform; see below);
+    - every file against the published manifest. The two least-squares
+      tables are checked by equivalence; see below;
     - the release's own manifest;
     - that ASE reads every frame with exact coordinates;
     - that the Croissant metadata validates;
@@ -114,14 +114,31 @@ data.
     and OpenBLAS round differently. This cannot be removed without changing
     the method.
   - `molecules`, `splits` and the extended XYZ are identical.
-- **Equivalence rule.**
-  - On the reference platform, every hash must match.
-  - Elsewhere, a differing file must be *equivalent* to the reference file
-    (`verify --compare-with`, `make reproduce REFERENCE=…`):
+- **Between Linux machines too (later runs, 2026-11-10).**
+  - The run on the `v1.0.0` tag and the run on the merge into
+    `phase-0/setup` landed on other GitHub machines.
+  - In both, `review` and `g4mp2_xref` differed from the published build by
+    up to 5 × 10⁻¹². NumPy's bundled OpenBLAS picks kernels and thread splits
+    by CPU model.
+  - The other 12 files were identical in all three Linux runs.
+- **Equivalence rule (decided by the user, 2026-11-10).** Pinning the
+  OpenBLAS kernel was the alternative. It would have changed the published
+  values, meaning a v1.0.1, and would still not cover other BLAS libraries.
+  Instead, on every platform, Linux included:
+  - Every file except the two least-squares tables
+    (`float_tolerance_files` in `configs/release.yaml`) must be
+    byte-identical.
+  - Those two tables must be identical or *equivalent* to the published copy:
     - the same schema and rows;
     - equal non-float values;
-    - floats within 10⁻⁹ relative to max(1, |value|);
-    - for `croissant.json`, only the recorded checksums may differ.
+    - floats within 10⁻⁹ relative to max(1, |value|). That is about three
+      orders of magnitude above the largest difference observed.
+  - `croissant.json` may differ only in those tables' checksums, and
+    `README.md` only in their sizes.
+  - The published copy comes from the published archive. `make reproduce`
+    downloads it (`reference_archive` in the config) and checks the archive's
+    SHA-256 and each reference file's hash against the published manifest
+    before comparing.
 - **The published build is the Linux one.**
   - The manifest was predicted by running the release builder on the Linux
     pipeline tables from the CI artifact, then confirmed by the next Linux

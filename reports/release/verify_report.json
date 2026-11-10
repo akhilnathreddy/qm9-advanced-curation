@@ -24,7 +24,7 @@
     "croissant_metadata_valid": true,
     "gold_tier_and_named_split_load_in_5_lines": true,
     "release_manifest_matches_files": true,
-    "release_matches_reference_build": true
+    "release_matches_published_build": true
   },
   "manifest": {
     "differing_files": [

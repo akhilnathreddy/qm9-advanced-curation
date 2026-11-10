@@ -116,13 +116,13 @@ release:
 # Rebuild the release from the raw archives (downloaded and MD5-checked on a
 # clean checkout) and check every file against the published manifest in
 # release/. Needs no extras; --inexact keeps any extras already installed.
-# Off the reference platform (Linux x86-64), pass the reference build to check
-# equivalence of the few float columns that differ in the last bits:
-#   make reproduce REFERENCE=<dir with the reference release files>
+# The two least-squares tables are compared to the published archive within
+# 1e-9 (their last bits depend on BLAS and CPU); the archive is downloaded
+# from the GitHub release (SHA-256 checked), or pass REFERENCE=<unpacked copy>.
 reproduce:
 	uv sync --locked --inexact
 	uv run dvc repro release
-	uv run python -m qm9_curation.export.verify $(if $(REFERENCE),--compare-with $(REFERENCE))
+	uv run python -m qm9_curation.export.verify $(if $(REFERENCE),--compare-with $(REFERENCE),--fetch-reference)
 
 # Record the current build as the published manifest. Run only on the
 # reference build (Linux CI artifact, ADR 0001), then commit release/.
@@ -141,5 +141,5 @@ gate10: sync check repro
 	cp reports/release/release_report.json /tmp/qm9_release_first.json
 	uv run dvc repro --force --single-item release
 	uv run python -c "import json,sys; a,b=(json.load(open(p))['output_sha256'] for p in ('/tmp/qm9_release_first.json','reports/release/release_report.json')); print('PASS  release byte-identical across builds' if a==b else 'FAIL  release differs across builds'); sys.exit(a!=b)"
-	uv run python -m qm9_curation.export.verify $(if $(REFERENCE),--compare-with $(REFERENCE))
+	uv run python -m qm9_curation.export.verify $(if $(REFERENCE),--compare-with $(REFERENCE),--fetch-reference)
 	uv run python -m qm9_curation.reporting.gates --phase 10

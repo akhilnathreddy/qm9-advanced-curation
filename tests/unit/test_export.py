@@ -161,9 +161,12 @@ def test_equivalence_allows_float_noise_only(tmp_path: Path) -> None:
     pl.DataFrame({"x": [1.0 + 1e-12, 250.0 - 1e-10], "s": ["p", "q"]}).write_parquet(noisy)
     pl.DataFrame({"x": [1.0, 250.001], "s": ["p", "q"]}).write_parquet(wrong)
     pl.DataFrame({"x": [1.0, 250.0], "s": ["p", "Q"]}).write_parquet(text)
-    assert verify.equivalent("t.parquet", noisy, ref)[0]
-    assert not verify.equivalent("t.parquet", wrong, ref)[0]
-    assert not verify.equivalent("t.parquet", text, ref)[0]
+    tol = ("t.parquet",)
+    assert verify.equivalent("t.parquet", noisy, ref, tol)[0]
+    assert not verify.equivalent("t.parquet", wrong, ref, tol)[0]
+    assert not verify.equivalent("t.parquet", text, ref, tol)[0]
+    # Tables outside the tolerance list must be byte-identical.
+    assert not verify.equivalent("molecules.parquet", noisy, ref, tol)[0]
     ca, cb = tmp_path / "a.json", tmp_path / "b.json"
     ca.write_text('{"distribution": [{"name": "f", "sha256": "aa"}]}')
     cb.write_text('{"distribution": [{"name": "f", "sha256": "bb"}]}')
@@ -177,15 +180,27 @@ def test_equivalence_allows_float_noise_only(tmp_path: Path) -> None:
     assert not verify.equivalent("LICENSE", ra, rb)[0]
 
 
-def test_verify_off_reference_platform_needs_equivalence(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_verify_against_published_reference(tmp_path: Path) -> None:
+    import shutil
+
     _, out, _ = build_toy(tmp_path)
     published = tmp_path / "published.sha256"
-    published.write_text((out / release.MANIFEST).read_text().replace("LICENSE", "LICENSE "))
-    monkeypatch.setattr(verify, "is_reference_platform", lambda: False)
-    report = verify.verify(out, published)
-    assert not report["gate_10_verify_conditions"]["release_matches_reference_build"]
+    published.write_text((out / release.MANIFEST).read_text())
+    ref = tmp_path / "ref"
+    shutil.copytree(out, ref)
+    cond = "release_matches_published_build"
+    # Float noise in a least-squares table: equivalent to the reference copy.
+    review = pl.read_parquet(out / "review.parquet")
+    review.with_columns(pl.col("suspicion_score") + 1e-13).write_parquet(out / "review.parquet")
+    assert not verify.verify(out, published)["gate_10_verify_conditions"][cond]
+    assert verify.verify(out, published, ref)["gate_10_verify_conditions"][cond]
+    # A reference copy that does not match the published manifest is not trusted.
+    review.with_columns(pl.col("suspicion_score") * 2).write_parquet(ref / "review.parquet")
+    assert not verify.verify(out, published, ref)["gate_10_verify_conditions"][cond]
+    # Any other file must be byte-identical, reference or not.
+    shutil.copyfile(out / "review.parquet", ref / "review.parquet")
+    (out / "LICENSE").write_text("changed\n")
+    assert not verify.verify(out, published, ref)["gate_10_verify_conditions"][cond]
 
 
 def test_pyg_dataset_and_split_indices(tmp_path: Path) -> None:

@@ -9,7 +9,7 @@ format, chemical-identity and physics checks, assigns quality tiers instead of
 deleting records, and produces ML-ready tables, a split suite and baseline
 benchmarks. The full plan is in `docs/plan_v2.md`.
 
-**Current phase:** 10 — release v1.0.0 built and verified (Gate 10; `docs/release.md`, ADR 0014): all 133,885 records, tiered, with splits, as Parquet, extended XYZ and Croissant metadata. Reproduced byte-identically on clean Linux CI. Pending: the Zenodo DOI.
+**Current phase:** 10 — release v1.0.0 built and verified (Gate 10; `docs/release.md`, ADR 0014): all 133,885 records, tiered, with splits, as Parquet, extended XYZ and Croissant metadata. Rebuilt from the raw archives on clean machines: 12 of 14 files byte-identical, the two least-squares tables equal within 10⁻⁹. Published on Zenodo: [doi:10.5281/zenodo.24105666](https://doi.org/10.5281/zenodo.24105666).
 
 **Project report:** `docs/report.md` covers every phase, decision, result and limitation, plus reproduction steps.
 
@@ -21,7 +21,8 @@ leakage-audited splits. It ships as Parquet, extended XYZ and Croissant
 metadata (`docs/release.md`, `docs/datasheet.md`).
 
 Build it with `make release` (output in `data/release/`), or download the
-archive (Zenodo DOI: pending). Then load the Gold tier and a named split:
+archive from Zenodo, [doi:10.5281/zenodo.24105666](https://doi.org/10.5281/zenodo.24105666) (all versions: doi:10.5281/zenodo.24105665).
+Then load the Gold tier and a named split:
 
 ```python
 import polars as pl

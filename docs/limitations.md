@@ -143,21 +143,25 @@ Recorded for Gate 7. The evidence for each is in `docs/statistical_validation.md
 
 ## After Phase 10
 
-- **Byte identity holds only on the reference platform.** The published
-  manifest is the Linux x86-64 build (ADR 0001).
-  - On macOS, `review` and `g4mp2_xref` differ in their least-squares float
-    columns by at most 4.5 × 10⁻¹¹, because Accelerate and OpenBLAS round
-    differently.
-  - The macOS build is therefore verified as *equivalent* (floats within
-    10⁻⁹, everything else equal), not identical. That check needs the
-    reference files (`make reproduce REFERENCE=…`).
-  - Another BLAS, CPU or library version could move these digits again. The
-    tolerance has five orders of magnitude of margin.
+- **Two release tables are reproducible to 10⁻⁹, not bit for bit.**
+  `review` and `g4mp2_xref` hold least-squares results, and their last bits
+  depend on the BLAS library and the CPU.
+  - Observed differences: up to 4.5 × 10⁻¹¹ between macOS (Accelerate) and
+    Linux, and up to 5 × 10⁻¹² between Linux machines (OpenBLAS kernel
+    choice).
+  - Verification checks them against the published archive within a
+    relative 10⁻⁹, everything else byte for byte (ADR 0014). It needs that
+    archive, which `make reproduce` downloads.
+  - **Erratum (v1.0.0):** the archived `datasheet.md` says the release
+    rebuilds "with identical file hashes". That holds for 12 of 14 files.
+    It will be corrected in the next version.
 - **The extended XYZ is large (201 MB) because it is uncompressed.**
   Compressing it would make its hash depend on the zlib build. The Zenodo
   zip compresses it for download.
-- **No DOI yet.** Minting one is the user's manual Zenodo upload. Adding
-  the DOI to the citation text is a PATCH release.
+- **The DOI is not inside the archive.** The release was published on
+  Zenodo (doi:10.5281/zenodo.24105666) after the archive was built, so the
+  archived `README.md` and `CITATION.cff` do not carry it. The repository
+  and the Zenodo record do. The next version will include it.
 - **Feature tables are not released.** Users who want the Phase 6 features
   rebuild them with the pipeline (`make repro`).
 - **The PyG graphs have no bonds.** They carry atomic numbers and positions

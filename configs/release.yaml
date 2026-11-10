@@ -16,6 +16,9 @@ description: >-
   eight leakage-audited train/val/test splits with 5 seeds each.
 author: akhilnathreddy
 repository: https://github.com/akhilnathreddy/qm9-advanced-curation
+# Zenodo, published 2026-11-10: this version, and the concept DOI for all versions.
+doi: 10.5281/zenodo.24105666
+concept_doi: 10.5281/zenodo.24105665
 data_license: CC0-1.0
 data_license_url: https://creativecommons.org/publicdomain/zero/1.0/
 code_license: MIT
@@ -31,6 +34,18 @@ tables:
   review: data/processed/review.parquet
   splits: data/splits/splits.parquet
   split_groups: data/splits/split_groups.parquet
+
+# Verification (ADR 0014). These two tables hold least-squares results whose
+# last bits depend on the BLAS library and CPU (they differ by <= 5e-12 even
+# between Linux machines). They are checked against the published reference
+# archive to a relative tolerance instead of by hash; every other file must be
+# byte-identical.
+float_tolerance: 1.0e-9
+float_tolerance_files: [review.parquet, g4mp2_xref.parquet]
+reference_archive:
+  # The published Zenodo record (doi:10.5281/zenodo.24105666, 2026-11-10).
+  url: https://zenodo.org/records/24105666/files/qm9-curated-v1.0.0.zip?download=1
+  sha256: e3ef7b4537170e4f86d5f466d08337bdaa0a1583b53ebf76b6ecf32d4897e339
 
 # Per-frame properties written to the extended XYZ export (eV, Debye, Å, ...).
 extxyz_properties:

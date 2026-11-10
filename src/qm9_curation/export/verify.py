@@ -3,16 +3,18 @@
 Run as ``python -m qm9_curation.export.verify``. Checks, for the release built
 under ``data/release/``:
 
-1. the build matches the reference build. The published manifest
-   (``release/<name>.sha256``, committed to git) comes from the reference
-   platform, Linux x86-64 CI (ADR 0001). There, every SHA-256 must match. On
-   any other platform, a file that differs must be *equivalent* to the
-   reference file given by ``--compare-with`` (the CI artifact or the
-   downloaded release). Equivalent means the same schema and rows, equal
-   non-float values, and floats within ``FLOAT_TOLERANCE`` relative to
-   max(1, |value|). Least-squares results differ in the last bits between BLAS
-   libraries. For ``croissant.json`` and ``README.md``, only their file
-   checksums and sizes may differ;
+1. the build matches the published build. The published manifest is
+   ``release/<name>.sha256`` (committed to git), from the Linux reference build
+   (ADR 0001, 0014). Every file's SHA-256 must match it, with one exception.
+   The tables in ``float_tolerance_files`` (configs/release.yaml) hold
+   least-squares results, and their last bits depend on the BLAS library and
+   CPU, even between Linux machines. Such a table may instead be *equivalent*
+   to the published reference copy: the same schema and rows, equal non-float
+   values, and floats within ``float_tolerance`` relative to max(1, |value|).
+   The reference copy comes from the published archive (``--fetch-reference``
+   downloads it; ``--compare-with`` points at it), and must itself match the
+   published manifest. ``croissant.json`` may then differ only in those
+   tables' checksums;
 2. the release's own ``MANIFEST.sha256`` matches its files;
 3. ASE reads every extended-XYZ frame, and the coordinates equal ``atoms``;
 4. ``croissant.json`` validates with mlcroissant (no errors);
@@ -24,22 +26,31 @@ Needs the dev dependency group (ASE, mlcroissant), which ``uv sync`` installs.
 """
 
 import argparse
+import hashlib
 import json
 import platform
 import re
+import shutil
+import ssl
 import subprocess
 import sys
+import urllib.request
+import zipfile
+from collections.abc import Collection
 from pathlib import Path
 from typing import Any
 
+import certifi
 import numpy as np
 import polars as pl
 
-from qm9_curation.config import PROJECT_ROOT, REPORTS_DIR, load_config
+from qm9_curation.acquire import USER_AGENT
+from qm9_curation.config import DATA_DIR, PROJECT_ROOT, REPORTS_DIR, load_config
 from qm9_curation.export.release import EXTXYZ, MANIFEST, RELEASE_DIR, release_name, sha256_file
 
 PUBLISHED_DIR = PROJECT_ROOT / "release"
-FLOAT_TOLERANCE = 1e-9
+REFERENCE_DIR = DATA_DIR / "reference"
+FLOAT_TOLERANCE = 1e-9  # default; configs/release.yaml float_tolerance
 
 
 def is_reference_platform() -> bool:
@@ -85,11 +96,22 @@ def _without_checksums(obj: Any) -> Any:
     return obj
 
 
-def equivalent(rel: str, a: Path, b: Path) -> tuple[bool, Any]:
-    """Whether a differing file is equivalent to the reference file, and the evidence."""
-    if rel.endswith(".parquet"):
+def equivalent(
+    rel: str,
+    a: Path,
+    b: Path,
+    tolerance_files: Collection[str] = ("review.parquet", "g4mp2_xref.parquet"),
+    tolerance: float = FLOAT_TOLERANCE,
+) -> tuple[bool, Any]:
+    """Whether a differing file is equivalent to the reference file, and the evidence.
+
+    Only the least-squares tables (``tolerance_files``) may differ in float
+    values, and ``croissant.json``/``README.md`` only in the checksums and
+    sizes that follow from them. Every other file must be byte-identical.
+    """
+    if rel in tolerance_files:
         diff = parquet_diff(a, b)
-        ok = all(isinstance(v, dict) and v["max_rel"] <= FLOAT_TOLERANCE for v in diff.values())
+        ok = all(isinstance(v, dict) and v["max_rel"] <= tolerance for v in diff.values())
         return ok, diff
     if rel == "croissant.json":
         ja, jb = (json.loads(p.read_text(encoding="utf-8")) for p in (a, b))
@@ -98,7 +120,34 @@ def equivalent(rel: str, a: Path, b: Path) -> tuple[bool, Any]:
         size = re.compile(r"\| [0-9.]+ MB \|")
         ta, tb = (size.sub("| MB |", p.read_text(encoding="utf-8")) for p in (a, b))
         return ta == tb, "sizes differ"
-    return False, "not a file type that may differ across platforms"
+    return False, "must be byte-identical"
+
+
+def fetch_reference(cfg: dict[str, Any], dest_root: Path = REFERENCE_DIR) -> Path:
+    """Download and unpack the published archive (checked by SHA-256); returns its dir."""
+    name = release_name(cfg)
+    dest = dest_root / name
+    if dest.exists():
+        return dest
+    ref = cfg["reference_archive"]
+    dest_root.mkdir(parents=True, exist_ok=True)
+    archive = dest_root / f"{name}.zip"
+    if not archive.exists() or sha256_file(archive) != ref["sha256"]:
+        print(f"Downloading the reference archive {ref['url']}", flush=True)
+        request = urllib.request.Request(ref["url"], headers={"User-Agent": USER_AGENT})
+        # certifi's CA bundle: python.org builds of Python on macOS ship without one.
+        context = ssl.create_default_context(cafile=certifi.where())
+        with (
+            urllib.request.urlopen(request, timeout=120, context=context) as resp,
+            archive.open("wb") as fh,
+        ):
+            shutil.copyfileobj(resp, fh)
+    got = sha256_file(archive)
+    if got != ref["sha256"]:
+        raise SystemExit(f"Reference archive SHA-256 {got} != published {ref['sha256']}")
+    with zipfile.ZipFile(archive) as zf:
+        zf.extractall(dest_root)
+    return dest
 
 
 def check_manifest(release: Path, published: Path) -> dict[str, Any]:
@@ -193,18 +242,28 @@ def check_quickstart(release: Path) -> dict[str, Any]:
     }
 
 
-def verify(release: Path, published: Path, compare_with: Path | None = None) -> dict[str, Any]:
+def verify(
+    release: Path,
+    published: Path,
+    compare_with: Path | None = None,
+    tolerance_files: Collection[str] = ("review.parquet", "g4mp2_xref.parquet"),
+    tolerance: float = FLOAT_TOLERANCE,
+) -> dict[str, Any]:
     manifest = check_manifest(release, published)
     reference = is_reference_platform()
+    expected = read_manifest(published)
     evidence: dict[str, Any] = {}
     all_equivalent = False
     if compare_with is not None and manifest["differing_files"]:
-        checks = {}
+        checks: dict[str, tuple[bool, Any]] = {}
         for rel in manifest["differing_files"]:
-            if not (compare_with / rel).exists():
+            ref = compare_with / rel
+            if not ref.exists():
                 checks[rel] = (False, "reference file not available")
+            elif hashlib.sha256(ref.read_bytes()).hexdigest() != expected.get(rel):
+                checks[rel] = (False, "reference file does not match the published manifest")
             else:
-                checks[rel] = equivalent(rel, release / rel, compare_with / rel)
+                checks[rel] = equivalent(rel, release / rel, ref, tolerance_files, tolerance)
         evidence = {rel: {"equivalent": ok, "detail": d} for rel, (ok, d) in checks.items()}
         all_equivalent = (
             all(ok for ok, _ in checks.values())
@@ -222,9 +281,9 @@ def verify(release: Path, published: Path, compare_with: Path | None = None) -> 
         "quickstart": check_quickstart(release),
     }
     report["gate_10_verify_conditions"] = {
-        # Identical on the reference platform; elsewhere identical or equivalent.
-        "release_matches_reference_build": manifest["identical"]
-        or (not reference and manifest["equivalent_to_reference"]),
+        # Every file identical, except the least-squares tables: identical or
+        # equivalent to the published reference copy (and the checksums of them).
+        "release_matches_published_build": manifest["equivalent_to_reference"],
         "release_manifest_matches_files": manifest["own_manifest_matches"],
         "ase_reads_every_frame_with_exact_coordinates": report["extxyz"]["one_frame_per_record"]
         and report["extxyz"]["coordinates_exact"],
@@ -242,16 +301,30 @@ def main(argv: list[str] | None = None) -> None:
         "--compare-with",
         type=Path,
         default=None,
-        help="The reference build of the same release (Linux CI artifact or the downloaded "
-        "release): differing files must be equivalent to it (see module docstring).",
+        help="A copy of the published release (the archive, or the Linux CI artifact). "
+        "Differing least-squares tables must be equivalent to it (see module docstring).",
+    )
+    parser.add_argument(
+        "--fetch-reference",
+        action="store_true",
+        help="Download and unpack the published archive (configs/release.yaml "
+        "reference_archive) to data/reference/ and compare with it.",
     )
     parser.add_argument(
         "--report", type=Path, default=REPORTS_DIR / "release" / "verify_report.json"
     )
     args = parser.parse_args(argv)
-    name = release_name(load_config("release"))
+    cfg = load_config("release")
+    name = release_name(cfg)
+    compare_with = args.compare_with
+    if compare_with is None and args.fetch_reference:
+        compare_with = fetch_reference(cfg)
     report = verify(
-        args.release_root / name, args.published_dir / f"{name}.sha256", args.compare_with
+        args.release_root / name,
+        args.published_dir / f"{name}.sha256",
+        compare_with,
+        tuple(cfg.get("float_tolerance_files", ())),
+        float(cfg.get("float_tolerance", FLOAT_TOLERANCE)),
     )
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -262,8 +335,8 @@ def main(argv: list[str] | None = None) -> None:
         print(f"Differs from the published manifest: {m['differing_files']}")
         for rel, e in m["equivalence"].items():
             print(f"  {rel}: {'equivalent' if e['equivalent'] else 'NOT equivalent'} {e['detail']}")
-        if not m["equivalence"] and not m["reference_platform"]:
-            print("  Not the reference platform: pass --compare-with <reference build> to check.")
+        if not m["equivalence"]:
+            print("  Pass --fetch-reference (or --compare-with <published copy>) to check them.")
     if not all(report["gate_10_verify_conditions"].values()):
         raise SystemExit(1)
 

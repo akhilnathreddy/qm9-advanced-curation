@@ -9,6 +9,13 @@ authors:
 license: MIT
 repository-code: https://github.com/akhilnathreddy/qm9-advanced-curation
 version: 1.0.0
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24105666
+    description: "QM9 Curated v1.0.0, the dataset this software builds (Zenodo)"
+  - type: doi
+    value: 10.5281/zenodo.24105665
+    description: "QM9 Curated, all versions (Zenodo concept DOI)"
 date-released: "2026-11-10"
 keywords: [QM9, quantum chemistry, data curation, reproducibility, benchmark]
 references:

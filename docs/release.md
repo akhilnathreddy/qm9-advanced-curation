@@ -52,10 +52,12 @@ train = ds[ds.split_indices("scaffold_generic", seed=0)["train"]]
 
 `python -m qm9_curation.export.verify` (part of `make reproduce` and
 `make gate10`) checks the build:
-- every file's SHA-256 against the published manifest. That manifest comes
-  from the Linux x86-64 reference build (ADR 0001). On other platforms a
-  differing file must be equivalent to the reference file
-  (`make reproduce REFERENCE=<dir>`): equal non-float values, and floats
+- every file's SHA-256 against the published manifest, which comes from the
+  Linux reference build (ADR 0001). The two least-squares tables
+  (`review.parquet`, `g4mp2_xref.parquet`) are the exception. Their last bits
+  depend on the BLAS library and the CPU, so they may instead be equivalent
+  to the published copy: `make reproduce` downloads the published archive
+  and checks its SHA-256. Equivalent means equal non-float values, and floats
   within 10⁻⁹;
 - the release's own manifest;
 - that ASE reads all 133,885 frames with coordinates and atomic numbers
@@ -72,18 +74,21 @@ train = ds[ds.split_indices("scaffold_generic", seed=0)["train"]]
   Every check passed.
 - **Linux reference** (`Reproduce release` workflow, GitHub Actions, 4
   cores): a clean rebuild takes about 20 min.
-  - **Confirmed 2026-11-10** (run 42796901845, commit b6e3367): every file is
-    byte-identical to the published manifest, and every check passed.
+  - Run 42796901845 (commit b6e3367): every file was byte-identical to the
+    published manifest.
   - The Zenodo bundle is made from that run's artifact.
+  - Two later runs, on other GitHub machines, gave all 12 other files
+    byte-identical. `review` and `g4mp2_xref` differed by up to 5 × 10⁻¹²:
+    NumPy's OpenBLAS picks CPU-specific kernels and thread splits. So even
+    on Linux these two tables are verified to 10⁻⁹, not by hash (ADR 0014).
 - **Cross-platform:**
   - `molecules`, `splits` and the extended XYZ are byte-identical on both
     platforms.
   - Three tables differed only in Parquet chunking, which the release now
     removes by writing a canonical layout.
   - `review` and `g4mp2_xref` differ in their least-squares float columns by
-    at most 4.5 × 10⁻¹¹: BLAS rounding, Accelerate vs OpenBLAS. The macOS
-    build is therefore *equivalent* to the published Linux build, not
-    identical. ADR 0014 gives the details.
+    at most 4.5 × 10⁻¹¹ (Accelerate vs OpenBLAS). That is the same tolerance
+    case as between Linux machines. ADR 0014 gives the details.
 
 ## Publishing on Zenodo
 
@@ -96,4 +101,12 @@ writes three files to `data/zenodo/`:
 - `UPLOAD.md`, with the steps.
 
 The upload is done by the user, from their own account: publishing mints a
-permanent DOI. DOI: **pending**.
+permanent DOI.
+
+**Published 2026-11-10:** https://zenodo.org/records/24105666
+- Version DOI: [10.5281/zenodo.24105666](https://doi.org/10.5281/zenodo.24105666)
+- All versions (concept DOI): [10.5281/zenodo.24105665](https://doi.org/10.5281/zenodo.24105665)
+
+The record's file is the reference archive. Its MD5 `8ff18381…a18620` matches
+the local bundle. `make reproduce` downloads it as the published copy of the
+two least-squares tables.

@@ -563,8 +563,8 @@ stages:
     deps:
     - path: configs/release.yaml
       hash: md5
-      md5: 5e0a57eb28ee5eb8b79875f9c5695a8e
-      size: 2482
+      md5: 1d4419748342749610fa1e8c70706202
+      size: 3296
     - path: data/interim/atoms.parquet
       hash: md5
       md5: 210708249f7b6a91d3419df0a0d858c9

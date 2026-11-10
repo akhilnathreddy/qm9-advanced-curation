@@ -52,8 +52,10 @@ scores and eight leakage-audited splits × 5 seeds. Formats:
 - Croissant 1.0 metadata;
 - a PyTorch Geometric loader.
 
-It rebuilds from the raw archives with **byte-identical hashes on clean
-Linux CI** (`make reproduce`).
+It rebuilds from the raw archives on a clean machine (`make reproduce`).
+12 of its 14 files are byte-identical. The two tables holding least-squares
+results match within a relative 10⁻⁹, because their last bits depend on the
+BLAS library and the CPU.
 
 **Answers to the research questions** (frozen analysis plan, §2):
 
@@ -302,12 +304,16 @@ One DVC stage graph (`dvc.yaml`), run by `make repro`:
     about 20 min on Linux CI.
   - The first Linux run showed that three tables differed only in Parquet
     chunking. The canonical layout now removes that.
-  - Two tables differ by at most 4.5 × 10⁻¹¹ in least-squares floats: BLAS
-    rounding, Accelerate vs OpenBLAS.
-  - The published manifest is the Linux build, which reproduces
-    byte-identically. macOS verifies as equivalent (floats within 10⁻⁹).
-- **Zenodo:** the bundle is made from the Linux artifact. The user uploads
-  it; the DOI is pending.
+  - Two tables hold least-squares floats (`review`, `g4mp2_xref`). They
+    differ in the last bits: by up to 4.5 × 10⁻¹¹ between macOS and Linux,
+    and by up to 5 × 10⁻¹² between Linux machines, because NumPy's OpenBLAS
+    picks kernels by CPU.
+  - Verification requires the other 12 files to be byte-identical to the
+    published manifest, and those two tables to be within a relative 10⁻⁹
+    of the published copy, which is downloaded and hash-checked. Every run
+    on macOS and Linux passed this.
+- **Zenodo:** published 2026-11-10 from the Linux reference build,
+  [doi:10.5281/zenodo.24105666](https://doi.org/10.5281/zenodo.24105666) (all versions: doi:10.5281/zenodo.24105665).
 
 ### Phase 11 — Uncharacterized-record recovery (optional)
 Not started. It would add re-optimized geometries for the uncharacterized
@@ -433,12 +439,14 @@ Level 2, paired bootstrap on the same Gold test molecules:
     bounds on their error.
   - KRR uses only Coulomb eigenvalues and 20,000 molecules.
   - Coverage is limited: no D-MPNN in RQ5, SchNet on `random` only.
-- **Release.** Byte identity holds on the reference platform (Linux x86-64).
-  Elsewhere, two tables match to 10⁻¹¹, not bit for bit.
+- **Release.** Two of 14 files (the least-squares tables) are reproducible
+  to 10⁻⁹, not bit for bit, on any platform. The archived `datasheet.md`
+  says the release rebuilds "with identical file hashes". That overstates it
+  for these two files; this is an erratum, to be corrected in the next
+  version.
 - **Open items:**
   - recompute the suspicion score with the best model;
   - a ZPE-separated RQ4 comparison;
-  - the Zenodo DOI;
   - Phase 11.
 
 ---
@@ -453,7 +461,6 @@ dependency from `uv.lock`.
 ```bash
 git clone https://github.com/akhilnathreddy/qm9-advanced-curation.git
 cd qm9-advanced-curation
-git checkout v1.0.0
 uv sync --locked --extra ml --extra pyg
 ```
 
@@ -464,13 +471,17 @@ uv sync --locked --extra ml --extra pyg
 make reproduce
 ```
 
-On Linux x86-64 every SHA-256 must match `release/qm9-curated-v1.0.0.sha256`.
-On other platforms, also pass a reference build (the Linux CI artifact or the
-Zenodo archive) to check equivalence:
+Every file must match `release/qm9-curated-v1.0.0.sha256`, except
+`review.parquet` and `g4mp2_xref.parquet`. Those two must be within a
+relative 10⁻⁹ of the published archive, which `make reproduce` downloads and
+hash-checks. To use a copy you already have:
 
 ```bash
 make reproduce REFERENCE=/path/to/qm9-curated-v1.0.0
 ```
+
+The data release is the tag `v1.0.0`. Use `main` for the tooling: it carries
+the verification rule above, which was added after the tag.
 
 **Run every pipeline stage, including the benchmark.** This is about 40 h of
 compute. The runs are cached and resumable.
@@ -508,7 +519,7 @@ train = mol.join(split.filter(pl.col("subset") == "train"), on="qm9_id")
 
 ## 9. Citation
 
-- **This release:** `CITATION.cff`. Zenodo DOI pending.
+- **This release:** QM9 Curated v1.0.0, Zenodo, [doi:10.5281/zenodo.24105666](https://doi.org/10.5281/zenodo.24105666). See `CITATION.cff`.
 - **QM9:** Ramakrishnan, Dral, Rupp & von Lilienfeld, *Sci. Data* 1, 140022
   (2014), doi:10.1038/sdata.2014.22.
 - **G4(MP2) cross-reference:** Kim, Park & Choi, *Sci. Data* 6, 109 (2019),

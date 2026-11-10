@@ -18,7 +18,7 @@ analysis plan plus amendments).
 | 7 Statistical validation | `phase-7/statistical-validation` | 678e758 | done, Gate 7 |
 | 8 Splits | `phase-8/splits` | 4b08cc5 | done, Gate 8; analysis plan frozen; CI green |
 | 9 Benchmark | `phase-9/benchmark` | 8bddedf | done, Gate 9 |
-| **10 Release** | `phase-10/release` | b6e3367 | **done, Gate 10; Linux reproduction byte-identical (run 42796901845); Zenodo upload pending (user)** |
+| **10 Release** | `phase-10/release`, `main` | b7c1b03 + verification fix | **done, Gate 10; tag `v1.0.0`; two least-squares tables verified to 1e-9 (user's choice); published on Zenodo, doi:10.5281/zenodo.24105666** |
 | 11 Uncharacterized recovery (optional) | — | — | not started |
 
 - Branches are stacked: each starts from the previous one, so
@@ -126,10 +126,17 @@ All code passes ruff, mypy --strict and the full test suite: 192 tests, about
   checks equivalence (ADR 0014).
 
   Open:
-  1. Done: Linux run 42796901845 reproduced every file byte-identically.
+  1. Run 42796901845 reproduced every file byte-identically. The later runs
+     (tag `v1.0.0`, merge of PR #8) landed on other machines, where
+     `review` and `g4mp2_xref` differed by up to 5e-12 (OpenBLAS kernels).
+     The user chose a tolerance rule over pinning the BLAS: every file except
+     those two must be byte-identical, and those two within 1e-9 of the
+     published archive (ADR 0014).
   2. The Zenodo bundle in `data/zenodo/` was built from that run's artifact
      (243 MB, sha256 `e3ef7b45…`). The user uploads it from their own
-     account (`data/zenodo/UPLOAD.md`). Recording the DOI is release 1.0.1.
+     account (`data/zenodo/UPLOAD.md`). Done: published 2026-11-10 as
+     https://zenodo.org/records/24105666, version DOI 10.5281/zenodo.24105666, concept DOI 10.5281/zenodo.24105665. `make reproduce` uses the
+     Zenodo file as its reference archive.
   3. Done: `docs/report.md`, the consolidated project report.
   4. Done: `main` and the annotated tag `v1.0.0` point at the report commit;
      the tag triggers a Linux reproduce run.

@@ -10,7 +10,7 @@
     "release/verify_report.json:croissant_metadata_valid": true,
     "release/verify_report.json:gold_tier_and_named_split_load_in_5_lines": true,
     "release/verify_report.json:release_manifest_matches_files": true,
-    "release/verify_report.json:release_matches_reference_build": true
+    "release/verify_report.json:release_matches_published_build": true
   },
   "conditions": [
     "every source record is in the release with a tier; tables equal the pipeline outputs",
@@ -23,7 +23,7 @@
   "environment": {
     "constants": "CODATA 2018",
     "git": {
-      "commit": "2289d72855607b9271314eb83a3ba3a01af878dd",
+      "commit": "b7c1b03489fe73ce9fa09bd1838d5c7f74f8df73",
       "dirty": true
     },
     "implementation": "CPython",
@@ -40,7 +40,7 @@
     },
     "platform": "Darwin-arm64",
     "python": "3.12.5",
-    "qm9_curation_version": "0.1.0"
+    "qm9_curation_version": "1.0.0"
   },
   "passed": true,
   "phase": 10
