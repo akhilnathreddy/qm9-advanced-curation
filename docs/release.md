@@ -110,3 +110,19 @@ permanent DOI.
 The record's file is the reference archive. Its MD5 `8ff18381…a18620` matches
 the local bundle. `make reproduce` downloads it as the published copy of the
 two least-squares tables.
+
+## Kaggle mirror
+
+**Published 2026-11-10:**
+[kaggle.com/datasets/akhilnathreddy/qm9-curated](https://www.kaggle.com/datasets/akhilnathreddy/qm9-curated)
+(public, CC0-1.0, version 1).
+- **Contents:** the 14 files of the Zenodo archive, unzipped. Downloaded back
+  from Kaggle, all 14 pass `sha256sum -c MANIFEST.sha256`.
+- **Path:** in a Kaggle notebook the files are at `/kaggle/input/qm9-curated/`.
+- **Upload:** done with the Kaggle CLI from the user's account. The
+  description cites the Zenodo DOI as the record to cite.
+- **Not set:** Kaggle did not store the per-file and per-column descriptions
+  that the upload sent, so its Data Explorer shows none. The columns are
+  described in `croissant.json` and `docs/data_dictionary.md`.
+- **Reference copy:** the Kaggle mirror is not the reference for
+  `make reproduce`; Zenodo is.

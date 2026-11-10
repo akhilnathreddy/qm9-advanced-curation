@@ -22,6 +22,10 @@ metadata (`docs/release.md`, `docs/datasheet.md`).
 
 Build it with `make release` (output in `data/release/`), or download the
 archive from Zenodo, [doi:10.5281/zenodo.24105666](https://doi.org/10.5281/zenodo.24105666) (all versions: doi:10.5281/zenodo.24105665).
+The same files are mirrored on Kaggle as
+[akhilnathreddy/qm9-curated](https://www.kaggle.com/datasets/akhilnathreddy/qm9-curated),
+byte-identical to the Zenodo archive. In a Kaggle notebook they are at
+`/kaggle/input/qm9-curated/`.
 Then load the Gold tier and a named split:
 
 ```python
