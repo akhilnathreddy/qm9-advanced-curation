@@ -91,6 +91,14 @@ GATE_CONDITIONS: dict[int, tuple[str, ...]] = {
         "no unexplained leakage sanity alarm",
         "a second analysis run produces byte-identical tables",
     ),
+    10: (
+        "every source record is in the release with a tier; tables equal the pipeline outputs",
+        "every release column is described (Croissant metadata from the data dictionary)",
+        "Croissant metadata validates; ASE reads every extended-XYZ frame exactly",
+        "the Gold tier and a named split load in at most 5 lines",
+        "the release matches the published manifest (Linux reference build)",
+        "a second release build is byte-identical",
+    ),
 }
 
 # Report files whose boolean conditions must all be true for the gate to pass.
@@ -104,6 +112,10 @@ GATE_REPORTS: dict[int, tuple[tuple[str, str], ...]] = {
     7: (("statistical/statistical_report.json", "gate_7_conditions"),),
     8: (("splits/split_report.json", "gate_8_conditions"),),
     9: (("benchmark/benchmark_report.json", "gate_9_conditions"),),
+    10: (
+        ("release/release_report.json", "gate_10_conditions"),
+        ("release/verify_report.json", "gate_10_verify_conditions"),
+    ),
 }
 
 

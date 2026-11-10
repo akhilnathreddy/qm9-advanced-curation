@@ -224,3 +224,26 @@ stages:
           cache: false
       - reports/benchmark/figures:
           cache: false
+
+  # Dataset release (Phase 10, ADR 0014): tables copied byte for byte,
+  # extended XYZ, Croissant metadata, datasheet and manifest.
+  release:
+    cmd: python -m qm9_curation.export.release
+    deps:
+      - src/qm9_curation/export/release.py
+      - src/qm9_curation/export/xyz.py
+      - src/qm9_curation/export/croissant.py
+      - configs/release.yaml
+      - docs/datasheet.md
+      - docs/data_dictionary.md
+      - data/processed/molecules.parquet
+      - data/processed/review.parquet
+      - data/processed/g4mp2_xref.parquet
+      - data/interim/atoms.parquet
+      - data/interim/frequencies.parquet
+      - data/splits/splits.parquet
+      - data/splits/split_groups.parquet
+    outs:
+      - data/release
+      - reports/release/release_report.json:
+          cache: false

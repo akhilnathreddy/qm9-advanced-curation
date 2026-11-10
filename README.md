@@ -9,7 +9,35 @@ format, chemical-identity and physics checks, assigns quality tiers instead of
 deleting records, and produces ML-ready tables, a split suite and baseline
 benchmarks. The full plan is in `docs/plan_v2.md`.
 
-**Current phase:** 9 complete — baseline ladder (levels 0–5) benchmarked over 682 tracked runs; RQ1, RQ2, RQ4 and RQ5 supported, RQ3 mixed (Gate 9; `docs/benchmark.md`, ADR 0013). Next: Phase 10, release.
+**Current phase:** 10 — release v1.0.0 built and verified (Gate 10; `docs/release.md`, ADR 0014): all 133,885 records, tiered, with splits, as Parquet, extended XYZ and Croissant metadata. Reproduced byte-identically on clean Linux CI. Pending: the Zenodo DOI.
+
+**Project report:** `docs/report.md` covers every phase, decision, result and limitation, plus reproduction steps.
+
+## Using the release
+
+**QM9 Curated v1.0.0** contains all 133,885 records, each tiered with a
+reason, plus geometries, frequencies, a G4(MP2) cross-reference and eight
+leakage-audited splits. It ships as Parquet, extended XYZ and Croissant
+metadata (`docs/release.md`, `docs/datasheet.md`).
+
+Build it with `make release` (output in `data/release/`), or download the
+archive (Zenodo DOI: pending). Then load the Gold tier and a named split:
+
+```python
+import polars as pl
+
+mol = pl.read_parquet("qm9-curated-v1.0.0/molecules.parquet").filter(
+    pl.col("quality_tier") == "gold"
+)
+split = pl.read_parquet("qm9-curated-v1.0.0/splits.parquet").filter(
+    pl.col("split_name") == "scaffold_generic", pl.col("seed") == 0
+)
+train = mol.join(split.filter(pl.col("subset") == "train"), on="qm9_id")
+```
+
+For PyTorch Geometric: `uv sync --extra ml --extra pyg`, then
+`qm9_curation.export.pyg.QM9Curated`. To rebuild the release from the raw
+archives and check every file hash: `make reproduce`.
 
 ## Setup
 
@@ -36,6 +64,9 @@ make gate6    # Phase 6 exit gate: features documented, leakage-guarded, byte-id
 make gate7    # Phase 7 exit gate: G4(MP2) cross-check, soft review flags, byte-identical rebuild
 make gate8    # Phase 8 exit gate: leakage assertions per split and seed, plan frozen, byte-identical rebuild
 make gate9    # Phase 9 exit gate: frozen plan intact, every planned cell and seed run, byte-identical analysis
+make gate10   # Phase 10 exit gate: release complete and documented, matches the published manifest
+make release  # build the dataset release in data/release/
+make reproduce  # rebuild the release from the raw archives and verify every hash
 make fixture  # rebuild the 1k test fixture from the raw archive
 ```
 
@@ -64,8 +95,11 @@ make fixture  # rebuild the 1k test fixture from the raw archive
 
 ## License
 
-Code license: **not yet chosen.** The QM9 source data is **CC0-1.0**
-(public domain), as recorded in `data/raw/MANIFEST.json`. Please cite
-Ramakrishnan et al. (2014) when using it. The G4(MP2) cross-reference
+- **Code:** MIT (`LICENSE`).
+- **Released dataset:** CC0-1.0, like both of its sources.
+- **QM9 source data:** CC0-1.0 (public domain), as recorded in
+  `data/raw/MANIFEST.json`.
+
+Please cite Ramakrishnan et al. (2014) and this release (`CITATION.cff`). The G4(MP2) cross-reference
 (`data/processed/g4mp2_xref.parquet`) is derived from Kim, Park and Choi (2019,
 *Sci. Data* 6, 109; CC0); cite them when using it.

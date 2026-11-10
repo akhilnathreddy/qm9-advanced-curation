@@ -1,8 +1,10 @@
 [project]
 name = "qm9-curation"
-version = "0.1.0"
+version = "1.0.0"
 description = "Research-grade, reproducible curation pipeline for the QM9 quantum-chemistry dataset."
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "numpy>=1.26",
@@ -25,6 +27,9 @@ ml = [
     "mlflow-skinny>=2.14",
     "torch>=2.4",
 ]
+pyg = [
+    "torch-geometric>=2.5",
+]
 
 [dependency-groups]
 dev = [
@@ -36,6 +41,8 @@ dev = [
     "pandas-stubs",
     "pre-commit>=3.7",
     "dvc>=3.50",
+    "ase>=3.23",
+    "mlcroissant>=1.0",
 ]
 
 # Linux (CI, the reference build) uses CPU-only torch wheels; macOS uses PyPI (CPU + MPS).
@@ -59,6 +66,11 @@ line-length = 100
 target-version = "py312"
 src = ["src", "tests"]
 
+[tool.ruff.format]
+# Code blocks in Markdown docs are copy-paste snippets (the release quick start
+# must stay one statement per line); don't reflow them.
+exclude = ["*.md"]
+
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "B", "UP", "SIM", "NPY", "RUF"]
 
@@ -67,6 +79,8 @@ select = ["E", "F", "W", "I", "B", "UP", "SIM", "NPY", "RUF"]
 "tests/**" = ["SIM300"]
 # HTML/CSS template text; wrapping it would only hurt readability.
 "src/qm9_curation/profiling/report.py" = ["E501"]
+# The release README quick start must stay one statement per line (<= 5 lines).
+"src/qm9_curation/export/release.py" = ["E501"]
 
 [tool.mypy]
 python_version = "3.12"
@@ -75,7 +89,7 @@ mypy_path = "src"
 packages = ["qm9_curation"]
 
 [[tool.mypy.overrides]]
-module = ["rdkit.*", "pandera.*", "scipy.*", "sklearn.*", "mlflow.*"]
+module = ["rdkit.*", "pandera.*", "scipy.*", "sklearn.*", "mlflow.*", "torch_geometric.*", "mlcroissant.*", "ase.*"]
 ignore_missing_imports = true
 
 # RDKit ships partial stubs; many functions are untyped.

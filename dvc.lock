@@ -9,12 +9,12 @@ stages:
       size: 2113
     - path: uv.lock
       hash: md5
-      md5: 2dab9497778c85abc3bb6e732eabc5a4
-      size: 286856
+      md5: 3ff406425ecc64bebc31f09e490dc4cb
+      size: 305433
     outs:
     - path: reports/gates/env.json
       hash: md5
-      md5: ee9409a2039e9cee4c6d32ba18081aac
+      md5: 26b4d65883426290effa05f221c8d3aa
       size: 480
   acquire:
     cmd: python -m qm9_curation.acquire
@@ -558,3 +558,68 @@ stages:
       hash: md5
       md5: ba27dc5272e3c8ad39b73027308f10b5
       size: 8250
+  release:
+    cmd: python -m qm9_curation.export.release
+    deps:
+    - path: configs/release.yaml
+      hash: md5
+      md5: 5e0a57eb28ee5eb8b79875f9c5695a8e
+      size: 2482
+    - path: data/interim/atoms.parquet
+      hash: md5
+      md5: 210708249f7b6a91d3419df0a0d858c9
+      size: 66660328
+    - path: data/interim/frequencies.parquet
+      hash: md5
+      md5: d27e99bfa623b8b2bc2b174565fd42f8
+      size: 27594375
+    - path: data/processed/g4mp2_xref.parquet
+      hash: md5
+      md5: 7aa056496dc5c7120d60eaf837856531
+      size: 6646816
+    - path: data/processed/molecules.parquet
+      hash: md5
+      md5: 632d71c10f02ba87ea2c913dc7618c3d
+      size: 29466810
+    - path: data/processed/review.parquet
+      hash: md5
+      md5: 83ad23e99b366996236565c977c54207
+      size: 11208553
+    - path: data/splits/split_groups.parquet
+      hash: md5
+      md5: 74731e7501738e25e9fc6e319e69ee55
+      size: 5344906
+    - path: data/splits/splits.parquet
+      hash: md5
+      md5: 63b00e9838261621f275f97d4b3b53cc
+      size: 14417867
+    - path: docs/data_dictionary.md
+      hash: md5
+      md5: d7c1af94ca944dff0f970c06dc3e080e
+      size: 16249
+    - path: docs/datasheet.md
+      hash: md5
+      md5: ba47d02d33a8b95688aa8bba9d25c9bc
+      size: 8132
+    - path: src/qm9_curation/export/croissant.py
+      hash: md5
+      md5: 2737c1e5247471e01a9ec507964455dc
+      size: 7401
+    - path: src/qm9_curation/export/release.py
+      hash: md5
+      md5: 1f1b354f0d51561baf655c7b2868b8af
+      size: 11853
+    - path: src/qm9_curation/export/xyz.py
+      hash: md5
+      md5: b30c4cbde4a832495ffd0422f1fc5324
+      size: 2701
+    outs:
+    - path: data/release
+      hash: md5
+      md5: 5452e14fdadf0be17c9febd0c9664b2c.dir
+      size: 367000511
+      nfiles: 14
+    - path: reports/release/release_report.json
+      hash: md5
+      md5: 2a1d8e31d10fab2e1a176c17a0eebf70
+      size: 3235

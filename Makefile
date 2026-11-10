@@ -1,8 +1,9 @@
-.PHONY: sync lint format typecheck test check repro repro-ci fixture gate0 gate1 gate2 gate3 gate4 gate5 gate6 gate7 gate8 gate9
+.PHONY: sync lint format typecheck test check repro repro-ci fixture gate0 gate1 gate2 gate3 gate4 gate5 gate6 gate7 gate8 gate9 gate10 release reproduce publish-manifest zenodo
 
-# The ml extra (scikit-learn, torch, MLflow) is needed from Phase 9 on.
+# The ml extra (scikit-learn, torch, MLflow) is needed from Phase 9 on; the
+# pyg extra (torch_geometric) for the Phase 10 loader.
 sync:
-	uv sync --locked --extra ml
+	uv sync --locked --extra ml --extra pyg
 
 lint:
 	uv run ruff check .
@@ -107,3 +108,38 @@ gate9: sync check repro
 	uv run dvc repro --force --single-item benchmark_analysis
 	uv run python -c "import json,sys; a,b=(json.load(open(p))['output_sha256'] for p in ('/tmp/qm9_benchmark_first.json','reports/benchmark/benchmark_report.json')); print('PASS  benchmark analysis byte-identical across runs' if a==b else 'FAIL  benchmark analysis differs across runs'); sys.exit(a!=b)"
 	uv run python -m qm9_curation.reporting.gates --phase 9
+
+# Build the dataset release (Phase 10, ADR 0014) into data/release/.
+release:
+	uv run dvc repro release
+
+# Rebuild the release from the raw archives (downloaded and MD5-checked on a
+# clean checkout) and check every file against the published manifest in
+# release/. Needs no extras; --inexact keeps any extras already installed.
+# Off the reference platform (Linux x86-64), pass the reference build to check
+# equivalence of the few float columns that differ in the last bits:
+#   make reproduce REFERENCE=<dir with the reference release files>
+reproduce:
+	uv sync --locked --inexact
+	uv run dvc repro release
+	uv run python -m qm9_curation.export.verify $(if $(REFERENCE),--compare-with $(REFERENCE))
+
+# Record the current build as the published manifest. Run only on the
+# reference build (Linux CI artifact, ADR 0001), then commit release/.
+publish-manifest:
+	uv run python -c "import shutil; from qm9_curation.config import load_config; from qm9_curation.export.release import RELEASE_DIR, MANIFEST, release_name; n = release_name(load_config('release')); shutil.copyfile(RELEASE_DIR / n / MANIFEST, f'release/{n}.sha256'); print(f'release/{n}.sha256')"
+
+# Zenodo upload bundle (zip + metadata) in data/zenodo/; the user uploads it.
+# Only the reference build qualifies: on macOS pass the Linux CI artifact,
+#   make zenodo RELEASE_ROOT=<artifact>/data/release
+zenodo:
+	uv run python -m qm9_curation.export.zenodo $(if $(RELEASE_ROOT),--release-root $(RELEASE_ROOT))
+
+# Phase 10 exit gate: release conditions, a forced rebuild byte-identical, and
+# the build matching the published manifest (ASE, Croissant, quick start).
+gate10: sync check repro
+	cp reports/release/release_report.json /tmp/qm9_release_first.json
+	uv run dvc repro --force --single-item release
+	uv run python -c "import json,sys; a,b=(json.load(open(p))['output_sha256'] for p in ('/tmp/qm9_release_first.json','reports/release/release_report.json')); print('PASS  release byte-identical across builds' if a==b else 'FAIL  release differs across builds'); sys.exit(a!=b)"
+	uv run python -m qm9_curation.export.verify $(if $(REFERENCE),--compare-with $(REFERENCE))
+	uv run python -m qm9_curation.reporting.gates --phase 10

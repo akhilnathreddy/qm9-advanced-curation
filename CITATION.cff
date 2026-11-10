@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software or the QM9 Curated dataset it builds, please cite it
+  and the original QM9 paper.
+type: software
+title: "QM9 Advanced Curation: a reproducible curation pipeline for QM9"
+authors:
+  - alias: akhilnathreddy
+license: MIT
+repository-code: https://github.com/akhilnathreddy/qm9-advanced-curation
+version: 1.0.0
+date-released: "2026-11-10"
+keywords: [QM9, quantum chemistry, data curation, reproducibility, benchmark]
+references:
+  - type: article
+    title: Quantum chemistry structures and properties of 134 kilo molecules
+    authors:
+      - family-names: Ramakrishnan
+        given-names: Raghunathan
+      - family-names: Dral
+        given-names: Pavlo O.
+      - family-names: Rupp
+        given-names: Matthias
+      - family-names: von Lilienfeld
+        given-names: O. Anatole
+    journal: Scientific Data
+    volume: 1
+    start: 140022
+    year: 2014
+    doi: 10.1038/sdata.2014.22
+  - type: article
+    title: >-
+      Energy refinement and analysis of structures in the QM9 database via a
+      highly accurate quantum chemical method
+    authors:
+      - family-names: Kim
+        given-names: Hyungjun
+      - family-names: Park
+        given-names: Ji Young
+      - family-names: Choi
+        given-names: Sunghwan
+    journal: Scientific Data
+    volume: 6
+    start: 109
+    year: 2019
+    doi: 10.1038/s41597-019-0121-7

@@ -1,0 +1,62 @@
+# Dataset release (Phase 10, ADR 0014). Semantic versioning (plan v2):
+#   MAJOR - the record set or a tier definition changes;
+#   MINOR - columns, tables or features are added;
+#   PATCH - documentation or metadata fixes only.
+name: qm9-curated
+version: 1.0.0
+date_published: "2026-11-10"  # fixed, so rebuilds are byte-identical
+title: "QM9 Curated: a validated, tiered and split-audited release of QM9"
+description: >-
+  All 133,885 molecules of the QM9 quantum-chemistry dataset (B3LYP/6-31G(2df,p)),
+  each validated by format, chemical-identity, physics and statistical checks and
+  assigned a quality tier (gold, silver, bronze, quarantine) with machine-readable
+  reasons instead of being deleted. Source values are kept exactly next to
+  conversions to eV, Å and Debye. Includes geometries with Mulliken charges, harmonic
+  frequencies, a G4(MP2) cross-reference (Kim et al. 2019), soft review flags, and
+  eight leakage-audited train/val/test splits with 5 seeds each.
+author: akhilnathreddy
+repository: https://github.com/akhilnathreddy/qm9-advanced-curation
+data_license: CC0-1.0
+data_license_url: https://creativecommons.org/publicdomain/zero/1.0/
+code_license: MIT
+keywords: [QM9, quantum chemistry, DFT, molecular property prediction, data curation, benchmark, machine learning]
+
+# Release tables: published name -> pipeline output. Rewritten in a canonical
+# Parquet layout (same content; bytes independent of the pipeline's chunking).
+tables:
+  molecules: data/processed/molecules.parquet
+  atoms: data/interim/atoms.parquet
+  frequencies: data/interim/frequencies.parquet
+  g4mp2_xref: data/processed/g4mp2_xref.parquet
+  review: data/processed/review.parquet
+  splits: data/splits/splits.parquet
+  split_groups: data/splits/split_groups.parquet
+
+# Per-frame properties written to the extended XYZ export (eV, Debye, Å, ...).
+extxyz_properties:
+  - mu_debye
+  - alpha_ang3
+  - homo_ev
+  - lumo_ev
+  - gap_ev
+  - r2_ang2
+  - zpve_ev
+  - u0_ev
+  - u298_ev
+  - h298_ev
+  - g298_ev
+  - cv_cal_per_mol_k
+  - u0_atomization_ev
+  - u298_atomization_ev
+  - h298_atomization_ev
+  - g298_atomization_ev
+
+sources:
+  - name: QM9 (Ramakrishnan et al., Sci. Data 1, 140022, 2014)
+    doi: 10.1038/sdata.2014.22
+    url: https://doi.org/10.6084/m9.figshare.c.978904.v5
+    license: CC0-1.0
+  - name: G4(MP2) energies for QM9 (Kim et al., Sci. Data 6, 109, 2019)
+    doi: 10.1038/s41597-019-0121-7
+    url: https://doi.org/10.6084/m9.figshare.c.4351631.v1
+    license: CC0-1.0

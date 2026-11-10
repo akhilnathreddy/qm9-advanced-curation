@@ -18,7 +18,7 @@ what is done, what is next, and open decisions.
   dated amendment, and anything seen before it (for example test numbers) is
   disclosed.
 - **Commands:**
-  - environment: `uv sync --locked --extra ml` (Python 3.12);
+  - environment: `uv sync --locked --extra ml --extra pyg` (Python 3.12);
   - checks: `make check` (ruff, ruff format, mypy --strict, pytest);
   - pipeline: `make repro` (DVC).
   - CI also needs `uv run pytest -W error` to stay warning-free.

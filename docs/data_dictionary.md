@@ -178,8 +178,9 @@ Validated by `schema.CuratedMolecules`. One row per source record.
 | quality_tier, tier_reasons | — | gold / silver / bronze / quarantine; comma-separated rule ids (empty for gold) |
 | formula, n_atoms, n_heavy | — | Composition |
 | smiles_gdb, canonical_smiles_gdb | — | GDB-17 SMILES as given; RDKit canonical form |
-| smiles_geometry, inchikey_geometry | — | From the 3D structure, stereo from coordinates; null with `geometry_identifier_error` for 22 records |
-| identity_class | — | From Phase 4 |
+| smiles_geometry, inchikey_geometry | — | From the 3D structure, stereo from coordinates; null for the 22 records with a `geometry_identifier_error` |
+| geometry_identifier_error | — | Why RDKit could not perceive the geometry's SMILES/InChIKey (exception name, 22 records); null otherwise |
+| identity_class | — | Independent identity check of the 3D structure vs. GDB-17: consistent / proton_moved / fragmented / rearranged (Phase 4) |
 | structure_group_id, structure_representative_id, is_structure_representative | — | Exact duplicates (ADR 0007/0009) |
 | tautomer_group_id, connectivity_group_id | — | For leakage-safe splits |
 | is_linear | — | Linear by geometry (11 molecules) |
@@ -193,7 +194,9 @@ Validated by `schema.CuratedMolecules`. One row per source record.
 | cv_cal_per_mol_k | cal/(mol·K) | Heat capacity |
 | rot_a_ghz, rot_b_ghz, rot_c_ghz, rot_a_missing_reason | GHz | A null for linear molecules |
 | source_* | source units | The 15 source properties, unchanged |
-| zpve_consistent_set, flag_bitmask, n_failed_* | — | From Phase 4 |
+| zpve_consistent_set | — | Frequency set (0/1) whose ZPVE matches the stored value (Phase 4) |
+| flag_bitmask | — | Bit *i* set when Phase 4 check *i* (registry order, `docs/validation.md`) failed |
+| n_failed_hard, n_failed_identity, n_failed_soft | — | Failed Phase 4 checks by severity; identity counts being on the authors' uncharacterized list as one failure |
 | source_member, source_sha256, source_archive_sha256 | — | Lineage |
 
 ## Review table (`data/processed/review.parquet`, Phase 7)
@@ -291,3 +294,20 @@ and MLflow run id.
 | val_mae | MAE on `val ∩ Gold` (eV) |
 | test_mae, test_rmse, test_r2, test_within_chemical_accuracy | Metrics on `test ∩ Gold`; null for tuning and RQ2 runs. Chemical accuracy = 1 kcal/mol (0.0434 eV) |
 | oof_mae | RQ2 out-of-fold MAE over all training tiers (eV) |
+
+## Release (`data/release/qm9-curated-v<version>/`, Phase 10)
+
+The seven release tables have the same content as the pipeline tables
+documented above, rewritten in a canonical Parquet layout (ADR 0014). They are `molecules` (the curated table), `atoms`,
+`frequencies`, `g4mp2_xref`, `review`, `splits` and `split_groups`. Their
+columns are as described in the sections above, and `croissant.json` carries
+the same descriptions.
+
+### `qm9_curated.extxyz` — one frame per record, sorted by `qm9_id`
+
+| Field | Unit | Meaning |
+|---|---|---|
+| species, pos | —, Å | Element and Cartesian coordinates per atom |
+| mulliken_charge | e | Mulliken partial charge per atom |
+| qm9_id, quality_tier, formula | — | Frame header (`atoms.info`) |
+| 16 properties | release units | `mu_debye` … `g298_atomization_ev` (`configs/release.yaml`); `nan` where null |

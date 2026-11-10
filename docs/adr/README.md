@@ -20,3 +20,4 @@ that supersedes the old one and set the old one's status to
 | [0011](0011-statistical-and-multi-fidelity-validation.md) | Statistical, scientific and multi-fidelity validation | Accepted |
 | [0012](0012-split-suite.md) | Split suite and leakage audit | Accepted |
 | [0013](0013-benchmark-and-ablation.md) | Benchmark ladder, protocol and compute budget | Accepted |
+| [0014](0014-release.md) | Dataset release: contents, formats, licenses and reproducibility | Accepted |

@@ -23,6 +23,7 @@ CONFIG_NAMES = (
     "external",
     "statistical",
     "benchmark",
+    "release",
 )
 
 

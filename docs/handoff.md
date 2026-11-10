@@ -1,4 +1,4 @@
-# Handoff — where the project stands (2026-11-10)
+# Handoff — where the project stands (2026-11-10, Phase 10)
 
 A new working session starts here. Read this file, then `CLAUDE.md` (working
 rules), `docs/plan_v2.md` (the plan) and `docs/analysis_plan.md` (frozen
@@ -17,8 +17,8 @@ analysis plan plus amendments).
 | 6 Features | `phase-6/features` | 8a80814 | done, Gate 6 |
 | 7 Statistical validation | `phase-7/statistical-validation` | 678e758 | done, Gate 7 |
 | 8 Splits | `phase-8/splits` | 4b08cc5 | done, Gate 8; analysis plan frozen; CI green |
-| **9 Benchmark** | `phase-9/benchmark` (local only) | — | **done, Gate 9; uncommitted** (waiting for the user's go-ahead) |
-| 10 Release | — | — | not started |
+| 9 Benchmark | `phase-9/benchmark` | 8bddedf | done, Gate 9 |
+| **10 Release** | `phase-10/release` | b6e3367 | **done, Gate 10; Linux reproduction byte-identical (run 42796901845); Zenodo upload pending (user)** |
 | 11 Uncharacterized recovery (optional) | — | — | not started |
 
 - Branches are stacked: each starts from the previous one, so
@@ -27,7 +27,7 @@ analysis plan plus amendments).
   2026-11-09 the user chose to leave the default branch as it is. Create
   `main` before the Phase 10 release.
 
-## Phase 9 — what exists (uncommitted, on `phase-9/benchmark`)
+## Phase 9 — what exists (committed in 8bddedf)
 
 All code passes ruff, mypy --strict and the full test suite: 192 tests, about
 2.7 min.
@@ -97,22 +97,45 @@ All code passes ruff, mypy --strict and the full test suite: 192 tests, about
 - **Open:**
   - recompute the Phase 7 suspicion score with the best model;
   - the ZPE-separated RQ4 comparison;
-  - the stray `Users/` folder in the repo root, 435 MB and untracked, left
-    over from the move. Delete it or git-ignore it before committing.
 - **Next:** commit and push `phase-9/benchmark` when the user asks. Then
   Phase 10.
 
 ## Phases 10–11 and what the user asked for at the end
 
-- **Phase 10, release.** The user wants the dataset published:
-  - exports: Parquet, extended XYZ, a PyG loader;
-  - a datasheet and Croissant metadata;
-  - `make reproduce` with a hash check.
+- **Phase 10, release (2026-11-10).** User decisions:
+  - code MIT, dataset CC0-1.0;
+  - PyG loader as an optional `pyg` extra;
+  - author credited by GitHub handle only;
+  - the stray `Users/` folder was moved to the Trash.
 
-  Choose a code license (still open). Both data sources are CC0-1.0 (QM9 and
-  Kim et al. 2019). The Zenodo DOI deposit goes through the **user's own
-  account**: prepare everything, and the user uploads or approves.
-- **At the end:** a single consolidated project report covering:
+  Built:
+  - `data/release/qm9-curated-v1.0.0/`;
+  - the published manifest `release/qm9-curated-v1.0.0.sha256`;
+  - `make release`, `make reproduce`, `make zenodo` and `make gate10`;
+  - `.github/workflows/reproduce.yml` (the Linux reference build);
+  - ADR 0014, `docs/release.md`, `docs/datasheet.md`.
+
+  First Linux run (2026-11-10):
+  - every pipeline check passed;
+  - 5 of 7 tables were byte-different from the Mac build:
+    - 3 differed only in Parquet chunking, now fixed by the canonical layout;
+    - 2 (`review`, `g4mp2_xref`) differ by up to 4.5e-11, from BLAS rounding.
+
+  The published manifest is now the predicted Linux build: the release builder
+  run on the Linux CI artifact's tables. On macOS, `verify --compare-with`
+  checks equivalence (ADR 0014).
+
+  Open:
+  1. Done: Linux run 42796901845 reproduced every file byte-identically.
+  2. The Zenodo bundle in `data/zenodo/` was built from that run's artifact
+     (243 MB, sha256 `e3ef7b45…`). The user uploads it from their own
+     account (`data/zenodo/UPLOAD.md`). Recording the DOI is release 1.0.1.
+  3. Done: `docs/report.md`, the consolidated project report.
+  4. Done: `main` and the annotated tag `v1.0.0` point at the report commit;
+     the tag triggers a Linux reproduce run.
+  5. Optional: make `main` the default branch (GitHub setting, the user's
+     call).
+- **At the end (done, `docs/report.md`):** a single consolidated project report covering:
   - every phase and its steps;
   - each decision with its alternatives (ADRs 0001+);
   - the RQ1–RQ5 results;

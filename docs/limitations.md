@@ -140,3 +140,30 @@ Recorded for Gate 7. The evidence for each is in `docs/statistical_validation.md
 - **Still open from Phase 7:**
   - the suspicion score is not yet recomputed with the best model;
   - the electronic-only (ZPE-separated) RQ4 comparison was not run.
+
+## After Phase 10
+
+- **Byte identity holds only on the reference platform.** The published
+  manifest is the Linux x86-64 build (ADR 0001).
+  - On macOS, `review` and `g4mp2_xref` differ in their least-squares float
+    columns by at most 4.5 × 10⁻¹¹, because Accelerate and OpenBLAS round
+    differently.
+  - The macOS build is therefore verified as *equivalent* (floats within
+    10⁻⁹, everything else equal), not identical. That check needs the
+    reference files (`make reproduce REFERENCE=…`).
+  - Another BLAS, CPU or library version could move these digits again. The
+    tolerance has five orders of magnitude of margin.
+- **The extended XYZ is large (201 MB) because it is uncompressed.**
+  Compressing it would make its hash depend on the zlib build. The Zenodo
+  zip compresses it for download.
+- **No DOI yet.** Minting one is the user's manual Zenodo upload. Adding
+  the DOI to the citation text is a PATCH release.
+- **Feature tables are not released.** Users who want the Phase 6 features
+  rebuild them with the pipeline (`make repro`).
+- **The PyG graphs have no bonds.** They carry atomic numbers and positions
+  only. Bond graphs need the Phase 6 graph tables, which are not released,
+  or a radius graph.
+- **Raw-archive availability is outside this project's control.**
+  `make reproduce` needs figshare to keep serving the original files. Their
+  MD5s are pinned, so any change is detected, but it cannot be repaired from
+  here.
