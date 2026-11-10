@@ -21,8 +21,8 @@ data_license_url: https://creativecommons.org/publicdomain/zero/1.0/
 code_license: MIT
 keywords: [QM9, quantum chemistry, DFT, molecular property prediction, data curation, benchmark, machine learning]
 
-# Release tables: published name -> pipeline output. Copied byte for byte,
-# so their hashes equal the pipeline's.
+# Release tables: published name -> pipeline output. Rewritten in a canonical
+# Parquet layout (same content; bytes independent of the pipeline's chunking).
 tables:
   molecules: data/processed/molecules.parquet
   atoms: data/interim/atoms.parquet

@@ -143,12 +143,16 @@ Recorded for Gate 7. The evidence for each is in `docs/statistical_validation.md
 
 ## After Phase 10
 
-- **Cross-platform identity has to be checked, not assumed.** The published
-  manifest must come from the Linux reference build (ADR 0001). macOS and
-  Linux can differ in the last bits of floats computed through BLAS or
-  platform math libraries, for example the review table's ridge residuals.
-  If they differ, the Linux hashes are published and the macOS build is
-  "equivalent", not identical. `verify --compare-with` shows by how much.
+- **Byte identity holds only on the reference platform.** The published
+  manifest is the Linux x86-64 build (ADR 0001).
+  - On macOS, `review` and `g4mp2_xref` differ in their least-squares float
+    columns by at most 4.5 × 10⁻¹¹, because Accelerate and OpenBLAS round
+    differently.
+  - The macOS build is therefore verified as *equivalent* (floats within
+    10⁻⁹, everything else equal), not identical. That check needs the
+    reference files (`make reproduce REFERENCE=…`).
+  - Another BLAS, CPU or library version could move these digits again. The
+    tolerance has five orders of magnitude of margin.
 - **The extended XYZ is large (201 MB) because it is uncompressed.**
   Compressing it would make its hash depend on the zlib build. The Zenodo
   zip compresses it for download.

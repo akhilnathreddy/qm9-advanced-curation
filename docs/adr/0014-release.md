@@ -24,8 +24,10 @@ data.
   - MAJOR: the record set or a tier definition changes;
   - MINOR: tables or columns are added;
   - PATCH: documentation or metadata only.
-- **Tables:** seven Parquet tables, **copied byte for byte** from the
-  pipeline, so each release hash equals the pipeline's:
+- **Tables:** seven Parquet tables, equal in content to the pipeline's.
+  They are rewritten in a **canonical layout**: one chunk, row groups of
+  2¹⁸ rows, zstd level 9. That way the bytes depend only on the content and
+  the locked Polars version. The tables are:
   - `molecules` (curated, every record, tiered);
   - `atoms`;
   - `frequencies`;
@@ -79,7 +81,8 @@ data.
 
 ## Decision — reproducibility
 - **Every output is deterministic.**
-  - Tables are copied unchanged.
+  - Tables are written in the canonical layout, so the chunking left by a
+    stage's worker count does not change their bytes.
   - The extended XYZ, Croissant JSON and README are generated from sorted
     inputs.
   - The publication date is fixed in the config, not the build date.
@@ -88,7 +91,8 @@ data.
   - `make reproduce` runs `uv sync --locked`, rebuilds the release stage and
     its ancestors (downloading the raw archives on a clean checkout), then
     runs `qm9_curation.export.verify`, which checks:
-    - every file against the published manifest;
+    - every file against the published manifest (equivalence off the
+      reference platform; see below);
     - the release's own manifest;
     - that ASE reads every frame with exact coordinates;
     - that the Croissant metadata validates;
@@ -98,8 +102,33 @@ data.
   - on demand, on `v*` tags, and monthly;
   - it uploads the build as an artifact.
 
-  If macOS and Linux ever differ, the published manifest is the Linux one,
-  and `verify --compare-with <artifact>` locates the differing columns.
+  The published manifest is the Linux one.
+- **Cross-platform result (first runs, 2026-11-10).**
+  - With plain byte copies, Linux and macOS differed in 5 of 7 tables.
+  - Three tables (`atoms`, `frequencies`, `split_groups`) had identical
+    values but different Parquet chunking. For example, `frequencies` had 50
+    vs 52 row groups, set by worker counts. The canonical layout removes
+    this.
+  - Two tables (`review`, `g4mp2_xref`) differ in least-squares float
+    columns by at most 4.5 × 10⁻¹¹ (relative 2 × 10⁻¹¹). Apple's Accelerate
+    and OpenBLAS round differently. This cannot be removed without changing
+    the method.
+  - `molecules`, `splits` and the extended XYZ are identical.
+- **Equivalence rule.**
+  - On the reference platform, every hash must match.
+  - Elsewhere, a differing file must be *equivalent* to the reference file
+    (`verify --compare-with`, `make reproduce REFERENCE=…`):
+    - the same schema and rows;
+    - equal non-float values;
+    - floats within 10⁻⁹ relative to max(1, |value|);
+    - for `croissant.json`, only the recorded checksums may differ.
+- **The published build is the Linux one.**
+  - The manifest was predicted by running the release builder on the Linux
+    pipeline tables from the CI artifact, then confirmed by the next Linux
+    run.
+  - `make zenodo` refuses any build that does not match the published
+    manifest. The Zenodo archive is therefore the reference build (the CI
+    artifact).
 - **Zenodo:** `make zenodo` writes three files to `data/zenodo/`:
   - a deterministic zip of the release;
   - Zenodo deposition metadata;

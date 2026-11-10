@@ -18,7 +18,7 @@ analysis plan plus amendments).
 | 7 Statistical validation | `phase-7/statistical-validation` | 678e758 | done, Gate 7 |
 | 8 Splits | `phase-8/splits` | 4b08cc5 | done, Gate 8; analysis plan frozen; CI green |
 | 9 Benchmark | `phase-9/benchmark` | 8bddedf | done, Gate 9 |
-| **10 Release** | `phase-10/release` (local only) | — | **built, Gate 10 pending the Linux reference run; uncommitted** |
+| **10 Release** | `phase-10/release` | 2289d72 + fix (uncommitted) | **Gate 10 passes (macOS, equivalent to the Linux reference); Linux confirmation run pending** |
 | 11 Uncharacterized recovery (optional) | — | — | not started |
 
 - Branches are stacked: each starts from the previous one, so
@@ -115,12 +115,23 @@ All code passes ruff, mypy --strict and the full test suite: 192 tests, about
   - `.github/workflows/reproduce.yml` (the Linux reference build);
   - ADR 0014, `docs/release.md`, `docs/datasheet.md`.
 
+  First Linux run (2026-11-10):
+  - every pipeline check passed;
+  - 5 of 7 tables were byte-different from the Mac build:
+    - 3 differed only in Parquet chunking, now fixed by the canonical layout;
+    - 2 (`review`, `g4mp2_xref`) differ by up to 4.5e-11, from BLAS rounding.
+
+  The published manifest is now the predicted Linux build: the release builder
+  run on the Linux CI artifact's tables. On macOS, `verify --compare-with`
+  checks equivalence (ADR 0014).
+
   Open:
-  1. Push the branch and run the `Reproduce release` workflow. If the Linux
-     hashes differ from the Mac build, publish the Linux manifest (ADR 0001)
-     and re-run `make gate10`.
-  2. The user uploads `data/zenodo/*.zip` to Zenodo from their own account
-     (`data/zenodo/UPLOAD.md`). Recording the DOI is release 1.0.1.
+  1. Push the fix. The `Reproduce release` run must then pass on Linux with
+     identical hashes.
+  2. The Zenodo zip must come from the Linux artifact:
+     `make zenodo RELEASE_ROOT=<artifact>/data/release`. The user uploads it
+     from their own account (`data/zenodo/UPLOAD.md`). Recording the DOI is
+     release 1.0.1.
   3. Create `main` and the `v1.0.0` tag.
   4. Optionally make `main` the default branch.
 - **At the end:** a single consolidated project report covering:

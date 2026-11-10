@@ -31,11 +31,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: release-build
+          # The full reference build: `make zenodo RELEASE_ROOT=<artifact>/data/release`
+          # zips exactly these files for the Zenodo upload.
           path: |
-            data/release/*/MANIFEST.sha256
-            data/release/*/*.parquet
-            data/release/*/croissant.json
-            data/release/*/README.md
+            data/release/
             reports/release/
           if-no-files-found: warn
           retention-days: 30

@@ -52,7 +52,11 @@ train = ds[ds.split_indices("scaffold_generic", seed=0)["train"]]
 
 `python -m qm9_curation.export.verify` (part of `make reproduce` and
 `make gate10`) checks the build:
-- every file's SHA-256 against the published manifest;
+- every file's SHA-256 against the published manifest. That manifest comes
+  from the Linux x86-64 reference build (ADR 0001). On other platforms a
+  differing file must be equivalent to the reference file
+  (`make reproduce REFERENCE=<dir>`): equal non-float values, and floats
+  within 10⁻⁹;
 - the release's own manifest;
 - that ASE reads all 133,885 frames with coordinates and atomic numbers
   equal to `atoms.parquet`;
@@ -63,16 +67,27 @@ train = ds[ds.split_indices("scaffold_generic", seed=0)["train"]]
 **Reproduction from the raw archives.**
 - `make reproduce` on a clean checkout downloads the QM9 and Kim et al.
   files, checks their published MD5s, and runs every stage up to `release`.
-- **Tested on 2026-11-10:** a clean copy of the repository on the M2 Pro
-  (no data, no DVC cache, a new environment) ran `make reproduce` in
-  11 min 20 s. Every file matched the published manifest, and every check
-  passed.
-- The Linux reference run is the `Reproduce release` workflow in GitHub
-  Actions.
+- **macOS, 2026-11-10:** a clean copy of the repository on the M2 Pro (no
+  data, no DVC cache, a new environment) ran `make reproduce` in 11 min 20 s.
+  Every check passed.
+- **Linux reference** (`Reproduce release` workflow, GitHub Actions, 4
+  cores): a clean rebuild took about 20 min, and every pipeline and release
+  check passed.
+- **Cross-platform:**
+  - `molecules`, `splits` and the extended XYZ are byte-identical on both
+    platforms.
+  - Three tables differed only in Parquet chunking, which the release now
+    removes by writing a canonical layout.
+  - `review` and `g4mp2_xref` differ in their least-squares float columns by
+    at most 4.5 × 10⁻¹¹: BLAS rounding, Accelerate vs OpenBLAS. The macOS
+    build is therefore *equivalent* to the published Linux build, not
+    identical. ADR 0014 gives the details.
 
 ## Publishing on Zenodo
 
-`make zenodo` writes three files to `data/zenodo/`:
+`make zenodo RELEASE_ROOT=<CI artifact>/data/release` zips the reference
+build. It refuses any build that does not match the published manifest. It
+writes three files to `data/zenodo/`:
 - the release zipped deterministically;
 - `zenodo_metadata.json` (title, creator, CC0, keywords, and related
   identifiers to QM9, Kim et al. and this repository);

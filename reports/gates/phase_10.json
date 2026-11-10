@@ -5,12 +5,12 @@
     "release/release_report.json:every_source_record_in_release": true,
     "release/release_report.json:extxyz_has_one_frame_per_record": true,
     "release/release_report.json:manifest_covers_every_file": true,
-    "release/release_report.json:tables_byte_identical_to_pipeline_outputs": true,
+    "release/release_report.json:tables_equal_to_pipeline_outputs": true,
     "release/verify_report.json:ase_reads_every_frame_with_exact_coordinates": true,
     "release/verify_report.json:croissant_metadata_valid": true,
     "release/verify_report.json:gold_tier_and_named_split_load_in_5_lines": true,
     "release/verify_report.json:release_manifest_matches_files": true,
-    "release/verify_report.json:release_matches_published_manifest": true
+    "release/verify_report.json:release_matches_reference_build": true
   },
   "conditions": [
     "every source record is in the release with a tier; tables equal the pipeline outputs",
@@ -23,7 +23,7 @@
   "environment": {
     "constants": "CODATA 2018",
     "git": {
-      "commit": "8bddedfba7bcd1ef1c98c39d057e633649fa5f94",
+      "commit": "2289d72855607b9271314eb83a3ba3a01af878dd",
       "dirty": true
     },
     "implementation": "CPython",

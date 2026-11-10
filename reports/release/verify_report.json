@@ -24,15 +24,81 @@
     "croissant_metadata_valid": true,
     "gold_tier_and_named_split_load_in_5_lines": true,
     "release_manifest_matches_files": true,
-    "release_matches_published_manifest": true
+    "release_matches_reference_build": true
   },
   "manifest": {
-    "differing_files": [],
+    "differing_files": [
+      "croissant.json",
+      "g4mp2_xref.parquet",
+      "review.parquet"
+    ],
+    "equivalence": {
+      "croissant.json": {
+        "detail": "checksums differ",
+        "equivalent": true
+      },
+      "g4mp2_xref.parquet": {
+        "detail": {
+          "delta_residual_ev": {
+            "max_abs": 3.062439191126032e-12,
+            "max_rel": 3.062439191126032e-12
+          },
+          "delta_robust_z": {
+            "max_abs": 4.475531056868931e-11,
+            "max_rel": 2.26849650175609e-11
+          }
+        },
+        "equivalent": true
+      },
+      "review.parquet": {
+        "detail": {
+          "composition_residual_ev": {
+            "max_abs": 3.154809746774845e-12,
+            "max_rel": 2.9416469260468148e-12
+          },
+          "composition_robust_z": {
+            "max_abs": 1.3741896509600338e-11,
+            "max_rel": 5.371036948531582e-12
+          },
+          "delta_residual_ev": {
+            "max_abs": 3.062439191126032e-12,
+            "max_rel": 3.062439191126032e-12
+          },
+          "delta_robust_z": {
+            "max_abs": 4.475531056868931e-11,
+            "max_rel": 2.26849650175609e-11
+          },
+          "oof_residual_gap_ev": {
+            "max_abs": 3.268496584496461e-13,
+            "max_rel": 3.268496584496461e-13
+          },
+          "oof_residual_u0_atomization_ev": {
+            "max_abs": 5.115907697472721e-13,
+            "max_rel": 5.115907697472721e-13
+          },
+          "oof_robust_z_gap_ev": {
+            "max_abs": 6.714628852932947e-13,
+            "max_rel": 3.184194589071215e-13
+          },
+          "oof_robust_z_u0_atomization_ev": {
+            "max_abs": 2.042810365310288e-12,
+            "max_rel": 1.5717704915374497e-12
+          },
+          "suspicion_score": {
+            "max_abs": 2.042810365310288e-12,
+            "max_rel": 1.2783107905534052e-12
+          }
+        },
+        "equivalent": true
+      }
+    },
+    "equivalent_to_reference": true,
     "extra_files": [],
-    "identical": true,
+    "identical": false,
     "missing_files": [],
     "own_manifest_matches": true,
-    "published_manifest": "release/qm9-curated-v1.0.0.sha256"
+    "published_manifest": "release/qm9-curated-v1.0.0.sha256",
+    "reference_platform": false
   },
   "quickstart": {
     "found": true,

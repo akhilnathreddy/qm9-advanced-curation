@@ -9,6 +9,9 @@ Run as ``python -m qm9_curation.export.zenodo`` (``make zenodo``). Writes
   (``{"metadata": {...}}``), for the web form or the API;
 - ``UPLOAD.md``: the upload steps.
 
+Only the reference build may be uploaded. The bundle is refused unless every
+file matches the published manifest (``release/<name>.sha256``), so on macOS
+pass the Linux CI artifact: ``make zenodo RELEASE_ROOT=<artifact>/data/release``.
 Nothing is sent anywhere: publishing on Zenodo mints a DOI that cannot be
 deleted, so it stays a manual step (ADR 0014).
 """
@@ -22,6 +25,7 @@ from typing import Any
 
 from qm9_curation.config import DATA_DIR, load_config
 from qm9_curation.export.release import RELEASE_DIR, release_name, sha256_file
+from qm9_curation.export.verify import PUBLISHED_DIR, check_manifest
 
 ZENODO_DIR = DATA_DIR / "zenodo"
 FIXED_TIME = (1980, 1, 1, 0, 0, 0)
@@ -100,6 +104,12 @@ def main(argv: list[str] | None = None) -> None:
     cfg = load_config("release")
     name = release_name(cfg)
     src = args.release_root / name
+    manifest = check_manifest(src, PUBLISHED_DIR / f"{name}.sha256")
+    if not (manifest["identical"] and manifest["own_manifest_matches"]):
+        raise SystemExit(
+            f"{src} does not match the published manifest (differs: "
+            f"{manifest['differing_files']}); zip the reference build instead."
+        )
     args.out_dir.mkdir(parents=True, exist_ok=True)
     zip_path = args.out_dir / f"{name}.zip"
     deterministic_zip(src, zip_path)

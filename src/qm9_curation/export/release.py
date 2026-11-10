@@ -3,7 +3,8 @@
 Run as ``python -m qm9_curation.export.release``. Writes
 ``data/release/qm9-curated-v<version>/``:
 
-- the release tables as Parquet, copied byte for byte from the pipeline;
+- the release tables as Parquet, equal in content to the pipeline's and
+  rewritten in a canonical layout (``write_canonical``);
 - ``qm9_curated.extxyz`` (ASE-readable geometries, one frame per record);
 - ``croissant.json`` (Croissant 1.0), ``datasheet.md``, ``README.md``,
   ``CITATION.cff`` and ``LICENSE`` (CC0-1.0);
@@ -42,6 +43,22 @@ def sha256_file(path: Path) -> str:
         for chunk in iter(lambda: fh.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+# Canonical Parquet layout: one chunk, fixed row groups and compression, so the
+# bytes depend only on the content (and the locked Polars version), not on how
+# a pipeline stage happened to chunk its output (worker counts differ by machine).
+ROW_GROUP_SIZE = 1 << 18
+
+
+def write_canonical(frame: pl.DataFrame, path: Path) -> None:
+    frame.rechunk().write_parquet(
+        path,
+        compression="zstd",
+        compression_level=9,
+        statistics=True,
+        row_group_size=ROW_GROUP_SIZE,
+    )
 
 
 def release_name(cfg: Mapping[str, Any]) -> str:
@@ -205,14 +222,14 @@ def build(
 
     files: list[dict[str, Any]] = []
     schemas: dict[str, Any] = {}
-    copied_identical = True
+    content_equal = True
     for table, src in tables.items():
         dst = out / f"{table}.parquet"
-        shutil.copyfile(src, dst)
-        copied_identical &= sha256_file(dst) == sha256_file(src)
+        frame = pl.read_parquet(src)
+        write_canonical(frame, dst)
+        content_equal &= pl.read_parquet(dst).equals(frame, null_equal=True)
         schemas[table] = pl.read_parquet_schema(dst)
-        rows = pl.scan_parquet(dst).select(pl.len()).collect().item()
-        files.append({"path": dst.name, "rows": rows, "table": table})
+        files.append({"path": dst.name, "rows": frame.height, "table": table})
 
     molecules = pl.read_parquet(tables["molecules"])
     atoms = pl.read_parquet(tables["atoms"])
@@ -253,7 +270,7 @@ def build(
     conditions = {
         "every_source_record_in_release": n == n_expected and molecules["qm9_id"].n_unique() == n,
         "every_record_has_a_tier": bool(molecules["quality_tier"].is_in(TIERS).all()),
-        "tables_byte_identical_to_pipeline_outputs": copied_identical,
+        "tables_equal_to_pipeline_outputs": content_equal,
         "extxyz_has_one_frame_per_record": n_frames == n,
         "every_release_column_documented": not undocumented,
         "manifest_covers_every_file": set(listed)

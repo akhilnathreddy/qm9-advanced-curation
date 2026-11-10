@@ -144,7 +144,7 @@ def test_verify_accepts_own_build_and_flags_a_changed_file(tmp_path: Path) -> No
     (out / "LICENSE").write_text("changed\n")
     report = verify.verify(out, published)
     assert report["manifest"]["differing_files"] == ["LICENSE"]
-    assert not report["gate_10_verify_conditions"]["release_matches_published_manifest"]
+    assert not report["manifest"]["identical"]
 
 
 def test_parquet_diff_locates_the_differing_column(tmp_path: Path) -> None:
@@ -152,7 +152,40 @@ def test_parquet_diff_locates_the_differing_column(tmp_path: Path) -> None:
     pl.DataFrame({"x": [1.0, 2.0], "s": ["p", "q"]}).write_parquet(a)
     pl.DataFrame({"x": [1.0, 2.0 + 1e-15], "s": ["p", "q"]}).write_parquet(b)
     diff = verify.parquet_diff(a, b)
-    assert set(diff) == {"x"} and 0 < diff["x"] < 1e-14
+    assert set(diff) == {"x"} and 0 < diff["x"]["max_abs"] < 1e-14
+
+
+def test_equivalence_allows_float_noise_only(tmp_path: Path) -> None:
+    ref, noisy, wrong, text = (tmp_path / f"{n}.parquet" for n in ("r", "n", "w", "t"))
+    pl.DataFrame({"x": [1.0, 250.0], "s": ["p", "q"]}).write_parquet(ref)
+    pl.DataFrame({"x": [1.0 + 1e-12, 250.0 - 1e-10], "s": ["p", "q"]}).write_parquet(noisy)
+    pl.DataFrame({"x": [1.0, 250.001], "s": ["p", "q"]}).write_parquet(wrong)
+    pl.DataFrame({"x": [1.0, 250.0], "s": ["p", "Q"]}).write_parquet(text)
+    assert verify.equivalent("t.parquet", noisy, ref)[0]
+    assert not verify.equivalent("t.parquet", wrong, ref)[0]
+    assert not verify.equivalent("t.parquet", text, ref)[0]
+    ca, cb = tmp_path / "a.json", tmp_path / "b.json"
+    ca.write_text('{"distribution": [{"name": "f", "sha256": "aa"}]}')
+    cb.write_text('{"distribution": [{"name": "f", "sha256": "bb"}]}')
+    assert verify.equivalent("croissant.json", ca, cb)[0]
+    cb.write_text('{"distribution": [{"name": "g", "sha256": "bb"}]}')
+    assert not verify.equivalent("croissant.json", ca, cb)[0]
+    ra, rb = tmp_path / "ra.md", tmp_path / "rb.md"
+    ra.write_text("| `x.parquet` | 10 | 11.2 MB |\n")
+    rb.write_text("| `x.parquet` | 10 | 11.3 MB |\n")
+    assert verify.equivalent("README.md", ra, rb)[0]
+    assert not verify.equivalent("LICENSE", ra, rb)[0]
+
+
+def test_verify_off_reference_platform_needs_equivalence(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _, out, _ = build_toy(tmp_path)
+    published = tmp_path / "published.sha256"
+    published.write_text((out / release.MANIFEST).read_text().replace("LICENSE", "LICENSE "))
+    monkeypatch.setattr(verify, "is_reference_platform", lambda: False)
+    report = verify.verify(out, published)
+    assert not report["gate_10_verify_conditions"]["release_matches_reference_build"]
 
 
 def test_pyg_dataset_and_split_indices(tmp_path: Path) -> None:

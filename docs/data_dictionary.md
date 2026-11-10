@@ -297,8 +297,8 @@ and MLflow run id.
 
 ## Release (`data/release/qm9-curated-v<version>/`, Phase 10)
 
-The seven release tables are byte-for-byte copies of the pipeline tables
-documented above. They are `molecules` (the curated table), `atoms`,
+The seven release tables have the same content as the pipeline tables
+documented above, rewritten in a canonical Parquet layout (ADR 0014). They are `molecules` (the curated table), `atoms`,
 `frequencies`, `g4mp2_xref`, `review`, `splits` and `split_groups`. Their
 columns are as described in the sections above, and `croissant.json` carries
 the same descriptions.
