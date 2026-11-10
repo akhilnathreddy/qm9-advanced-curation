@@ -130,9 +130,12 @@ All code passes ruff, mypy --strict and the full test suite: 192 tests, about
   2. The Zenodo bundle in `data/zenodo/` was built from that run's artifact
      (243 MB, sha256 `e3ef7b45…`). The user uploads it from their own
      account (`data/zenodo/UPLOAD.md`). Recording the DOI is release 1.0.1.
-  3. Create `main` and the `v1.0.0` tag.
-  4. Optionally make `main` the default branch.
-- **At the end:** a single consolidated project report covering:
+  3. Done: `docs/report.md`, the consolidated project report.
+  4. Done: `main` and the annotated tag `v1.0.0` point at the report commit;
+     the tag triggers a Linux reproduce run.
+  5. Optional: make `main` the default branch (GitHub setting, the user's
+     call).
+- **At the end (done, `docs/report.md`):** a single consolidated project report covering:
   - every phase and its steps;
   - each decision with its alternatives (ADRs 0001+);
   - the RQ1–RQ5 results;

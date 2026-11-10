@@ -11,6 +11,8 @@ benchmarks. The full plan is in `docs/plan_v2.md`.
 
 **Current phase:** 10 — release v1.0.0 built and verified (Gate 10; `docs/release.md`, ADR 0014): all 133,885 records, tiered, with splits, as Parquet, extended XYZ and Croissant metadata. Reproduced byte-identically on clean Linux CI. Pending: the Zenodo DOI.
 
+**Project report:** `docs/report.md` covers every phase, decision, result and limitation, plus reproduction steps.
+
 ## Using the release
 
 **QM9 Curated v1.0.0** contains all 133,885 records, each tiered with a
