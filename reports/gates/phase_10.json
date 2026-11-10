@@ -1,0 +1,47 @@
+{
+  "checks": {
+    "release/release_report.json:every_record_has_a_tier": true,
+    "release/release_report.json:every_release_column_documented": true,
+    "release/release_report.json:every_source_record_in_release": true,
+    "release/release_report.json:extxyz_has_one_frame_per_record": true,
+    "release/release_report.json:manifest_covers_every_file": true,
+    "release/release_report.json:tables_byte_identical_to_pipeline_outputs": true,
+    "release/verify_report.json:ase_reads_every_frame_with_exact_coordinates": true,
+    "release/verify_report.json:croissant_metadata_valid": true,
+    "release/verify_report.json:gold_tier_and_named_split_load_in_5_lines": true,
+    "release/verify_report.json:release_manifest_matches_files": true,
+    "release/verify_report.json:release_matches_published_manifest": true
+  },
+  "conditions": [
+    "every source record is in the release with a tier; tables equal the pipeline outputs",
+    "every release column is described (Croissant metadata from the data dictionary)",
+    "Croissant metadata validates; ASE reads every extended-XYZ frame exactly",
+    "the Gold tier and a named split load in at most 5 lines",
+    "the release matches the published manifest (Linux reference build)",
+    "a second release build is byte-identical"
+  ],
+  "environment": {
+    "constants": "CODATA 2018",
+    "git": {
+      "commit": "8bddedfba7bcd1ef1c98c39d057e633649fa5f94",
+      "dirty": true
+    },
+    "implementation": "CPython",
+    "packages": {
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "pandas": "3.1.1",
+      "pandera": "0.35.0",
+      "polars": "2.1.0",
+      "pyarrow": "26.0.1",
+      "pyyaml": "6.0.3",
+      "rdkit": "2026.9.1",
+      "scipy": "1.18.1"
+    },
+    "platform": "Darwin-arm64",
+    "python": "3.12.5",
+    "qm9_curation_version": "0.1.0"
+  },
+  "passed": true,
+  "phase": 10
+}

@@ -1,0 +1,86 @@
+{
+  "date_published": "2026-11-10",
+  "files": [
+    {
+      "bytes": 29466810,
+      "path": "molecules.parquet",
+      "rows": 133885,
+      "sha256": "a9be34a5c0e69a82c65cbaeb16a4f806e46ab9eeb8181033fe73bf7040aea2db"
+    },
+    {
+      "bytes": 66660328,
+      "path": "atoms.parquet",
+      "rows": 2407753,
+      "sha256": "e3463064d7807e8e22f04b483741e229f4f49f31b834e67712cac3971c0af3ed"
+    },
+    {
+      "bytes": 27594375,
+      "path": "frequencies.parquet",
+      "rows": 6438713,
+      "sha256": "408bb3de21690d82e30f9610b6b9c4f929a9468be57758e133414f7bf29c4988"
+    },
+    {
+      "bytes": 6646816,
+      "path": "g4mp2_xref.parquet",
+      "rows": 133885,
+      "sha256": "bf2f6c95d867407415ec20cac971f6d8c91011d658f4cf06ded59e2530d879d8"
+    },
+    {
+      "bytes": 11208553,
+      "path": "review.parquet",
+      "rows": 133885,
+      "sha256": "9d1246818d05a62b881e8803c1402088838153b84d93f54f6feed871b5459aa9"
+    },
+    {
+      "bytes": 14417867,
+      "path": "splits.parquet",
+      "rows": 5355400,
+      "sha256": "23b469962eac2f9529d2f2ab78fd4643d4d6d9cb7bb4e379f9e156014476061a"
+    },
+    {
+      "bytes": 5344906,
+      "path": "split_groups.parquet",
+      "rows": 133885,
+      "sha256": "d2d7deca582f5914e3875626fff28f5755bec4e483fb0a51b7a00c77422f0fee"
+    },
+    {
+      "bytes": 201086966,
+      "path": "qm9_curated.extxyz",
+      "rows": 133885,
+      "sha256": "4fa163159c3d155009a566fdf70861ee73238aa11431e79d80a825d3979496ba"
+    }
+  ],
+  "gate_10_conditions": {
+    "every_record_has_a_tier": true,
+    "every_release_column_documented": true,
+    "every_source_record_in_release": true,
+    "extxyz_has_one_frame_per_record": true,
+    "manifest_covers_every_file": true,
+    "tables_byte_identical_to_pipeline_outputs": true
+  },
+  "manifest_sha256": "3f4cfdf6bafddbe6114dc484bed81d19f0b90432af414e9d9c6aee603f1196a7",
+  "name": "qm9-curated-v1.0.0",
+  "output_sha256": {
+    "CITATION.cff": "25f10e75f662ada553dc43e2ed147db8d37d8744f1a80b6e391ba18af7a86c3b",
+    "LICENSE": "30a348742e88a46c54639975e594713e6f74677d285168016a240f18032aab18",
+    "README.md": "c5f213b1318136be52d29d779869e30dd6837e5fc383dc47afa1daad662509fd",
+    "atoms.parquet": "e3463064d7807e8e22f04b483741e229f4f49f31b834e67712cac3971c0af3ed",
+    "croissant.json": "173451444891fd083e22e0e6f6501c04dead491c9007fef8525af1b1384bfb65",
+    "datasheet.md": "d6f57ba7128259e7a4a7bd47f2578fc4f59cbaa5a56f4bd4b89cb9f37add6726",
+    "frequencies.parquet": "408bb3de21690d82e30f9610b6b9c4f929a9468be57758e133414f7bf29c4988",
+    "g4mp2_xref.parquet": "bf2f6c95d867407415ec20cac971f6d8c91011d658f4cf06ded59e2530d879d8",
+    "molecules.parquet": "a9be34a5c0e69a82c65cbaeb16a4f806e46ab9eeb8181033fe73bf7040aea2db",
+    "qm9_curated.extxyz": "4fa163159c3d155009a566fdf70861ee73238aa11431e79d80a825d3979496ba",
+    "review.parquet": "9d1246818d05a62b881e8803c1402088838153b84d93f54f6feed871b5459aa9",
+    "split_groups.parquet": "d2d7deca582f5914e3875626fff28f5755bec4e483fb0a51b7a00c77422f0fee",
+    "splits.parquet": "23b469962eac2f9529d2f2ab78fd4643d4d6d9cb7bb4e379f9e156014476061a"
+  },
+  "tiers": {
+    "bronze": 1591,
+    "gold": 130659,
+    "quarantine": 5,
+    "silver": 1630
+  },
+  "undocumented_columns": {},
+  "version": "1.0.0"
+}

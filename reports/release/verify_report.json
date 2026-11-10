@@ -1,0 +1,45 @@
+{
+  "croissant": {
+    "errors": [],
+    "record_sets": [
+      "molecules",
+      "atoms",
+      "frequencies",
+      "g4mp2_xref",
+      "review",
+      "splits",
+      "split_groups"
+    ],
+    "valid": true,
+    "warnings": []
+  },
+  "extxyz": {
+    "atoms": 2407753,
+    "coordinates_exact": true,
+    "frames": 133885,
+    "one_frame_per_record": true
+  },
+  "gate_10_verify_conditions": {
+    "ase_reads_every_frame_with_exact_coordinates": true,
+    "croissant_metadata_valid": true,
+    "gold_tier_and_named_split_load_in_5_lines": true,
+    "release_manifest_matches_files": true,
+    "release_matches_published_manifest": true
+  },
+  "manifest": {
+    "differing_files": [],
+    "extra_files": [],
+    "identical": true,
+    "missing_files": [],
+    "own_manifest_matches": true,
+    "published_manifest": "release/qm9-curated-v1.0.0.sha256"
+  },
+  "quickstart": {
+    "found": true,
+    "lines": 5,
+    "ok": true,
+    "output": "130659 104098 13253",
+    "stderr_tail": ""
+  },
+  "release": "qm9-curated-v1.0.0"
+}

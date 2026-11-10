@@ -1,0 +1,41 @@
+name: Reproduce release
+
+# Rebuilds the dataset release from the original QM9 and Kim et al. archives
+# on a clean Linux machine (the reference build, ADR 0001) and checks every
+# file against the published manifest in release/ (ADR 0014). Runs on demand,
+# on release tags, on any push that changes the published manifest or this
+# workflow, and monthly so a changed upstream file is noticed. (Path filters
+# apply to branch pushes only; tag pushes always run.)
+on:
+  workflow_dispatch:
+  push:
+    branches: ["**"]
+    tags: ["v*"]
+    paths: ["release/**", ".github/workflows/reproduce.yml"]
+  schedule:
+    - cron: "17 3 1 * *"
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - name: Rebuild from raw archives and verify against the published manifest
+        run: make reproduce
+      - name: Upload the build and its verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-build
+          path: |
+            data/release/*/MANIFEST.sha256
+            data/release/*/*.parquet
+            data/release/*/croissant.json
+            data/release/*/README.md
+            reports/release/
+          if-no-files-found: warn
+          retention-days: 30
